@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="review_reply">
+	<insert id="create">
+		insert into 
+		review_reply(reply_no, reply_contents, review_no, 
+					 reply_wdate, user_id, reply_writer)
+    	      values(seq_review_reply.nextval, #{reply_contents}, #{review_no},
+    	             sysdate, #{user_id}, #{reply_writer})
+	</insert>
+
+  	<select id="list" resultType="Review_replyVO">
+  		select reply_no, reply_contents, review_no, 
+  				reply_wdate, user_id, reply_writer
+  		from review_reply
+  		where review_no = #{review_no}
+  		order by reply_no desc
+	</select>
+  	
+  	<select id="count" resultType="int">
+  		select count(*) from review_reply
+  		where review_no=#{review_no}
+	</select>
+	
+	<select id="getReview_no" resultType="int">
+		select review_no from review_reply
+     	where reply_no = #{reply_no}
+	</select>
+	
+	<update id="update">
+	  	update review_reply 
+	  	set reply_contents = #{reply_contents}, reply_wdate=sysdate
+	  	where reply_no = #{reply_no}
+	</update>
+	
+	<delete id="delete">
+	 	delete from review_reply 
+	 	where reply_no = #{reply_no}
+	</delete>
+  	
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis-config.xml -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+          "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  	<typeAliases>
+  		<!-- 이렇게도 사용 가능 mapper Type에 클래스명만 써주면 됨 -->
+  		<package name="kr.co.trycatch.domain.user"/>
+  		<package name="kr.co.trycatch.domain.company"/>
+  	</typeAliases>
+</configuration>

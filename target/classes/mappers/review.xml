@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="review">
+  	<insert id="create">
+  		insert into
+  		review (review_no, review_title, review_writer, 
+  				review_possibility, review_welSal, review_balance,
+  				review_culture, review_manager, review_strong, 
+  				review_weak, review_toCEO, review_wdate, 
+  				company_id, user_id)
+  	    values (review_seq.nextval, #{review_title}, #{review_writer}, 
+  				#{review_possibility}, #{review_welSal}, #{review_balance},
+  				#{review_culture}, #{review_manager}, #{review_strong}, 
+  				#{review_weak}, #{review_toCEO}, sysdate, 
+  				#{company_id}, #{user_id})
+  	</insert>
+  	
+  	<select id="list" resultType="ReviewVO">
+  		select review_no, review_title, review_writer,
+  		       review_possibility, review_welSal, review_welSal,
+  		       review_culture, review_manager, review_strong,
+  		       review_weak, review_toCEO, review_wdate, 
+  		       review_viewCount, review_replyCount, company_id
+  	    from review
+  	    where company_id = #{company_id}
+  	    order by review_no desc
+  	</select>
+  	
+  	<select id="read" resultType="ReviewVO">
+  		select user_id, review_no, review_title, review_writer, review_wdate, review_strong, review_weak,
+  		   review_toCEO, review_possibility, review_welSal, review_balance, review_culture, review_manager,
+  		   review_viewCount
+  		from review
+  		where review_no=#{review_no}
+  	</select>
+  	
+  	<update id="update">
+    	update review 
+    	set review_title=#{review_title}, review_wdate=sysdate, review_strong=#{review_strong},
+  			review_weak=#{review_weak}, review_toCEO=#{review_toCEO}, review_possibility=#{review_possibility},
+  			review_welSal=#{review_welSal}, review_balance=#{review_balance}, review_culture=#{review_culture},
+  			review_manager=#{review_manager}
+  		where review_no=#{review_no}
+  	</update>
+  	
+  	<delete id="delete">
+    	delete from review
+  		where review_no=#{review_no}
+  	</delete>
+  	
+  	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString() ">
+				and review_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString() ">
+				and review_writer like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'tw'.toString() ">
+				and review_title like '%'||#{keyword}||'%'
+				or review_contents like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</sql>
+	
+	<!-- 검색어 대한 like조회 -->
+	<select id="listSearch" resultType="ReviewVO">
+		select *
+		from review
+		where company_id = #{company_id}
+		<include refid="search"></include>
+		order by review_no desc
+	</select>
+  	
+  	<!-- 검색어 대한 like조회된 전체 레코드 수 -->
+	<select id="listSearchCount" resultType="int">
+		select count(*)
+		from review
+		where company_id = #{company_id}
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCount">
+     	update review 
+     	set review_replyCount = review_replyCount + #{amount} 
+     	where review_no = #{review_no}
+   	</update> 
+  
+   	<update id="updateViewCount">
+     	update review 
+     	set review_viewCount = review_viewCount + 1 
+     	where review_no=#{review_no}
+   	</update>
+   	
+   	<select id="avgScore" resultType="AvgScoreVO">
+   		select nvl(round(avg(review_possibility),1),0.0) avg_possibility, 
+  	       nvl(round(avg(review_welSal),1),0.0) avg_welSal,
+  		   nvl(round(avg(review_balance),1),0.0) avg_balance,
+  		   nvl(round(avg(review_culture),1),0.0) avg_culture,
+  		   nvl(round(avg(review_manager),1),0.0) avg_manager
+		from review
+		where company_id = #{company_id}
+   	</select>
+   	
+   	<select id="totalAvgScore" resultType="double">
+   		select round((avg(review_possibility)
+   					+ avg(review_welSal)
+   					+ avg(review_balance)
+   					+ avg(review_culture)
+   					+ avg(review_manager))/5,1) avg_all
+		from review
+		where company_id = #{company_id}
+		group by company_id
+   	</select>
+</mapper>

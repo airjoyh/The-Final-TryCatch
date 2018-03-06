@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<!-- 구직자 회원가입 -->
+	<insert id="createUser">
+		insert into
+		member(member_id, member_pass, member_type, registDate)
+		values(#{member_id}, CryptString.encrypt(#{member_pass}, 'encrypt'), 'user', sysdate)
+	</insert>
+	
+	<!-- 구직자 인증코드 생성 -->
+	<update id="createAuthCode">
+		update member set user_authCode = #{user_authCode}
+		where member_type = 'user'
+		and member_id = #{member_id}
+	</update>
+	
+	<!-- 구직자 인증코드 조회 -->
+	<select id="authCode" resultType="String">
+		select user_authCode from member
+		where member_type = 'user'
+		and member_id = #{member_id}
+	</select>
+	
+	<!-- 구직자 인증상태 업데이트 -->
+	<update id="updateAuthStatus">
+		update member set user_authStatus = 'Y'
+		where member_type = 'user'
+		and member_id = #{member_id}
+	</update>
+	
+	<!-- 구직자 인증상태 조회 -->
+	<select id="authStatus" resultType="String">
+		select user_authStatus from member
+		where member_type = 'user'
+		and member_id = #{member_id}
+	</select>
+	
+	<!-- 회원 정보 조회 -->
+	<select id="selectMember" resultType="MemberVO">
+		select member_id, member_pass, member_type, user_authCode, user_authStatus from member
+	</select>
+	
+	<!-- 구직자 로그인 조회 -->
+	<select id="loginUser" resultType="MemberVO">
+		select member_id, CryptString.decrypt(member_pass, 'encrypt') member_pass, member_type, user_authCode, user_authStatus from member
+		where member_type = 'user'
+		and member_id = #{member_id} and CryptString.decrypt(member_pass, 'encrypt') = #{member_pass}
+	</select>
+	
+	<!-- 기업 로그인 조회 -->
+	<select id="loginCompany" resultType="MemberVO">
+		select member_id, CryptString.decrypt(member_pass, 'encrypt') member_pass, member_type, user_authCode, user_authStatus from member
+		where member_type = 'company'
+		and member_id = #{member_id} and CryptString.decrypt(member_pass, 'encrypt') = #{member_pass}
+	</select>
+	
+	<!-- (인증안한)구직자 가입날짜 조회 -->
+	<select id="registDate" resultType="String">
+		select to_char(registDate,'DDHH12MISS')SYS_DATE24 from member
+		where member_type = 'user'
+		and member_id = #{member_id}
+		and user_authStatus = 'N'
+	</select>
+	
+	<!-- (인증안한)구직자 현재 날짜 조회 -->
+	<select id="sysDate" resultType="String">
+		select to_char(sysdate,'DDHH12MISS')SYS_DATE24 from member
+		where member_type = 'user'
+		and member_id = #{member_id}
+		and user_authStatus = 'N'
+	</select>
+	
+	<!-- 회원 삭제 -->
+	<delete id="deleteRegist">
+		delete from member where member_id = #{member_id}
+	</delete>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePass">
+		update member set member_pass = CryptString.encrypt(#{member_pass}, 'encrypt')
+		where member_id = #{member_id}
+	</update>
+
+	<!-- 기업 회원가입 -->
+	<insert id="createCompany">
+		insert into
+		member(member_id, member_pass, member_type, registDate)
+		values(#{member_id}, CryptString.encrypt(#{member_pass}, 'encrypt'), 'company', sysdate)
+	</insert>
+	
+	<insert id="createCompanyInfo">
+		insert into 
+		company_info(company_id, member_id, company_name,
+					company_year, company_line, 
+					company_size, company_turnover, company_number,
+					company_addr, company_site, company_intro)
+     	values(company_info_seq.nextval, #{member_id}, #{company_name},
+     				#{company_year}, #{company_line}, 
+     				#{company_size}, #{company_turnover}, #{company_number},
+     				#{company_addr}, #{company_site}, #{company_intro})
+	</insert>
+	
+	<select id="companyInfo" resultType="Company_infoVO">
+		select company_id, company_name, company_year, company_site,
+			   company_addr, company_size, company_turnover,
+			   company_line, company_intro
+		from company_info
+		where company_id=#{company_id}
+	</select>
+</mapper>

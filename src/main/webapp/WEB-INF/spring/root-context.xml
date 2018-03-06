@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<mvc:resources location="/favicon.ico" mapping="/favicon.ico"></mvc:resources>
+	
+	<!-- 메일 보내기 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="jyhjy1201" />
+		<property name="password" value="xmfkdlzocl!" /><!-- 트라이캐치! -->
+
+
+	<!-- email 요청시는 SMTP -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" 
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:annotation-driven/>
+	
+	
+	<!-- AOP 프록시 사용 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+		
+	<!-- DataSource(DBCP) 등록 -->
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		  id="dataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="tc"></property>
+		<property name="password" value="tc"></property>
+	</bean>
+	
+	<!-- MyBatis등록(SqlSessionFactory) -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
+		  id="sqlSessionFactory">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<!-- 매퍼XML 등록 -->
+		<property name="mapperLocations"
+				   value="classpath:/mappers/**/*.xml"></property>
+				 
+				  <!--  value="classpath:mappers/*.xml"></property>  -->
+	</bean>
+	
+	<!-- SqlSession등록(iBatis경우 SqlMapClient필요, MyBatis경우 SqlSession) -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory"
+						 ref="sqlSessionFactory"/>
+	</bean>
+	
+	<!-- <bean class="com.encore.domain.MemberDAOImpl"></bean> -->
+	<context:component-scan base-package="kr.co.trycatch.persistence"/>
+	<context:component-scan base-package="kr.co.trycatch.service"/>
+	
+	<!-- AOP클래스 스캔 -->
+	<context:component-scan base-package="kr.co.trycatch.aop"/>
+	
+</beans>
+

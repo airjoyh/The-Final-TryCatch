@@ -1,0 +1,21 @@
+/*!
+ *  Font 
+/* FONT PATH
+ * -------------------------- */
+@font-face{
+font-family:'NanumSquare';
+src: url(../font/nanum-square-font/NanumSquareR.eot);
+src: url(../font/nanum-square-font/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+     url(images/NanumSquareR.woff) format('woff'),
+     url(images/NanumSquareR.ttf) format('truetype');
+}
+body{
+	font-family: 'NanumSquare', sans-serif;
+}
+
+#modalpadding {
+	padding-top: 30px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 30px;
+}
