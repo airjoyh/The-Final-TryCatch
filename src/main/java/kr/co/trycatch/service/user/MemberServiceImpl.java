@@ -30,46 +30,44 @@ public class MemberServiceImpl implements MemberService {
 
 		System.out.println("member_id >>> "+memberVo.getMember_id());
 		String state = "";
-		List<MemberVO> list = memberDao.selectMember();
-		if (list.size() == 0) {
+		if(memberDao.member(memberVo.getMember_id())==null) {
 			memberDao.createUser(memberVo);
-			sendEmail(memberVo.getMember_id());
+			sendEmail(memberVo.getMember_id(), "register");
 			state = "registNew";
+			System.out.println("state = "+state);
 			
-		} else {
-
-			for (int i = 0; i < list.size(); i++) {
-				System.out.println("MemberServiceImpl registerUser() for문 들어오냐?");
-				String id = list.get(i).getMember_id();
-				String authStatus = list.get(i).getUser_authStatus();
-				
-				if (memberVo.getMember_id().equals(id) && authStatus.equals("Y")) {
-					state = "registComplete";
-					break;
-				} else if (memberVo.getMember_id().equals(id) && authStatus.equals("N")) {
-					state = "noEmailConfirm";
-					break;
-				} else {
-					memberDao.createUser(memberVo);
-					sendEmail(memberVo.getMember_id());
-					state = "registNew";
-					break;
-				}
+		}else {
+			memberVo = memberDao.member(memberVo.getMember_id());
+			String authStatus = memberVo.getUser_authStatus();
+			if(authStatus.equals("Y")) {
+				state = "registComplete";
+				System.out.println("state = registComplete");
+			}else if(authStatus.equals("N")) {
+				state = "noEmailConfirm";
+				System.out.println("state = noEmailConfirm");
 			}
 		}
+		
 		return state;
 	}
 
 	@Override
-	public void sendEmail(String member_id) throws Exception {
+	public void sendEmail(String member_id, String type) throws Exception {
 		String key = new TempKey().getKey(10, false);
 
 		memberDao.createAuthCode(member_id, key);
-
 		MailHandler sendMail = new MailHandler(mailSender);
-		sendMail.setSubject("Try Catch 회원가입 인증 메일입니다.");// 발송되는 이메일 제목
-		sendMail.setText(new StringBuffer().append("<h1>Try Catch 회원가입을 축하드립니다.</h1><hr>")
-				.append(member_id + "님 회원 가입 감사드립니다.<br>").append("인증 코드는 " + key + "입니다.<br>").toString());
+		
+		if(type.equals("register")) {
+			sendMail.setSubject("Try Catch 회원가입 인증 메일입니다.");// 발송되는 이메일 제목
+			sendMail.setText(new StringBuffer().append("<h1>Try Catch 회원가입을 축하드립니다.</h1><hr>")
+					.append(member_id + "님 회원 가입 감사드립니다.<br>").append("인증 코드는 " + key + "입니다.<br>").toString());
+	
+		}else if(type.equals("changePass")) {
+			sendMail.setSubject("Try Catch 비번찾기 인증 메일입니다.");// 발송되는 이메일 제목
+			sendMail.setText(new StringBuffer().append("<h1>Try Catch회원 비밀번호 찾기 인증코드입니다.</h1><hr>")
+					.append(member_id+"님의 인증 코드는 " + key + "입니다.<br>").toString());
+		}
 		sendMail.setFrom("jyhjy1201", "TryCatch");// 보내는 이메일의 아이디, 보내는 이메일의 작성자명
 		sendMail.setTo(member_id);// 받는사람 이메일
 		sendMail.send();
@@ -87,7 +85,6 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.authStatus(member_id);
 	}
 
-	@Transactional
 	@Override
 	public String changeAuthStatus(String member_id, String user_authCode) throws Exception {
 		String state = "";
@@ -104,9 +101,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVO> selectMember() throws Exception {
+	public List<MemberVO> memberAll() throws Exception {
 
-		return memberDao.selectMember();
+		return memberDao.memberAll();
+	}
+	
+	@Override
+	public MemberVO member(String member_id) throws Exception {
+		
+		return memberDao.member(member_id);
 	}
 
 	@Override
@@ -134,9 +137,41 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void changePass(String member_id, String member_pass) throws Exception {
-
-		memberDao.updatePass(member_id, member_pass);
+	public String findUser(String member_id) throws Exception {
+		String state = "";
+		MemberVO memberVo = memberDao.member(member_id);
+		if(memberVo==null) {
+			state="noFindUser";
+		}else {
+			state="findUser";
+			sendEmail(member_id, "changePass");
+		}
+		
+		return state;
 	}
+	
+	@Override
+	public String changePass(MemberVO memberVo) throws Exception {
+		String state = "";
+		String authCode = memberDao.authCode(memberVo.getMember_id());
+		MemberVO memberVo2 = memberDao.member(memberVo.getMember_id());
+		String id = memberVo2.getMember_id();
+		String authStatus = memberVo2.getUser_authStatus();
+		if(authCode.equals(memberVo.getUser_authCode())) {
+			if(id.equals(memberVo.getMember_id()) && authStatus.equals("Y")) {
+				memberDao.updatePass(memberVo.getMember_id(), memberVo.getMember_pass());
+				state = "success";
+			}else {
+				state = "noFindUser";
+			}
+		}else {
+			state="fail";
+		}
+		
+		return state;
+	}
+
+
+	
 
 }

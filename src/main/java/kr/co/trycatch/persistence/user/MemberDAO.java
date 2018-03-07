@@ -17,7 +17,9 @@ public interface MemberDAO {
 
 	public String authStatus(String member_id) throws Exception;
 
-	public List<MemberVO> selectMember() throws Exception;
+	public List<MemberVO> memberAll() throws Exception;
+	
+	public MemberVO member(String member_id) throws Exception;
 
 	public MemberVO loginUser(String member_id, String member_pass) throws Exception;
 
