@@ -361,23 +361,25 @@
 		</c:if>			
 		</ul>
 		</div>
-		<select name="searchType">
-			<option value="n"
-				<c:out value="${cri.searchType == null?'selected':''}"/>>
-			검색조건</option>
-			<option value="t"
-				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-			제목</option>						
-			<option value="w"
-				<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-			작성자</option>
-			<option value="tw"
-				<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-			제목+작성자</option>
-	 	</select> 
-			<input type="text" name='keyword' id="keywordInput"
-				value='${cri.keyword }'>
-			<button id='searchBtn'>검색</button>
+		<div class='box-body'>
+					<select name="searchType">
+						<option value="n"
+							<c:out value="${cri.searchType == null?'selected':''}"/>>
+							검색조건</option>
+						<option value="t"
+							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+							제목</option>						
+						<option value="w"
+							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+							작성자</option>
+						<option value="tw"
+							<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+							제목+작성자</option>
+					</select> <input type="text" name='keyword' id="keywordInput"
+						value='${cri.keyword }'>
+					<button id='searchBtn'>검색</button>
+
+				</div>
 	</div>
 </body>
 </html>
