@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper>
-  <cache-ref namespace=""/>
+<mapper namespace="contest">
+	<insert id="create">
+		insert into 
+		contest(contest_id, company_id, contest_title, 
+				contest_startDate, 
+				contest_endDate,
+				contest_field, contest_hireNumber, contest_contents,
+				manager_name, team_name, manager_email, manager_tel)
+		values(#{contest_id}, #{company_id}, #{contest_title},
+			   to_date(#{contest_startDate},'yyyy-mm-dd hh24:mi:ss'),
+			   to_date(#{contest_endDate},'yyyy-mm-dd hh24:mi:ss'), 
+			   #{contest_field}, #{contest_hireNumber}, #{contest_contents},
+			   #{manager_name}, #{team_name}, #{manager_email}, #{manager_tel})
+	</insert>
+	
+	<!-- <update id="update">
+		
+	</update> -->
+	
+	<delete id="delete">
+		delete from contest
+		where contest_id = #{contest_id}
+	</delete>
+	
+	<select id="select" resultType="ContestVO">
+		select *
+		from contest
+		where contest_id = #{contest_id}
+	</select>
+	
+	<select id="selectContest_id" resultType="int">
+		select contest_seq.nextval from dual
+	</select>
 </mapper>

@@ -21,49 +21,34 @@
 <%-- <link href="${initParam.rootPath }/resources/css/font.css" rel="stylesheet"> --%>
 <link href="${initParam.rootPath }/resources/css/trycatch.css" rel="stylesheet">
 <script type="text/javascript">
-	$(function() {
-		
-	}
+	
 	function validateCheck() {
 		var f = document.registerForm;
+		$.ajax({
+			
+		});
 		//console.log($('input[name=review_possibility]').val());
-		/* if ($('form[name=registerForm] input[name=review_title]').val() == '') {
+		/* if($('#contest_title').val()==''){
 			alert('제목을 입력하세요.');
-			f.review_title.focus();
-
-		} else if ($('form[name=registerForm] input[name=review_writer]').val() == '') {
-			alert('작성자를 입력하세요.');
-			f.review_writer.focus();
-
-		} else if ($('form[name=registerForm] textarea[name=review_strong]').val() == '') {
-			alert('기업의 장점을 입력하세요.');
-			f.review_strong.focus();
-
-		} else if ($('form[name=registerForm] textarea[name=review_weak]').val() == '') {
-			alert('기업의 단점을 입력하세요.');
-			f.review_weak.focus();
-
-		} else if ($('form[name=registerForm] textarea[name=review_toCEO]').val() == '') {
-			alert('경영진에게 바라는 점을 입력하세요.');
-			f.review_toCEO.focus();
-
-		} else if (f.review_possibility.value == '') {
-			alert('승진 기회 및 가능성에 대한 점수를 매겨주세요.');
-
-		} else if (f.review_welSal.value == '') {
-			alert('복지와 급여에 대한 점수를 매겨주세요.');
-
-		} else if (f.review_balance.value == '') {
-			alert('업무와 삶의 균형에 대한 점수를 매겨주세요..');
-
-		} else if (f.review_culture.value == '') {
-			alert('사내문화에 대한 점수를 매겨주세요.');
-
-		} else if (f.review_manager.value == '') {
-			alert('경영진에 대한 점수를 매겨주세요.');
-
-		} else {
-			document.registerForm.submit();
+			$('#contest_title').focus();
+		}else if($b('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
+		}else if($('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
+		}else if($('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
+		}else if($('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
+		}else if($('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
+		}else if($('#contest_title').val()==''){
+			alert('제목을 입력하세요.');
+			$('#contest_title').focus();
 		} */
 	}
 	
@@ -72,9 +57,10 @@
 </head>
 <body style="background-color: #f4f4f4;">
 	<!-- nav -->
-	<%@include file="../../companyNavBar.jsp" %>
-	<form action="register" name="registerForm" method="post">		
-		 <input type="hidden" id="company_id" name="company_id" value="${company_login_id }">
+	<%@include file="../../companyNavBar.jsp" %> 
+	<form action="register" name="registerForm" method="post">
+		  <%-- value에 ${company_login_id} --%>		
+		 <input type="hidden" id="company_id" name="company_id" value="1">
 		<div class="container"
 			style="background-image: url('${initParam.rootPath}/resources/image/monitor/pencil.jpg');">
 			<div class="row"
@@ -99,8 +85,10 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-modal-window"></i></span> <input
 								class="form-control" id="contest_title" name="contest_title" type="text"
-								placeholder="제목을 입력하세요.">
+								placeholder="제목을 입력하세요." value="제목">
 						</div>
+					</div>
+					</div>
 					</div>
 					<div class="row">
 					<div class="col-sm-2"></div>
@@ -108,9 +96,11 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> 
-								<input class="form-control" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018-03-07-14:30">
+								<input class="form-control" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018-03-07 18:30"
+								value="2018-03-07">
 								~
-								<input class="form-control" id="contest_endDate" name="contest_endDate" placeholder="끝날짜 ex)2018-03-07-14:30">
+								<input class="form-control" id="contest_endDate" name="contest_endDate" placeholder="끝날짜 ex)2018-03-07 19:30:00"
+								value="2018-03-07">
 						</div>
 					</div>
 				</div>
@@ -120,9 +110,9 @@
 					<div class="col-sm-8">
 						<div class="form-group">
 							<label for="good">해당 콘테스트의 분야를 입력해주세요.</label>
-							<input class="form-control" id="contest_field" name="contest_field" placeholder="분야">
+							<input class="form-control" id="contest_field" name="contest_field" placeholder="분야" value="입력분야">
 							<label for="bad">채용 인원수</label>
-							<input class="form-control" id="contest_hireNumber" name="contest_hireNumber" placeholder="숫자만 입력해주세요">명
+							<input class="form-control" id="contest_hireNumber" name="contest_hireNumber" placeholder="숫자만 입력해주세요" value="10">명
 						</div>
 					</div>
 				<hr>
@@ -131,7 +121,7 @@
 					<div class="col-sm-8">
 						<div class="form-group">
 							<label for="want">내용</label>
-							<textarea name="contest_contents" rows="10" class="form-control" id="contest_contents"></textarea>
+							<textarea name="contest_contents" rows="10" class="form-control" id="contest_contents">잘하세요</textarea>
 						</div>
 					</div>
 				</div>
@@ -141,28 +131,27 @@
 					<div class="col-sm-8">
 						<div class="form-group">
 							<label for="good">담당자 이름</label>
-							<input class="form-control" id="manager_name" name="manager_name" placeholder="담당자 이름">
+							<input class="form-control" id="manager_name" name="manager_name" placeholder="담당자 이름" value="홍길동">
 							<label for="bad">담당자 소속</label>
-							<input class="form-control" id="team_name" name="team_name" placeholder="담당자 소속">
+							<input class="form-control" id="team_name" name="team_name" placeholder="담당자 소속" value="개발부">
 							<label for="good">담당자 이메일</label>
-							<input class="form-control" id="manager_email" name="manager_email" placeholder="담당자 이메일">
+							<input class="form-control" id="manager_email" name="manager_email" placeholder="담당자 이메일" value="gildong@daum.net">
 							<label for="bad">담당자 번호</label>
-							<input class="form-control" id="manager_tel" name="manager_tel" placeholder="담당자 번호">
+							<input class="form-control" id="manager_tel" name="manager_tel" placeholder="담당자 번호" value="010-1234-4567">
 						</div>
 					</div>
 				<hr>
 				<div class="row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-4">
-						<button type="button" class="btn btn-info btn-block"
-							onclick="validateCheck()">다음</button>
+						<button type="submit" class="btn btn-info btn-block"
+							>다음</button>
 					</div>
 					<div class="col-sm-4">
 						<a href="#"><button type="button" class="btn btn-block">취소</button></a>
 					</div>
 				</div>
 				</div>
-			</div>
 
 			</div>
 			<!-- well -->

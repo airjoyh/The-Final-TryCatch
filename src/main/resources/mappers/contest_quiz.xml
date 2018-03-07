@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="contest_quiz">
+	<!-- 문제 추가 -->
+	<insert id="create">
+		insert into 
+		contest_quiz(quiz_id, contest_id, quiz_contents,
+    			quiz_no, quiz_type, quiz_point, quiz_correct)
+		values(contest_quiz_seq.nextval, #{contest_id}, #{quiz_contents},
+    			#{quiz_no}, #{quiz_type}, #{quiz_point}, #{quiz_correct})
+	</insert>
+	
+	<!-- 문항 추가 -->
+	<insert id="exampleCreate">
+		insert into 
+		example(item_no, item, quiz_id)
+		values(#{item_no}, #{item}, #{quiz_id})
+	</insert>
+	
+	<!-- <update id="update">
+		
+	</update> -->
+	
+	<delete id="delete">
+		delete from contest_quiz
+		where quiz_id = #{quiz_id}
+	</delete>
+	
+	<!-- 문제번호에 따른 한 문제 정보 조회 -->
+	<select id="selectQuiz" resultType="Contest_quizVO">
+		select quiz_id, contest_id, quiz_contents,quiz_no, quiz_type, quiz_point, quiz_correct
+		from contest_quiz
+		where quiz_id = #{quiz_id}
+	</select>
+	
+	<select id="selectQuiz_id" resultType="int">
+		select quiz_id
+		from contest_quiz
+		where contest_id = #{contest_id}
+	</select>
+	
+	<select id="selectExample" resultType="ExampleVO">
+		select item_no, item, quiz_id
+		from example
+		where quiz_id = #{quiz_id}
+	</select>
+	
+</mapper>
