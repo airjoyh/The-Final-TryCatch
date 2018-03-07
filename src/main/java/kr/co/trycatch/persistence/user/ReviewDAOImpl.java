@@ -45,8 +45,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 		Map<String, Object> map = new HashMap<>();
 		map.put("company_id", company_id);
-		map.put("cri", cri);
+		//map.put("cri", cri);
+		map.put("searchType", cri.getSearchType());
+		map.put("keyword", cri.getKeyword());
 		
+		
+		System.out.println("DAO listSearch map>>>"+map);
 		return session.selectList("review.listSearch", map, bounds);
 	}
 

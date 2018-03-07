@@ -36,13 +36,6 @@ public class UserMainController {
 
 		return "user/contest/list";
 	}
-
-	@RequestMapping(value = "/user/community/list")
-	public String goCommunity() throws Exception{
-		System.out.println("MainController goCommunity()");
-		
-		return "user/community/list";
-	}
 	
 	@RequestMapping(value = "/user/faq")
 	public String goFaq() throws Exception{

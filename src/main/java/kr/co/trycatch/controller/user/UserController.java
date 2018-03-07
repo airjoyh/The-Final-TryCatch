@@ -99,8 +99,8 @@ public class UserController {
 				model.addAttribute("noConfirm_id", login_id);
 				state = "noAuth";
 			} else {
-				session.setAttribute("user_login_id", login_id);
-				session.setAttribute("user_loginState", "login");
+				session.setAttribute("user_login_id", login_id);//로그인 아이디
+				session.setAttribute("user_loginState", "login");//로그인 상태
 				state = "login";
 			}
 		}
