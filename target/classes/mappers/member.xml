@@ -36,9 +36,15 @@
 		and member_id = #{member_id}
 	</select>
 	
-	<!-- 회원 정보 조회 -->
-	<select id="selectMember" resultType="MemberVO">
+	<!-- 전체 회원 정보 조회 -->
+	<select id="memberAll" resultType="MemberVO">
 		select member_id, member_pass, member_type, user_authCode, user_authStatus from member
+	</select>
+	
+	<select id="member" resultType="MemberVo">
+		select member_id, member_pass, member_type, user_authCode, user_authStatus
+		from member
+		where member_id = #{member_id}
 	</select>
 	
 	<!-- 구직자 로그인 조회 -->

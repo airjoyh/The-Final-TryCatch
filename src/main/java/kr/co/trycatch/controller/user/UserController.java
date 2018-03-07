@@ -67,27 +67,10 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/findUser", method = RequestMethod.POST)
-	public String findUser(MemberVO memberVo) throws Exception{
+	public String findUser(String member_id) throws Exception{
 		System.out.println("findUser()");
 		
-		String state = "";
-		List<MemberVO> list = memberService.selectMember();
-		System.out.println(memberVo.getMember_id());
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println("for문 들어오냐?");
-			String id = list.get(i).getMember_id();
-			String authStatus = list.get(i).getUser_authStatus();
-			
-			if (memberVo.getMember_id().equals(id) && authStatus.equals("Y")) {
-				System.out.println("if문 여기는?");
-				state = "findUser";
-				memberService.sendEmail(memberVo.getMember_id());
-				break;
-			} else {
-				state = "noFindUser";
-			}
-		}
-		
+		String state = memberService.findUser(member_id);
 		
 		return state;
 	}
@@ -96,27 +79,7 @@ public class UserController {
 	@RequestMapping(value = "/changePass", method = RequestMethod.POST)
 	public String changePass(MemberVO memberVo, Model model) throws Exception {
 		System.out.println("changePass()");
-		String state="";
-		String authCode = memberService.authCode(memberVo.getMember_id());
-		
-		if(authCode.equals(memberVo.getUser_authCode())) {
-			List<MemberVO> list = memberService.selectMember();
-			for (int i = 0; i < list.size(); i++) {
-				System.out.println("for문 들어오냐?");
-				String id = list.get(i).getMember_id();
-				String authStatus = list.get(i).getUser_authStatus();
-
-				if (memberVo.getMember_id().equals(id) && authStatus.equals("Y")) {
-					memberService.changePass(memberVo.getMember_id(), memberVo.getMember_pass());
-					state = "success";
-					break;
-				} else {
-					state = "noFindUser";
-				}
-			}
-		}else {
-			state = "fail";
-		}
+		String state= memberService.changePass(memberVo);
 		
 		
 		return state;

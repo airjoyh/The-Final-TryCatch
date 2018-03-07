@@ -37,7 +37,7 @@ public class Company_infoServiceImpl implements Company_infoService {
 	public String idCheck(String member_id) throws Exception {
 		String state = "";
 		System.out.println("idCheck() member_id:" + member_id);
-		List<MemberVO> list = memberDao.selectMember();
+		List<MemberVO> list = memberDao.memberAll();
 
 		if (list.size() == 0) {//등록된 회원이 하나도 없다면 for문을 못들어가기에!
 			state = "use";

@@ -56,11 +56,17 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	
 	@Override
-	public List<MemberVO> selectMember() throws Exception {
+	public List<MemberVO> memberAll() throws Exception {
 		
-		return session.selectList("member.selectMember");
+		return session.selectList("member.memberAll");
 	}
 
+	@Override
+	public MemberVO member(String member_id) throws Exception {
+		
+		return session.selectOne("member.member", member_id);
+	}
+	
 	@Override
 	public MemberVO loginUser(String member_id, String member_pass) throws Exception {
 		Map<String, String> map = new HashMap<>();
