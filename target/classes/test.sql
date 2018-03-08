@@ -49,5 +49,17 @@ select company_id, company_name, company_size, company_turnover,
 			group by company_info.company_id, company_name,
 					 company_size, company_turnover, company_line)	    
 	    
-select * from CONTEST;
 select * from COMPANY_INFO;
+
+delete from EXAMPLE;
+delete from CONTEST_QUIZ;
+delete from CONTEST;
+
+select * from CONTEST;
+select * from CONTEST_QUIZ;
+select * from EXAMPLE;
+
+
+
+
+

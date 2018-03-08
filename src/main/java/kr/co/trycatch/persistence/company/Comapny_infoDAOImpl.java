@@ -38,4 +38,10 @@ public class Comapny_infoDAOImpl implements Company_infoDAO {
 		return session.selectOne("member.loginCompany", map);
 	}
 
+	@Override
+	public int selectCompany_id(String member_id) throws Exception {
+		
+		return session.selectOne("member.selectCompany_id", member_id);
+	}
+
 }

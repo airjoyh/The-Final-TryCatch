@@ -11,4 +11,5 @@ public interface Company_infoService {
 	
 	public MemberVO login(String member_id, String member_pass) throws Exception;
 	
+	public int selectCompany_id(String member_id) throws Exception;
 }

@@ -13,13 +13,6 @@ public class CompanyMainController {
 		return "/company/personSearch/list";
 	}
 	
-	@RequestMapping(value="/company/contest/list")
-	public String goContest() {
-		System.out.println("CompanyMainController goContest");
-		
-		return "/company/contest/list";
-	}
-	
 	@RequestMapping(value="/company/faq")
 	public String goFaq() {
 		System.out.println("CompanyMainController goFaq");

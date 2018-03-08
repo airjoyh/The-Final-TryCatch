@@ -15,6 +15,7 @@ public class ContestVO {
 	private String team_name;
 	private String manager_email;
 	private String manager_tel;
+	private String contest_status;
 
 	public int getContest_id() {
 		return contest_id;
@@ -112,13 +113,22 @@ public class ContestVO {
 		this.manager_tel = manager_tel;
 	}
 
+	public String getContest_status() {
+		return contest_status;
+	}
+
+	public void setContest_status(String contest_status) {
+		this.contest_status = contest_status;
+	}
+
 	@Override
 	public String toString() {
 		return "ContestVO [contest_id=" + contest_id + ", company_id=" + company_id + ", contest_title=" + contest_title
 				+ ", contest_startDate=" + contest_startDate + ", contest_endDate=" + contest_endDate
 				+ ", contest_field=" + contest_field + ", contest_hireNumber=" + contest_hireNumber
 				+ ", contest_contents=" + contest_contents + ", manager_name=" + manager_name + ", team_name="
-				+ team_name + ", manager_email=" + manager_email + ", manager_tel=" + manager_tel + "]";
+				+ team_name + ", manager_email=" + manager_email + ", manager_tel=" + manager_tel + ", contest_status="
+				+ contest_status + "]";
 	}
 
 }

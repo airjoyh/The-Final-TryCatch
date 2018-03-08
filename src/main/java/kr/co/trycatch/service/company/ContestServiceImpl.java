@@ -1,10 +1,13 @@
 package kr.co.trycatch.service.company;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import kr.co.trycatch.domain.company.ContestVO;
+import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.persistence.company.ContestDAO;
 
 @Service
@@ -39,6 +42,24 @@ public class ContestServiceImpl implements ContestService {
 	public int selectContest_id() throws Exception {
 		
 		return contestDao.selectContest_id();
+	}
+
+	@Override
+	public List<ContestVO> selectByCompany(SearchCriteria cri, int company_id) throws Exception {
+		
+		return contestDao.selectByCompany(cri, company_id);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri, int company_id) throws Exception {
+		
+		return contestDao.listSearchCount(cri, company_id);
+	}
+
+	@Override
+	public void finalRegister(int contest_id) throws Exception {
+		contestDao.updateStatus(contest_id);
+		
 	}
 
 }

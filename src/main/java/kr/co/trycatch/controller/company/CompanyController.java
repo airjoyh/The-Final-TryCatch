@@ -58,8 +58,12 @@ public class CompanyController {
 		if (memberVo == null) {
 			state = "noRegister";
 		} else if (memberVo != null) {
-			session.setAttribute("company_login_id", login_id);
+			session.setAttribute("company_login_member_id", login_id);
 			session.setAttribute("company_loginState", "login");
+			
+			int company_id = company_infoService.selectCompany_id(login_id);
+			session.setAttribute("company_login_company_id", company_id);
+			
 			state = "login";
 
 		}

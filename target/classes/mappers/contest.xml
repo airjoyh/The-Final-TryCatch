@@ -33,4 +33,43 @@
 	<select id="selectContest_id" resultType="int">
 		select contest_seq.nextval from dual
 	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString() ">
+				and contest_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString() ">
+				and team_name like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'tw'.toString() ">
+				and manager_name like '%'||#{keyword}||'%'
+			</if>
+			<!-- <if test="searchType == 'd'.toString() ">
+				and contest_status like '%'||#{keyword}||'%'
+			</if> -->
+		</if>
+	</sql>
+	
+	<select id="selectByCompany" resultType="ContestVO">
+		select * 
+		from contest
+		where company_id = #{company_id}
+		<include refid="search"></include>
+		order by contest_id desc
+	</select>
+	
+	<!-- 검색어 대한 like조회된 전체 레코드 수 -->
+	<select id="listSearchCount" resultType="int">
+		select count(*)
+		from contest
+		where company_id = #{company_id}
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateStatus">
+		update contest
+		set contest_status = 'Y'
+		where contest_id = #{contest_id}
+	</update>
 </mapper>

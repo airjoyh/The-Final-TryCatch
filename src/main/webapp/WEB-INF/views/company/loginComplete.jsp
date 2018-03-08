@@ -9,7 +9,7 @@
 <body>
 <h3>기업 로그인 성공</h3>
 <hr>
-${company_login_id }<br>
+${company_login_member_id }<br>
 <a href="${initParam.rootPath }/company/logout">로그아웃</a>
 </body>
 </html>

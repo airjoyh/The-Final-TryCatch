@@ -75,7 +75,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public double totalAvgScore(String company_id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return reviewDao.totalAvgScore(company_id);
 	}
 

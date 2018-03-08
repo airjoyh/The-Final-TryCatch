@@ -6,7 +6,7 @@
 		insert into 
 		contest_quiz(quiz_id, contest_id, quiz_contents,
     			quiz_no, quiz_type, quiz_point, quiz_correct)
-		values(contest_quiz_seq.nextval, #{contest_id}, #{quiz_contents},
+		values(#{quiz_id}, #{contest_id}, #{quiz_contents},
     			#{quiz_no}, #{quiz_type}, #{quiz_point}, #{quiz_correct})
 	</insert>
 	
@@ -43,6 +43,12 @@
 		select item_no, item, quiz_id
 		from example
 		where quiz_id = #{quiz_id}
+	</select>
+	
+	<!-- 부여될 퀴즈번호 조회 -->
+	<select id="selectQuiz_seq" resultType="int">
+	    select contest_quiz_seq.nextval
+	    from dual
 	</select>
 	
 </mapper>

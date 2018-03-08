@@ -114,4 +114,10 @@
 		from company_info
 		where company_id=#{company_id}
 	</select>
+	
+	<select id="selectCompany_id" resultType="int">
+		select company_id
+		from company_info
+		where member_id = #{member_id}
+	</select>
 </mapper>

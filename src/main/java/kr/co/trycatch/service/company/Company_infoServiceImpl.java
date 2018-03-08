@@ -68,4 +68,10 @@ public class Company_infoServiceImpl implements Company_infoService {
 		return company_infoDao.loginCompany(member_id, member_pass);
 	}
 
+	@Override
+	public int selectCompany_id(String member_id) throws Exception {
+
+		return company_infoDao.selectCompany_id(member_id);
+	}
+
 }

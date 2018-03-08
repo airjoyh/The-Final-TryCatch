@@ -17,9 +17,20 @@ public class Contest_quizServiceImpl implements Contest_quizService {
 	
 	@Transactional
 	@Override
-	public void register(Contest_quizVO contest_quizVo,ExampleVO exampleVo) throws Exception {
+	public void register(Contest_quizVO contest_quizVo,ExampleVO exampleVo, String []items) throws Exception {
+		
+		int quiz_id = contest_quizDao.selectQuiz_seq();
+		
+		contest_quizVo.setQuiz_id(quiz_id);
 		contest_quizDao.create(contest_quizVo);
-		contest_quizDao.exampleCreate(exampleVo);
+		
+		exampleVo.setQuiz_id(quiz_id);
+		int item_no=1;
+		for(String item:items) {
+		   exampleVo.setItem_no(item_no++);
+		   exampleVo.setItem(item);
+		   contest_quizDao.exampleCreate(exampleVo);
+		}
 	}
 	
 	

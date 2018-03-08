@@ -13,6 +13,8 @@ public interface Contest_quizDAO {
 
 	public void delete(int quiz_id) throws Exception;
 
-	public Contest_quizVO select(int quiz_id) throws Exception;
+	public Contest_quizVO selectQuiz(int quiz_id) throws Exception;
+	
+	public int selectQuiz_seq() throws Exception;
 
 }

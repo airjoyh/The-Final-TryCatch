@@ -60,7 +60,7 @@
 	<%@include file="../../companyNavBar.jsp" %> 
 	<form action="register" name="registerForm" method="post">
 		  <%-- value에 ${company_login_id} --%>		
-		 <input type="hidden" id="company_id" name="company_id" value="1">
+		 <input type="hidden" id="company_id" name="company_id" value="${company_login_company_id }">
 		<div class="container"
 			style="background-image: url('${initParam.rootPath}/resources/image/monitor/pencil.jpg');">
 			<div class="row"

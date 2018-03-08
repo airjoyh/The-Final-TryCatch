@@ -1,11 +1,10 @@
 package kr.co.trycatch.domain.company;
 
-import java.util.Arrays;
 
 public class ExampleVO {
 	private int item_no;
 	private String item;
-	private int quiz_id;
+	private int quiz_id;	
 
 	public String getItem() {
 		return item;
