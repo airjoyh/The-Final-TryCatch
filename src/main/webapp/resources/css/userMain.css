@@ -1,0 +1,194 @@
+
+
+/*  
+ *userMain.css
+ *2018/03/07
+ *writer_son
+*/
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import "https://fonts.googleapis.com/css?family=Raleway";
+
+/* fixed box size */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin:0;
+          padding:0;
+}
+
+
+body:lang(en) {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+
+
+/*****************************************************************
+                           body & grid
+
+top-margin:
+
+width:1100px  left-width: 740px; right-width: 332px;
+******************************************************************/
+body {
+	font-family: ''Raleway',"Noto Sans KR", sans-serif;
+	font-weight: 200;
+	font-size:14px;
+	background-color: #f2f4f7;
+	margin:0;
+}
+
+.container {
+	display: block;
+    margin: 0 auto;
+    padding: 8px 10px 0;
+    width: 1100px;
+    text-align: left;
+    zoom: 1;
+}
+
+.wrapper{
+	display:block;
+	padding: 15px;
+}
+.title-wrapper{
+	display:block;
+	padding-left: 15px;
+	border-bottom: 1px solid #ebeef3;
+}
+
+.column-title{
+	color: #2b303b;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 12px 0 12px 0;
+}
+.column-contents{
+	position:relative;
+	width: 100%;
+	height: 217px;
+	background-color: #ebeef3;
+}
+
+/***************** 
+
+left side CSS  
+
+*****************/
+.column-left {
+	display: block;
+    float: left;
+    width: 740px;
+}
+
+.section_main1 {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    
+    margin-bottom: 8px;
+}
+.section_main2 {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+}
+
+/***************** 
+
+right side CSS  
+
+*****************/
+.column-right {
+    display: block;
+    position: relative;
+    float: right;
+    width: 332px;
+}
+
+/*      login     */
+
+.section_login {
+    position: relative;
+    height: 200px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+}
+
+.section_login span{
+	font-size:small;
+	color: #2b303b;
+	font-weight:400;
+	text-decoration: none;	
+}
+.section_login a{
+	color: #2b303b;
+	text-decoration: none;
+}
+.section_login span:hover{
+	color: #2b303b;
+	font-weight:600;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0 0 12px 0;
+    border: 1px solid #65737e;
+    -webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+    box-sizing: border-box;
+    outline: none;
+}
+.login-btn{
+	width: 100%;
+    padding: 10px 20px;
+    margin: 5px 0 5px 0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	font-weight:700;
+	cursor:pointer;
+	
+	-webkit-transition: all .55s ease;
+ 	-moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+.login-btn:hover{
+	background-color: #2b303b;
+	color: #fff;
+}
+
+/* zzim */
+.section_zzim {
+    position: relative;
+    height: 292px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+}
+
+.section_zzim i{
+	color: #aaa;
+	font-size: 12px;
+	margin: 0;
+	padding: 5px 0 0 5px;
+}
+
+
+
+
+
+
+
+
+

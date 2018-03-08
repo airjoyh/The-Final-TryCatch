@@ -1,0 +1,91 @@
+
+
+.com-contest-head {
+    position: relative;
+    height: 200px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    
+    margin-bottom: 8px;
+}
+
+.com-contest-table {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+}
+
+.com-contest-table input[type="button"]{
+	font-size:13px;
+	padding:3px 10px;
+    margin: 0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.com-contest-table input[type="button"]:hover{
+	background-color: #2b303b;
+}
+
+.register-contest {
+	height:125px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.register-contest:hover{
+	background-color: #2b303b;
+}
+
+.com-inline-txt{
+	height:125px;
+	width:584px;
+	display: inline-block;
+	
+}
+
+.inline-txt-body {
+	line-height: 20px;
+	color: #a1a1a1;
+	font-size: 13px;
+	padding-bottom: 5px;
+}
+
+.inline-txt-head {
+	color: #a1a1a1;
+	font-size: 14px;
+	font-weight: 700px;
+	padding-left:10px;
+	padding-bottom: 10px;
+}
+
+.com-inline-btn {
+	margin: 0;
+    padding:0;
+	display: inline-block;
+	position: absolute;
+}
+
