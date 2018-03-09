@@ -46,6 +46,42 @@
 			self.location = "register";//입력폼으로 이동
 
 		});
+		 
+	 	 $('#zzimlistBtn').on("click", function() {//찜리스트 보이기
+			
+			self.location="${initParam.rootPath}/ing/zzimlist?zzim_select=${user_login_id}";
+		
+		});   
+	 	 
+	 	 $('#zzimOutBtn').on("click", function () {//찜하기 취소버튼 클릭시
+	 		 console.log('찜하기취소버튼');
+	 		var form=$(this).parent(); 
+	 		 form.attr('action','${initParam.rootPath}/remove');
+			  //<form action="remove">
+			  form.submit();	 		 
+		});
+
+	 	 
+	 	 //찜한 행 존재 유무  
+	 	  $.ajax({
+			   url: '${initParam.rootPath}/zziminout',
+			   type:'post',
+			   data: {
+				    zzim_selected:${company_info.company_id},
+				    zzim_select:'${user_login_id }'
+			   },
+			   success: function (result) {
+				   console.log(result);
+		        		if(result=="exist"){
+		        			 $('#zzimBtn').hide();
+		        		}else{
+		        			 $('#zzimOutBtn').hide();
+		        		}
+			    }
+			  
+			  
+		  }); 
+	 	 
 		
 	});//document.ready
 	/* 검색창 드롭다운 메뉴 */
@@ -65,6 +101,20 @@
 			//location.href = '${initParam.rootPath }/review/control.do?action=inputForm&company_id=${cominfo.company_id}';
 		}
 	}
+
+	/* function loginCheckzzim() {
+
+		var loginState = '${user_loginState }';
+		//alert("로그인 상태>>>" + loginState);
+		if (loginState != 'login') {
+			alert('로그인하신 후에 이용 가능합니다.');
+			location.href = '${initParam.rootPath }/user/main';
+		} else {
+			location.href = '${initParam.rootPath }/user/review/list?company_id=${param.company_id}';
+		}
+	} */
+
+	
 </script>
 
 <!-- Custom jQuery -->
@@ -73,7 +123,7 @@
 <link href="${initParam.rootPath }/resources/css/trycatch.css" rel="stylesheet">
 
 </head>
-<body style="background-color: #f4f4f4;">
+<body style="background-color: #f4f4f4;">    
 
 	<!--***********************************************************
 		*                                                             *
@@ -114,6 +164,22 @@
 			style="padding-top: 5em; padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
 			<div role="tabpanel" class="tab-pane active" id="comInfo"
 				style="background-color: #ffffff; margin-top: 2em">
+				
+				<div class="row">
+				 <form method="post">
+				  <input type="hidden" id="zzim_select" name="zzim_select" value="${user_login_id }">
+				  <input type="hidden" name="zzim_selected" id="zzim_selected" value="${company_info.company_id}">
+				  <%-- <input type="hidden" name="company_id" value="${company_info.company_id}"> --%>
+				<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>	  			  				  		  				  
+				<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>	  			  				  		  				  
+				</form>
+				<button style="float: right;" id="zzimlistBtn">리스트보기</button>		  			  				  
+				<!-- <div align="right">
+		         	<a class="btn btn-default pull-right" href="javascript:loginCheckzzim()"
+			    	id="write">찜하기</a>
+		             </div> -->
+				</div>
+				
 				<div class="row"
 					style="padding-top: 5em; padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
 					<div class="col-sm-6">
@@ -381,5 +447,14 @@
 
 				</div>
 	</div>
+	
+<!-- 	<script type="text/javascript">
+	    var msg = '${msg}';
+	    if(msg != ""){
+	    	alert(msg);
+	    	
+	    }
+	</script> -->
+	
 </body>
 </html>
