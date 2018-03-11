@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>그리드 테스트</title>
+<title>콘테스트 Q&A 글등록</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
@@ -12,7 +12,8 @@
 <link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/contest_qna_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/contest_qna_register.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -21,22 +22,7 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-
-<style>
-.simple-table{
-	position: relative;
-	text-align: left;
-	font-size: 15px;
-	border-bottom: 1px solid #bbb;
-}
-.simple-table .tbl-h1{
-	width: 80%;
-}
-.simple-table .tbl-h2{
-	width: 20%;
-}
-
-</style>
+<!-- 임시 js -->
 <script type="text/javascript">
 
 </script>
@@ -44,118 +30,45 @@
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
-<body>
-	
-	
+<body>	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
-		<div class='column-left'>
-		
-			<div class='section_main1'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
-						<div class='column-title'>콘테스트 리스트</div>
-					</div>
-					<div class='wrapper'>
-						<div class='com-inline-txt'>
-							<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
-							<p class='inline-txt-body'>
-								- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br>
-								- 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
-								- 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
-								- 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
-							</p>
-						
-						</div>
-						<div class='com-inline-btn'>
-							<input type="button" class='register-contest' value='콘테스트 등록'>
-						</div>
-						
-						</div>
-				</div><!-- com-contest -->
-			</div><!-- section_main1 -->
-				
-			<div class='section_main2'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
-						<div class='column-title'>콘테스트 Q&A 게시판</div>
-					</div>
-					<div class='company-contest-table'>
-						<div class='wrapper'>
-							<table cellspacing='0'>
-								<tr>
-									<th style="width: 10%">글번호</th>
-									<th style="width: 35%">제목</th>
-									<th style="width: 15%">작성자</th>									
-									<th style="width: 20%">작성일</th>									
-									<th style="width: 10%">조회수</th>									
-									<th style="width: 10%">댓글</th>									
-								</tr>				
-								<tr>
-									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
-									<td>이성원</td>
-									<td>18/03/09</td>
-									<td>412</td>
-									<td><span id="com_reply">10</span></td>
-								</tr>
-								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
-									<td>송다정</td>
-									<td>18/03/02</td>
-									<td>999</td>
-									<td><span id="com_reply">100</span></td>
-								</tr>		
-							</table>
-						</div>
-					</div>
-				</div><!-- com-contest-head -->
-				<div>
-					<div class="com-contest-paging">
-						<div class="cont-qna-page">
-						      <ul class="pagination">
-						      <c:if test="${pageMaker.prev}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-						      </c:if>
-						      <c:forEach begin="${pageMaker.startPage }"
-						            end="${pageMaker.endPage }" var="idx">
-						      <li 
-						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-						      </li>
-						      </c:forEach>
-						
-						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-						      </c:if>         
-						      </ul>
-					    </div>
-					    <div class='cont-qna-search'>
-					               <select name="searchType">
-					                  <option value="n"
-					                     <c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-					                  <option value="t"
-					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					제목</option>                  
-					                  <option value="w"
-					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 작성자</option>
-					                  <option value="tw"
-					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 제목+작성자</option>
-					               </select> <input type="text" name='keyword' id="keywordInput"
-					                  value='${cri.keyword }'>
-					               <button id='searchBtn'>검색</button>
-					               <button id='registBtn'>글쓰기</button>
-					
-					   </div>
-					</div><!-- com-contest-paging -->
+		<div class='column-left'>	
+			<div class='com-contest-head'>
+				<div class='title-wrapper'>
+					<div class='column-title'>콘테스트 Q&A 글작성</div>
 				</div>
-			</div><!-- section_main2 -->
-				
-		</div>
+				<div class='wrapper'>
+					<div class='com-qna-title'>
+							<div class="row" hidden="" >
+						        <div class="input-group">
+						            <span class="input-group-addon">글번호</span> <input
+						            	  class="form-control" id="title" name="title" type="text"
+						                  style="width: 35%" placeholder="글번호 자동입력." readonly="readonly">
+						            <span class="input-group-addon" style="padding-left: 3em;">작성일</span> <input
+						                  class="form-control" id="writer" name="writer"
+						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
+						        </div>
+						    </div>
+							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
+				                  class="qna-title" id="title" name="title" type="text"
+				                  style="width: 35%" placeholder="제목을 입력하세요.">
+				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
+				                  class="qna-writer" id="writer" name="writer"
+				                  style="width: 35%" readonly="readonly">
+					</div>
+					<div class='com-qna-content'>
+						<label for="content">Q&A</label><br>
+				        <textarea name="strong" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
+					</div>
+					<div class='com-inline-btn'>
+						<input type="button" class='register-qna' id="regist" value='글 등록'>
+						<input type="button" class='register-qna' id="cancel" value='취소'>
+					</div>
+				</div>
+			</div><!-- section_main1 -->
+			
+		</div><!-- column-left -->
 		
 		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
@@ -256,13 +169,16 @@
 		</div>
 
 	<!-- frame -->
+
 <script type="text/javascript">
 $(function(){
-	$('#registBtn').on("click", function(){
-		self.location="${initParam.rootPath }/conregist"
+	$('#regist').on("click", function(){
+		self.location="${initParam.rootPath }/conread"
+	});
+	$('#cancel').on("click", function(){
+		self.location="${initParam.rootPath }/conqna"
 	});
 });
 </script>
-
 </body>
 </html>

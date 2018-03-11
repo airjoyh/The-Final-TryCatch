@@ -1,0 +1,72 @@
+
+/*****************************************************************
+							  swlee
+******************************************************************/
+
+.wrapper{
+	display:block;
+	padding: 15px;
+}
+.com-contest-head {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    
+    margin-bottom: 8px;
+}
+
+.register-contest:hover{
+	background-color: #2b303b;
+}
+
+.com-qna-title{
+	height:45px;
+	width:700px;
+	margin: 0;
+    padding:0;
+	display: inline-block;
+	position: absolute;
+	
+}
+
+.com-qna-content{
+	top:100px;
+	height:400px;
+	width:700px;
+	margin: 0;
+    padding:0;
+	display: inline-block;
+	position: absolute;
+	
+}
+
+
+.com-inline-btn {
+	height: 35px;
+	right: 250px;
+    bottom: 10px;
+	margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+}
+
+.register-qna {
+	height:35px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
