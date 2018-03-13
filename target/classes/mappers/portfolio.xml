@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="portfolio">
+
+    <insert id="create">
+		insert into 
+		portfolio (port_id, port_exp, port_skill, port_interest, port_award,
+                port_link, port_license, port_img, user_id)
+		values(#{port_id}, #{port_exp}, #{port_skill},#{port_interest},
+			   #{port_award}, #{port_link}, #{port_license}, #{port_img}, #{user_id})
+	</insert>
+
+    <delete id="delete">
+		delete from portfolio
+		where user_id = #{user_id}
+	</delete>
+	
+	<update id="update">
+	  update portfolio
+	  set port_exp=#{port_exp}, port_skill=#{port_skill}, port_interest=#{port_interest}, port_img=#{port_img}
+	      port_award=#{port_award}, port_link=#{port_link}, port_license=#{port_license}, 
+	  where port_id=#{port_id}
+	</update>
+	
+	<select id="read" resultType="PortfolioVO">
+	  select   port_id, port_exp, port_skill, port_interest, port_award,
+               port_link, port_license, port_img, user_id
+	  from portfolio
+	  where port_id=#{port_id}
+	</select>
+	
+	<select id="select" resultType="PortfolioVO">
+		select *
+		from portfolio
+		order by port_id desc
+	</select>
+	
+	<select id="list" resultType="PortfolioVO">
+	  select port_id, port_exp, port_skill, port_interest, port_award,
+               port_link, port_license, port_img, user_id
+      from portfolio
+      where user_id=#{use_id}
+      order by port_id desc
+	</select>
+</mapper>
