@@ -17,4 +17,16 @@ public class TestController {
 		System.out.println("오냐");
 		return "/ing/companyContest";
 	}
+	
+	@RequestMapping("/user/solve")
+	public String solve() {
+		System.out.println("오냐");
+		return "/ing/solve";
+	}
+	
+	@RequestMapping("/user/code")
+	public String code() {
+		System.out.println("오냐");
+		return "/ing/codemirror";
+	}
 }

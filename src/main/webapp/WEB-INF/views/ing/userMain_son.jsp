@@ -82,53 +82,54 @@
 		<div class='column-right'>
 		
 			<div class="section_login">
-				<div class="wrapper">
-				    <div><input class='login-input' type="email" name="email" placeholder="이메일"></div>
-				    <div><input class='login-input' type="password" name="password" placeholder="비밀번호"></div>
-				    <div><input type="button" value="로그인" class='login-btn'> </div>
-				    <span class="pure-checkbox" style="float: left;">
-                  	  <input id="checkboxtoggle" name="checkbox" type="checkbox">
-                      <label for="checkboxtoggle">정보기억</label>
-                      </span>
-                    <span style="float: right;padding: 2px 0 0 6px;">
-                	  <a href='#find-pwd'>비밀번호 찾기</a>
-                	  </span>
-                    <span style="float: right;padding: 2px 6px;">
-                	  <a href='#register'>회원가입</a>
-                	  </span>
-				  </div>
-				</div><!-- section_login -->
-				
-				<div class="section_zzim">
-					<div class="title-wrapper">
-						<div class='column-title'>관심기업 리스트</div>
+				<div class='login-info'>
+					<div class='user-icon'>
+						<img src="${initParam.rootPath }/resources/image/ing/icon-2.svg">
 					</div>
-					<div class='wrapper'>
-						<div class='column-contents'>
-							<i>현재 찜한 기업이 없습니다.</i><!-- 있으면 테이블 없으면 i -->
-							<table class='zzim-table'>
-								<thead>
-									<tr>
-										<th>기업명</th>
-										<th>평점</th>
-										</tr>
-									</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										</tr>
-									</tbody>
-								
-							</table>
-						</div>
+					<div class='id_div'>
+						<div class='logout-btn'><a>로그아웃</a></div>
 					</div>
-						
-						
-						
-				</div><!-- section_zzim -->
-				
-			</div><!-- column-right -->
+					<div class='user-email'>
+						bluecayseyes@naver.com
+					</div>
+				</div>
+				<div class='login-tab'>
+					<div class='mypage'>마이페이지</div>
+					<div class='note'>
+						쪽지
+						<label class='note-cnt'></label>
+						<span id='note-cnt'>0</span></div> 
+				</div>
+			</div><!-- section_login -->
+
+			<div class="section_zzim">
+				<div class="title-wrapper">
+					<div class='column-title'>관심기업 리스트</div>
+				</div>
+				<div class='wrapper'>
+					<div class='column-contents'>
+						<i>현재 찜한 기업이 없습니다.</i>
+						<!-- 있으면 테이블 없으면 i -->
+						<table class='zzim-table'>
+							<thead>
+								<tr>
+									<th>기업명</th>
+									<th>평점</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div><!-- section_zzim -->
+
+		</div><!-- column-right -->
 			
 			
 			

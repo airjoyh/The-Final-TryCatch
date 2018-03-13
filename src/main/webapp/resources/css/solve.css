@@ -1,0 +1,373 @@
+
+
+/*  
+ *userMain.css
+ *2018/03/07
+ *writer_son
+*/
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+
+/* fixed box size */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin:0;
+          padding:0;
+}
+
+
+body:lang(en) {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+
+
+/*****************************************************************
+                           body & grid
+
+top-margin:
+
+width:1100px  left-width: 740px; right-width: 332px;
+******************************************************************/
+body {
+	font-family: 'Raleway',"Noto Sans KR", sans-serif;
+	font-weight: 200;
+	font-size:14px;
+	background-color: #111;
+	margin:0;
+	z-index: -10;
+}
+
+.container {
+	color:aaa;
+	display: block;
+    margin: 35px auto;
+    padding: 8px 10px 0;
+    width: 1100px;
+    text-align: left;
+    zoom: 1;
+}
+
+.wrapper{
+	padding: 15px;
+}
+.title-wrapper{
+	display:block;
+	padding-left: 15px;
+	border-bottom: 2px solid #333;
+}
+
+.column-title{
+	color: #aaa;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 12px 0 12px 0;
+}
+.column-contents{
+	position:relative;
+	width: 100%;
+	height: 217px;
+	background-color: #ebeef3;
+}
+
+/***************** 
+
+header CSS  
+
+*****************/
+.header{
+	display: block;
+    float: none;
+    width: 1080px;
+    margin:0;
+    padding:0;
+}
+.header .section-header{
+	display: block;
+    height: 50px;
+    border: 1px solid #222;
+    background: #09090a;
+    margin:0;
+    padding:0;
+}
+.header .section-header .title-area{
+	display:table-cell;
+	height: 50px;
+	padding:0 20px 0 20px;
+	vertical-align:middle;
+	color:#d1d1d1;
+}
+.header .section-header .title-area .title{
+	padding-top:2px;
+	font-weight:600;
+	display: inline-block;
+}
+.header .section-header .title-area .timer{
+	padding-left:150px;
+	display: inline-block;
+	float:right;
+}
+.header .section-header .title-area .limit-time{
+	color:#ffd323;
+	letter-spacing:2px;
+	font-family: 'Rajdhani', sans-serif;
+	font-weight:500;
+	font-size: 18px;
+}
+
+/***************** 
+
+nav CSS  
+
+*****************/
+.column-nav {
+	display: block;
+    float: left;
+    width: 70px;
+    margin:0;
+    padding:0;
+}
+
+.column-nav .section_nav {
+    display: table-cell;
+    vertical-align:middle;
+    width: 70px;
+    height: 600px;
+    border: 1px solid #222;
+    background: #09090a;
+    margin:0;
+    padding:0;
+}
+
+.column-nav .section_nav .side-nav-btn{
+	text-align: center;
+	color:rgba(255,255,255,1);
+	padding:0;
+	font-size:20px;
+	list-style-type: none;
+}
+
+.side-nav-btn li{
+	cursor: pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.side-nav-btn li:hover{
+	font-size:40px;
+}
+/* solved question */
+.end-question{
+	color:rgba(0,255,0,1);
+}
+
+/***************** 
+
+question CSS  
+
+*****************/
+.column-question {
+	display: block;
+    float: left;
+    width: 300px;
+}
+
+.section_question {
+	color:#ced8e8;
+    position: relative;
+    height: 600px;
+    border: 1px solid #222;
+    background: #1a1a1f;
+    margin:0;
+    padding:0;
+}
+
+.section_question .question-type{
+	color:#ced8e8;
+	font-style: italic;
+	font-size: 12px;
+}
+.section_question .question-type span{
+	color:#fff;
+	font-weight: 600;
+}
+.section_question .question{
+	padding-top:20px;
+	color:#ddd;
+    font-size: 14px;
+}
+.section_question .example{
+	padding-top: 15px;
+	border: 1px solid #sss;
+	height:370px;
+	
+	font-family: 'Titillium Web', sans-serif;
+	color:#000;
+	font-weight:500;
+	/* letter-spacing:1pt; */
+	font-size:14px;
+	overflow:auto;
+	line-height:20px;
+	
+	
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section_question .example-write,
+.section_question .example-coding{
+	display: block;
+}
+
+.section_question input{
+	width:100%;
+	padding: 10px;
+	margin-top: 10px;
+	border: 0;
+}
+
+.section_question .example-choice{
+	display: block;
+	
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section_question .example-choice .example-list{
+	list-style: none;
+	text-align: left;
+	padding:0;
+	font-size:13px;
+	list-style-type: none;
+	
+	color: #fff;
+}
+
+.section_question .example-choice .example-list li{
+	padding-bottom: 10px;
+}
+
+
+
+/***************** 
+
+solve CSS  
+
+*****************/
+.column-solve {
+    display: block;
+    position: relative;
+    float: right;
+    width: 710px;
+    margin:0;
+    padding:0;
+}
+
+.section-solve {
+    position: absolute;
+    height: 600px;
+    width: 710px;
+    border: 1px solid #222;
+    background: #4c4f5e;
+    margin:0;
+    padding:0;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section-solve .codeeditor{
+	display: block;
+	height: 400px;
+	width: 709px;
+	padding:0;
+	font-size: 17px;
+	
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.section-solve .output{
+	display: block;
+	height: 49px;
+	width: 709px;
+	font-size: 17px;
+	color:#ddd;
+	
+	
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section-solve .output-area{
+	display: block;
+	
+}
+.section-solve .output-area textarea {
+	width: 100%;
+	resize: none;
+	border: 0;
+	background-color: #282a36;
+	outline-style: none;
+	padding: 10px;
+	
+	font-family: 'Rajdhani', sans-serif;
+	color:#ffd323;
+	font-size: 15px;
+}
+.output-title{
+	display:inline-block;
+	float: left;
+	padding: 12px;
+	margin: 0;
+}
+.a-btn{
+	display:inline-block;
+	float: right;
+	padding: 12px 31px 12px 31px;
+	margin: 0;
+	width:100px;
+	height:100%;
+	background-color:#32d289; 
+	border-left:1px solid #282a36;
+	cursor:pointer;
+	
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    -webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    
+}
+
+.a-btn:hover {
+	background-color:#09bec5; 
+	color:#0f4b7e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

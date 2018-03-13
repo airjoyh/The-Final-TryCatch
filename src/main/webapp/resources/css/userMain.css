@@ -33,7 +33,7 @@ top-margin:
 width:1100px  left-width: 740px; right-width: 332px;
 ******************************************************************/
 body {
-	font-family: ''Raleway',"Noto Sans KR", sans-serif;
+	font-family: 'Raleway',"Noto Sans KR", sans-serif;
 	font-weight: 200;
 	font-size:14px;
 	background-color: #f2f4f7;
@@ -168,6 +168,121 @@ right side CSS
 	color: #fff;
 }
 
+.login-info{
+	height:145px;
+	width:330px;
+	padding-top: 30px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ebeef3;
+	border-top: 30px solid #ebeef3;
+}
+.login-info .user-icon img{
+	display:inline-block;
+	float:left;
+	width: 70px;
+	height: 70px;
+	
+	margin-left:13px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.login-info .user-icon img:hover{
+	border: 2px solid #bbb;
+}
+
+.login-info .user-email{
+	display:inline-block;
+	width: 232px;
+	height: 42px;
+	float:left;
+	margin-right:15px;
+	padding-left: 10px;
+	padding-top:20px;
+	
+	font-size: 13px;
+	color: #666;
+}
+
+.login-info .logout-btn{
+	display:inline-block;
+	float:right;
+	width: 70px;
+	height: 28px;
+	text-align:center;
+	border: 1px solid #d9d9d9;
+	padding-top: 3px;
+	margin-right:15px;
+	
+	cursor: pointer;
+}
+
+.login-info .logout-btn a{
+	position:relative;
+	font-size: 14px;
+}
+.login-info .logout-btn:hover{
+	border-color: #aaa;
+}
+
+.login-tab{
+	height:55px;
+	width:330px;
+	/* background-color: #222; */
+}
+
+.login-tab .mypage{
+	display: inline-block;
+	float:left;
+	text-align:center;
+	height:100%;
+	width: 50%;
+	border-right: 1px solid #ebeef3;
+	padding-top: 15px;
+	cursor: pointer;
+}
+.login-tab .note{
+	position:relative;
+	display: inline-block;
+	float:left;
+	text-align:center;
+	height: 100%;
+	width:50%;
+	padding-top: 15px;
+	cursor: pointer;
+}
+
+.note-cnt{
+	position: absolute;
+    top: -13px;
+    right: -12px;
+
+	height:25px;
+	width:25px;
+	background-color: #FC3768;
+	border-radius: 50%;
+	margin-left: 10px;
+	
+}
+
+#note-cnt{
+	position: absolute;
+    top: -9px;
+    right: -15px;
+    text-align:center;
+    width:30px;
+    hight:30px;
+    
+	color:#fff;
+	font-weight:600;
+	font-size:12px;
+	font-family:'Titillium Web', sans-serif;
+}
+
+.login-tab .mypage:hover,
+.login-tab .note:hover{
+	background-color: #f1f1f1;
+}
 /* zzim */
 .section_zzim {
     position: relative;
