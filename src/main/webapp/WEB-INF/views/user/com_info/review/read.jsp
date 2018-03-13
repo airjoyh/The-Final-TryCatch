@@ -386,6 +386,7 @@ href="${initParam.rootPath }/user/review/list?page=${cri.page }&perPageNum=${cri
 		event.preventDefault();
 		
 		replyPage = $(this).attr("href");
+		console.log(replyPage);
 		
 		getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage);
 		
