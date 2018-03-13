@@ -1,0 +1,49 @@
+
+/*****************************************************************
+							  swlee
+******************************************************************/
+
+.com-contest-head {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
+/*****************************************************************
+							 faq
+******************************************************************/
+
+.faq-box{
+	display:block;
+	padding: 15px;
+	overflow: auto;
+}
+ul, li{
+	list-style: none;
+}
+
+.faq{
+	display: flex;
+	flex-direction: column;
+}
+.faq li{
+	padding: 10px;
+}
+.faq li.q{
+  background: #4FC2E;
+  font-weight: bold;
+  font-size: 15px;
+  border-bottom: 1px #ddd solid;
+  cursor: pointer;
+}
+.faq li.a{
+  background: #3BB0D6;
+  display: none;
+  color:#fff;
+}
+

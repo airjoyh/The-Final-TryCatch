@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>그리드 테스트</title>
+<title>기업순위</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
@@ -13,7 +14,6 @@
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/comRank_sw.css" rel="stylesheet" type="text/css">
-
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -22,7 +22,8 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-<style type="text/css">
+
+<style>
 .simple-table{
 	position: relative;
 	text-align: left;
@@ -35,6 +36,7 @@
 .simple-table .tbl-h2{
 	width: 20%;
 }
+
 </style>
 <script type="text/javascript">
 
@@ -50,84 +52,168 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='section_main1'>
-					<div class="content1">
-							<section class="elem elem-yellow" id="com-search" style="width: 740px;height: 50px;">
-								<div class="com-select">
-								<select class="com-rank"></select>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="com-searchList" style="width: 740px;height: 500px;">
-								<div class='company-contest-table'>
-									<div class='wrapper'>
-										<table cellspacing='0'>
-											<tr>
-												<th>기업</th>
-												<th>평점</th>
-												<th>리뷰갯수</th>
-										
-											</tr>
-				
-											<tr>
-												<td>
-													<div style="display: flex;">
-														<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
-														<div style="flex-direction: column;">
-															<div style="height: 50%;">
-															<a href="views/board/read.jsp">삼성전자(주)</a>													
-															</div>
-															<div style="height: 50%;">
-															<span style="border-radius: 10px; background-color: darkgray;">JAVA</span>
-															<span style="border-radius: 10px; background-color: darkgray;">Python</span>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td>4.5/5.0</td>
-												<td><span>312</span></td>
-											</tr>
-											<tr class='even'>
-												<td>
-													<div style="display: flex;">
-														<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
-														<div style="flex-direction: column;">
-															<div style="height: 50%;">
-															<a href="views/board/read.jsp">카카오(주)</a>													
-															</div>
-															<div style="height: 50%;">
-															<span style="border-radius: 10px; background-color: darkgray;">JAVA</span>
-															<span style="border-radius: 10px; background-color: darkgray;">C++</span>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td>4.5/5.0</td>
-												<td><span>452</span></td>
-											</tr>
-											<tr>
-												<td><img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 30px; height: 30px;"><a href="#">다이슨 컴퍼니(주)</a></td>
-												<td>4.5/5.0</td>
-												<td><span>88</span></td>
-											</tr>
-											<tr class='even'>
-												<td><img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 30px; height: 30px;"><a href="#">네이버(주)</a></td>
-												<td>4.5/5.0</td>
-												<td><span>72</span></td>
-											</tr>		
-										</table>
-									</div>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="paging" style="width: 740px;height: 100px;">
-								<h3>페이지네이션 부분</h3>
-							</section>
+			<div class='section_main'>
+				<div class='com-contest-head'>
+					<div class='title-wrapper'>
+						<div class='column-title'>기업 평점순위</div>
 					</div>
-					<!-- content1 -->
-				</div><!-- section_main1 -->
-				
-			<div class='section_main2'>
-			
-			</div><!-- section_main2 -->
+				</div><!-- com-contest-head -->
+				<div class="com-contest-box">
+					<div class="review-content">
+									<div class="review-box">
+										<div class="star-box">
+											<div class="star-left">
+												<label>종합만족도</label><br>	
+												<%-- <c:forEach items="${total }" var="total"> --%>
+												<div class="star-rank">
+												<progress id="progressBar" max="100" value="33"></progress>								
+												<label class="star-label">
+													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+												</label><br>
+												<progress id="progressBar" max="100" value="33"></progress>								
+												<label class="star-label">
+													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+												</label><br>
+												<progress id="progressBar" max="100" value="33"></progress>								
+												<label class="star-label">
+													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+												</label><br>
+												<progress id="progressBar" max="100" value="33"></progress>								
+												<label class="star-label">
+													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+												</label><br>
+												</div>
+												<%-- </c:forEach> --%>
+												<button class="star-btn">더보기</button>
+											</div>
+											<div class="star-right">
+												<label>승진 및 기회가능성</label><br>	
+												<div class="star-rank">
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+												</div>
+												<button class="star-btn">더보기</button>
+											</div>
+										</div>
+									</div>
+									<div class="review-box">
+										<div class="star-box">
+											<div class="star-left">
+												<label>복지 및 급여</label><br>																					
+												<div class="star-rank">
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+												</div>
+												<button class="star-btn">더보기</button>
+											</div>
+											<div class="star-right">
+												<label>업무와 삶의 균형</label><br>										
+												<div class="star-rank">
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+												</div>
+												<button class="star-btn">더보기</button>
+											</div>
+										</div>
+									</div>
+									<div class="review-box">
+										<div class="star-box">
+											<div class="star-left">
+												<label>사내문화</label><br>																					
+												<div class="star-rank">
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+												</div>
+												<button class="star-btn">더보기</button>
+											</div>
+											<div class="star-right">
+												<label>경영진</label><br>										
+												<div class="star-rank">
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+													<progress id="progressBar" max="100" value="33"></progress>								
+													<label class="star-label">
+														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+													</label><br>
+												</div>
+												<button class="star-btn">더보기</button>
+											</div>
+										</div>
+									</div>
+					</div>
+					<!-- review-content -->
+				</div>
+			</div><!-- section_main1 -->
 				
 		</div>
 		
@@ -230,11 +316,13 @@
 		</div>
 
 	<!-- frame -->
-	
-<!-- select -->
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/com_info_list.js"></script>
 <script type="text/javascript">
-rank('option');
+$(function(){
+	$('.star-btn').on("click", function(){
+		self.location="${initParam.rootPath }/blist"
+	});
+});
 </script>
+
 </body>
 </html>

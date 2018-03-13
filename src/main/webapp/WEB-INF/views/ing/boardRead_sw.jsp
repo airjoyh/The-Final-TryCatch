@@ -76,7 +76,9 @@
 											<div class="com-skill">
 												<div style="height: 50%;">
 												<a href="views/board/read.jsp">삼성전자(주)</a>		
-												<img alt="별점" src="" style="width: 25px; height: 25px;"><span>4.5/5.0</span>											
+												<img alt="별" src="" id="star"
+													style="width: 25px; height: 25px;">
+												<span>4.5/5.0</span>											
 												</div>
 												<div style="height: 50%;">
 												<span style="border-radius: 10px; background-color: darkgray;">JAVA</span>
@@ -84,7 +86,7 @@
 												</div>
 											</div>
 											<div class="com-btn">
-												<button>찜하기</button>
+												<input type="button" class="btn blue" value="찜하기">
 											</div>
 										</div>
 									</div>
@@ -127,7 +129,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="review-box">
+									<div class="review-box" style="margin-top: 10px;">
 										<label>현재 개최중인 콘테스트 정보</label><br>
 										<span style="color: #5f63fd">없음
 										</span>
@@ -186,16 +188,14 @@
 					</div>
 				</div><!-- section_main1 -->
 				
-			<div class='section_main2'>
-					<div class="content1">
-							<section class="elem elem-yellow" id="com-search" style="width: 740px;height: 10%;">
-								<div class="table-label">
-									<label>후기 게시판</label>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="com-searchList" style="width: 740px;height: 80%;">
-								<div class='company-contest-table'>
-									<div class='wrapper'>
+				
+			<div class='section_board'>
+				<div class='com-contest-head'>
+					<div class='title-wrapper'>
+						<div class='column-title'>기업 후기 게시판</div>
+					</div>
+					<div class='company-contest-table'>
+						<div class='wrapper'>
 										<table cellspacing='0'>
 											<tr>
 												<th style="width: 10%">글번호</th>
@@ -207,7 +207,7 @@
 											</tr>				
 											<tr>
 												<td>1</td>																		
-												<td>삼성전자 기업면접봤어요....</td>																		
+												<td><a href="">삼성전자 기업면접봤어요....</a></td>																		
 												<td>이성원</td>
 												<td>18/03/09</td>
 												<td>412</td>
@@ -215,21 +215,58 @@
 											</tr>
 											<tr class='even'>
 												<td>2</td>																		
-												<td>삼성전자 면접후기</td>																		
+												<td><a href="">삼성전자 면접후기</a></td>																		
 												<td>송다정</td>
 												<td>18/03/02</td>
 												<td>999</td>
 												<td><span id="com_reply">100</span></td>
 											</tr>		
 										</table>
-									</div>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="paging" style="width: 740px;height: 10%;">
-								<h3>페이지네이션 부분</h3>
-							</section>
+						</div>
 					</div>
-					<!-- content1 -->
+				
+				
+					<div class="com-contest-paging">
+						<div class="cont-qna-page">
+						      <ul class="pagination">
+						      <c:if test="${pageMaker.prev}">
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+						      </c:if>
+						      <c:forEach begin="${pageMaker.startPage }"
+						            end="${pageMaker.endPage }" var="idx">
+						      <li 
+						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+						      </li>
+						      </c:forEach>
+						
+						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+						      </c:if>         
+						      </ul>
+					    </div>
+					    <div class='cont-qna-search'>
+					               <select name="searchType">
+					                  <option value="n"
+					                     <c:out value="${cri.searchType == null?'selected':''}"/>>
+                    					 검색조건</option>
+					                  <option value="t"
+					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                     					제목</option>                  
+					                  <option value="w"
+					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                    					 작성자</option>
+					                  <option value="tw"
+					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+                    					 제목+작성자</option>
+					               </select> <input type="text" name='keyword' id="keywordInput"
+					                  value='${cri.keyword }'>
+					               <button id='searchBtn'>검색</button>
+					               <button id='registBtn'>글쓰기</button>
+					
+					   </div>
+					</div><!-- com-contest-paging -->
+				</div><!-- com-contest-head -->
 			</div><!-- section_main2 -->
 				
 		</div>
@@ -334,6 +371,12 @@
 
 	<!-- frame -->
 
-
+<script type="text/javascript">
+$(function(){
+	$('#registBtn').on("click", function(){
+		self.location="${initParam.rootPath }/comreregister"
+	});
+});
+</script>
 </body>
 </html>

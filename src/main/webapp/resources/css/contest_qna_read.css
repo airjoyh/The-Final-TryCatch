@@ -112,7 +112,7 @@
 .com-inline-btn {
 	height: 35px;
 	right: 300px;
-    bottom: 10px;
+    bottom: 70px;
 	margin: 0;
     padding: 0;
     display: inline-block;
@@ -121,4 +121,24 @@
 
 .form-ta {
 	width: 650px;
+}
+/*****************************************************************
+							reply
+******************************************************************/
+
+.reply-box{
+	display:block;
+	padding: 15px;
+	overflow: auto;
+}
+ul, li{
+	list-style: none;
+}
+.replyBtn{
+	cursor: pointer;
+}
+.reply-time{
+  background: #3BB0D6;
+  /* display: none;   */
+  color:#fff;
 }

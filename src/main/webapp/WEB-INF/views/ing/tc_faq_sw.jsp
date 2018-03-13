@@ -4,16 +4,14 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>그리드 테스트</title>
+<title>tc FAQ</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/blist_sw.css" rel="stylesheet" type="text/css">
-
+<link href="${initParam.rootPath }/resources/css/tc_faq_sw.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -22,20 +20,7 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-<style type="text/css">
-.simple-table{
-	position: relative;
-	text-align: left;
-	font-size: 15px;
-	border-bottom: 1px solid #bbb;
-}
-.simple-table .tbl-h1{
-	width: 80%;
-}
-.simple-table .tbl-h2{
-	width: 20%;
-}
-</style>
+<!-- 임시 js -->
 <script type="text/javascript">
 
 </script>
@@ -43,106 +28,30 @@
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
-<body>
-	
-	
+<body>	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
-		<div class='column-left'>
-		
-			<div class='section_main1'>
-					<div class="content1">
-							<section class="elem elem-yellow" id="com-search" style="width: 740px;height: 50px;">
-								<div class="com-select">
-								<select class="com-rank"></select>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="com-searchList" style="width: 740px;height: 500px;">
-								<div class='company-contest-table'>
-									<div class='wrapper'>
-										<table cellspacing='0'>
-											<tr>
-												<th>기업</th>
-												<th>평점</th>
-												<th>리뷰갯수</th>
-										
-											</tr>
-				
-											<tr>
-												<td>
-													<div style="display: flex;">
-														<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
-														<div style="flex-direction: column;">
-															<div style="height: 50%;">
-															<a href="${initParam.rootPath }/bread">삼성전자(주)</a>													
-															</div>
-															<div style="height: 50%;">
-															<span style="border-radius: 10px; background-color: darkgray;">JAVA</span>
-															<span style="border-radius: 10px; background-color: darkgray;">Python</span>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td>4.5/5.0</td>
-												<td><span>312</span></td>
-											</tr>
-											<tr class='even'>
-												<td>
-													<div style="display: flex;">
-														<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
-														<div style="flex-direction: column;">
-															<div style="height: 50%;">
-															<a href="${initParam.rootPath }/bread">카카오(주)</a>													
-															</div>
-															<div style="height: 50%;">
-															<span style="border-radius: 10px; background-color: darkgray;">JAVA</span>
-															<span style="border-radius: 10px; background-color: darkgray;">C++</span>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td>4.5/5.0</td>
-												<td><span>452</span></td>
-											</tr>
-											<tr>
-												<td><img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 30px; height: 30px;"><a href="#">다이슨 컴퍼니(주)</a></td>
-												<td>4.5/5.0</td>
-												<td><span>88</span></td>
-											</tr>
-											<tr class='even'>
-												<td><img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 30px; height: 30px;"><a href="#">네이버(주)</a></td>
-												<td>4.5/5.0</td>
-												<td><span>72</span></td>
-											</tr>		
-										</table>
-									</div>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="paging" style="width: 740px;height: 100px;">
-								<div class="cont-qna-page">
-								      <ul class="pagination">
-								      <c:if test="${pageMaker.prev}">
-								         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-								      </c:if>
-								      <c:forEach begin="${pageMaker.startPage }"
-								            end="${pageMaker.endPage }" var="idx">
-								      <li 
-								         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-								         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-								      </li>
-								      </c:forEach>
-								
-								      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-								      </c:if>         
-								      </ul>
-							    </div>
-							</section>
-					</div>
-					<!-- content1 -->
-				</div><!-- section_main1 -->
-				
-		</div>
+		<div class='column-left'>	
+			<div class='com-contest-head'>
+				<div class='title-wrapper'>
+					<div class='column-title'>FAQ</div>
+				</div>
+				<div class='faq-box'>
+					<ul class="faq">
+						<li class="q">뭐가 궁금한가</li>
+						<li class="a">답변을 적으시오</li>
+						
+						<li class="q">뭐가 궁금한가</li>
+						<li class="a">답변을 적으시오</li>
+						
+						<li class="q">뭐가 궁금한가</li>
+						<li class="a">답변을 적으시오</li>
+						
+					</ul>
+				</div>
+			</div><!-- section_main1 -->
+			
+		</div><!-- column-left -->
 		
 		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
@@ -243,19 +152,19 @@
 		</div>
 
 	<!-- frame -->
-	
-<!-- select -->
 <script type="text/javascript">
+var action = 'click';
+var speed = "500";
+	//Document.Ready
 $(function(){
-	$('.star-btn').on("click", function(){
-		self.location="${initParam.rootPath }/blist"
+	//Question handler
+	$('li.q').on(action, function(){
+		$(this).next().slideToggle(speed).siblings('li.a').slideUp();
+		
+		
 	});
 });
 </script>
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/com_info_list.js">
-</script>
-<script type="text/javascript">
-rank('option');
-</script>
+
 </body>
 </html>

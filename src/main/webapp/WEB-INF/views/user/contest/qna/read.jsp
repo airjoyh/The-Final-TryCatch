@@ -89,7 +89,7 @@
 			</div><!-- section_main1 -->
 			<div class='section_qnareply'>
 				<div class="row" align="center">
-					<div class="col-md-12">
+					<div class="reply-box">
 			
 						<div class="box box-success">
 							<div class="box-header">
@@ -106,6 +106,8 @@
 							<!-- /.box-body -->
 							<div class="box-footer">
 								<button type="button" id="replyAddBtn">댓글 등록</button>
+								<!-- timeline time label -->
+								<button id="replyBtn">댓글</button>
 							</div>
 							</c:if>
 							
@@ -116,42 +118,21 @@
 							</c:if>
 						</div>
 			
-			
-						<!-- The time line -->
-						<ul class="timeline">
-							<!-- timeline time label -->
-							<li class="time-label" id="repliesDiv"><span class="bg-green">댓글</span></li>
-						</ul>
-			
-						<div class='text-center'>
-							<ul id="pagination" style="display: flex; flex-direction: row; margin-left:300px;" class="pagination pagination-sm no-margin ">
-			
+
+							<!-- The time line -->
+							<ul class="timeline" style="display: inline-flex; flex-direction: column;">
+								<!-- timeline time label -->
+								 <li class="time-label" id="repliesDiv"></li> 
 							</ul>
-						</div>
-			 
+						
+							<div class='text-center' style="align-content: center;">
+								<ul id="pagination" style="display: flex; flex-direction: row;" class="pagination pagination-sm">
+				
+								</ul>
+							</div>
+
 					</div>
 					<!-- /.col -->
-				</div>
-				
-				<!-- Modal -->
-				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-				  <div class="modal-dialog">
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal_title"></h4>
-				      </div>
-				      <div class="modal-body" data-rno>
-				        <p><input type="text" id="replytext" class="form-control"></p>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-				        <button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div>
-				  </div>
 				</div>
 			</div><!-- section_qnareply -->
 		</div><!-- column-left -->
@@ -227,18 +208,18 @@
 					  	type="text" placeholder="60초 안에 인증코드를 입력해주세요" size="20">
 					<input type="button" name="sendEmail" id="sendEmail"
 				       	value="인증코드 요청">
-					</div>
+				</div>
 					
 				<div class="modal-footer">
 					<input type="button" name="emailConfirm" id="emailConfirm"
 				       	value="완료">
-					</div>
 				</div>
 			</div>
+		</div>
 			
 		<!-- 비밀번호 찾기 모달	 -->
 		<div class="modal" id="find-pwd">
-		<div class="modal-pannel">
+			<div class="modal-pannel">
 				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
 				<div class="modal-body">
 					<input id="member_id" name="member_id" 
@@ -250,9 +231,46 @@
 					<input type="button" name="emailConfirm" id="emailConfirm"
 				       	value="완료">
 					</div>
-				</div>
 			</div>
 		</div>
+			
+		<!-- 댓글 수정 모달	 -->
+		<div class="modal" id="modifyModal">
+			<div class="modal-pannel">
+				<div class="modal-title">댓글수정 <a href="#close">CLOSE</a></div>
+				<div class="modal-body">
+					<h4 class="modal_title"></h4>
+					<p><input type="text" id="replytext" class="form-control" style="width: 90%;"></p>
+				</div>
+					
+				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+					<input type="button" name="replyConfirm" id="replyModBtn" value="수정">
+					<input type="button" name="replyDelete" id="replyDelBtn" value="삭제">
+					</div>
+			</div>
+		</div>
+		
+			
+<!-- 				Modal
+				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+				  <div class="modal-dialog">
+				    Modal content
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal_title"></h4>
+				      </div>
+				      <div class="modal-body" data-rno>
+				        <p><input type="text" id="replytext" class="form-control"></p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-info" id="replyModBtn">수정</button>
+				        <button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
+				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				      </div>
+				    </div>
+				  </div>
+				</div> -->
 
 	<!-- frame -->
 <script id="template" type="text/x-handlebars-template">
@@ -267,8 +285,7 @@
   <div class="timeline-body">{{reply_contents}}</div>
     <div class="timeline-footer">
 	{{#eqReply_writer reply_writer}}
-     <a class="btn btn-primary btn-xs" 
-	    data-toggle="modal" data-target="#modifyModal">Modify</a>
+     <span><a href="#modifyModal">Modify</a></span>
 	{{/eqReply_writer}}
     </div>
   </div>			
@@ -354,6 +371,13 @@
 		
 	});
 	
+	//댓글버튼을 눌렀을때 댓글목록이 보여지는 부분
+	
+	$(function(){
+		$('#replyBtn').on('click',function(){
+			$(this).next().slideToggle("500").siblings('.reply-time').slideUp();
+		});
+	});
 	
 	$("#replyAddBtn").on("click",function(){
 		 //alert('댓글 등록')
@@ -414,6 +438,7 @@
 						alert("수정 되었습니다.");
 						getPage("${initParam.rootPath}/review/qna_reply/"+qna_no+"/"+replyPage );
 						reply_contents.val("");
+						$("#modifyModal").modal('hide');
 					}
 			}});
 	});
@@ -436,7 +461,7 @@
 					if(result == 'success'){
 						alert("삭제 되었습니다.");
 						getPage("${initParam.rootPath}/review/qna_reply/"+qna_no+"/"+replyPage );
-						$("#modifyModal").modal('toggle');
+						$("#modifyModal").modal('hide');
 					}
 			}});
 	});
