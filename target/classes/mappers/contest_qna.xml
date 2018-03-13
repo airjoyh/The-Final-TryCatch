@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="contest_qna">
+
+  	<insert id="create">
+  		insert into
+  		contest_qna (qna_no, qna_writer, qna_title, qna_wdate, qna_contents, contest_id)
+  		values (contest_qna_seq.nextval, #{qna_writer}, #{qna_title}, sysdate, #{qna_contents}, #{contest_id})
+  	</insert>
+  	
+  	<select id="list" resultType="Contest_qnaVO">
+  		select qna_no, qna_writer, qna_title, qna_wdate, qna_contents, qna_viewCount, 
+  		       qna_replyCount, contest_id
+  	    from contest_qna
+  	    where contest_id = #{contest_id}
+  	    order by qna_no desc
+  	</select>
+  	
+  	<select id="read" resultType="Contest_qnaVO">
+  		select qna_no, qna_writer, qna_title, qna_wdate, qna_contents, qna_viewCount, contest_id
+  		from contest_qna
+  		where qna_no=#{qna_no}
+  	</select>
+  	
+  	<update id="update">
+    	update contest_qna 
+    	set qna_title=#{qna_title}, qna_wdate=sysdate, qna_contents=#{qna_contents}
+  		where qna_no=#{qna_no}
+  	</update>
+  	
+  	<delete id="delete">
+    	delete from contest_qna
+  		where qna_no=#{qna_no}
+  	</delete>
+  	
+  	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString() ">
+				and qna_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString() ">
+				and qna_writer like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'tw'.toString() ">
+				and qna_title like '%'||#{keyword}||'%'
+				or qna_writer like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</sql>
+	
+	<!-- 검색어 대한 like조회 -->
+	<select id="listSearch" resultType="Contest_qnaVO">
+		select *
+		from contest_qna
+		where contest_id = #{contest_id}
+		<include refid="search"></include>
+		order by qna_no desc
+	</select>
+  	
+  	<!-- 검색어 대한 like조회된 전체 레코드 수 -->
+	<select id="listSearchCount" resultType="int">
+		select count(*)
+		from contest_qna
+		where contest_id = #{contest_id}
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCount">
+     	update contest_qna 
+     	set qna_replyCount = qna_replyCount + #{amount} 
+     	where qna_no = #{qna_no}
+   	</update> 
+  
+   	<update id="updateViewCount">
+     	update contest_qna 
+     	set qna_viewCount = qna_viewCount + 1 
+     	where qna_no=#{qna_no}
+   	</update>
+
+</mapper>
