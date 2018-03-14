@@ -275,7 +275,7 @@
 						alert("등록 되었습니다.");
 						replyPage = 1;
 						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
-					    reply_writerObj.val(""); //댓글 작성자 빈칸으로
+					    //reply_writerObj.val(""); //댓글 작성자 빈칸으로
 						reply_contentsObj.val(""); //댓글 내용 빈칸으로
 					}
 			}});
@@ -333,10 +333,10 @@
 				dataType:'text', 
 				success:function(result){
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if(result == 'success'){
 						alert("삭제 되었습니다.");
 						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
-						$("#modifyModal").modal('toggle');						
+						$("#modifyModal").modal('toggle');
 					}
 			}});
 	});
