@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="community_reply">
+   
+   <insert id="create">
+      insert into community_reply (reply_no,community_no,reply_contents,reply_writer,reply_wdate)
+                  values (community_reply_seq.nextval,#{community_no},#{reply_contents},#{reply_writer},sysdate)
+   </insert>
+   
+   <select id="list" resultType="Community_replyVO">
+      select reply_no,community_no,reply_contents,reply_writer,reply_wdate
+      from community_reply
+      where community_no=#{community_no}
+      order by reply_no desc
+   </select>
+   
+   <!-- 특정 게시물에 속한 댓글의 전체 수 -->
+   <select id="count" resultType="int">
+      select count(*) from community_reply
+      where community_no=#{community_no}
+   </select>
+   
+   <select id="getCommunity_no" resultType="int">
+		select community_no from community_reply
+     	where reply_no = #{reply_no}
+	</select>
+	
+	<update id="update">
+	  	update community_reply 
+	  	set reply_contents = #{reply_contents}, reply_wdate=sysdate
+	  	where reply_no = #{reply_no}
+	</update>
+	
+	<delete id="delete">
+	 	delete from community_reply 
+	 	where reply_no = #{reply_no}
+	</delete>
+	
+</mapper>
