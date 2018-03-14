@@ -89,19 +89,20 @@
 				
 				<div class='pf-body'>
 					<div class='pf-intro'>
-						
+						<div class='body-title'>Self-introduce</div>
+						<textarea rows="10" placeholder="자기소개를 해주세요"></textarea>
 					</div>
 					<div class='pf-skill'>
-					
+						<div class='body-title'>Skills</div>
 					</div>
 					<div class='pf-lisence'>
-					
+						<div class='body-title'>Lisence</div>
 					</div>
 					<div class='pf-award'>
-					
+						<div class='body-title'>Award</div>
 					</div>
 					<div class='pf-pflink'>
-					
+						<div class='body-title'>Portfolio</div>
 					</div>
 				</div>
 				

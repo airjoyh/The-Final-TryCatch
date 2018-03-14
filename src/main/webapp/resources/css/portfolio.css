@@ -117,7 +117,33 @@
 .pf-navbar ul li:hover {
 	border-bottom: 3px solid #ddd;
 }
+.pf-intro,
+.pf-skill,
+.pf-lisence,
+.pf-award,
+.pf-pflink{
+	padding:50px 15px;
+	
+}
 
+.body-title{
+	color:#444;
+	text-align:left;
+	font-size:20px;
+	border-bottom: 1px solid #ddd;
+}
+
+.pf-intro textarea {
+	width:100%;
+	resize: none;
+	padding-top:10px;
+	padding-bottom:10px;
+	
+	border:0;
+	background-color:#f9f9f9;
+	border-bottom: 1px solid #ddd;   
+	text-indent: 10px;                                                                                                                                                                                                                                                
+}
 
 
 
