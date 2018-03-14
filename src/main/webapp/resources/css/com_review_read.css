@@ -74,15 +74,12 @@
 	
 }
 
-/* .inline-qna-body {
-	line-height: 20px;
-	color: #a1a1a1;
-	font-size: 13px;
-	padding-bottom: 5px;
-} */
-
 .star-line {
 	height: 100%;
+}
+
+.star-line ul{
+	list-style: none;
 }
 
 .com-inline-btn {

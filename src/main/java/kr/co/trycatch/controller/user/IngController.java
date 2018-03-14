@@ -66,6 +66,12 @@ public class IngController {
 		return "/ing/community_read_sw";
 	}
 	
+	@RequestMapping("/communitymodify")
+	public String communitymodify() {
+		System.out.println("modify");
+		return "/ing/community_modify_sw";
+	}
+	
 	@RequestMapping("/communityregist")
 	public String communityregist() {
 		System.out.println("register");
