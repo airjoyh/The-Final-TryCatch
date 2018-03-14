@@ -336,7 +336,7 @@
 					if(result == 'SUCCESS'){
 						alert("삭제 되었습니다.");
 						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
-						$("#modifyModal").modal('toggle');
+						$("#modifyModal").modal('toggle');						
 					}
 			}});
 	});
