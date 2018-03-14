@@ -1,0 +1,148 @@
+
+/*****************************************************************
+							  swlee
+******************************************************************/
+.section_qnareply {
+    position: relative;
+    height: 300px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+}
+
+.com-contest-head {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    
+    margin-bottom: 8px;
+}
+
+.qna-list {
+	height:35px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.qna-modify {
+	height:35px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.qna-delete {
+	height:35px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.register-contest:hover{
+	background-color: #2b303b;
+}
+
+.com-qna-title{
+	height:45px;
+	width:700px;
+	margin: 0;
+    padding:0;
+	display: inline-block;
+	position: absolute;
+	
+}
+
+.com-qna-content{
+	margin-top: 100px;
+	height:300px;
+	width:700px;
+	display: inline-block;
+	
+}
+
+
+/* .inline-qna-body {
+	line-height: 20px;
+	color: #a1a1a1;
+	font-size: 13px;
+	padding-bottom: 5px;
+} */
+
+.star-line {
+	height: 100%;
+}
+
+.com-inline-btn {
+	height: 35px;
+	right: 300px;
+    bottom: 10px;
+	margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+}
+
+.form-ta {
+	width: 650px;
+}
+
+/*****************************************************************
+							Label
+******************************************************************/
+
+.com-qna-content label{
+  width: 100%;
+   float: left;
+   line-height: 15px;
+   font-size: 15px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   color: #55acee;
+   position: relative;
+} 
+.com-qna-content label:before {
+  content: "";
+   width: 5px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: -10px;
+   background: #55acee;
+} 

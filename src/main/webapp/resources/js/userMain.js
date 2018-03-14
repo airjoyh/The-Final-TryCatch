@@ -5,11 +5,11 @@
  */
 
 //스크롤하면 헤더 없어짐
-$(window).scroll(function () {
+/*$(window).scroll(function () {
 	var height = $(document).scrollTop();
 	if(height>50){
 		$('.nav-header').slideUp(200);
-		$('.nav').css('background-color','rgba(255,255,255,0.7)');
+		$('.nav').css('background-color','rgba(255,255,255,0.9)');
 		
 	}else{
 		$('.nav-header').slideDown(200);
@@ -17,7 +17,7 @@ $(window).scroll(function () {
 		
 	}
 });
-
+*/
 
 
 $(function(){

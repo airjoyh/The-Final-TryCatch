@@ -10,7 +10,6 @@
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/portfolio.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
@@ -37,7 +36,27 @@
 <![endif]-->
 <body>
 	<!-- nav-area -->
-	
+	<div class='nav'>
+		<div class='navbar'>
+			<div class='nav-item'>
+				<div class='brand'>
+					<img src="${initParam.rootPath }/resources/image/ing/brand.svg">
+				</div>
+				<div class=search></div>
+				<ul>
+					<li id='intro'>소개</li>
+					<li id='contest'>콘테스트</li>
+					<li id='company'>기업</li>
+					<li id='community'>커뮤니티</li>
+					<li id='faq' style="">FAQ</li>
+					<li id='com-user' style='float: right; text-align: right;'>기업회원</li>
+				</ul>
+			</div>
+			<div class='nav-list'></div>
+		</div>
+	</div>
+
+
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
@@ -59,17 +78,31 @@
 					</div>
 					<div class='pf-navbar'>
 						<ul>
-							<li>소개</li>
-							<li>기술</li>
-							<li>자격증</li>
-							<li>수상경력</li>
-							<li>포트폴리오</li>
+							<li id='self-intro'>자기소개</li>
+							<li id='skill'>기술</li>
+							<li id='lisence'>자격증</li>
+							<li id='award'>수상경력</li>
+							<li id='portfolio'>포트폴리오</li>
 						</ul>
 					</div>
 				</div><!-- pf-header -->
 				
 				<div class='pf-body'>
+					<div class='pf-intro'>
+						
+					</div>
+					<div class='pf-skill'>
 					
+					</div>
+					<div class='pf-lisence'>
+					
+					</div>
+					<div class='pf-award'>
+					
+					</div>
+					<div class='pf-pflink'>
+					
+					</div>
 				</div>
 				
 			</div><!-- section_pf -->
