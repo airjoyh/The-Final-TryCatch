@@ -37,15 +37,20 @@
 
 
 </style>
-<script type="text/javascript">
 
+<script type="text/javascript">
+	$(function(){
+		$('.mypage').on('click', function() {
+			$('.mypage-dropdown').toggle();
+		});
+	});
 </script>
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
 <body>
-	
+	<!-- nav-area -->
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
@@ -95,10 +100,16 @@
 				</div>
 				<div class='login-tab'>
 					<div class='mypage'>마이페이지</div>
-					<div class='note'>
-						쪽지
+					<div class='note'>쪽지
 						<label class='note-cnt'></label>
-						<span id='note-cnt'>0</span></div> 
+						<span id='note-cnt'>0</span>
+					</div>
+					<!-- hidden nav -->
+					<div class='mypage-dropdown'>
+						<div class='line'></div>
+						<div class='portfolio'>포트폴리오 페이지</div>
+						<div class='pwd-change'>비밀번호 변경</div>
+					</div>
 				</div>
 			</div><!-- section_login -->
 
@@ -178,7 +189,8 @@
 		</div>
 
 	<!-- frame -->
-
+	
+	<!-- footer-area -->
 
 </body>
 </html>

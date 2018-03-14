@@ -29,4 +29,10 @@ public class TestController {
 		System.out.println("오냐");
 		return "/ing/codemirror";
 	}
+	
+	@RequestMapping("/user/portfolio")
+	public String portfolio() {
+		System.out.println("오냐");
+		return "/ing/user_portfolio";
+	}
 }

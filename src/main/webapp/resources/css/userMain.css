@@ -7,7 +7,6 @@
 */
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-@import "https://fonts.googleapis.com/css?family=Raleway";
 
 /* fixed box size */
 * {
@@ -33,7 +32,7 @@ top-margin:
 width:1100px  left-width: 740px; right-width: 332px;
 ******************************************************************/
 body {
-	font-family: 'Raleway',"Noto Sans KR", sans-serif;
+	font-family: 'Mina',"Noto Sans KR", sans-serif;
 	font-weight: 200;
 	font-size:14px;
 	background-color: #f2f4f7;
@@ -232,6 +231,7 @@ right side CSS
 }
 
 .login-tab .mypage{
+	position:relative;
 	display: inline-block;
 	float:left;
 	text-align:center;
@@ -241,6 +241,42 @@ right side CSS
 	padding-top: 15px;
 	cursor: pointer;
 }
+.mypage-dropdown{
+	display:none;
+	position: absolute;
+	top:198px;
+	left:-1px;
+	z-index:100;
+	
+	border: 1px solid #dee3eb;
+	border-top:none;
+	background-color:#fff;
+	width: 332px;
+	height: 80px;
+}
+.line{
+	position: absolute;
+	width:50%;
+	left:165px;
+	top:-1px;
+	border-top: 1px solid #dee3eb;
+}
+.portfolio,
+.pwd-change{
+	padding-left: 50px;
+	padding-top:8px;
+	height: 40px;
+	cursor: pointer;
+}
+.portfolio{
+	border-bottom: 1px solid #dee3eb;
+}
+
+.portfolio:hover,
+.pwd-change:hover{
+	background-color: #f1f1f1;
+}
+
 .login-tab .note{
 	position:relative;
 	display: inline-block;
