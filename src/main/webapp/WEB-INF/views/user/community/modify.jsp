@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <section class="content">
+
+<section class="content">
        <div class="row">
           <div class="col-md-12">   
              <div class="box nox-primary">
@@ -44,13 +45,12 @@
        </div>
        <!-- /.box-body -->
 
-       </form>
 	   <div class="box-footer">
 		   <button type="submit" class="btn btn-primary">수정</button>
-		   <button type="submit" class="btn btn-warning">취소</button>
+		   <button type="button" class="btn btn-warning">취소</button>
 	   </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       </form>
+
         
              </div>
           </div>

@@ -14,7 +14,7 @@
             <!-- /.box-header -->
             
             <form role="form" action="modifyPage" method="post">
-                <input type='hidden' name='community_no' value="${community.community_no}">
+                <input type='hidden' id="community_no" name='community_no' value="${community.community_no}">
                 <input type='hidden' name='page' value="${cri.page}">
                 <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
                 <input type='hidden' name='searchType' value="${cri.searchType}">
@@ -84,8 +84,7 @@
          <!-- The time line -->
 			<ul class="timeline">
 				<!-- timeline time label -->
-				<li class="time-label" id="repliesDiv"><span class="bg-green">
-					      댓글 리스트 </span></li>
+				<li class="time-label" id="community_repliesDiv">댓글 리스트</li>
 			</ul>
 
 			<div class='text-center'>
@@ -182,15 +181,13 @@
 	function getPage(pageInfo) {
 		
 	
-		$.ajax({
-			url:pageInfo,
-			cache:false,
-			success:function(data) {
-				printData(data.list, $("#repliesDiv"), $('#template'));
-				printPaging(data.pageMaker, $(".pagination"));
-				$("#modifyModal").modal('hide');
-			   }
-			});
+		$.getJSON(pageInfo, function(data) {
+			printData(data.list, $("#community_repliesDiv"), $('#template'));
+			printPaging(data.pageMaker, $(".pagination"));
+	
+			//$("#modifyModal").modal('toggle');
+	
+		});
 	}
 	
 	var printPaging = function(pageMaker, target) {//아래부분에 페이징하는 것
@@ -215,29 +212,31 @@
 		target.html(str);
 	};
 
-	$("#repliesDiv").on("click", function() {//댓글 보여주기(Replies List)를 클릭하면
-		/* console.log("댓글목록 클릭!!"+ flag);
+	/* $("#community/replyDiv").on("click", function() {//댓글 보여주기(Replies List)를 클릭하면
+		///
+		console.log("댓글목록 클릭!!"+ flag);
 		if(flag){
 			$('.replyLi').show();
 			$('.pagination').show();
 			
-			flag=!flag; */
+			flag=!flag; 
+		///	
 		$('.replyLi').slideToggle(500);//댓글 리스트 보이고 안보이게 하기
 		$('#pagination li').slideToggle(500);//댓글 페이징 보이고 안보이게 하기
 		if ($(".timeline li").size() > 1) {//댓글 리스트가 1개이상 있다면
 			return;
 		}
-		getPage("/replies/" + community_no + "/1");//댓글 첫페이지 보여주기.
-		/* }else{
+		getPage("${initParam.rootPath}/community/reply/" + community_no + "/1");//댓글 첫페이지 보여주기.
+		///
+		 }else{
 			flag=!flag;
 			$('.replyLi').hide();
 			$('.pagination').hide();
-		} */
-		
+		} 
+	    ///
 
-	});
+	}); */
 	
-
 	$(".pagination").on("click", "li a", function(event){//pagination클래스를 가진 태그의 li의 a태그를 클릭하면
 		//댓글 페이징 버튼을 클릭하면
 		
@@ -245,7 +244,7 @@
 		
 		replyPage = $(this).attr("href");//a태그의 href --> 페이지(i)
 		
-		getPage("/replies/"+community_no+"/"+replyPage);
+		getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage);
 		
 	});
 	
@@ -262,7 +261,7 @@
 		 console.log('>>>'+reply_writer,reply_contents,community_no+'<<<<');
 		  $.ajax({
 				type:'post', //post로 지정
-				url:'${initParam.rootPath}/replies',
+				url:'${initParam.rootPath}/community/reply',
 				/* headers: { 
 				      "Content-Type": "application/json", //서버에 json형식으로 데이터를 전달하기 위해
 				      "X-HTTP-Method-Override": "POST" }, */
@@ -275,7 +274,7 @@
 					if(result == 'success'){//서버에 데이터를 전달하고 'SUCCESS'라는 결과값이 왔다면(댓글 등록이 되었다면)
 						alert("등록 되었습니다.");
 						replyPage = 1;
-						getPage("${initParam.rootPath}/replies/"+community_no+"/"+replyPage );
+						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
 					    reply_writerObj.val(""); //댓글 작성자 빈칸으로
 						reply_contentsObj.val(""); //댓글 내용 빈칸으로
 					}
@@ -303,7 +302,7 @@
 		  
 		  $.ajax({
 				type:'put',
-				url:'/replies/'+reply_no,
+				url:'${initParam.rootPath}/community/reply/'+reply_no,
 				headers: { 
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "PUT" },
@@ -311,9 +310,11 @@
 				dataType:'text', 
 				success:function(result){
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if(result == 'success'){
 						alert("수정 되었습니다.");
-						getPage("/replies/"+community_no+"/"+replyPage );
+						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+						$('#reply_writer').val("");
+						$("#reply_contents").val("");
 					}
 			}});
 	});
@@ -325,7 +326,7 @@
 		  
 		  $.ajax({
 				type:'delete',
-				url:'/replies/'+reply_no,
+				url:'${initParam.rootPath}/community/reply/'+reply_no,
 				headers: { 
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "DELETE" },
@@ -334,7 +335,8 @@
 					console.log("result: " + result);
 					if(result == 'SUCCESS'){
 						alert("삭제 되었습니다.");
-						getPage("/replies/"+community_no+"/"+replyPage );
+						getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+						$("#modifyModal").modal('toggle');
 					}
 			}});
 	});
@@ -345,6 +347,8 @@
 $(document).ready(function(){
 	var formObj = $("form[role='form']");
 	
+	var community_no = $('#community_no').val();
+	getPage("${initParam.rootPath}/community/reply/"+community_no+"/1");
 	console.log(formObj);
 	
 	$('#modifyBtn').on("click", function(){

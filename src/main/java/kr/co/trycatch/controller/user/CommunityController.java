@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import kr.co.trycatch.domain.user.CommunityVO;
 import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.PageMaker;
@@ -30,9 +31,24 @@ public class CommunityController {
 	
    @Inject
    private CommunityService communityService;
-   
-   //@Inject
-   //private ReplyService replyService;
+
+  // @Inject
+  // private Review_replyService review_replyService;
+  
+   @RequestMapping(value="/register",method= {RequestMethod.POST})
+   public String registerPost(CommunityVO communityVo, RedirectAttributes rttr) throws Exception{
+	   
+	   logger.info("DB입력 요청........");
+	   System.out.println("입력데이터>>>"+ communityVo);
+	   
+	   communityService.regist(communityVo);
+	   
+	   rttr.addFlashAttribute("msg","SUCCESS");
+	   
+	   System.out.println(">>> msg에 SUCCESS저장");
+	   
+	   return "redirect:/user/community/list";
+   }
    
    @RequestMapping("/list")
    public void listPage(SearchCriteria cri, Model model) throws Exception{
@@ -51,22 +67,9 @@ public class CommunityController {
    @RequestMapping(value="/register",method=RequestMethod.GET)
    public void registGET() throws Exception{
 	   logger.info("입력폼 요청........");
+	   
    }
    
-   @RequestMapping(value="/register",method= {RequestMethod.POST})
-   public String registerPost(CommunityVO communityVo, RedirectAttributes rttr) throws Exception{
-	   
-	   logger.info("DB입력 요청........");
-	   System.out.println("입력데이터>>>"+ communityVo);
-	  
-	   communityService.regist(communityVo);
-	   
-	   rttr.addFlashAttribute("msg","SUCCESS");
-	   
-	   System.out.println(">>> msg에 SUCCESS저장");
-	   
-	   return "redirect:/user/community/list";
-   }
    
    @RequestMapping(value="/read", method=RequestMethod.GET)
    public void read(@RequestParam("community_no") int community_no,
@@ -89,6 +92,26 @@ public class CommunityController {
       
 	      return "/user/community/modify";
    }
+   
+   @RequestMapping(value="/modify",method=RequestMethod.POST)
+	public String modifyPagingPost(CommunityVO communityVo, 
+							SearchCriteria cri,
+						RedirectAttributes rttr)
+			                                            throws Exception{//DB수정 요청
+	    communityService.modify(communityVo);
+		//수정후 목록창으로 이동
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		//수정한 페이지 정보를 listPage.jsp에게 전달
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg","SUCCESS");
+		
+		return "redirect:/user/community/list";
+	}
    
    @RequestMapping(value="/remove")
 	public String remove(int community_no, RedirectAttributes attr) throws Exception{

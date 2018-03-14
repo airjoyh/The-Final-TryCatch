@@ -22,7 +22,7 @@ import kr.co.trycatch.domain.user.Review_replyVO;
 import kr.co.trycatch.service.user.Community_replyService;
 
 @RestController
-@RequestMapping("/replies")
+@RequestMapping("/community/reply")
 public class Community_replyController {
     
     @Inject

@@ -22,7 +22,7 @@
 	
 	<!-- 특정 게시물 수정 -->
 	<update id="update">
-	   update community set title=#{title}, community_contents=#{community_contents},
+	   update community set community_title=#{community_title}, community_contents=#{community_contents},
 	   community_writer=#{community_writer}
 	   where community_no=#{community_no}
 	</update>
