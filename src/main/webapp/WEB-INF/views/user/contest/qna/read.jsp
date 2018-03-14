@@ -69,8 +69,8 @@
 							       value="${contest_qna.qna_title }" readonly="readonly">
 				            
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
-				            <input class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
-				                   value="${contest_qna.qna_writer }" readonly="readonly">
+				            <span class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
+				                   value="" readonly="readonly"><a href="#tcmail">${contest_qna.qna_writer }</a></span>
 				        </div>
 					</div>
 					<div class='com-qna-content'>
@@ -246,6 +246,23 @@
 				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
 					<input type="button" name="replyConfirm" id="replyModBtn" value="수정">
 					<input type="button" name="replyDelete" id="replyDelBtn" value="삭제">
+					</div>
+			</div>
+		</div>
+			
+		<!-- mail 모달	 -->
+		<div class="modal" id="tcmail">
+			<div class="modal-pannel">
+				<div class="modal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
+				<div class="modal-body">
+					<h4>보낸 기업 아이디</h4><p><input type="text" id="replytext" class="form-control" style="width: 90%; height: 15px;"></p>
+					<h4>받는 구직자 아이디</h4><p><input type="text" id="replytext" class="form-control" style="width: 90%; height: 15px;"></p>
+					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;"></textarea>
+				</div>
+					
+				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+					<input type="button" name="replyConfirm" id="replyModBtn" value="전송">
+					<input type="button" name="replyDelete" id="replyDelBtn" value="취소">
 					</div>
 			</div>
 		</div>
