@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.trycatch.domain.user.Contest_qnaVO;
+import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.persistence.user.Contest_qnaDAO;
 
@@ -58,4 +59,10 @@ public class Contest_qnaServiceImpl implements Contest_qnaService{
 	
 		contest_qnaDao.delete(qna_no);
 	}
+
+	/*@Override
+	public NoteVO note() throws Exception {
+		
+		return contest_qnaDao.note();
+	}*/
 }

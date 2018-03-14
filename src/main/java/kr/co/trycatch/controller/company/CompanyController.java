@@ -58,6 +58,7 @@ public class CompanyController {
 		if (memberVo == null) {
 			state = "noRegister";
 		} else if (memberVo != null) {
+			//session.setAttribute("login_id", login_id); //혹시 공통된 로그인 아이디 세션키값이 필요할 때 사용할것
 			session.setAttribute("company_login_member_id", login_id);
 			session.setAttribute("company_loginState", "login");
 			

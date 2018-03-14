@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.trycatch.domain.user.Contest_qnaVO;
+import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.PageMaker;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.user.Contest_qnaService;
@@ -64,9 +65,11 @@ public class Contest_qnaController {
 		System.out.println("Contest_qnaController read() 읽을 글번호>>"+qna_no);
 		System.out.println("cri"+cri);
 		Contest_qnaVO vo = contest_qnaService.read(qna_no);
+		//NoteVO noteVo= contest_qnaService.note();
 		System.out.println("Contest_qnaVO : "+ vo);
 		model.addAttribute("contest_qna",vo);
 		model.addAttribute("cri",cri);
+		//model.addAttribute("note", noteVo);
 		
 		//댓글 수 보여지는건데 화면이 깜빡거려야하는데 댓글을 ajax로 처리했기 때문에 댓글 추가 삭제하면 반영이안됨. 화면 새로고침해야함.
 		//model.addAttribute("review_replyCount", review_replyService.count(review_no));

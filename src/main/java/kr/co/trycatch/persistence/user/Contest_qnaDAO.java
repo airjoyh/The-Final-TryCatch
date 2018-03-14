@@ -3,6 +3,7 @@ package kr.co.trycatch.persistence.user;
 import java.util.List;
 
 import kr.co.trycatch.domain.user.Contest_qnaVO;
+import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.SearchCriteria;
 
 public interface Contest_qnaDAO {
@@ -24,4 +25,6 @@ public void create(Contest_qnaVO contest_qnaVo) throws Exception;
 	public void updateReplyCount(int qna_no, int amount) throws Exception;
 	
 	public void updateViewCount(int qna_no) throws Exception;
+	
+	//public NoteVO note() throws Exception;
 }

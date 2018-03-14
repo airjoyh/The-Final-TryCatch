@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.trycatch.domain.user.Contest_qnaVO;
+import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.SearchCriteria;
 
 @Repository
@@ -88,5 +89,11 @@ public class Contest_qnaDAOImpl implements Contest_qnaDAO {
 		
 		session.update("contest_qna.updateViewCount", qna_no);
 	}
+
+	/*@Override
+	public NoteVO note() throws Exception {
+		
+		return session.select("contest_qna.note");
+	}*/
 
 }

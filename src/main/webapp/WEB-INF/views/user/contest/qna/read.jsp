@@ -54,6 +54,12 @@
 				          <input type='hidden' name='searchType' value="${cri.searchType}">
 				          <input type='hidden' name='keyword' value="${cri.keyword}">
 			          </form>
+			         <%--  <form action="/company/note/register" name="noteForm" method="POST">
+			             <input type="hidden" id="note_id" name="note_id" value="${note.note_id} ">
+			             <input type="hidden" id="note_contents" name="note_contents" value="${note.note_contents}">
+			             <input type="hidden" id="note_sender" name="note_sender" value="${company_login_member_id}">
+			             <input type="hidden" id="note_receiver" name="note_receiver" value="${user_login_id}">
+			          </form> --%>
 						<div>
 							<span class="input-group-addon">글번호</span> 
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 
@@ -255,14 +261,14 @@
 			<div class="modal-pannel">
 				<div class="modal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
 				<div class="modal-body">
-					<h4>보낸 기업 아이디</h4><p><input type="text" id="replytext" class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 구직자 아이디</h4><p><input type="text" id="replytext" class="form-control" style="width: 90%; height: 15px;"></p>
-					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;"></textarea>
+					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id} " class="form-control" style="width: 90%; height: 15px;"></p>
+					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${contest_qna.qna_writer} " class="form-control" style="width: 90%; height: 15px;"></p>
+					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;" id="note_contents"></textarea>
 				</div>
 					
 				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
-					<input type="button" name="replyConfirm" id="replyModBtn" value="전송">
-					<input type="button" name="replyDelete" id="replyDelBtn" value="취소">
+					<input type="button" name="noteConfirm" id="noteModBtn" value="전송">
+					<!-- <input type="button" name="replyDelete" id="replyDelBtn" value="취소"> -->
 					</div>
 			</div>
 		</div>
@@ -484,6 +490,25 @@
 	});
 	
 	
+	$("#noteModBtn").on("click", function() {
+	    var note_contents = $("#note_contents");
+	    var note_sender= '${company_login_member_id}';
+	    var note_receiver= '${contest_qna.qna_writer }';
+	    
+	    //console.log(note_receiver);
+	    
+		  $.ajax({
+				type:'post',
+				url:'${initParam.rootPath}/user/note/register',
+				data:{"note_contents":note_contents.val(),"note_sender":note_sender, "note_receiver":note_receiver},
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'success'){
+						alert("등록 되었습니다.");
+						//$("#tcmail").modal('hide');
+					}
+			}});
+	});
 	
 </script>	
 

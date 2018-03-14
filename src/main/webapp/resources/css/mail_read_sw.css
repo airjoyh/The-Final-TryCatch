@@ -112,8 +112,9 @@
     position: absolute;
 }
 
-.form-ta {
-	width: 650px;
+.note-content{
+	border: 1px solid #f1f1f1;
+	height: 200px;
 }
 
 /*****************************************************************

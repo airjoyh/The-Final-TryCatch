@@ -16,6 +16,11 @@
   	    order by qna_no desc
   	</select>
   	
+  	<select id="note" resultType="NoteVO">
+  	  select note_id, note_contents 
+  	  from note
+  	</select>
+  	
   	<select id="read" resultType="Contest_qnaVO">
   		select qna_no, qna_writer, qna_title, qna_wdate, qna_contents, qna_viewCount, contest_id
   		from contest_qna
