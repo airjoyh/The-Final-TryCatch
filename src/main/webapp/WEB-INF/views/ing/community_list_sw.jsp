@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>그리드 테스트</title>
+<title>커뮤니티 게시판</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
@@ -12,7 +12,7 @@
 <link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/contest_qna_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_list_sw.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -51,34 +51,10 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='section_main1'>
+			<div class='section_main'>
 				<div class='com-contest-head'>
 					<div class='title-wrapper'>
-						<div class='column-title'>콘테스트 리스트</div>
-					</div>
-					<div class='wrapper'>
-						<div class='com-inline-txt'>
-							<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
-							<p class='inline-txt-body'>
-								- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br>
-								- 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
-								- 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
-								- 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
-							</p>
-						
-						</div>
-						<div class='com-inline-btn'>
-							<input type="button" class='register-contest' value='콘테스트 등록'>
-						</div>
-						
-						</div>
-				</div><!-- com-contest -->
-			</div><!-- section_main1 -->
-				
-			<div class='section_main2'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
-						<div class='column-title'>콘테스트 Q&A 게시판111</div>
+						<div class='column-title'>커뮤니티 게시판</div>
 					</div>
 					<div class='company-contest-table'>
 						<div class='wrapper'>
@@ -93,15 +69,15 @@
 								</tr>				
 								<tr>
 									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
+									<td><a href="${initParam.rootPath }/communityread"> 삼성전자 콘테스트 1번문제 질문</a></td>																		
 									<td>이성원</td>
 									<td>18/03/09</td>
 									<td>412</td>
 									<td><span id="com_reply">10</span></td>
 								</tr>
 								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
+									<td>2</td>	
+									<td><a href="${initParam.rootPath }/communityread"> 카카오콘테스트 질문잇어요</a></td>																																
 									<td>송다정</td>
 									<td>18/03/02</td>
 									<td>999</td>
@@ -109,15 +85,15 @@
 								</tr>		
 								<tr>
 									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
+									<td><a href="${initParam.rootPath }/communityread"> 삼성전자 콘테스트 1번문제 질문</a></td>																		
 									<td>이성원</td>
 									<td>18/03/09</td>
 									<td>412</td>
 									<td><span id="com_reply">10</span></td>
 								</tr>
 								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
+									<td>2</td>	
+									<td><a href="${initParam.rootPath }/communityread"> 카카오콘테스트 질문잇어요</a></td>																																
 									<td>송다정</td>
 									<td>18/03/02</td>
 									<td>999</td>
@@ -125,15 +101,15 @@
 								</tr>		
 								<tr>
 									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
+									<td><a href="${initParam.rootPath }/communityread"> 삼성전자 콘테스트 1번문제 질문</a></td>																		
 									<td>이성원</td>
 									<td>18/03/09</td>
 									<td>412</td>
 									<td><span id="com_reply">10</span></td>
 								</tr>
 								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
+									<td>2</td>	
+									<td><a href="${initParam.rootPath }/communityread"> 카카오콘테스트 질문잇어요</a></td>																																
 									<td>송다정</td>
 									<td>18/03/02</td>
 									<td>999</td>
@@ -141,15 +117,15 @@
 								</tr>		
 								<tr>
 									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
+									<td><a href="${initParam.rootPath }/communityread"> 삼성전자 콘테스트 1번문제 질문</a></td>																		
 									<td>이성원</td>
 									<td>18/03/09</td>
 									<td>412</td>
 									<td><span id="com_reply">10</span></td>
 								</tr>
 								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
+									<td>2</td>	
+									<td><a href="${initParam.rootPath }/communityread"> 카카오콘테스트 질문잇어요</a></td>																																
 									<td>송다정</td>
 									<td>18/03/02</td>
 									<td>999</td>
@@ -157,36 +133,21 @@
 								</tr>		
 								<tr>
 									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
+									<td><a href="${initParam.rootPath }/communityread"> 삼성전자 콘테스트 1번문제 질문</a></td>																		
 									<td>이성원</td>
 									<td>18/03/09</td>
 									<td>412</td>
 									<td><span id="com_reply">10</span></td>
 								</tr>
 								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
+									<td>2</td>	
+									<td><a href="${initParam.rootPath }/communityread"> 카카오콘테스트 질문잇어요</a></td>																																
 									<td>송다정</td>
 									<td>18/03/02</td>
 									<td>999</td>
 									<td><span id="com_reply">100</span></td>
 								</tr>		
-								<tr>
-									<td>1</td>																		
-									<td>삼성전자 기업면접봤어요....</td>																		
-									<td>이성원</td>
-									<td>18/03/09</td>
-									<td>412</td>
-									<td><span id="com_reply">10</span></td>
-								</tr>
-								<tr class='even'>
-									<td>2</td>																		
-									<td>삼성전자 면접후기</td>																		
-									<td>송다정</td>
-									<td>18/03/02</td>
-									<td>999</td>
-									<td><span id="com_reply">100</span></td>
-								</tr>			
+											
 							</table>
 						</div>
 					</div>
@@ -233,7 +194,7 @@
 					   </div>
 					</div><!-- com-contest-paging -->
 				</div>
-			</div><!-- section_main2 -->
+			</div><!-- section_main1 -->
 				
 		</div>
 		
@@ -339,7 +300,7 @@
 <script type="text/javascript">
 $(function(){
 	$('#registBtn').on("click", function(){
-		self.location="${initParam.rootPath }/conregist"
+		self.location="${initParam.rootPath }/communityregist"
 	});
 });
 </script>
