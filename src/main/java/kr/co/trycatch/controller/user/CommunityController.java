@@ -1,7 +1,5 @@
 package kr.co.trycatch.controller.user;
 
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
