@@ -175,7 +175,7 @@
 					
 				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
 					<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
-					</div>+
+					</div>
 			</div>
 		</div>
 	<!-- frame -->

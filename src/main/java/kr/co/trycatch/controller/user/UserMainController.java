@@ -13,8 +13,21 @@ public class UserMainController {
 	@RequestMapping(value = "/user/main", method = RequestMethod.GET)
 	public String userMain() throws Exception{
 		System.out.println("MainController userMain()");
-		return "userMain";
+		return "userMain_new";//"userMain";
 	}
+	
+	@RequestMapping(value = "/user/beforeLogin")
+	public String beforeLogin() throws Exception{
+		
+		return "/user/login_before_new";
+	}
+	
+	@RequestMapping(value = "/user/afterLogin")
+	public String afterLogin() throws Exception{
+		
+		return "/user/login_after_new";
+	}
+	
 
 	@RequestMapping(value = "/user/intro")
 	public String goIntro() throws Exception{
@@ -23,12 +36,6 @@ public class UserMainController {
 		return "introduce";
 	}
 
-	/*@RequestMapping(value = "/user/com_info/rank")
-	public String goCompanyInfo() throws Exception{
-		System.out.println("MainController goCompanyInfo()");
-
-		return "user/com_info/rank";
-	}*/
 	
 	@RequestMapping(value = "/user/faq")
 	public String goFaq() throws Exception{

@@ -78,6 +78,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "/changePass", method = RequestMethod.POST)
 	public String changePass(MemberVO memberVo, Model model) throws Exception {
+		System.out.println("컨트롤러 비밀번호 변경할 아이디 >>> "+ memberVo.getMember_id());
 		System.out.println("changePass()");
 		String state= memberService.changePass(memberVo);
 		
@@ -101,6 +102,9 @@ public class UserController {
 			} else {
 				session.setAttribute("user_login_id", login_id);//로그인 아이디
 				session.setAttribute("user_loginState", "login");//로그인 상태
+				while(!session.getAttribute("user_login_id").equals(login_id)) {
+					Thread.sleep(1000);
+				}
 				state = "login";
 			}
 		}

@@ -57,25 +57,8 @@
 		<div class='column-left'>
 		
 			<div class='section_main1'>
-				<div class="tabs-container">
-					<div class="tabs effect-3">
-						<input type="radio" id="tab-1" name="tab" checked="checked">
-						<span href="#tab-item-1">Info</span> 
-						<input type="radio" id="tab-2" name="tab"> 
-						<span href="#tab-item-2">Contest Start</span>
-						<div class="line ease"></div>
-			
-						<div class="tab-content">
-							<section id="tab-item-1">
-								<h1>One</h1>
-							</section>
-							<section id="tab-item-2">
-								<h1>Two</h1>
-							</section>
-			    			</div>
-						</div>
-					</div>
-				</div><!-- section_main1 -->
+				
+			</div><!-- section_main1 -->
 				
 			<div class='section_main2'>
 			
@@ -141,55 +124,11 @@
 			</div><!-- section_zzim -->
 
 		</div><!-- column-right -->
-			
-			
-			
-		<!-- modal 코드 -->
-		
-		<!-- 회원가입 모달 -->
-		<div class="modal" id="register">
-			<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호를 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호 확인" style="float: right;">
-					<input id="user_authCode" name="user_authCode"
-					  	type="text" placeholder="60초 안에 인증코드를 입력해주세요" size="20">
-					<input type="button" name="sendEmail" id="sendEmail"
-				       	value="인증코드 요청">
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-			
-		<!-- 비밀번호 찾기 모달 -->	
-		<div class="modal" id="find-pwd">
-		<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<i>*가입하신 이메일로 임시 비밀번호가 전송됩니다.</i>
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- modal import -->
+		<%-- <%@include file="" %> --%>
 
 	<!-- frame -->
-	
+	</div>
 	<!-- footer-area -->
 
 </body>

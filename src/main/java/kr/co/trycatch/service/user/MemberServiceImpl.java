@@ -154,18 +154,23 @@ public class MemberServiceImpl implements MemberService {
 	public String changePass(MemberVO memberVo) throws Exception {
 		String state = "";
 		String authCode = memberDao.authCode(memberVo.getMember_id());
-		MemberVO memberVo2 = memberDao.member(memberVo.getMember_id());
-		String id = memberVo2.getMember_id();
-		String authStatus = memberVo2.getUser_authStatus();
-		if(authCode.equals(memberVo.getUser_authCode())) {
-			if(id.equals(memberVo.getMember_id()) && authStatus.equals("Y")) {
-				memberDao.updatePass(memberVo.getMember_id(), memberVo.getMember_pass());
-				state = "success";
+		String id = memberVo.getMember_id();
+		System.out.println("비밀번호 변경할 아이디 >>> "+id);
+		String authStatus = memberDao.authStatus(id);
+		if(memberDao.member(id) != null) {
+			
+			if(authCode.equals(memberVo.getUser_authCode())) {
+				if(authStatus.equals("Y")) {
+					memberDao.updatePass(memberVo.getMember_id(), memberVo.getMember_pass());
+					state = "success";
+				}else {
+					state = "noFindUser";
+				}
 			}else {
-				state = "noFindUser";
+				state="fail";
 			}
 		}else {
-			state="fail";
+			state = "noFindUser";
 		}
 		
 		return state;
