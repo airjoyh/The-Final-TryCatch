@@ -307,6 +307,11 @@
     margin-left: 180px;
 }
 
+.cont-qna-page ul,li{
+	display:flex;
+	list-style: none;
+}
+
 #registBtn {
 	right: 0;
 	bottom: 0;

@@ -2,7 +2,7 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
-.section_qnareply {
+.section_reply {
     position: relative;
     height: 300px;
     border: 1px solid #dee3eb;
@@ -18,9 +18,10 @@
     margin-bottom: 8px;
 }
 
-.qna-list {
-	height:35px;
-	width:125px;
+/* ¹öÆ°css */
+.inline-btn {
+	height:30px;
+	width:100px;
 	font-size:15px;
     margin: 0;
     padding:0;
@@ -37,49 +38,11 @@
     transition: all .3s ease;
 }
 
-.qna-modify {
-	height:35px;
-	width:125px;
-	font-size:15px;
-    margin: 0;
-    padding:0;
-    border:none;
-    outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
+/*****************************************************************
+							  title
+******************************************************************/
 
-.qna-delete {
-	height:35px;
-	width:125px;
-	font-size:15px;
-    margin: 0;
-    padding:0;
-    border:none;
-    outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.register-contest:hover{
-	background-color: #2b303b;
-}
-
-.com-qna-title{
+.community-title{
 	height:45px;
 	width:700px;
 	margin: 0;
@@ -89,7 +52,19 @@
 	
 }
 
-.com-qna-content{
+.community-title-box{
+	width: 680px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline-flex;
+	flex-direction: row;
+}
+.ct-box{
+	width: 100%;
+}
+
+.community-content{
+	padding: 10px;
 	margin-top: 100px;
 	height:300px;
 	width:700px;
@@ -97,35 +72,57 @@
 	
 }
 
-
-/* .inline-qna-body {
-	line-height: 20px;
-	color: #a1a1a1;
-	font-size: 13px;
-	padding-bottom: 5px;
-} */
+.com-qna-content {
+	padding: 10px;
+}
 
 .star-line {
 	height: 100%;
 }
 
 .com-inline-btn {
-	height: 35px;
+	height: 30px;
 	right: 300px;
-    bottom: 10px;
+    bottom: 60px;
 	margin: 0;
     padding: 0;
     display: inline-block;
     position: absolute;
 }
 
-.form-ta {
-	width: 650px;
+.form-p {
+	width: 680px;
+    border: 1px solid lightgray;
+    height: 200px;
 }
 
+.qna-title{
+	width: 230px;
+}
 /*****************************************************************
 							Label
 ******************************************************************/
+
+.community-title-box label{
+  width: 70px;
+   float: left;
+   line-height: 15px;
+   font-size: 15px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   color: #55acee;
+   position: relative;
+} 
+
+.community-title-box label:before {
+  content: "";
+   width: 5px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: -10px;
+   background: #55acee;
+} 
 
 .com-qna-content label{
   width: 100%;
@@ -137,6 +134,7 @@
    color: #55acee;
    position: relative;
 } 
+
 .com-qna-content label:before {
   content: "";
    width: 5px;
@@ -146,3 +144,27 @@
    left: -10px;
    background: #55acee;
 } 
+
+.community-content label{
+  width: 100%;
+   float: left;
+   line-height: 15px;
+   font-size: 15px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   color: #55acee;
+   position: relative;
+} 
+
+.community-content label:before {
+  content: "";
+   width: 5px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: -10px;
+   background: #55acee;
+} 
+.cont-qna-page ul {
+	list-style: none;
+}

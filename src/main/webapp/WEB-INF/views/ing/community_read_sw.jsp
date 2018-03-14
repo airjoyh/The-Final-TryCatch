@@ -39,99 +39,84 @@
 					<div class='column-title'>커뮤니티 글상세보기</div>
 				</div>
 				<div class='wrapper'>
-					<div class='com-qna-title'>
-						<div>
-							<span class="input-group-addon">글번호</span> 
-							<input class="form-control" id="title" name="title" type="text" style="width: 15%" placeholder="글번호 자동입력." readonly="readonly">
-						   
-						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> 
-						    <input class="form-control" id="writer" name="writer" style="width: 15%" placeholder="yy-mm-dd hh-MM-ss">
+					<div class='community-title'>
+						<div class="community-title-box">
+							<div class="ct-box">
+								<label class="ct-box-label">글번호</label> 
+								<p class="form-control" id="title" name="title" type="text" style="width: 15%" placeholder="글번호 자동입력." readonly="readonly">
+						    </div>
+						    <div class="ct-box">
+							    <label class="ct-box-label">작성일</label> 
+							    <p class="form-control" id="writer" name="writer" style="width: 15%" placeholder="yy-mm-dd hh-MM-ss">
+						    </div>
 						</div>
-						<div>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; 
-							<input class="qna-title" id="title" name="title" type="text" style="width: 15%" placeholder="제목을 입력하세요.">
-				            
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
-				            <input class="qna-writer" id="writer" name="writer" style="width: 15%" placeholder="작성자를 입력하세요.">
+						<div class="community-title-box">
+							<div class="ct-box">
+								<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
+								<p class="qna-title" id="title" name="title" type="text" style="width: 15%" placeholder="제목을 입력하세요.">
+				            </div>
+				            <div class="ct-box">
+					            <label class="ct-box-label">작성자</label> 
+					            <p class="qna-writer" id="writer" name="writer" style="width: 15%" placeholder="작성자를 입력하세요.">
+				            </div>
 				        </div>
 					</div>
-					<div class='com-qna-content'>
-						<label for="good">질문내용</label><br>
-				        <textarea name="strong" rows="10" class="form-ta" id="good"></textarea>
+					<div class='community-content'>
+						<label class="content-label" for="good">질문내용</label><br>
+				        <p name="strong" class="form-p" id="good"></textarea>
 					</div>
 					<div class='com-inline-btn'>
-						<input type="button" class='qna-list' id="goList" value='목록보기'>
-						<!-- <input type="button" class='qna-modify' value='수정'>
-						<input type="button" class='qna-delete' value='삭제'> -->
+						<input type="button" class='inline-btn' id="goList" value='목록보기'>
 					</div>
 					
 					</div>
 			</div><!-- section_main1 -->
-			<div class='section_qnareply'>
+			<div class='section_reply'>
 				<div class="row" align="center">
-					<div class="col-md-12">
+					<div class="reply-box">
 			
 						<div class="box box-success">
 							<div class="box-header">
 								<h3 class="box-title">REPLY</h3>
 							</div>
-							<c:if test="${not empty user_login_id }">
+							<c:if test="${not empty company_login_member_id }">
 							<div class="box-body">
 							    	<label for="exampleInputEmail1">작성자</label> 
-								    <input class="form-control" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
+								    <input class="form-control" type="text" id="newReplyWriter" value="${company_login_member_id }" readonly> 
 									<label for="exampleInputEmail1">댓글</label> 
 									<input class="form-control" type="text" id="newReplyText">
 			
 							</div>
 							<!-- /.box-body -->
 							<div class="box-footer">
-								<button type="button" id="replyAddBtn">댓글 등록</button>
+								<button type="button" class='inline-btn' id="replyAddBtn">댓글 등록</button>
+								<!-- timeline time label -->
+								<button class='inline-btn' id="replyBtn">댓글</button>
 							</div>
 							</c:if>
 							
-							<c:if test="${empty user_login_id }">
+							<c:if test="${empty company_login_member_id }">
 								<div class="box-body">
 									<div><a id="goLogin">Login Please</a></div>
 								</div>
 							</c:if>
 						</div>
 			
-			
-						<!-- The time line -->
-						<ul class="timeline">
-							<!-- timeline time label -->
-							<li class="time-label" id="repliesDiv"><span class="bg-green">댓글</span></li>
-						</ul>
-			
-						<div class='text-center'>
-							<ul id="pagination" class="pagination pagination-sm no-margin ">
-			
+
+							<!-- The time line -->
+							<ul class="timeline" style="display: inline-flex; flex-direction: column;">
+								<!-- timeline time label -->
+								 <li class="time-label" id="repliesDiv"></li> 
 							</ul>
-						</div>
-			 
+						
+							<div class='text-center' style="align-content: center;">
+								<ul id="pagination" style="display: flex; flex-direction: row;" class="pagination pagination-sm">
+				
+								</ul>
+							</div>
+
 					</div>
 					<!-- /.col -->
-				</div>
-				
-				<!-- Modal -->
-				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-				  <div class="modal-dialog">
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal-title"></h4>
-				      </div>
-				      <div class="modal-body" data-rno>
-				        <p><input type="text" id="replytext" class="form-control"></p>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-				        <button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div>
-				  </div>
 				</div>
 			</div><!-- section_qnareply -->
 		</div><!-- column-left -->
