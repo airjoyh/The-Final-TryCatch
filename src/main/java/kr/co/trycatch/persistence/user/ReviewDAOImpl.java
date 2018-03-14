@@ -58,7 +58,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 	public int listSearchCount(SearchCriteria cri, String company_id) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		map.put("company_id", company_id);
-		map.put("cri", cri);
+		map.put("searchType", cri.getSearchType());
+		map.put("keyword", cri.getKeyword());
 		
 		return session.selectOne("review.listSearchCount", map);
 	}

@@ -17,7 +17,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<title>구직자 콘테스트 리스트</title>
+<title>콘테스트 점수 순위 리스트</title>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.initial').hide();
@@ -32,7 +32,7 @@
 		
 		$('#searchBtn').on("click", function(event) {
 		//검색(Search) 버튼을 클릭하면
-			self.location = "list" //'list'
+			self.location = "rankList" //'list'
 							+ '${pageMaker.makeQuery(1)}'
 							  //'list?page=1&perPageNum=10'
 							+ "&searchType="
@@ -41,14 +41,9 @@
 							//'list?page=1&perPageNum=10&searchType=t'
 							+ "&keyword=" + $('#keywordInput').val()
 							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
-							+"&company_id=${company_login_company_id}";
+							+"&contest_id=${param.contest_id}";
 		});
 
-		$('#newBtn').on("click", function(evt) {//글쓰기(New Board) 버튼을 클릭하면
-
-			self.location = "register";//입력폼으로 이동
-
-		});
 		
 	});//document.ready
 	/* 검색창 드롭다운 메뉴 */
@@ -57,17 +52,6 @@
 		$('.taco-input').val(txt);
 	});
 
-	function loginCheck() {
-
-		var loginState = '${company_loginState }';
-		//alert("로그인 상태>>>" + loginState);
-		if (loginState != 'login') {
-			alert('로그인하신 후에 이용 가능합니다.');
-		} else {
-			location.href = '${initParam.rootPath }/company/contest/register';
-			//location.href = '${initParam.rootPath }/review/control.do?action=inputForm&company_id=${cominfo.company_id}';
-		}
-	}
 </script>
 
 <link href="${initParam.rootPath }/resources/css/trycatch.css" rel="stylesheet">
@@ -77,7 +61,7 @@
 <div class="container" style="background-color: #ffffff;">
 		<div class="row"
 			style="padding-top: 3em; padding-left: 4em; padding-right: 4em; padding-bottom: 2em; margin-bottom: 1em;">
-			<h3>구직자 콘테스트 게시판</h3>
+			<h3>콘테스트 순위</h3>
 			<hr>
 		</div>
 		<div class="row" style="padding-left: 3em; padding-right: 3em;">
@@ -85,32 +69,23 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th style="width: 15%;">기업명</th>
-							<th style="width: 15%;">분야</th>
-							<th style="width: 30%;">제목</th>
-							<th style="width: 20%;">시작시간</th>
-							<th style="width: 20%;">시작시간</th>
+							<th style="width: 25%;">순위</th>
+							<th style="width: 50%;">아이디</th>
+							<th style="width: 25%;">점수</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${list }" var="contest" varStatus="stat">
+						<c:forEach items="${list }" var="contest_answer" varStatus="stat">
 							<tr>
-								<td style="width: 15%;">${contest.company_name }</td>
-								<td style="width: 15%;">${contest.contest_field }</td>
-								<td style="width: 30%;"><a
-									href="${initParam.rootPath }/user/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${contest.contest_id }">${contest.contest_title }</a></td>
-								<td style="width: 20%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest.contest_startDate}" /></td>
-								<td style="width: 20%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest.contest_endDate}" /></td>
+								<td style="width: 25%;">${contest_answer.rank }</td>
+								<td style="width: 50%;">${contest_answer.user_id }</td>
+								<td style="width: 25%;">${contest_answer.totalScore }</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<hr>
 			</div>
-		</div>
-		<div align="right">
-			<a class="btn btn-default pull-right" href="javascript:loginCheck()"
-				id="write">글쓰기</a>
 		</div>
 		<div align="center">
 		<ul class="pagination">
@@ -135,15 +110,9 @@
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							검색조건</option>
-						<option value="e"
-							<c:out value="${cri.searchType eq 'e'?'selected':''}"/>>
-							기업명</option>						
-						<option value="f"
-							<c:out value="${cri.searchType eq 'f'?'selected':''}"/>>
-							분야</option>
 						<option value="a"
 							<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
-							제목</option>	
+							아이디</option>							
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
 					<button id='searchBtn'>검색</button>

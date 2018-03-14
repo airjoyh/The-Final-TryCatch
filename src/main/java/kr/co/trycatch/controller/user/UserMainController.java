@@ -29,13 +29,6 @@ public class UserMainController {
 
 		return "user/com_info/rank";
 	}*/
-
-	@RequestMapping(value = "/user/contest/list")
-	public String goContest() throws Exception{
-		System.out.println("MainController goContest()");
-
-		return "user/contest/list";
-	}
 	
 	@RequestMapping(value = "/user/faq")
 	public String goFaq() throws Exception{

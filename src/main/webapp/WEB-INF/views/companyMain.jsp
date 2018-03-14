@@ -40,9 +40,9 @@
 			var company_site = $('#company_site');
 			var company_intro = $('#company_intro');
 			
-			var member_idExp = /^[a-zA-z0-9]{6,15}$/;
-			var company_turnoverExp = /^[0-9]{1,14}$/;//수정 요망
-			var company_sizeExp = /^[0-9]{1,7}$/;
+			var member_idExp = /^[a-zA-z0-9]{6,15}$/;//아이디가 6~15자리
+			var company_turnoverExp = /^[0-9]{1,14}$/;//수정 요망 숫자가 1~14
+			var company_sizeExp = /^[0-9]{1,7}$/; 
 			var company_numberExp = /^[0-9]{5,15}$/;//수정 요망
 		
 			//alert('option체크: '+ $("option").val()+'\ncompany_line체크: '+ $("select[name=company_line]").val())

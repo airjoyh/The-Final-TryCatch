@@ -22,6 +22,16 @@
 <link href="${initParam.rootPath }/resources/css/trycatch.css" rel="stylesheet">
 <script type="text/javascript">
 	
+	/* $('#contestRegisterBtn').on("click", function(){
+		
+		$.ajax({
+			type:'post',
+			url:'${initParam.rootPath}/company/contest/'
+		});
+		
+	}); */
+	
+	
 	function validateCheck() {
 		var f = document.registerForm;
 		$.ajax({
@@ -97,7 +107,7 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> 
 								<input class="form-control" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018-03-07 18:30"
-								value="2018-03-07">
+								value="2018/03/07 17:35">yyyy/mm/dd hh24:mi
 								~
 								<input class="form-control" id="contest_endDate" name="contest_endDate" placeholder="끝날짜 ex)2018-03-07 19:30:00"
 								value="2018-03-07">
@@ -144,7 +154,7 @@
 				<div class="row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-4">
-						<button type="submit" class="btn btn-info btn-block"
+						<button type="submit" id="contestRegisterBtn" class="btn btn-info btn-block"
 							>다음</button>
 					</div>
 					<div class="col-sm-4">

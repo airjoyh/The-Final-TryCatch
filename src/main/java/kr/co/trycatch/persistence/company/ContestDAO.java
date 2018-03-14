@@ -13,6 +13,7 @@ public interface ContestDAO {
 
 	public void delete(int contest_id) throws Exception;
 
+	//콘테스트 하나의 정보가져오기.
 	public ContestVO select(int contest_id) throws Exception;
 
 	//
@@ -24,4 +25,9 @@ public interface ContestDAO {
 	
 	public void updateStatus(int contest_id) throws Exception;
 
+	public List<ContestVO> selectAll(SearchCriteria cri) throws Exception;
+	
+	public int selectAllCount(SearchCriteria cri) throws Exception;
+	
+	public String selectStatus(int contest_id) throws Exception;
 }

@@ -32,8 +32,9 @@ public class ContestServiceImpl implements ContestService {
 		
 	}
 
+	//콘테스트 하나의 정보가져오기.
 	@Override
-	public ContestVO select(int contest_id) throws Exception {
+	public ContestVO read(int contest_id) throws Exception {
 		
 		return contestDao.select(contest_id);
 	}
@@ -57,9 +58,28 @@ public class ContestServiceImpl implements ContestService {
 	}
 
 	@Override
-	public void finalRegister(int contest_id) throws Exception {
-		contestDao.updateStatus(contest_id);
+	public String finalRegister(int contest_id) throws Exception {
+		String state = "";
+		if(contestDao.selectStatus(contest_id).equals("Y")) {
+			state = "alreadyRegister";
+		}else if(contestDao.selectStatus(contest_id).equals("N")) {
+			contestDao.updateStatus(contest_id);
+			state = "finalRegister";
+		}
 		
+		return state;
+	}
+
+	@Override
+	public List<ContestVO> selectAll(SearchCriteria cri) throws Exception {
+	 
+		return contestDao.selectAll(cri);
+	}
+
+	@Override
+	public int selectAllCount(SearchCriteria cri) throws Exception {
+		
+		return contestDao.selectAllCount(cri);
 	}
 
 }

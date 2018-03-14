@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="contest_answer">
+	<insert id="create">
+		insert into 
+		contest_answer(answer_no, answer_contents, user_id, quiz_id, code)
+		values(contest_answer_seq.nextval, #{answer_contents, jdbcType=VARCHAR}, #{user_id}, #{quiz_id}, #{code, jdbcType=VARCHAR})
+	</insert>
+	
+	<!-- 정답이 맞으면 문제배점만큼의 점수를 매긴다. -->
+	<select id="marking" resultType="int">
+		select quiz_point
+		from contest_answer natural join contest_quiz
+		where quiz_id = #{quiz_id}
+		and quiz_correct = answer_contents
+		and user_id = #{user_id}
+	</select>
+	
+	<update id="updateScore">
+		update contest_answer
+		set score = #{score}
+		where quiz_id = #{quiz_id}
+		and user_id = #{user_id}
+	</update>
+	
+	<!-- 문제 하나당 점수 조회 -->
+	<select id="selectScore" resultType="int">
+		select score
+		from contest_answer
+		where quiz_id = #{quiz_id}
+		and user_id = #{user_id}
+	</select>
+	
+	<!-- 해당 콘테스트의  모든 점수 리스트 조회 -->
+	<select id="selectScoreAll" resultType="int">
+		select score
+		from contest_answer 
+		natural join contest_quiz 
+		natural join contest
+		where user_id = #{user_id}
+		and contest_id = #{contest_id}
+	</select>
+	
+	<!-- 해당 콘테스트의 로그인한 구직자 한명의 점수 합 -->
+	<select id="selectScoreSum" resultType="int">			
+		select sum(score)
+		from contest_answer 
+		natural join contest_quiz 
+		natural join contest
+		where user_id = #{user_id}
+		and contest_id = #{contest_id}
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'a'.toString() ">
+				and user_id like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</sql>
+	
+	<select id="selectScoreRankList" resultType="Contest_answerVO">
+		select user_id, totalScore, rank
+		from(
+			select user_id, sum(score) totalScore, 
+      	           RANK() OVER(order by sum(score) desc) as rank
+			from contest_answer 
+			natural join contest_quiz 
+			natural join contest
+			where contest_id = #{contest_id}
+			group by user_id
+     		)
+     	<where>
+		<include refid="search"></include>
+     	</where>
+	</select>
+	
+	<select id="selectScoreRankListCount" resultType="int">
+		select count(distinct user_id)
+		from contest_answer
+		natural join contest_quiz 
+		natural join contest
+		<trim prefix="where" prefixOverrides="AND|OR">
+			<if test="contest_id != null">
+			   contest_id = #{contest_id}
+			</if>		
+			<include refid="search"/>
+		</trim>
+	</select>
+</mapper>

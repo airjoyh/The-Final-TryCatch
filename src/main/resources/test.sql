@@ -59,7 +59,24 @@ select * from CONTEST;
 select * from CONTEST_QUIZ;
 select * from EXAMPLE;
 
+select quiz_id from contest_quiz where contest_id = 17;
+select * from contest_quiz where quiz_id=34;
+select * from example where quiz_id=34;
 
 
+select contest_id, company_id, contest_title, 
+       		   contest_startDate, contest_endDate,
+       		   contest_field, contest_hireNumber, 
+       		   contest_contents, manager_name, 
+       		   team_name, manager_email, manager_tel,
+       		   company_name
+		from contest natural join company_info
+		where contest_id = 17;
 
 
+select quiz_id, contest_id, quiz_contents, quiz_no, quiz_type, quiz_point, quiz_correct
+		from contest_quiz
+		where contest_id = 17;
+
+select quiz_id from contest_quiz
+where contest_id = 17 and quiz_no = 1;

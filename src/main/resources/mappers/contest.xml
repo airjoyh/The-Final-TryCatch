@@ -9,8 +9,8 @@
 				contest_field, contest_hireNumber, contest_contents,
 				manager_name, team_name, manager_email, manager_tel)
 		values(#{contest_id}, #{company_id}, #{contest_title},
-			   to_date(#{contest_startDate},'yyyy-mm-dd hh24:mi:ss'),
-			   to_date(#{contest_endDate},'yyyy-mm-dd hh24:mi:ss'), 
+			   to_date(#{contest_startDate}, 'yyyy/mm/dd hh24:mi:ss'),
+			   to_date(#{contest_endDate}, 'yyyy/mm/dd hh24:mi:ss'), 
 			   #{contest_field}, #{contest_hireNumber}, #{contest_contents},
 			   #{manager_name}, #{team_name}, #{manager_email}, #{manager_tel})
 	</insert>
@@ -24,9 +24,15 @@
 		where contest_id = #{contest_id}
 	</delete>
 	
+	<!-- 콘테스트 정보 한행 조회 -->
 	<select id="select" resultType="ContestVO">
-		select *
-		from contest
+		select contest_id, company_id, contest_title, 
+       		   contest_startDate, contest_endDate,
+       		   contest_field, contest_hireNumber, 
+       		   contest_contents, manager_name, 
+       		   team_name, manager_email, manager_tel,
+       		   company_name
+		from contest natural join company_info
 		where contest_id = #{contest_id}
 	</select>
 	
@@ -36,18 +42,24 @@
 	
 	<sql id="search">
 		<if test="searchType != null">
-			<if test="searchType == 't'.toString() ">
+			<if test="searchType == 'a'.toString() ">
 				and contest_title like '%'||#{keyword}||'%'
 			</if>
-			<if test="searchType == 'w'.toString() ">
+			<if test="searchType == 'b'.toString() ">
 				and team_name like '%'||#{keyword}||'%'
 			</if>
-			<if test="searchType == 'tw'.toString() ">
+			<if test="searchType == 'c'.toString() ">
 				and manager_name like '%'||#{keyword}||'%'
 			</if>
-			<!-- <if test="searchType == 'd'.toString() ">
+			<if test="searchType == 'd'.toString() ">
 				and contest_status like '%'||#{keyword}||'%'
-			</if> -->
+			</if>
+			<if test="searchType == 'e'.toString() ">
+				and company_name like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'f'.toString() ">
+				and contest_field like '%'||#{keyword}||'%'
+			</if>
 		</if>
 	</sql>
 	
@@ -66,10 +78,38 @@
 		where company_id = #{company_id}
 		<include refid="search"></include>
 	</select>
-	
+		
+	<!-- 최종 등록 상태를 업데이트 -->	
 	<update id="updateStatus">
 		update contest
 		set contest_status = 'Y'
 		where contest_id = #{contest_id}
 	</update>
+	
+	<select id="selectStatus" resultType="String">
+		select contest_status
+		from contest
+		where contest_id = #{contest_id}
+	</select>
+	
+	<!-- 구직자에게 보여질 최종 등록된 콘테스트 정보들 -->
+	<select id="selectAll" resultType="ContestVO">
+		select contest_id, company_id, contest_title, 
+       		   contest_startDate, contest_endDate,
+       		   contest_field, contest_hireNumber, 
+       		   contest_contents, manager_name, 
+       		   team_name, manager_email, manager_tel,
+       		   company_name
+		from contest natural join company_info
+		where contest_status = 'Y'
+		<include refid="search"></include>
+		order by contest_id desc
+	</select>
+	
+	<select id="selectAllCount" resultType="int">
+		select count(*)
+		from contest natural join company_info
+		where contest_status='Y'
+		<include refid="search"></include>
+	</select>
 </mapper>

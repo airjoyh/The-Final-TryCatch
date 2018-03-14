@@ -35,6 +35,7 @@ public class ContestDAOImpl implements ContestDAO {
 		session.delete("contest.delete", contest_id);
 	}
 
+	//콘테스트 하나의 정보가져오기.
 	@Override
 	public ContestVO select(int contest_id) throws Exception {		
 		return session.selectOne("contest.select",contest_id);
@@ -72,5 +73,26 @@ public class ContestDAOImpl implements ContestDAO {
 		session.update("contest.updateStatus", contest_id);
 		
 	}
+
+	@Override
+	public String selectStatus(int contest_id) throws Exception {
+		
+		return session.selectOne("contest.selectStatus", contest_id);
+	}
+	
+	//구직자에게 보일 최종 등록된 콘테스트 정보들
+	@Override
+	public List<ContestVO> selectAll(SearchCriteria cri) throws Exception {
+		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
+		
+		return session.selectList("contest.selectAll", cri, bounds);
+	}
+
+	@Override
+	public int selectAllCount(SearchCriteria cri) throws Exception {
+		
+		return session.selectOne("contest.selectAllCount", cri);
+	}
+
 
 }

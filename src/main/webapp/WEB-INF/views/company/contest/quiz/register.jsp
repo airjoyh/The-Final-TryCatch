@@ -9,6 +9,9 @@
   <script type="text/javascript">
      $(function(){
     	 $('select').change(function(){
+    		 
+    		 $('#correctSpan').show();
+    		 
     		 var sel = $('select').val();
     		 console.log(sel);
     		 if(sel=='1'){
@@ -17,8 +20,9 @@
     			 
     		 }else if(sel=='2'){
     			 $('#load').load('subjectiveType');
+    			 $('#correctSpan').hide();
     		 }else if(sel=='3'){
-    			 $('#load').html('<textarea></textarea>');
+    			 $('#load').load('codingType');
     		 }else if(sel=='0'){
     			 $('#load').html('');
     		 }
@@ -80,7 +84,7 @@
    <form id="registerForm" method="post">
    <input type="hidden" id="action" name="action" value="">
    <input type="hidden" id="contest_id" name="contest_id" value="${param.contest_id }">
-      문제번호: <input type="text" id="quiz_no" name="quiz_no" value="1"><br>
+      문제번호: <input type="text" id="quiz_no" name="quiz_no" value="${param.quiz_no }"><br>
       문제배점: <input type="text" id="quiz_point" name="quiz_point" value="10"><br>
       문제내용: <textarea id="quiz_contents" name="quiz_contents">문제를 푸세요.</textarea><br>
       문제형식: 
@@ -91,7 +95,7 @@
              <option value="3">코딩</option>
           </select><br>
       <div id="load"></div>
-      문제정답: <input type="text" id="quiz_correct" name="quiz_correct" value="영환"><br>
+     <span id="correctSpan">문제정답: <input type="text" id="quiz_correct" name="quiz_correct" value="영환"></span><br>
       <input type="button" id="quizAddBtn" value="문제 추가">
       <input type="button" id="contestCompleteBtn" value="콘테스트 등록 완료">
       <input type="button" value="취소">

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.trycatch.domain.company.ContestVO;
 import kr.co.trycatch.domain.company.Contest_quizVO;
@@ -43,7 +44,7 @@ public class CompanyContestController {
 		contestService.register(contestVo);
 		// session.setAttribute("contest_id", contest_id);
 
-		return "redirect:/company/contest/quiz/register?contest_id=" + contest_id;
+		return "redirect:/company/contest/quiz/register?contest_id=" + contest_id+"&quiz_no=1";
 	}
 	
 	@RequestMapping(value="/list")
@@ -68,34 +69,44 @@ public class CompanyContestController {
 	@RequestMapping(value="/finalRegister")
 	public String finalRegister(int contest_id) throws Exception{
 		
-		contestService.finalRegister(contest_id);
-		
-		return "/finalRegister";
+		return contestService.finalRegister(contest_id);
 	}
-
-	////////////////////////////////////////////////////////////////////////////////////
+	
+	////////////////////////////////////////////////////////////////////////////
+	
 	@RequestMapping(value = "/quiz/register", method = RequestMethod.GET)
 	public String quizRegisterGet() throws Exception {
+		
+		
 		return "/company/contest/quiz/register";
 	}
 
 	@RequestMapping(value = "/quiz/register", method = RequestMethod.POST)
 	public String quizRegisterPost(Contest_quizVO contest_quizVo, ExampleVO exampleVo,
-			                       HttpServletRequest request, String action) throws Exception {
+			                       HttpServletRequest request, String action, String item, RedirectAttributes rttr) throws Exception {
 		System.out.println("CompanyContestController 문제 등록");
 		System.out.println(contest_quizVo);
 		System.out.println(exampleVo);
 		System.out.println("--------------------------------");
+		//주관식일때만 보기 --> 답으로
 		String items[]=request.getParameterValues("item");
         for(String str: items) {
         	System.out.println("--->"+str);
         }
+        System.out.println("item >>> "+item);//aa,bb,cc (보기항목)
+        int quiz_type = contest_quizVo.getQuiz_type();
+        if(quiz_type == 2) {
+        	contest_quizVo.setQuiz_correct(item);
+        }
+        
 		contest_quizService.register(contest_quizVo, exampleVo, items);
 		System.out.println("action >>> "+action);
 		String path="";
-		if(action.equals("quizAdd")) {
-			path = "redirect:/company/contest/quiz/register?contest_id="+contest_quizVo.getContest_id();
-		}else if(action.equals("contestComplete")) {
+		if(action.equals("quizAdd")) {//문제 추가
+			int quiz_no = contest_quizVo.getQuiz_no()+1;
+			rttr.addAttribute("quiz_no", quiz_no);
+			path = "redirect:/company/contest/quiz/register?contest_id="+contest_quizVo.getContest_id()+"&quiz_no="+quiz_no;
+		}else if(action.equals("contestComplete")) {//콘테스트 등록 완료
 			path = "redirect:/company/contest/list";
 		}
 		
@@ -111,5 +122,9 @@ public class CompanyContestController {
 	public String subjectiveExampleGet() throws Exception {
 		return "/company/contest/quiz/subjectiveType";
 	}
-
+	
+	@RequestMapping(value = "/quiz/codingType", method = RequestMethod.GET)
+	public String codingExampleGet() throws Exception {
+		return "/company/contest/quiz/codingType";
+	}
 }

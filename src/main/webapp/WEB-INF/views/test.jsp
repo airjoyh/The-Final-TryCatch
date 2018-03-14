@@ -1,4 +1,4 @@
-<%@page import="kr.co.trycatch.common.Test2"%>
+<%@page import="kr.co.trycatch.common.CompileHandler"%>
 <%@page import="java.lang.ProcessBuilder.Redirect"%>
 <%@page import="java.lang.ProcessBuilder.Redirect"%>
 <%@page import="org.apache.commons.exec.CommandLine"%>
@@ -30,10 +30,10 @@
 <body>
   <h3>test.jsp</h3>
   <%
-     Test2 t = new Test2();
-     t.javac("cmd","/c","javac c:/coding/A.java");
+     CompileHandler ch = new CompileHandler();
+     ch.javac("cmd","/c","javac c:/coding/A.java");
      
-     t.java("cmd","/c","java -classpath c:/coding A");
+     ch.java("cmd","/c","java -classpath c:/coding A");
   %>
 </body>
 </html>
