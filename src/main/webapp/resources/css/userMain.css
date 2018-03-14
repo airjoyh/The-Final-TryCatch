@@ -81,6 +81,71 @@
 .navbar ul li:hover {
 	border-bottom: 3px solid #ddd;
 }
+/* com-nav */
+.com-nav {
+ display: block;
+ height:150px;
+ background-color:#d8f4ff;
+ z-index:1000;
+}
+
+.com-navbar{
+	display:block;
+	position:relative;
+	width:1100px;
+	margin: 0 auto;
+	width:1100px;
+	height:150px;
+	z-index:1500;
+}
+
+.com-navbar .com-nav-item{
+  display: block;
+  float:right;
+  height:100%;
+  width: 1080px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.com-navbar .brand{
+	display:inline-block;
+	float:left;
+	height:100px;
+	width:30%;
+}
+.com-navbar .brand img{
+	height:100px;
+	width: 80%;
+}
+.com-navbar .com-search{
+	display:inline-block;
+	float:right;
+	height:100px;
+	width:70%;
+}
+.com-navbar ul{
+	text-align:center;
+	width:100%;
+	list-style-type:none;
+}
+.com-navbar ul li{
+	display:inline-block;
+	float:left;
+	width:10%;
+	height:50px;
+	margin: 0;
+	padding-top:12px;
+	
+	font-size:17px;
+	font-weight:400;
+	color:#555;
+	border-bottom: 3px solid #fff;
+	
+	cursor: pointer;
+}
+.com-navbar ul li:hover {
+	border-bottom: 3px solid #ddd;
+}
 
 /* 서치버튼 ****************************/
 
