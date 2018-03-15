@@ -30,7 +30,7 @@ public class Community_replyServiceImpl implements Community_replyService {
 	@Override
 	public List<Community_replyVO> list(int community_no, Criteria cri) throws Exception {
 		
-		return community_replyDao.list(community_no);
+		return community_replyDao.list(community_no, cri);
 	}
 
 	@Override

@@ -29,6 +29,8 @@ public class CommunityServiceImpl implements CommunityService {
 
 	@Override
 	public CommunityVO read(int community_no) throws Exception {
+		communityDao.updateViewCount(community_no);
+		
 		return communityDao.read(community_no);
 	}
 

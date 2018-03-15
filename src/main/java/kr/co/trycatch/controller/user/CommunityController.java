@@ -49,7 +49,7 @@ public class CommunityController {
    }
    
    @RequestMapping("/list")
-   public void listPage(SearchCriteria cri, Model model) throws Exception{
+   public String listPage(SearchCriteria cri, Model model) throws Exception{
 	   PageMaker maker = new PageMaker();
 	   maker.setCri(cri);
 	   maker.setTotalCount(communityService.listSearchCount(cri));
@@ -59,7 +59,7 @@ public class CommunityController {
 	   model.addAttribute("cri", cri);
 	   model.addAttribute("pageMaker", maker);
 	   
-	   //return "tc/user/community/list";
+	   return "/user/community/list";
    }
    
    @RequestMapping(value="/register",method=RequestMethod.GET)

@@ -39,6 +39,8 @@ public interface CommunityDAO {
 
 	public void updateReplyCount(int community_no, int i) throws Exception;
 
+	public void updateViewCount(int community_no) throws Exception;
+	
 	//public void updateViewCount(int review_no) throws Exception; //조회수
 
     // 검색어에 대한 (페이지)조회 및 댓글 수

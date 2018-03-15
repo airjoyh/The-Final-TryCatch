@@ -8,7 +8,6 @@ import kr.co.trycatch.domain.user.CommunityVO;
 import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.SearchCriteria;
 
-
 public interface CommunityService {
 
 	public void regist(CommunityVO communityVo) throws Exception;// ±Û Ãß°¡

@@ -113,10 +113,14 @@ public class CommunityDAOImpl implements CommunityDAO {
 		session.update("community.updateReplyCount", map);
 		
 	}
-	/* Á¶È¸¼ö
+
+
 	@Override
 	public void updateViewCount(int community_no) throws Exception {
+		
 		session.update("community.updateViewCount", community_no);
 		
-	}*/
+	}
+	
+
 }

@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.trycatch.domain.user.Community_replyVO;
+import kr.co.trycatch.domain.user.Criteria;
 
 @Repository
 public class Community_replyDAOImpl implements Community_replyDAO {
@@ -21,8 +23,10 @@ public class Community_replyDAOImpl implements Community_replyDAO {
 	}//댓글 입력
 
 	@Override
-	public List<Community_replyVO> list(int community_no) throws Exception {
-		return session.selectList("community_reply.list", community_no);
+	public List<Community_replyVO> list(int community_no, Criteria cri) throws Exception {
+		RowBounds bounds = new RowBounds(cri.getPageStart(),cri.getPerPageNum());
+		
+		return session.selectList("community_reply.list",community_no, bounds);
 	}//댓글 리스트 조회
 
 	@Override
