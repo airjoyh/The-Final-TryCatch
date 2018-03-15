@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>(구직자)FAQ페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+	   //alert("list페이지에 들어올 때 로그인 상태 >>> ${user_loginState}, ${user_login_id}")
+   });	   
+</script>
 </head>
 <body>
 	<h3>(구직자)FAQ페이지</h3>
