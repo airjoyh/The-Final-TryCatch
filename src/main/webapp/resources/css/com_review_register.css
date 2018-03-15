@@ -74,6 +74,9 @@
 	
 }
 
+.star-line ul{
+	list-style: none;
+}
 /* .inline-qna-body {
 	line-height: 20px;
 	color: #a1a1a1;
