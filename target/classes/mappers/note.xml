@@ -68,6 +68,6 @@
 	   where note_status='N' 
 	         and note_receiver = #{note_receiver}
 	</select>
-	
+
 
 </mapper>

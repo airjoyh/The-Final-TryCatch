@@ -9,6 +9,7 @@ public class NoteVO {
 	private Date note_senddate;
 	private String note_sender;
 	private String note_receiver;
+	private String note_status;
 
 	public int getNote_id() {
 		return note_id;
@@ -50,10 +51,19 @@ public class NoteVO {
 		this.note_receiver = note_receiver;
 	}
 
+	public String getNote_status() {
+		return note_status;
+	}
+
+	public void setNote_status(String note_status) {
+		this.note_status = note_status;
+	}
+
 	@Override
 	public String toString() {
 		return "NoteVO [note_id=" + note_id + ", note_contents=" + note_contents + ", note_senddate=" + note_senddate
-				+ ", note_sender=" + note_sender + ", note_receiver=" + note_receiver + "]";
+				+ ", note_sender=" + note_sender + ", note_receiver=" + note_receiver + ", note_status=" + note_status
+				+ "]";
 	}
 
 }

@@ -196,10 +196,7 @@
 									</div>
 									<div class="review-box">
 										<label>기업 소개</label><br>
-										<span>쿠팡은 세계에서 가장 빠르고 크게 성장하는 E-commerce 기업입니다.
-												우리는 ‘고객들이 쿠팡 없는 삶을 상상조차 할 수 없는’ 세상을 열어 가고자 합니다.
-												쿠팡은 우리와 함께 이 비전을 현실로 만들어 나갈 열정적인 인재를 찾고 있습니다.
-										</span>
+										<textarea rows="3" cols="100px" st>${company_info.company_intro }</textarea>
 									</div>
 									<div class="review-box">
 										<div class="com-info">

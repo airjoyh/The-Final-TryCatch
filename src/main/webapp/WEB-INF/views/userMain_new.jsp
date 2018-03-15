@@ -321,8 +321,9 @@ $(document).ready(function() {
 
 /* ---------------------------------------- 쪽지 ----------------------------------------*/
                $('.login-tab').on("click",'.note', function () {
+            	   console.log('쪽지 버튼 클릭');
 		         
-            	   self.location="${initParam.rootPath }/user/note/list"
+            	   self.location="${initParam.rootPath }/user/note/list";
 	          }); 	
 				
 	});//function	
@@ -368,6 +369,8 @@ $(document).ready(function() {
 	function afterLogin(){
 		console.log('afterLogin>>>');
 		var login_id = $('#login_id').val();
+		var statusCount = '${statusCount}';
+		
 		$('#rightDiv').html('<div class="section_login">'
 				+'<div class="login-info">'
 				+'<div class="user-icon">'
@@ -383,7 +386,7 @@ $(document).ready(function() {
 				+'<div class="login-tab">'
 				+'<div class="mypage">마이페이지</div>'
 				+'<div class="note">'
-				+'	쪽지 <label class="note-cnt">${statusCount}</label> <span id="note-cnt">0</span>'
+				+'	쪽지 <label class="note-cnt"></label> <span id="note-cnt">${statusCount}</span>'
 				+'</div>'
 				+'<!-- hidden nav -->'
 				+'<div class="mypage-dropdown">'
@@ -429,6 +432,11 @@ $(document).ready(function() {
 		  $('#rightDiv .user-email').html(login_id);
 		}else{
 			console.log('else')
+		}
+		
+		if($('#rightDiv #note-cnt').html()==''){
+			console.log('쪽지 갯수 >>> '+statusCount);
+			$('#rightDiv #note-cnt').html(statusCount);
 		}
 	}
 	
