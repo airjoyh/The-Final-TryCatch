@@ -1,5 +1,7 @@
 package kr.co.trycatch.controller.company;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -37,7 +39,7 @@ public class CompanyContestController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPost(ContestVO contestVo, HttpSession session) throws Exception {
-		System.out.println("CompanyContestController registerPost()");
+		System.out.println("CompanyContestController registerPost() ");
 		System.out.println(contestVo);
 		int contest_id = contestService.selectContest_id();
 		contestVo.setContest_id(contest_id);
@@ -58,7 +60,9 @@ public class CompanyContestController {
 		System.out.println(cri);
 		System.out.println("검색된 글의 수 >>> "+contestService.listSearchCount(cri, company_id));
 		maker.setTotalCount(contestService.listSearchCount(cri, company_id));
-		model.addAttribute("list", contestService.selectByCompany(cri, company_id));
+		List<ContestVO> list = contestService.selectByCompany(cri, company_id);
+		System.out.println("selectByCompany list >>> "+list);
+		model.addAttribute("list", list);
 		model.addAttribute("cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
 		model.addAttribute("pageMaker", maker);
 		

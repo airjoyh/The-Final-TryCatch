@@ -90,7 +90,7 @@ $(document).ready(function() {
 		$('.logout-btn').on("click", '#logout', function(){
 			console.log('로그아웃 버튼 클릭');
 			location.href = '${initParam.rootPath}/user/logout';
-			beforeLogin();
+			//beforeLogin();
 		});
 		
 		
@@ -323,8 +323,8 @@ $(document).ready(function() {
                $('.login-tab').on("click",'.note', function () {
 		         
             	   self.location="${initParam.rootPath }/user/note/list"
-	          }); 
-			 	 
+	          }); 	
+				
 	});//function	
 	
 	function removeRegist() {//인증안된 아이디 삭제
@@ -364,7 +364,10 @@ $(document).ready(function() {
 				+'</div>');
 	}
 	
+	
 	function afterLogin(){
+		console.log('afterLogin>>>');
+		var login_id = $('#login_id').val();
 		$('#rightDiv').html('<div class="section_login">'
 				+'<div class="login-info">'
 				+'<div class="user-icon">'
@@ -380,7 +383,7 @@ $(document).ready(function() {
 				+'<div class="login-tab">'
 				+'<div class="mypage">마이페이지</div>'
 				+'<div class="note">'
-				+'	쪽지 <label class="note-cnt"></label> <span id="note-cnt">${statusCount}</span>'
+				+'	쪽지 <label class="note-cnt">${statusCount}</label> <span id="note-cnt">0</span>'
 				+'</div>'
 				+'<!-- hidden nav -->'
 				+'<div class="mypage-dropdown">'
@@ -420,6 +423,13 @@ $(document).ready(function() {
 				+'</div>'
 				+'</div>'
 				+'<!-- section_zzim -->');
+		if($('#rightDiv .user-email').html()==''){
+			console.log('if:'+ login_id)//airjoyh@naver.com
+		   //$('#rightDiv .user-email').html($('#login_id').val());
+		  $('#rightDiv .user-email').html(login_id);
+		}else{
+			console.log('else')
+		}
 	}
 	
 </script>

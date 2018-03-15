@@ -1,6 +1,6 @@
 package kr.co.trycatch.domain.company;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class ContestVO {
 	private int contest_id;

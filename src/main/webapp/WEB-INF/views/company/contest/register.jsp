@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>	
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>	
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -21,15 +23,15 @@
 <%-- <link href="${initParam.rootPath }/resources/css/font.css" rel="stylesheet"> --%>
 <link href="${initParam.rootPath }/resources/css/trycatch.css" rel="stylesheet">
 <script type="text/javascript">
+$(function(){
 	
-	/* $('#contestRegisterBtn').on("click", function(){
+	$('#contestRegisterBtn').on("click", function(){
+		console.log('콘테스트 등록 버튼 클릭');
+		var startDate = $('#contest_startDate').val();
+		console.log('시작날짜 >>> '+startDate);
 		
-		$.ajax({
-			type:'post',
-			url:'${initParam.rootPath}/company/contest/'
-		});
-		
-	}); */
+		document.registerForm.submit();
+	}); 
 	
 	
 	function validateCheck() {
@@ -62,6 +64,7 @@
 		} */
 	}
 	
+});
 </script>
 
 </head>
@@ -106,11 +109,9 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> 
-								<input class="form-control" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018-03-07 18:30"
-								value="2018/03/07 17:35">yyyy/mm/dd hh24:mi
+								<input class="form-control" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018/03/07 18:30">
 								~
-								<input class="form-control" id="contest_endDate" name="contest_endDate" placeholder="끝날짜 ex)2018-03-07 19:30:00"
-								value="2018-03-07">
+								<input class="form-control" id="contest_endDate" name="contest_endDate" placeholder="끝날짜 ex)2013/03/07 19:30:00">
 						</div>
 					</div>
 				</div>
@@ -154,7 +155,7 @@
 				<div class="row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-4">
-						<button type="submit" id="contestRegisterBtn" class="btn btn-info btn-block"
+						<button type="button" id="contestRegisterBtn" class="btn btn-info btn-block"
 							>다음</button>
 					</div>
 					<div class="col-sm-4">

@@ -88,8 +88,8 @@
 							<th style="width: 15%;">기업명</th>
 							<th style="width: 15%;">분야</th>
 							<th style="width: 30%;">제목</th>
-							<th style="width: 20%;">시작시간</th>
-							<th style="width: 20%;">시작시간</th>
+							<th style="width: 20%;">시작 날짜</th>
+							<th style="width: 20%;">끝 날짜</th>
 						</tr>
 					</thead>
 					<tbody>

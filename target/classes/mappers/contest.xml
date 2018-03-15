@@ -9,8 +9,8 @@
 				contest_field, contest_hireNumber, contest_contents,
 				manager_name, team_name, manager_email, manager_tel)
 		values(#{contest_id}, #{company_id}, #{contest_title},
-			   to_date(#{contest_startDate}, 'yyyy/mm/dd hh24:mi:ss'),
-			   to_date(#{contest_endDate}, 'yyyy/mm/dd hh24:mi:ss'), 
+			   #{contest_startDate},
+			   #{contest_endDate}, 
 			   #{contest_field}, #{contest_hireNumber}, #{contest_contents},
 			   #{manager_name}, #{team_name}, #{manager_email}, #{manager_tel})
 	</insert>
@@ -27,10 +27,11 @@
 	<!-- 콘테스트 정보 한행 조회 -->
 	<select id="select" resultType="ContestVO">
 		select contest_id, company_id, contest_title, 
-       		   contest_startDate, contest_endDate,
+       		   to_char(contest_startDate, 'YYYY/MM/DD HH24:MI'),
+       		   to_char(contest_endDate, 'YYYY/MM/DD HH24:MI'),
        		   contest_field, contest_hireNumber, 
        		   contest_contents, manager_name, 
-       		   team_name, manager_email, manager_tel,
+       		   team_name, manager_email, manager_tel, contest_status
        		   company_name
 		from contest natural join company_info
 		where contest_id = #{contest_id}
@@ -62,9 +63,21 @@
 			</if>
 		</if>
 	</sql>
-	
+	<!-- select contest_id, company_id, contest_title, 
+       		   to_char(contest_startDate, 'YYYY/MM/DD HH24:MI'),
+       		   to_char(contest_endDate, 'YYYY/MM/DD HH24:MI'),
+       		   contest_field, contest_hireNumber, 
+       		   contest_contents, manager_name, 
+       		   team_name, manager_email, manager_tel, contest_status
+		from contest
+		where company_id = #{company_id}
+		<include refid="search"></include> -->
 	<select id="selectByCompany" resultType="ContestVO">
-		select * 
+		select contest_id, company_id, contest_title, 
+       		   contest_startDate,contest_endDate,
+       		   contest_field, contest_hireNumber, 
+       		   contest_contents, manager_name, 
+       		   team_name, manager_email, manager_tel, contest_status
 		from contest
 		where company_id = #{company_id}
 		<include refid="search"></include>
@@ -95,10 +108,11 @@
 	<!-- 구직자에게 보여질 최종 등록된 콘테스트 정보들 -->
 	<select id="selectAll" resultType="ContestVO">
 		select contest_id, company_id, contest_title, 
-       		   contest_startDate, contest_endDate,
+       		   to_char(contest_startDate, 'YYYY/MM/DD HH24:MI'),
+       		   to_char(contest_endDate, 'YYYY/MM/DD HH24:MI'),
        		   contest_field, contest_hireNumber, 
        		   contest_contents, manager_name, 
-       		   team_name, manager_email, manager_tel,
+       		   team_name, manager_email, manager_tel, contest_status,
        		   company_name
 		from contest natural join company_info
 		where contest_status = 'Y'

@@ -63,9 +63,9 @@
 			var status = $(this).html();
 		
 			if(status == 'Y'){
-				$(this).html('<span id='+i+'>등록 완료<span>');
+				$(this).html('등록 완료');
 			}else if(status == 'N'){
-				$(this).html('<span id='+i+'>등록</span>');
+				$(this).html('등록');
 			}
 			
 			$(this).on("click", function(e){
@@ -85,7 +85,7 @@
 						success:function(result){
 							console.log(result);
 							if(result=='finalRegister'){
-								//btn.add('#'+i).html('등록 완료');
+								//$(this).add('#'+i).html('등록 완료');
 								btn.html('등록 완료');//이게 안먹음
 								alert('해당 콘테스트가 등록되었습니다.');
 								//$(this).attr("name", "contestComplete");
@@ -127,7 +127,7 @@
 <div class="container" style="background-color: #ffffff;">
 		<div class="row"
 			style="padding-top: 3em; padding-left: 4em; padding-right: 4em; padding-bottom: 2em; margin-bottom: 1em;">
-			<h3>후기게시판</h3>
+			<h3>콘테스트 개최 게시판</h3>
 			<hr>
 		</div>
 		<div class="row" style="padding-left: 3em; padding-right: 3em;">
@@ -148,8 +148,8 @@
 							<tr>
 								<td style="width: 30%;"><a
 									href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
-								<td style="width: 20%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest.contest_startDate}" /></td>
-								<td style="width: 20%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest.contest_endDate}" /></td>
+								<td style="width: 20%;"><fmt:formatDate pattern="yyyy/MM/dd H:mm" value="${contest.contest_startDate}" /></td>
+								<td style="width: 20%;"><fmt:formatDate pattern="yyyy/MM/dd H:mm" value="${contest.contest_endDate}" /></td>
 								<td style="width: 10%;">${contest.team_name }</td>
 								<td style="width: 10%;">${contest.manager_name }</td>
 								<td style="width: 10%;"><button type="button" name="contestBtn" value="${contest.contest_id }">${contest.contest_status }</button></td>
