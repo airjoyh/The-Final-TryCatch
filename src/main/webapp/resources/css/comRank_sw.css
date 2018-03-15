@@ -49,6 +49,15 @@
     font-size: 15px;
 }
 
+.star-left font{
+	color: teal;
+	font-size: medium;
+	padding-left: 10px;
+}
+
+.star-left .badge{
+	padding-right: 10px;
+}
 .star-right{
     width: 50%;
     height: 190px;
@@ -67,6 +76,15 @@
     font-size: 15px;
 }
 
+.star-right font{
+	color: #ff8040;
+	font-size: medium;
+	padding-left: 10px;
+}
+
+.star-right .badge{
+	padding-right: 10px;
+}
 .star-box {
 	padding: 10px;
 }
@@ -143,8 +161,8 @@ progress:after {
 .star-btn {
 	width: 200px;
 	margin-left:75px;
-	background: #80ffff;
-	color: #fff;
+	/* background: #80ffff; */
+	color: #000000;
 	opacity: 0.7;
 	bottom: 5px;
 	position: absolute;
@@ -152,6 +170,7 @@ progress:after {
 .star-rank{
 	position: relative;
 	width: 350px;
+	padding-left: 40px;
 }
 .star-label{
 	right: 5px;

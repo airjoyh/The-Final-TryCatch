@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- C태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -64,49 +67,35 @@
 										<div class="star-box">
 											<div class="star-left">
 												<label>종합만족도</label><br>	
-												<%-- <c:forEach items="${total }" var="total"> --%>
-												<div class="star-rank">
-												<progress id="progressBar" max="100" value="33"></progress>								
-												<label class="star-label">
-													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+												<c:forEach items="${total }" var="total">
+												<label for="a_${total.rank}">
+													<font>${total.rank}위</font>
+													<a href="${initParam.rootPath }/review/control.do?company_id=${total.company_id }" style="text-decoration: none; color: black;">${total.company_name }</a>
+												</label>
+												<label class="star-label" style="float: right;">
+													<span class="badge a${total.rank}"><b>${total.avg_all }</b>/5점</span>
 												</label><br>
-												<progress id="progressBar" max="100" value="33"></progress>								
-												<label class="star-label">
-													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-												</label><br>
-												<progress id="progressBar" max="100" value="33"></progress>								
-												<label class="star-label">
-													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-												</label><br>
-												<progress id="progressBar" max="100" value="33"></progress>								
-												<label class="star-label">
-													<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-												</label><br>
+												<div class="star-rank" id="a_${total.rank}">
+													<progress id="progressBar" max="100" value="${total.avg_all*20 }"></progress>								
 												</div>
-												<%-- </c:forEach> --%>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/totalRank?action=total"><button class="star-btn">더보기</button></a>
 											</div>
 											<div class="star-right">
 												<label>승진 및 기회가능성</label><br>	
-												<div class="star-rank">
-													<progress id="progressBar" max="100" value="33"></progress>								
+												<c:forEach items="${possibility }" var="possibility">
+													<label for="a_${possibility.rank}">
+														<font>${possibility.rank}위</font>
+														<a href="${initParam.rootPath }/review/control.do?company_id=${possibility.company_id }" style="text-decoration: none; color: black;">${possibility.company_name }</a>
+													</label>
 													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+														<span class="badge a${possibility.rank}"><b>${possibility.avg_all }</b>/5점</span>
 													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
+												<div class="star-rank" id="a_${possibility.rank}">
+													<progress id="progressBar" max="100" value="${possibility.avg_all*20 }"></progress>								
 												</div>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/possibilityRank?action=posibility"><button class="star-btn">더보기</button></a>
 											</div>
 										</div>
 									</div>
@@ -114,47 +103,35 @@
 										<div class="star-box">
 											<div class="star-left">
 												<label>복지 및 급여</label><br>																					
-												<div class="star-rank">
-													<progress id="progressBar" max="100" value="33"></progress>								
+												<c:forEach items="${welSal }" var="welSal">
+													<label for="a_${welSal.rank}">
+														<font>${welSal.rank}위</font>
+														<a href="${initParam.rootPath }/review/control.do?company_id=${welSal.company_id }" style="text-decoration: none; color: black;">${welSal.company_name }</a>
+													</label>
 													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+														<span class="badge a${welSal.rank}"><b>${welSal.avg_all }</b>/5점</span>
 													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
+												<div class="star-rank" id="a_${welSal.rank}">
+													<progress id="progressBar" max="100" value="${welSal.avg_all*20 }"></progress>								
 												</div>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/welSalRank?action=welSal"><button class="star-btn">더보기</button></a>
 											</div>
 											<div class="star-right">
 												<label>업무와 삶의 균형</label><br>										
-												<div class="star-rank">
-													<progress id="progressBar" max="100" value="33"></progress>								
+												<c:forEach items="${balance }" var="balance">
+													<label for="a_${balance.rank}">
+														<font>${balance.rank}위</font>
+														<a href="${initParam.rootPath }/review/control.do?company_id=${balance.company_id }" style="text-decoration: none; color: black;">${balance.company_name }</a>
+													</label>
 													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+														<span class="badge a${balance.rank}"><b>${balance.avg_all }</b>/5점</span>
 													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
+												<div class="star-rank" id="a_${balance.rank}">
+													<progress id="progressBar" max="100" value="${balance.avg_all*20 }"></progress>								
 												</div>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/balanceRank?action=balance"><button class="star-btn">더보기</button></a>
 											</div>
 										</div>
 									</div>
@@ -162,51 +139,35 @@
 										<div class="star-box">
 											<div class="star-left">
 												<label>사내문화</label><br>																					
-												<div class="star-rank">
-													<progress id="progressBar" max="100" value="33"></progress>								
+												<c:forEach items="${culture }" var="culture">
+													<label for="a_${culture.rank}">
+														<font>${culture.rank}위</font>
+														<a href="${initParam.rootPath }/review/control.do?company_id=${culture.company_id }" style="text-decoration: none; color: black;">${culture.company_name }</a>
+													</label>
 													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+														<span class="badge a${culture.rank}" style="background-color: teal;"><b>${culture.avg_all }</b>/5점</span>
 													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
+												<div class="star-rank" id="a_${culture.rank}">
+													<progress id="progressBar" max="100" value="${culture.avg_all*20 }"></progress>								
 												</div>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/cultureRank?action=culture"><button class="star-btn">더보기</button></a>
 											</div>
 											<div class="star-right">
 												<label>경영진</label><br>										
-												<div class="star-rank">
-													<progress id="progressBar" max="100" value="33"></progress>								
+												<c:forEach items="${manager }" var="manager">
+													<label for="a_${manager.rank}">
+														<font>${manager.rank}위</font>
+														<a href="${initParam.rootPath }/review/control.do?company_id=${manager.company_id }" style="text-decoration: none; color: black;">${manager.company_name }</a>
+													</label>
 													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
+														<span class="badge a${manager.rank}" style="background-color: teal;"><b>${manager.avg_all }</b>/5점</span>
 													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
-													<progress id="progressBar" max="100" value="33"></progress>								
-													<label class="star-label">
-														<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
-													</label><br>
+												<div class="star-rank" id="a_${manager.rank}">
+													<progress id="progressBar" max="100" value="${manager.avg_all*20 }"></progress>								
 												</div>
-												<button class="star-btn">더보기</button>
+												</c:forEach>
+												<a href="${initParam.rootPath }/user/cominfo/list/managerRank?action=manager"><button class="star-btn">더보기</button></a>
 											</div>
 										</div>
 									</div>
