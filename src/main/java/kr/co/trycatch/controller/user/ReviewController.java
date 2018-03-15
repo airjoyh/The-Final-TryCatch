@@ -41,7 +41,7 @@ public class ReviewController {
 		System.err.println(reviewVo);
 		int company_id = reviewVo.getCompany_id();
 		
-		return "redirect:/user/review/list?company_id="+company_id;
+		return "redirect:/user/com_info/list?company_id="+company_id;//"redirect:/user/review/list?company_id="+company_id;
 	}
 	
 	@RequestMapping(value="/list")
@@ -63,7 +63,7 @@ public class ReviewController {
 		model.addAttribute("avgScore", reviewService.avgScore(company_id));
 		model.addAttribute("total", reviewService.totalAvgScore(company_id));
 		
-		return "/user/com_info/review/list";
+		return "/user/com_info/review/list_new";//"/user/com_info/review/list";
 	}
 	
 	@RequestMapping(value="/read")

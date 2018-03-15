@@ -65,4 +65,10 @@ public class NoteComDAOImpl implements NoteComDAO{
 		return session.selectOne("notecom.listSearchCount", map);
 	}
 
+	@Override
+	public int statusCount(String note_receiver) throws Exception {
+		
+		return session.selectOne("notecom.statusCount",note_receiver);
+	}
+
 }

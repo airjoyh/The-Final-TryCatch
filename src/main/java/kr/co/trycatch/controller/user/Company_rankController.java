@@ -32,7 +32,7 @@ public class Company_rankController {
 		model.addAttribute("culture", map.get("cultureRank"));
 		model.addAttribute("manager", map.get("managerRank"));
 		
-		return "/user/com_info/rank";
+		return "/user/com_info/rank_new"; //"/user/com_info/rank";
 	}
 	
 	@RequestMapping(value="/list/totalRank")
@@ -51,7 +51,7 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "totalRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new"; //"/user/com_info/list";
 	}
 	
 	@RequestMapping(value="/list/possibilityRank")
@@ -70,7 +70,7 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "possibilityRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new";
 	}
 	
 	@RequestMapping(value="/list/welSalRank")
@@ -89,7 +89,7 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "welSalRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new";
 	}
 	
 	@RequestMapping(value="/list/balanceRank")
@@ -108,7 +108,7 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "balanceRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new";
 	}
 
 	@RequestMapping(value="/list/cultureRank")
@@ -127,7 +127,7 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "cultureRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new";
 	}
 	
 	@RequestMapping(value="/list/managerRank")
@@ -146,6 +146,6 @@ public class Company_rankController {
 		
 		model.addAttribute("action", "managerRank");
 		
-		return "/user/com_info/list";
+		return "/user/com_info/list_new";
 	}
 }

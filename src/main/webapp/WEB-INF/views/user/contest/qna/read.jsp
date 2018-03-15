@@ -77,6 +77,8 @@
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
 				            <span class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
 				                   value="" readonly="readonly"><a href="#tcmail">${contest_qna.qna_writer }</a></span>
+				            <span><input type="button" name="gonote" id="gonote"></span>
+				            <span><input type="button" name="gocomnote" id="gocomnote"></span>
 				        </div>
 					</div>
 					<div class='com-qna-content'>
@@ -506,6 +508,7 @@
 					if(result == 'success'){
 						alert("등록 되었습니다.");
 						//$("#tcmail").modal('hide');
+						//$("#tcmail").fadeOut();
 					}
 			}});
 	});
@@ -513,7 +516,7 @@
 </script>	
 
 <script type="text/javascript">
- $(function(){
+ $(function(){//document ready
 	      
 	        writerCheck();
 	        
@@ -534,6 +537,14 @@
 				formObj.attr("method", "get");
 				formObj.attr("action", "${initParam.rootPath}/review/qna_reply/goLogin");
 				formObj.submit();
+			});
+			
+			$("#gonote").on("click", function () {
+				self.location="${initParam.rootPath }/user/note/list";
+			});
+			
+			$("#gocomnote").on("click", function () {
+				self.location="${initParam.rootPath }/company/note/list";
 			});
  });
 	  	

@@ -19,5 +19,5 @@ public interface NoteService {
 
     public int listSearchCount(SearchCriteria cri, String note_receiver)throws Exception;
     
-    
+    public int statusCount(String note_receiver) throws Exception;
 }

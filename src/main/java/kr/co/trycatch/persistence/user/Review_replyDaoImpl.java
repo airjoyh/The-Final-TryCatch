@@ -27,7 +27,7 @@ public class Review_replyDaoImpl implements Review_replyDAO {
 	public List<Review_replyVO> list(int review_no, Criteria cri) throws Exception {
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 
-		return session.selectList("review_reply.list", review_no);
+		return session.selectList("review_reply.list", review_no,bounds);
 	}
 
 	@Override

@@ -67,13 +67,13 @@
                     					 검색조건</option>
 					                  <option value="t"
 					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					제목</option>                  
+                     					보낸 구직자</option>                  
 					                  <option value="w"
 					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 기업명</option>
+                    					 내용</option>
 					                  <option value="tw"
 					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 제목+기업명</option>
+                    					 보낸 구직자+내용</option>
 					               </select> <input type="text" name='keyword' id="keywordInput"
 					                  value='${cri.keyword }'>
 					               <button id='searchBtn'>검색</button>
@@ -92,7 +92,7 @@
 						 <c:forEach items="${list }" var="note" varStatus="stat">
 								<tr>
 									<td>${note.note_id} </td>																		
-									<td><a href="${initParam.rootPath }/company/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${param.company_id }&note_id=${note.note_id }">${note.note_contents}</a></td>																		
+									<td><a href="${initParam.rootPath }/company/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }">${note.note_contents}</a></td>																		
 									<td>${note.note_sender}</td>
 									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>
 								</tr>
@@ -104,18 +104,18 @@
 					<div class="cont-qna-page">
 						      <ul class="pagination">
 						      <c:if test="${pageMaker.prev}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&note_receiver=${param.note_receiver }">&laquo;</a></li>
 						      </c:if>
 						      <c:forEach begin="${pageMaker.startPage }"
 						            end="${pageMaker.endPage }" var="idx">
 						      <li 
 						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+						         <a href="list${pageMaker.makeSearch(idx)}&note_receiver=${param.note_receiver }">${idx}</a>
 						      </li>
 						      </c:forEach>
 						
 						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&note_receiver=${param.note_receiver }">&raquo;</a></li>
 						      </c:if>         
 						      </ul>
 					</div><!-- cont-qna-page -->
@@ -234,6 +234,24 @@ $(function(){
 		self.location="${initParam.rootPath }/mailread"
 	});
 });
+
+$(document).ready(function() {
+    
+    $('#searchBtn').on("click", function(event) {
+		//검색(Search) 버튼을 클릭하면
+			self.location = "list" //'list'
+							+ '${pageMaker.makeQuery(1)}'
+							  //'list?page=1&perPageNum=10'
+							+ "&searchType="
+							//'list?page=1&perPageNum=10&searchType='
+							+ $("select option:selected").val()
+							//'list?page=1&perPageNum=10&searchType=t'
+							+ "&keyword=" + $('#keywordInput').val()
+							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
+							+"&note_receiver=${param.note_receiver}";
+		});
+});
+
 </script>
 
 </body>

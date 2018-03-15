@@ -52,5 +52,11 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.listSearchCount(cri, note_receiver);
 	}
 
+	@Override
+	public int statusCount(String note_receiver) throws Exception {
+		
+		return noteDao.statusCount(note_receiver);
+	}
+
 	
 }

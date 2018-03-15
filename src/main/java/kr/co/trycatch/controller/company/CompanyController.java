@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.co.trycatch.domain.company.Company_infoVO;
 import kr.co.trycatch.domain.user.MemberVO;
 import kr.co.trycatch.service.company.Company_infoService;
+import kr.co.trycatch.service.company.NoteComService;
 
 @Controller
 @RequestMapping("/company")
@@ -20,6 +21,9 @@ public class CompanyController {
 	@Inject
 	private Company_infoService company_infoService;
 
+	@Inject
+	private NoteComService notecomService;
+	
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPost(MemberVO memberVo, Company_infoVO company_infoVo) throws Exception {
@@ -66,6 +70,8 @@ public class CompanyController {
 			session.setAttribute("company_login_company_id", company_id);
 			
 			state = "login";
+			
+			 session.setAttribute("statusCount" ,notecomService.statusCount(login_id));//읽지 않은 쪽지 갯수 조회 
 
 		}
 		return state;

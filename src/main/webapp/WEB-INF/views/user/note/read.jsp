@@ -54,6 +54,7 @@
 					<div class='com-inline-btn'>
 						<input type="button" class='qna-list' id="goList" value='목록보기'>
 						<a href="#sendMail"><input type="button" class='qna-list' value='답장'></a>
+						<input type="button" class='qna-list' id="deleteList" value='삭제' onclick="removeReview()">
 						<!-- <input type="button" class='qna-modify' value='수정'>
 						<input type="button" class='qna-delete' value='삭제'> -->
 					</div>
@@ -175,7 +176,7 @@
 					
 				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
 					<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
-					</div>
+					</div>+
 			</div>
 		</div>
 	<!-- frame -->
@@ -206,9 +207,19 @@ $("#noteModBtn").on("click", function() {
 				if(result == 'success'){
 					alert("등록 되었습니다.");
 					//$("#tcmail").modal('hide');
+				
 				}
 		}}); 
 });
+
+function removeReview(){
+		
+		if(confirm('정말로 삭제하시겠습니까?')){
+			self.location="${initParam.rootPath }/user/note/remove?page=${cri.page }"
+			+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+			+"&keyword=${cri.keyword }&note_receiver=${param.note_receiver}&note_id=${note.note_id }";
+		}
+	}
 
 </script>
 </body>

@@ -51,7 +51,7 @@ public class Contest_qna_replyController {
 		
 		Criteria cri = new Criteria();
 		cri.setPage(page);
-		cri.setPerPageNum(5);
+		cri.setPerPageNum(5);//댓글 조회 행의 수
 
 		List<Contest_qna_replyVO> list = qna_replyService.list(qna_no, cri);// 댓글 출력
 

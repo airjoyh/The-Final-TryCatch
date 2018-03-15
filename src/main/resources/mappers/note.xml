@@ -14,24 +14,12 @@
 		where note_id = #{note_id}
 	</delete>
 
-<!-- 	<select id="select" resultType="NoteVO">
-		select *
-		from note
-		where user_id = #{user_id}
-	</select>
- -->
 	<select id="read" resultType="NoteVO">
 		select note_id, note_contents, note_senddate, note_sender, note_receiver
 		from note
 		where note_id=#{note_id}
 	</select>
 
-<!-- 	<select id="list" resultType="NoteVO">
-		select note.note_id, note.note_contents, note.note_senddate, com.company_name, note.note_receiver
-		from company_info com, note note
-		where com.company_id= note.note_sender
-	</select> -->
-	
 	<select id="list" resultType="NoteVO">
 		select note_id, note_contents, note_senddate, note_sender, note_receiver
 		from note
@@ -72,5 +60,14 @@
 		where note_receiver = #{note_receiver}
 		<include refid="search"></include>
 	</select>
+	
+	<!-- 안 읽은 쪽지의 행수 -->
+	<select id="statusCount" resultType="int">
+	   select count(*) 
+	   from note 
+	   where note_status='N' 
+	         and note_receiver = #{note_receiver}
+	</select>
+	
 
 </mapper>

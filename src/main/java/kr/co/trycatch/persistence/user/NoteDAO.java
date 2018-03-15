@@ -18,4 +18,6 @@ public interface NoteDAO {
 	public NoteVO read(int note_id) throws Exception;
 	
 	public void delete(int note_id) throws Exception;
+	
+	public int statusCount(String note_receiver) throws Exception;
 }

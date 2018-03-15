@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.PageMaker;
@@ -31,7 +32,10 @@ public class NoteController {
 		noteService.regist(noteVo);
 		System.out.println("noteVo"+noteVo);
 		
+		//String note_receiver= noteVo.getNote_receiver();
+		
 		return "success";
+		//return "redirect:/user/note/list?note_receiver="+note_receiver;
 	}
 	
 	@RequestMapping("/user/note/list")
@@ -60,6 +64,19 @@ public class NoteController {
 		return "/user/note/read";
 	}
 	
+	@RequestMapping("/user/note/remove")
+	public String remove(String note_receiver,int note_id, RedirectAttributes rttr, SearchCriteria cri)throws Exception {
+		noteService.remove(note_id);
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("msg", "SUCCESS");
+		System.out.println("NoteController 삭제성공");
+		
+		return "redirect:/user/note/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
+		+"&note_receiver="+note_receiver;
+	}
+	
 	//------------------------------------company----------------------------------------
 	
 	@RequestMapping(value="/company/note/register", method= RequestMethod.POST)
@@ -70,12 +87,13 @@ public class NoteController {
 		
 		
 		return "success";
+		
 	}
 	
 	//고치기
 	@RequestMapping("/company/note/list")
 	public String listCom(SearchCriteria cri, Model model, HttpSession session)throws Exception{
-		String note_receiver= (String) session.getAttribute("user_login_id");
+		String note_receiver= (String) session.getAttribute("company_login_member_id");
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
 		maker.setTotalCount(notecomService.listSearchCount(cri, note_receiver));
@@ -96,5 +114,19 @@ public class NoteController {
 		
 		return "/company/note/read";
 	}
+	
+	@RequestMapping("/company/note/remove")
+	public String removeCom(String note_receiver,int note_id, RedirectAttributes rttr, SearchCriteria cri)throws Exception {
+		noteService.remove(note_id);
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("msg", "SUCCESS");
+		System.out.println("NoteController 삭제성공");
+		
+		return "redirect:/company/note/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
+		+"&note_receiver="+note_receiver;
+	}
+	
 	
 }

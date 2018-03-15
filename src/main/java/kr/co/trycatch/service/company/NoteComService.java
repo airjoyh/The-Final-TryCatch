@@ -18,4 +18,6 @@ public interface NoteComService {
 	public List<NoteVO> listSearchCriteria(SearchCriteria cri, String note_receiver) throws Exception;
 
     public int listSearchCount(SearchCriteria cri, String note_receiver)throws Exception;
+
+    public int statusCount(String note_receiver) throws Exception;
 }

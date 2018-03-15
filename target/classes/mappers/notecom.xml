@@ -66,5 +66,13 @@
 		where note_receiver = #{note_receiver}
 		<include refid="search"></include>
 	</select>
+	
+	<!-- 안 읽은 쪽지의 행수 -->
+	<select id="statusCount" resultType="int">
+	   select count(*) 
+	   from note 
+	   where note_status='N' 
+	         and note_receiver = #{note_receiver}
+	</select>
 
 </mapper>

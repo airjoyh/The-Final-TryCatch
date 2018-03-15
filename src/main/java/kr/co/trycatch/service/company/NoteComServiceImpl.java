@@ -51,4 +51,10 @@ public class NoteComServiceImpl implements NoteComService{
 		
 		return notecomDao.listSearchCount(cri, note_receiver);
 	}
+
+	@Override
+	public int statusCount(String note_receiver) throws Exception {
+		
+		return notecomDao.statusCount(note_receiver);
+	}
 }

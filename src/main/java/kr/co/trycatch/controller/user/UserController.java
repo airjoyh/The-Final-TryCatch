@@ -1,3 +1,5 @@
+
+
 package kr.co.trycatch.controller.user;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.trycatch.domain.user.MemberVO;
 import kr.co.trycatch.service.user.MemberService;
+import kr.co.trycatch.service.user.NoteService;
 
 @Controller
 @RequestMapping("/user")
@@ -23,6 +26,9 @@ public class UserController {
 
 	@Inject
 	private MemberService memberService;
+	
+	@Inject
+	private NoteService noteService;
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
@@ -100,13 +106,15 @@ public class UserController {
 				model.addAttribute("noConfirm_id", login_id);
 				state = "noAuth";
 			} else {
-				System.out.println("로그인 성공!");
 				session.setAttribute("user_login_id", login_id);//로그인 아이디
 				session.setAttribute("user_loginState", "login");//로그인 상태
-				while(!session.getAttribute("user_login_id").equals(login_id)) {
+				/*while(!session.getAttribute("user_login_id").equals(login_id)) {
 					Thread.sleep(1000);
-				}
+				}*/
 				state = "login";
+				
+				 session.setAttribute("statusCount" ,noteService.statusCount(login_id));//읽지 않은 쪽지 갯수 조회 
+				
 			}
 		}
 		return state;

@@ -54,6 +54,7 @@
 					<div class='com-inline-btn'>
 						<input type="button" class='qna-list' id="goList" value='목록보기'>
 						<a href="#sendMail"><input type="button" class='qna-list' value='답장'></a>
+						<input type="button" class='qna-list' id="deleteList" value='삭제' onclick="removeReview()">
 						<!-- <input type="button" class='qna-modify' value='수정'>
 						<input type="button" class='qna-delete' value='삭제'> -->
 					</div>
@@ -165,10 +166,10 @@
 		<div class="modal" id="sendMail">
 			<div class="modal-pannel">
 				<div class="modal-title">쪽지 답장 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">   
-					<h4>보낸 구직자 아이디</h4><p><input type="text" id="note_sender" value="${user_login_id}"  
+				<div class="modal-body">  
+					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id}"  
 					    class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 기업 아이디</h4><p><input type="text" id="note_receiver" value="${note.note_sender}"
+					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${note.note_sender}"
 					 class="form-control" style="width: 90%; height: 15px;"></p>
 					<textarea rows="4" cols="78px" placeholder="답장 내용을 입력" style="margin-top: 5px;" id="note_contents"></textarea>
 				</div>
@@ -183,7 +184,7 @@
 <script type="text/javascript">
 $(function(){
 	$('#goList').on("click", function(){
-		self.location="${initParam.rootPath }/user/note/list"
+		self.location="${initParam.rootPath }/company/note/list"
 	});
 	
 });
@@ -199,16 +200,26 @@ $("#noteModBtn").on("click", function() {
     
 	  $.ajax({
 			type:'post',
-			url:'${initParam.rootPath}/company/note/register',
+			url:'${initParam.rootPath}/user/note/register',
 			data:{"note_contents":note_contents,"note_sender":note_sender, "note_receiver":note_receiver},
 			success:function(result){
 				console.log("result: " + result);
 				if(result == 'success'){
 					alert("등록 되었습니다.");
-					//$("#tcmail").modal('hide');
+					
 				}
 		}}); 
+	  $("#note_contents").val("");
 });
+
+function removeReview(){
+	
+	if(confirm('정말로 삭제하시겠습니까?')){
+		self.location="${initParam.rootPath }/company/note/remove?page=${cri.page }"
+		+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+		+"&keyword=${cri.keyword }&note_receiver=${param.note_receiver}&note_id=${note.note_id }";
+	}
+}
 
 </script>
 </body>

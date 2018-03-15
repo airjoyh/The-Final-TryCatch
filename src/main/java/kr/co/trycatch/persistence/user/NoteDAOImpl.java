@@ -65,4 +65,10 @@ public class NoteDAOImpl implements NoteDAO {
 		return session.selectOne("note.listSearchCount", map);
 	}
 
+	@Override
+	public int statusCount(String note_receiver) throws Exception {
+	
+		return session.selectOne("note.statusCount", note_receiver);
+	}
+
 }

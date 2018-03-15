@@ -7,6 +7,8 @@
     height: 500px;
     border: 1px solid #dee3eb;
     background: #fff;
+    
+    margin-bottom: 8px;
 } 
 
 
@@ -122,8 +124,8 @@
     align-content: center;
 }
 
-.cont-qna-page{
-	background-color:#80ffff;
+.cont-page{
+	/* background-color:#80ffff; */
 	display: block;
     align-content:center;
     margin-left: 15px;
@@ -132,4 +134,9 @@
 #registBtn {
 	right: 0;
 	bottom: 0;
+}
+
+.cont-page ul,li{
+	list-style: none;
+	display: flex;
 }

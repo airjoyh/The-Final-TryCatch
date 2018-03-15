@@ -25,9 +25,11 @@ public class Contest_qna_replyDAOImpl implements Contest_qna_replyDAO {
 
 	@Override
 	public List<Contest_qna_replyVO> list(int qna_no, Criteria cri) throws Exception {
+		System.out.println("skip행:"+cri.getPageStart()+", 조회할 최대행수: "+cri.getPerPageNum());
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 		
-		return session.selectList("qna_reply.list",qna_no );
+		//return session.selectList("qna_reply.list",qna_no );  전체행
+		return session.selectList("qna_reply.list",qna_no, bounds); //특정 limit에 해당하는 행 
 	}
 
 	@Override

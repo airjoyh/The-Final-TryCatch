@@ -318,8 +318,13 @@ $(document).ready(function() {
 					}
 					
 				});//emailConfirm2클릭	
-	
-				
+
+/* ---------------------------------------- 쪽지 ----------------------------------------*/
+               $('.login-tab').on("click",'.note', function () {
+		         
+            	   self.location="${initParam.rootPath }/user/note/list"
+	          }); 
+			 	 
 	});//function	
 	
 	function removeRegist() {//인증안된 아이디 삭제
@@ -375,7 +380,7 @@ $(document).ready(function() {
 				+'<div class="login-tab">'
 				+'<div class="mypage">마이페이지</div>'
 				+'<div class="note">'
-				+'	쪽지 <label class="note-cnt"></label> <span id="note-cnt">0</span>'
+				+'	쪽지 <label class="note-cnt"></label> <span id="note-cnt">${statusCount}</span>'
 				+'</div>'
 				+'<!-- hidden nav -->'
 				+'<div class="mypage-dropdown">'
