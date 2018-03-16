@@ -95,5 +95,11 @@ public class IngController {
 		System.out.println("mailread");
 		return "/ing/tc_mail_read_sw";
 	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		System.out.println("test");
+		return "/test";
+	}
 
 }

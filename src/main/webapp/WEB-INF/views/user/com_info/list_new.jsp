@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- C태그 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -40,96 +36,90 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='section_main1'>
-					<div class="content1">
-							<section class="elem elem-yellow" id="com-search" style="width: 740px;height: 50px;">
-								<div id="title"></div>
-								<!-- <div class="com-select">
-								<select class="com-rank"></select>
-								</div> -->
-							</section>
-							<section class="elem elem-yellow" id="com-searchList" style="width: 740px;height: 500px;">
-								<div class='company-contest-table'>
-									<div class='wrapper'>
-										<table cellspacing='0'>
-									<tr>
-										<th style="width: 5%;">순위</th>
-										<th style="width: 60%;">기업명</th>
-										<th style="width: 18%;">기업규모</th>
-										<th style="width: 12%;">매출액</th>
-										<th style="width: 5%;">댓글</th>
-
-									</tr>
-									<c:forEach items="${list }" var="avgScore" varStatus="stat">
-											<tr>
-												<td style="width: 10%;">${avgScore.rank }</td>
-												<td>
-													<div style="display: flex;">
-														<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
-														<div style="flex-direction: column;">
-															<div style="height: 50%;">
-															<a href="${initParam.rootPath }/user/review/list?company_id=${avgScore.company_id }">${avgScore.company_name }</a>	
-															</div>
-															<div style="height: 50%;">
-															<span style="border-radius: 10px; background-color: darkgray;">${avgScore.company_line }</span>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td style="width: 20%;">${avgScore.company_size }</td>
-												<td style="width: 20%;">${avgScore.company_turnover }</td>
-												<td><span class="badge">${review_cnt.get(stat.index) }</span></td>
-											</tr>
-									</c:forEach>
-										</table>
-									</div>
-								</div>
-							</section>
-							<section class="elem elem-yellow" id="paging" style="width: 740px;height: 100px;">
-								<div class="com-contest-paging">
-									<div class="cont-qna-page">
-									      <ul class="pagination">
-									      <c:if test="${pageMaker.prev}">
-									         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-									      </c:if >
-									      <c:forEach begin="${pageMaker.startPage }"
-									            end="${pageMaker.endPage }" var="idx">
-									      <li 
-									         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-									      </li>
-									      </c:forEach>
-									
-									      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-									      </c:if>         
-									      </ul>
-								    </div>
-								    <div class='cont-qna-search'>
-								               <select name="searchType">
-								                  <option value="n"
-								                     <c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-								                  <option value="t"
-								                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					제목</option>                  
-								                  <option value="w"
-								                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 작성자</option>
-								                  <option value="tw"
-								                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 제목+작성자</option>
-								               </select> <input type="text" name='keyword' id="keywordInput"
-								                  value='${cri.keyword }'>
-								               <button id='searchBtn'>검색</button>
-								               <!-- <button id='registBtn'>글쓰기</button> -->
-								
-								   </div>
-								</div><!-- com-contest-paging -->
-							</section>
+			<div class='section_main'>
+				<div class='com-contest-head'>
+					<div class='title-wrapper'>
+						<div id="title"></div>
 					</div>
-					<!-- content1 -->
-				</div><!-- section_main1 -->
+				
+				<!-- <div class="com-contest-box"> -->
+				<div class='company-contest-table'>
+					<div class='wrapper'>
+						<table cellspacing='0'>
+								<tr>
+									<th style="width: 7%">순위</th>
+									<th style="width: 50%">기업명</th>
+									<th style="width: 22%">기업규모</th>
+									<th style="width: 14%">매출액</th>
+									<th style="width: 7%">후기</th>
+								</tr>
+								<c:forEach items="${list }" var="avgScore" varStatus="stat">
+								<tr>
+									<td style="width: 7%">${avgScore.rank }</td>
+									<td style="width: 50%">
+										<div style="display: flex;">
+											<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
+											<div style="flex-direction: column;">
+												<div style="height: 50%;">
+													<a href="${initParam.rootPath }/user/review/list?company_id=${avgScore.company_id }">${avgScore.company_name }</a>	
+												</div>
+												<div style="height: 50%;">
+													<span style="border-radius: 10px; background-color: darkgray;">${avgScore.company_line }</span>
+												</div>
+											</div>
+										</div>
+									</td>
+									<td style="width: 22%">${avgScore.company_size }</td>
+									<td style="width: 14%">${avgScore.company_turnover }</td>
+									<td style="width: 7%"><span class="badge">${review_cnt.get(stat.index) }</span></td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</div>		
+			</div><!-- com-contest-head -->		
+			<div>
+					<div class="com-contest-paging">
+						<div class="cont-qna-page">
+						      <ul class="pagination">
+						      <c:if test="${pageMaker.prev}">
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+						      </c:if>
+						      <c:forEach begin="${pageMaker.startPage }"
+						            end="${pageMaker.endPage }" var="idx">
+						      <li 
+						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						         <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+						      </li>
+						      </c:forEach>
+						
+						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+						      </c:if>         
+						      </ul>
+					    </div>
+					    <div class='cont-qna-search'>
+					               <select name="searchType">
+					                  <option value="n"
+					                     <c:out value="${cri.searchType == null?'selected':''}"/>>
+                    					 검색조건</option>
+					                  <option value="t"
+					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                     					제목</option>                  
+					                  <option value="w"
+					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                    					 작성자</option>
+					                  <option value="tw"
+					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+                    					 제목+작성자</option>
+					               </select> <input type="text" name='keyword' id="keywordInput"
+					                  value='${cri.keyword }'>
+					               <button id='searchBtn'>검색</button>
+					
+					   </div>
+					</div><!-- com-contest-paging -->
+			</div>				
+		</div><!-- section_main1 -->
 				
 		</div>
 

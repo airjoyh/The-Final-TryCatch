@@ -3,17 +3,95 @@
 							  swlee
 ******************************************************************/
 
-.com-contest-head {
+.section_main {
+    position: relative;
+    height: 660px;
+    border: 1px solid #dee3eb;
+    background: #fff;  
+    margin-bottom: 5px;
+}
+
+.section_main2 {
     position: relative;
     height: 600px;
     border: 1px solid #dee3eb;
-    background: #fff;
-    
-    margin-bottom: 8px;
+    background: #fff;  
+    margin-bottom: 5px;
 }
 
-.register-qna {
-	height:35px;
+.com-review-head .com-review-body{
+	display: block;
+	padding: 15px;
+	height: 550px;
+}
+
+/*****************************************************************
+							  title
+******************************************************************/
+
+.com-review-title{
+    height: 45px;
+    width: 700px;
+    margin-bottom: 15px;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+	
+}
+
+.com-reivew-good{
+	margin-top:10px;
+	height:60px;
+	width:700px;
+	display: inline-block;
+	position: relative;
+}
+
+.com-review-bad{
+	margin-top:10px;
+	height:60px;
+	width:700px;
+	display: inline-block;
+	position: relative;
+}
+
+.com-review-ceo{
+	margin-top:10px;
+	height:60px;
+	width:700px;
+	display: inline-block;
+	position: relative;
+}
+
+.com-review-star{
+	margin-top:15px;
+	margin-bottom:5px;
+	height:270px;
+	width:700px;
+	display: inline-block;
+	position: relative;
+}
+
+.star-line {
+	height: 100%;
+}
+
+.star-line ul{
+	list-style: none;
+}
+
+.com-inline-btn {
+	height: 70px;
+    left: 300px;
+    bottom:20px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.register-btn {
+	height:30px;
 	width:125px;
 	font-size:15px;
     margin: 0;
@@ -30,68 +108,24 @@
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-
-.register-contest:hover{
-	background-color: #2b303b;
-}
-
-.com-qna-title{
-	height:45px;
-	width:700px;
-	margin: 0;
+.register-reviewBtn {
+	height:30px;
+	width:120px;
+	font-size:15px;
+    margin: 0;
     padding:0;
-	display: inline-block;
-	position: absolute;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
 	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }
-
-.com-qna-good{
-	margin-top: 50px;
-	height:75px;
-	width:700px;
-	display: inline-block;
-	
-}
-
-.com-qna-bad{
-	height:75px;
-	width:700px;
-	display: inline-block;
-	
-}
-
-.com-qna-ceo{
-	height:75px;
-	width:700px;
-	display: inline-block;
-	
-}
-
-.com-qna-star{
-	height:320px;
-	width:700px;
-	display: inline-block;
-	
-}
-
-.star-line {
-	height: 100%;
-}
-
-.star-line ul{
-	list-style: none;
-}
-
-.com-inline-btn {
-	height: 35px;
-	right: 250px;
-    bottom: 0;
-	margin: 0;
-    padding: 0;
-    display: inline-block;
-    position: absolute;
-}
-
 .form-ta {
 	width: 700px;
 }
@@ -100,12 +134,9 @@
 	display: flex;
 	flex-direction: column;
 }
-
-	/***************************************  
-	*                                      *
-	*               별점주기CSS              * 
-	*                                      *                           
-	****************************************/  
+/*****************************************************************
+							 별점주기 css
+******************************************************************/
 	.star-input>.input,
 	.star-input>.input>label:hover,
 	.star-input>.input>input:focus+label,
@@ -293,3 +324,16 @@
 	    font:bold 18px Helvetica, Arial, sans-serif;
 	    vertical-align: middle;
 	}
+	
+
+/*****************************************************************
+							  reply
+******************************************************************/
+.review-content {
+	align-content: center;
+}
+
+.review-reply ul, li{
+	list-style: none;
+}	
+

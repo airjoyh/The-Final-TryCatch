@@ -1,10 +1,16 @@
-.section_board {
+.section_main {
     position: relative;
     height: 500px;
     border: 1px solid #dee3eb;
     background: #fff;
-    margin-top: 8px;
-}
+}/*기업탭부분*/ 
+.section_board {
+    position: relative;
+    height: 700px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+
+}/*기업후기게시판*/
 /*****************************************************************
 							  swlee
 ******************************************************************/
@@ -84,9 +90,8 @@
 .review-name .com-skill {
 	left: 150px;
 	width:494px;
-	display: flex;
-	flex-direction: column;
-	/* border: blue 2px solid; */
+	display: inline-flex;
+	flex-direction:column;
 	padding: 10px;
 }
 
@@ -212,7 +217,7 @@
    color: #55acee;
    position: relative;
 } 
-.review-content label:before {
+/* .review-content label:before {
   content: "";
    width: 5px;
    height: 100%;
@@ -220,7 +225,7 @@
    top: 0;
    left: -20px;
    background: #55acee;
-} 
+}  */
 
 /*****************************************************************
 							Button

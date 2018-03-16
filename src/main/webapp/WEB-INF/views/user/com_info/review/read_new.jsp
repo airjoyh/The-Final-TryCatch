@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- C태그 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,329 +7,439 @@
 <title>기업후기 상세정보</title>
 
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_review_read.css" rel="stylesheet" type="text/css">
-<!-- ICON -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-<!-- font -->
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-<!-- JS,JQUERY -->
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
+<!-- 핸들바js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-<!-- 임시 js -->
-<script type="text/javascript">
 
-</script>
 </head>
-<!--[if lt IE 9]> 
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
-<![endif]-->
 <body>	
+		<!-- nav-area -->
+		<%@ include file="../../../user-nav_new.jsp" %>
+		
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
-		<div class='column-left'>	
-			<div class='com-contest-head'>
+		<div class='column-left'>
+			<div class="section_main">
 				<div class='title-wrapper'>
 					<div class='column-title'>기업후기 글상세보기</div>
 				</div>
 				<div class='wrapper'>
-					 <form id="readForm" name="readForm" method="POST">
-			  	 		<input type="hidden" id="review_no" name="review_no" value="${review.review_no }">
-			  	 		<input type="hidden" name="writer_id" value="${review.user_id }">
-			  	 		<input type="hidden" id="company_id" name="company_id" value="${param.company_id }">
-			  	 		<input type='hidden' name='page' value="${cri.page}"> 
-			  	 		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-						<input type='hidden' name='searchType' value="${cri.searchType}">
+					<form id="readForm" name="readForm" method="POST">
+						<input type="hidden" id="review_no" name="review_no"
+							value="${review.review_no }"> <input type="hidden"
+							name="writer_id" value="${review.user_id }"> <input
+							type="hidden" id="company_id" name="company_id"
+							value="${param.company_id }"> <input type='hidden'
+							name='page' value="${cri.page}"> <input type='hidden'
+							name='perPageNum' value="${cri.perPageNum}"> <input
+							type='hidden' name='searchType' value="${cri.searchType}">
 						<input type='hidden' name='keyword' value="${cri.keyword}">
 					</form>
-					<div class='com-qna-title'>
+					<div class='com-review-title'>
 						<div>
-							<span class="input-group-addon">글번호</span> 
-							<input class="form-control" id="title" name="title" type="text" style="width: 35%" value="${review.review_no }" readonly="readonly">
-						   
-						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> 
-						    <!-- <input class="form-control" id="writer" name="writer" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"> -->
-						    <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${review.review_wdate}" />
+							 <span class="input-group-addon"
+								style="padding-left: 3em;">작성일</span>
+							<!-- <input class="form-control" id="writer" name="writer" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"> -->
+							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+								value="${review.review_wdate}" />
 						</div>
 						<div>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; 
-							<input class="qna-title" id="title" name="title" type="text" style="width: 35%" value="${review.review_title }" readonly="readonly">
-				            
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
-				            <input class="qna-writer" id="writer" name="writer" style="width: 35%" value="${review.review_writer }" readonly="readonly">
-				        </div>
+							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp;&nbsp; <input
+								class="qna-title" id="title" name="title" type="text"
+								style="width: 35%; border: none;" value="${review.review_title }"
+								readonly="readonly"> <span class="input-group-addon"
+								style="padding-left: 3em;">작성자</span> <input class="qna-writer"
+								id="writer" name="writer" style="width: 35%; border: none;"
+								value="${review.review_writer }" readonly="readonly">
+						</div>
 					</div>
-					<div class='com-qna-good'>
-						<label for="good">해당 기업의 장점을 적어주세요</label><br>
-				        <span name="strong" rows="3" class="form-ta" id="good">${review.review_strong }</span>
+					<div class='com-review-good'>
+						<label for="good">해당 기업의 장점을 적어주세요</label><br> <span
+							name="strong" rows="3" class="form-ta" id="good">${review.review_strong }</span>
 					</div>
-					<div class='com-qna-bad'>
-						<label for="bad">해당 기업의 단점을 적어주세요</label><br>
-				        <span name="weak" rows="3" class="form-ta" id="bad">${review.review_weak }</span>
+					<div class='com-review-bad'>
+						<label for="bad">해당 기업의 단점을 적어주세요</label><br> <span
+							name="weak" rows="3" class="form-ta" id="bad">${review.review_weak }</span>
 					</div>
-					<div class='com-qna-ceo'>
-						<label for="want">경영진에게 바라는점을 적어주세요</label><br>
-				        <span name="toCEO" rows="3" class="form-ta" id="want">${review.review_toCEO }</span>
+					<div class='com-review-ceo'>
+						<label for="want">경영진에게 바라는점을 적어주세요</label><br> <span
+							name="toCEO" rows="3" class="form-ta" id="want">${review.review_toCEO }</span>
 					</div>
-					<div class='com-qna-star'>
+					<div class='com-review-star'>
 						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
-							<div class="star-line">
-					            <ul class="list-group">
-					               <li class="list-group-item">승진기회 및 가능성 
-					               	  <span class="star-input" id="star-A" style="float: right;">
-						                  <span class="input"> 
-						                  <input type="radio" name="possibility" id="p1" value="1"> <label for="p1">1</label> 
-						                  <input type="radio" name="possibility" id="p2" value="2"> <label for="p2">2</label> 
-						                  <input type="radio" name="possibility" id="p3" value="3"> <label for="p3">3</label> 
-						                  <input type="radio" name="possibility" id="p4" value="4"> <label for="p4">4</label> 
-						                  <input type="radio" name="possibility" id="p5" value="5"> <label for="p5">5</label> 
-						                  </span> &nbsp;
-						                  <span class="badge" id="star-1"><b>${review.review_possibility }</b>점</span>
-									 </span>
-					              </li><br>
-					              <li class="list-group-item">복지 및 급여 
-					              	 <span class="star-input" id="star-B" style="float: right;">
-					                      <span class="input"> 
-					                      <input type="radio" name="welSal" id="p6" value="1"> <label for="p6">1</label>
-					                      <input type="radio" name="welSal" id="p7" value="2"> <label for="p7">2</label> 
-					                      <input type="radio" name="welSal" id="p8" value="3"> <label for="p8">3</label> 
-					                      <input type="radio" name="welSal" id="p9" value="4"> <label for="p9">4</label> 
-					                      <input type="radio" name="welSal" id="p10" value="5"> <label for="p10">5</label> 
-					                      </span> &nbsp;
-					                      <span class="badge" id="star-2"><b>${review.review_welSal }</b>점</span>
-					                 </span>
-					             </li><br>
-					             <li class="list-group-item">업무와 삶의 균형
-					              <span class="star-input" id="star-C" style="float: right;">
-					                   <span class="input"> 
-					                   <input type="radio" name="balance" id="p11" value="1"> <label for="p11">1</label>
-					                   <input type="radio" name="balance" id="p12" value="2"> <label for="p12">2</label> 
-					                   <input type="radio" name="balance" id="p13" value="3"> <label for="p13">3</label>
-					                   <input type="radio" name="balance" id="p14" value="4"> <label for="p14">4</label>
-					                   <input type="radio" name="balance" id="p15" value="5"> <label for="p15">5</label>
-					                   </span> &nbsp;
-					                   <span class="badge" id="star-3"><b>${review.review_balance }</b>점</span>
-					             </span>
-					            </li><br>
-					            <li class="list-group-item">사내문화 
-					             <span class="star-input" id="star-D" style="float: right;"> 
-					             	  <span class="input">
-					                  <input type="radio" name="culture" id="p16" value="1"> <label for="p16">1</label> 
-					                  <input type="radio" name="culture" id="p17" value="2"> <label for="p17">2</label>
-					                  <input type="radio" name="culture" id="p18" value="3"> <label for="p18">3</label> 
-					                  <input type="radio" name="culture" id="p19" value="4"> <label for="p19">4</label>
-					                  <input type="radio" name="culture" id="p20" value="5"> <label for="p20">5</label>
-					                  </span> &nbsp;
-					                  <span class="badge" id="star-4"><b>${review.review_culture }</b>점</span>
-					            </span>
-					           </li><br>
-					           <li class="list-group-item">경영진 
-					            <span class="star-input" id="star-E" style="float: right;"> 
-					            	<span class="input">
-					                <input type="radio" name="manager" id="p21" value="1"> <label for="p21">1</label> 
-					                <input type="radio" name="manager" id="p22" value="2"> <label for="p22">2</label>
-					                <input type="radio" name="manager" id="p23" value="3"> <label for="p23">3</label> 
-					                <input type="radio" name="manager" id="p24" value="4"> <label for="p24">4</label>
-					                <input type="radio" name="manager" id="p25" value="5"> <label for="p25">5</label>
-					                </span> &nbsp;
-					                <span class="badge" id="star-5"><b>${review.review_manager }</b>점</span>
-					           </span>
-					          </li>
-					         </ul>
-					      </div>
+						<div class="star-line">
+							<ul class="list-group">
+								<li class="list-group-item">승진기회 및 가능성 <span
+									class="star-input" id="star-A" style="float: right;"> <span
+										class="input"> <input type="radio" name="possibility"
+											id="p1" value="1"> <label for="p1">1</label> <input
+											type="radio" name="possibility" id="p2" value="2"> <label
+											for="p2">2</label> <input type="radio" name="possibility"
+											id="p3" value="3"> <label for="p3">3</label> <input
+											type="radio" name="possibility" id="p4" value="4"> <label
+											for="p4">4</label> <input type="radio" name="possibility"
+											id="p5" value="5"> <label for="p5">5</label>
+									</span> &nbsp; <span class="badge" id="star-1"><b>${review.review_possibility }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">복지 및 급여 <span
+									class="star-input" id="star-B" style="float: right;"> <span
+										class="input"> <input type="radio" name="welSal"
+											id="p6" value="1"> <label for="p6">1</label> <input
+											type="radio" name="welSal" id="p7" value="2"> <label
+											for="p7">2</label> <input type="radio" name="welSal" id="p8"
+											value="3"> <label for="p8">3</label> <input
+											type="radio" name="welSal" id="p9" value="4"> <label
+											for="p9">4</label> <input type="radio" name="welSal" id="p10"
+											value="5"> <label for="p10">5</label>
+									</span> &nbsp; <span class="badge" id="star-2"><b>${review.review_welSal }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">업무와 삶의 균형 <span
+									class="star-input" id="star-C" style="float: right;"> <span
+										class="input"> <input type="radio" name="balance"
+											id="p11" value="1"> <label for="p11">1</label> <input
+											type="radio" name="balance" id="p12" value="2"> <label
+											for="p12">2</label> <input type="radio" name="balance"
+											id="p13" value="3"> <label for="p13">3</label> <input
+											type="radio" name="balance" id="p14" value="4"> <label
+											for="p14">4</label> <input type="radio" name="balance"
+											id="p15" value="5"> <label for="p15">5</label>
+									</span> &nbsp; <span class="badge" id="star-3"><b>${review.review_balance }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">사내문화 <span class="star-input"
+									id="star-D" style="float: right;"> <span class="input">
+											<input type="radio" name="culture" id="p16" value="1">
+											<label for="p16">1</label> <input type="radio" name="culture"
+											id="p17" value="2"> <label for="p17">2</label> <input
+											type="radio" name="culture" id="p18" value="3"> <label
+											for="p18">3</label> <input type="radio" name="culture"
+											id="p19" value="4"> <label for="p19">4</label> <input
+											type="radio" name="culture" id="p20" value="5"> <label
+											for="p20">5</label>
+									</span> &nbsp; <span class="badge" id="star-4"><b>${review.review_culture }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">경영진 <span class="star-input"
+									id="star-E" style="float: right;"> <span class="input">
+											<input type="radio" name="manager" id="p21" value="1">
+											<label for="p21">1</label> <input type="radio" name="manager"
+											id="p22" value="2"> <label for="p22">2</label> <input
+											type="radio" name="manager" id="p23" value="3"> <label
+											for="p23">3</label> <input type="radio" name="manager"
+											id="p24" value="4"> <label for="p24">4</label> <input
+											type="radio" name="manager" id="p25" value="5"> <label
+											for="p25">5</label>
+									</span> &nbsp; <span class="badge" id="star-5"><b>${review.review_manager }</b>점</span>
+								</span>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div class='com-inline-btn'>
-						<input type="button" class='register-qna' id="goList" value='목록보기'>
-						<!-- <input type="button" class='qna-modify' value='수정'>
-						<input type="button" class='qna-delete' value='삭제'> -->
+						<input type="button" class='register-btn' id="goList" value='목록보기'>
+						<div id="upDel"></div>
 					</div>
 					<c:if test="">
-					<div class='com-inline-btn'>
- 						<input type="button" class='register-qna' value='수정'>
-						<input type="button" class='register-qna' value='취소'>
- 					</div>
- 					</c:if>
-					</div>
-			</div><!-- section_main1 -->
+						<div class='com-inline-btn'>
+							<input type="button" class='upDel-qna' value='수정'> <input
+								type="button" class='register-qna' value='취소'>
+						</div>
+					</c:if>
+				</div><!-- wrapper -->
+			</div>
+			<!-- section_main -->
 			<div class='section_main2'>
 				<div class="row" align="center">
 					<div class="col-md-12">
-			
+
 						<div class="box box-success">
 							<div class="box-header">
 								<h3 class="box-title">REPLY</h3>
 							</div>
 							<c:if test="${not empty user_login_id }">
-							<div class="box-body">
-							    	<label for="exampleInputEmail1">작성자</label> 
-								    <input class="form-control" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
-									<label for="exampleInputEmail1">댓글</label> 
-									<input class="form-control" type="text" id="newReplyText">
-			
-							</div>
-							<!-- /.box-body -->
-							<div class="box-footer">
-								<button type="button" id="replyAddBtn">댓글 등록</button>
-							</div>
+								<div class="box-body">
+									<label for="exampleInputEmail1">작성자</label> <input
+										class="form-control" type="text" id="newReplyWriter"
+										value="${user_login_id }" readonly> <label
+										for="exampleInputEmail1">댓글</label> <input
+										class="form-control" type="text" id="newReplyText">
+
+								</div>
+								<!-- /.box-body -->
+								<div class="box-footer">
+									<button type="button" id="replyAddBtn">댓글 등록</button>
+								</div>
 							</c:if>
-							
+
 							<c:if test="${empty user_login_id }">
 								<div class="box-body">
-									<div><a id="goLogin">Login Please</a></div>
+									<div>
+										<a id="goLogin">Login Please</a>
+									</div>
 								</div>
 							</c:if>
 						</div>
-			
-			
+
+
 						<!-- The time line -->
 						<ul class="timeline">
 							<!-- timeline time label -->
-							<li class="time-label" id="repliesDiv"><span class="bg-green">댓글</span></li>
+							<li class="time-label" id="repliesDiv"><span
+								class="bg-green">댓글</span></li>
 						</ul>
-			
+
 						<div class='text-center'>
 							<ul id="pagination" class="pagination pagination-sm no-margin ">
-			
+
 							</ul>
 						</div>
-			 
+
 					</div>
 					<!-- /.col -->
 				</div>
-				
+
 				<!-- Modal -->
 				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-				  <div class="modal-dialog">
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal-title"></h4>
-				      </div>
-				      <div class="modal-body" data-rno>
-				        <p><input type="text" id="replytext" class="form-control"></p>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-				        <button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</div><!-- section_reply -->
-		</div><!-- column-left -->
-		
-		<!-- right section!!************************************************************** -->
-		<div class='column-right'>
-		
-			<div class="section_login">
-				<div class="wrapper">
-				    <div><input class='login-input' type="email" name="email" placeholder="이메일"></div>
-				    <div><input class='login-input' type="password" name="password" placeholder="비밀번호"></div>
-				    <div><input type="button" value="로그인" class='login-btn'> </div>
-				    <span class="pure-checkbox" style="float: left;">
-                  	  <input id="checkboxtoggle" name="checkbox" type="checkbox">
-                      <label for="checkboxtoggle">정보기억</label>
-                      </span>
-                    <span style="float: right;padding: 2px 0 0 6px;">
-                	  <a href='#find-pwd'>비밀번호 찾기</a>
-                	  </span>
-                    <span style="float: right;padding: 2px 6px;">
-                	  <a href='#register'>회원가입</a>
-                	  </span>
-				  </div>
-				</div><!-- section_login -->
-				
-				<div class="section_zzim">
-					<div class="title-wrapper">
-						<div class='column-title'>관심기업 리스트</div>
-					</div>
-					<div class='wrapper'>
-						<div class='column-contents'>
-							<i>현재 찜한 기업이 없습니다.</i><!-- 있으면 테이블 없으면 i -->
-							<table class='zzim-table'>
-								<thead>
-									<tr>
-										<th>기업명</th>
-										<th>평점</th>
-										</tr>
-									</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										</tr>
-									</tbody>
-								
-							</table>
+					<div class="modal-dialog">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"></h4>
+							</div>
+							<div class="modal-body" data-rno>
+								<p>
+									<input type="text" id="replytext" class="form-control">
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-info" id="replyModBtn">수정</button>
+								<button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">닫기</button>
+							</div>
 						</div>
 					</div>
-						
-						
-						
-				</div><!-- section_zzim -->
-				
-			</div><!-- column-right -->
+				</div>
+			</div>
+			<!-- section_main2 -->
+		</div>
+		<!-- column-left -->
+		
+		<!-- right section!!************************************************************** -->
+		<div id="rightDiv" class='column-right'>
+			<div id="login_beforeDiv">
+				<%@ include file="../../login_before_new.jsp"%>
+			</div>
+			<div id="login_afterDiv" style="display: none">
+				<%@ include file="../../login_after_new.jsp"%>
+			</div>
+		</div>
+		<!-- column-right -->
 			
 			
 			
 		<!-- modal 코드 -->
+		<%@ include file="../../user_modals_new.jsp" %>
+</div><!-- container -->
+<script id="template" type="text/x-handlebars-template">
+{{#each .}}
+<li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
+<i class="fa fa-comments bg-blue"></i>
+ <div class="timeline-item" >
+  <span class="time">
+    <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
+  </span>
+  <h3 class="timeline-header"><strong>{{reply_no}}</strong>-{{reply_writer}} </h3>
+  <div class="timeline-body">{{reply_contents}}</div>
+    <div class="timeline-footer">
+	{{#eqReply_writer reply_writer}}
+     <a class="btn btn-primary btn-xs" 
+	    data-toggle="modal" data-target="#modifyModal">Modify</a>
+	{{/eqReply_writer}}
+    </div>
+  </div>			
+</li>
+{{/each}}
+</script>
+
+<script>
+
+	 Handlebars.registerHelper("prettifyDate", function(timeValue) {
+		var dateObj = new Date(timeValue);
+		var year = dateObj.getFullYear();
+		var month = dateObj.getMonth() + 1;
+		var date = dateObj.getDate();
+		return year + "/" + month + "/" + date;
+	});
+	 
+	 Handlebars.registerHelper("eqReply_writer", function(reply_writer,block){
+			var accum = '';
+			//alert(reply_writer);
+			if(reply_writer == '${user_login_id}'){
+				accum += block.fn();
+			}
+			return accum;
+		});
+	
+	var printData = function(replyArr, target, templateObject) {
+	
+		var template = Handlebars.compile(templateObject.html());
+	
+		var html = template(replyArr);
+		$(".replyLi").remove();
+		target.after(html);
+	
+	}
+	
+	var review_no = ${review.review_no};
+	
+	var replyPage = 1;
+	
+	function getPage(pageInfo) {
+	
+		$.getJSON(pageInfo, function(data) {
+			printData(data.list, $("#repliesDiv"), $('#template'));
+			printPaging(data.pageMaker, $(".pagination"));
+	
+			//$("#modifyModal").modal('toggle');
+	
+		});
+	}
+	
+	var printPaging = function(pageMaker, target) {
+	
+		var str = "";
+	
+		if (pageMaker.prev) {
+			str += "<li><a href='" + (pageMaker.startPage - 1)
+					+ "'> << </a></li>";
+		}
+	
+		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+		}
+	
+		if (pageMaker.next) {
+			str += "<li><a href='" + (pageMaker.endPage + 1)
+					+ "'> >> </a></li>";
+		}
+	
+		target.html(str);
+	};
+	
+	
+	$(".pagination").on("click", "li a", function(event){
 		
-		<!-- 회원가입 모달 -->
-		<div class="modal" id="register">
-			<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호를 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호 확인" style="float: right;">
-					<input id="user_authCode" name="user_authCode"
-					  	type="text" placeholder="60초 안에 인증코드를 입력해주세요" size="20">
-					<input type="button" name="sendEmail" id="sendEmail"
-				       	value="인증코드 요청">
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-			
-		<!-- 비밀번호 찾기 모달 -->	
-		<div class="modal" id="find-pwd">
-		<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<i>*가입하신 이메일로 임시 비밀번호가 전송됩니다.</i>
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-		</div>
+		event.preventDefault();
+		
+		replyPage = $(this).attr("href");
+		console.log(replyPage);
+		
+		getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage);
+		
+	});
+	
+	
+	$("#replyAddBtn").on("click",function(){
+		 //alert('댓글 등록')
+		 console.log("댓글 등록 클릭");
+		 var replyerObj = $("#newReplyWriter");
+		 var reply_writer=replyerObj.val();
+		 var replytextObj = $("#newReplyText");
+		 var reply_contents = replytextObj.val();
+	     var review_no = $("#review_no");
+		 var user_id = '${user_login_id }'; 
+	     
+		  $.ajax({
+				type:'post',
+				url:'${initParam.rootPath}/review/reply/',
+				data:{"reply_writer":reply_writer,"review_no":review_no.val(),"reply_contents":reply_contents, "user_id":"dajung"},
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'success'){
+						alert("등록 되었습니다.");
+						replyPage = 1;
+						getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/"+replyPage );
+						//replyerObj.val("");
+						replytextObj.val("");
+					}
+			}});
+	});
+	$(".timeline").on("click", ".replyLi", function(event){
+		
+		var reply = $(this);
+		console.log(">>>"+reply.find('.timeline-body').text()+"<<<");
+		$("#replytext").val(reply.find('.timeline-body').text());
+		$(".modal-title").html(reply.attr("data-reply_no"));
+		
+	});
+	
+	
+	
+	$("#replyModBtn").on("click",function(){
+		console.log('댓글 수정 버튼 클릭');
+		  
+		  var reply_no = $(".modal-title").html();
+		  var reply_contents = $("#replytext").val();
+		  
+		  console.log("수정할 번호:"+reply_no+", 수정할 내용:"+ reply_contents);
+		  
+		  $.ajax({
+				type:'put',
+				url:'${initParam.rootPath}/review/reply/'+reply_no,
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "PUT" },
+				data:JSON.stringify({reply_contents:reply_contents}), 
+				dataType:'text', 
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'success'){
+						alert("수정 되었습니다.");
+						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
+						reply_contents.val("");
+					}
+			}});
+	});
+	
+	$("#replyDelBtn").on("click",function(){
+		  console.log('댓글 삭제 버튼 클릭');
+		  var reply_no = $(".modal-title").html();
+		  var reply_contents = $("#replytext").val();
+		  
+		  $.ajax({
+				type:'delete',
+				url:'${initParam.rootPath}/review/reply/'+reply_no,
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "DELETE" },
+				dataType:'text', 
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'success'){
+						alert("삭제 되었습니다.");
+						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
+						$("#modifyModal").modal('toggle');
+					}
+			}});
+	});
+	
+	
+	
+</script>
 
-	<!-- frame -->
 <script type="text/javascript">
-
 $(function(){
- 		//라디오버튼 점수체크해준다.
+		//라디오버튼 점수체크해준다.
 	  	$('input:radio[name=review_possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
 	  	$('input:radio[name=review_welSal]:radio[value=${review.review_welSal }]').prop('checked',true);
 	  	$('input:radio[name=review_balance]:radio[value=${review.review_balance }]').prop('checked',true);
@@ -352,11 +458,11 @@ $(function(){
 		var formObj = $("form[name=readForm]");
 		var review_no = $('#review_no');
 	
-		//getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" ); 
+		getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" );
 		
 		$('#goList').on("click", function() {
 	  		console.log('목록보기 버튼 클릭');
-	  		self.location= "${initParam.rootPath }/user/review/list?page=${cri.page }"
+	  		self.location="${initParam.rootPath }/user/review/list?page=${cri.page }"
 	  					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
 	  					+"&keyword=${cri.keyword }&company_id=${param.company_id}";
 	  	});
@@ -523,18 +629,21 @@ $(function(){
 
 	  	//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
 	  	function writerCheck(){
-	  		var login_id='${user_login_id}';
+	  		var user_login_id='${user_login_id}';
 	  		//alert(login_id)
 	  		var writer_id = document.readForm.writer_id.value;
+	
+	  		console.log('로그인한 아이디 >>> '+user_login_id);
+	  		console.log('작성한 아이디 >>> '+writer_id);
 	  		
 	  		var no = document.getElementById('review_no').innerHTML;
 	  		
 	  		//alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
 	  		
-	  		if(login_id==writer_id){//일치하면 수정 삭제 버튼 나오게.
-	  			var upDel = document.getElementById('upDel');
-				upDel.innerHTML = '<button type=buttion  id="update" onclick="modifyReview()">수정</button>'+
-							      '<button type=button id="delete" onclick="removeReview()">삭제</button>';
+	  		if(user_login_id==writer_id){//일치하면 수정 삭제 버튼 나오게.
+	  			//var upDel = document.getElementById('upDel');
+				$('#upDel').html('<button type=buttion  id="update" onclick="modifyReview()">수정</button>'+
+					      '<button type=button id="delete" onclick="removeReview()">삭제</button>');
 	  		}
 	  	}
 	  	

@@ -163,7 +163,7 @@ $(document).ready(function() {
 								alert('회원가입이 완료되었습니다.')
 								clearInterval(timer);//타이머도 꺼줘야지.
 								clearTimeout(timer2);//회원가입이 완료되면 setTimeout꺼줘야한다.
-								self.location = 'main'; //'${initParam.rootPath}/user/main';//url에 #userModal 뜨지 않게 하기위해
+								self.location = rootPath+'/user/main'; //'${initParam.rootPath}/user/main';//url에 #userModal 뜨지 않게 하기위해
 								$('#userModal').fadeOut();
 								//$('#userModal').modal('toggle');//회원가입 모달창 닫기
 							}else{
