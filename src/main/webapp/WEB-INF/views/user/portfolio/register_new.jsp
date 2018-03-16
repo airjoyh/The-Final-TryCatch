@@ -186,34 +186,41 @@
 			//$(this).hide();
 			//$('#pf-modify-btn').show();
 			//$('.pf-modify').hide();
+			var user_login_id = '${user_login_id}';
 			console.log('완료 버튼 클릭');
 			var port_exp = $('#pf-intro-ta').val();
-			
 			var port_skills = $('.skills td:first-child').text();//$('select[name=port_skill]').val();//$('.pf-list td').html();
-			for(var i=0; i<port_skills.length; i++){
-				console.log(port_skills[i]);
-			}
-			console.log(port_skills);/* -개발전문가-spring개발자 */
-			var skill = port_skills.substring(1); //1번지부터 가져오겠다.
-			//alert(skill);
+			var port_skill = port_skills.substring(1); //1번지부터 가져오겠다.
+			console.log(port_skill);/* -개발전문가-spring개발자 */
+		
+			var port_licenses = $('.lisence td:first-child').text();	
+			var port_license = port_licenses.substring(1);	
 			
-			var port_license= $('.lisence td:first-child').text();
-			for(var i=0; i<port_license; i++){
-				console.log(port_license[i]);
-			}
-				console.log(port_license);
-				
-			var award= $('.award td:first-child').text();
-			for(var i=0; i<award; i++){
-				console.log(award[i]);
-			}
-				console.log(award);
-				
-		 	var pf_link= $('.pf-link td:first-child').text();
-			for(var i=0; i<pf_link; i++){
-				console.log(pf_link[i]);
-			}
-				console.log(pf_link); 
+			var port_awards= $('.award td:first-child').text();
+			var port_award = port_awards.substring(1);
+			
+		 	var port_links= $('.pf-link td:first-child').text();
+		 	var port_link = port_links.substring(1);
+		 	
+		 	if(port_exp==''){
+		 		alert('자기소개를 입력해주세요.');
+		 	}else{
+		 		$.ajax({
+		 			type:'post',
+		 			url: '${initParam.rootPath}/user/portfolio/register',
+		 			data: {"port_exp":port_exp, "port_skill":port_skill, 
+		 				   "port_license":port_license, "port_award":port_award,
+		 				   "port_link":port_link, "user_id":user_login_id},
+		 			success:function(result){
+		 				if(result=='success'){
+		 					alert('포트폴리오가 등록되었습니다');
+		 					self.location = '${initParam.rootPath}/user/main';
+		 				}
+		 			}
+		 		
+		 		});
+		 	}
+			 
 				
 		
 		});

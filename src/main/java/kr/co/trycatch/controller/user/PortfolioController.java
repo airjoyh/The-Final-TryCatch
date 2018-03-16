@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.trycatch.domain.user.PageMaker;
 import kr.co.trycatch.domain.user.PortfolioVO;
@@ -28,13 +29,14 @@ public class PortfolioController {
 		return "user/portfolio/register_new";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String registerPOST(PortfolioVO portfolioVo) throws Exception {
 		System.out.println("PortfolioController register()");
 		
 		portfolioService.regist(portfolioVo);
 		
-		return "redirect:/user/main";
+		return "success";
 	}
    
     @RequestMapping("/list")
