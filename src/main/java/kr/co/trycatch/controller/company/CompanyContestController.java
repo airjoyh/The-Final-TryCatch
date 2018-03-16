@@ -66,7 +66,7 @@ public class CompanyContestController {
 		model.addAttribute("cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
 		model.addAttribute("pageMaker", maker);
 		
-		return "/company/contest/list";
+		return "/company/contest/list_new";
 	}
 	
 	@ResponseBody

@@ -35,9 +35,9 @@ $(function(){
 		
 	$('#com-contest').on("click", function(){
 		console.log('콘테스트개최 버튼 클릭');
-		var loginState = '${company_loginState}';
 		if(loginState != 'login'){
 			alert('해당 페이지는 로그인하신 이후에 이용가능합니다.');
+			login_id.focus();
 		}else{
 			self.location='${initParam.rootPath }/company/contest/list';
 		}
