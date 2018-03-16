@@ -23,9 +23,6 @@ import kr.co.trycatch.service.user.CommunityService;
 @Controller
 @RequestMapping("/user/community")
 public class CommunityController {
-   
-   
-   private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
 	
    @Inject
    private CommunityService communityService;
@@ -33,10 +30,15 @@ public class CommunityController {
   // @Inject
   // private Review_replyService review_replyService;
   
-   @RequestMapping(value="/register",method= {RequestMethod.POST})
+   @RequestMapping(value="/register",method=RequestMethod.GET)
+   public void registGET() throws Exception{
+	   System.out.println("CommunityController registGET");
+	   
+   }
+   
+   @RequestMapping(value="/register",method={RequestMethod.POST})
    public String registerPost(CommunityVO communityVo, RedirectAttributes rttr) throws Exception{
 	   
-	   logger.info("DB입력 요청........");
 	   System.out.println("입력데이터>>>"+ communityVo);
 	   
 	   communityService.regist(communityVo);
@@ -59,14 +61,9 @@ public class CommunityController {
 	   model.addAttribute("cri", cri);
 	   model.addAttribute("pageMaker", maker);
 	   
-	   return "/user/community/list";
+	   return "/user/community/list";//"/user/community/list_new";
    }
    
-   @RequestMapping(value="/register",method=RequestMethod.GET)
-   public void registGET() throws Exception{
-	   logger.info("입력폼 요청........");
-	   
-   }
    
    
    @RequestMapping(value="/read", method=RequestMethod.GET)
@@ -76,8 +73,8 @@ public class CommunityController {
 	   System.out.println("읽을 글번호 >>>"+ community_no);
 	   System.out.println("read cri >>>"+ cri);
 	   model.addAttribute("community",communityService.read(community_no));//communityVO   "community" ===> communityVo에 이름 부여해주기
-	   //CommunityVO cv = communityService.read(community_no);                                              (community.community.community_writer)
-	   //System.out.println(cv);
+	   CommunityVO cv = communityService.read(community_no);                                             // (community.community.community_writer)
+	   System.out.println(cv);
 	   //자료가 DB에 insert되는지 확인작업
 	   //communityService.community_viewCount(community_no);
    }
