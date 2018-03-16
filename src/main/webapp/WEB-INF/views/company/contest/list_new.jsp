@@ -101,16 +101,17 @@
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							검색조건</option>
-						<option value="t"
+						<option value="a"
 							<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
 							제목</option>
-						<option value="w"
+						<option value="b"
 							<c:out value="${cri.searchType eq 'b'?'selected':''}"/>>
 							담당팀</option>
-						<option value="tw"
+						<option value="c"
 							<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
 							담당자</option>
-						<option value="d"
+						<option value="d
+						"
 							<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>
 							등록상태</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
