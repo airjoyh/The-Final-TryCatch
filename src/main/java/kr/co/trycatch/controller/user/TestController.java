@@ -15,7 +15,13 @@ public class TestController {
 	@RequestMapping("/com/contest")
 	public String companyContest() {
 		System.out.println("오냐");
-		return "/ing/companyContest";
+		return "/ing/com/companyContest";
+	}
+	
+	@RequestMapping("/com/contest/register")
+	public String companyContestregester() {
+		System.out.println("오냐");
+		return "/ing/com/company_cont_create";
 	}
 	
 	@RequestMapping("/user/solve")
@@ -35,4 +41,17 @@ public class TestController {
 		System.out.println("오냐");
 		return "/ing/user_portfolio";
 	}
+	
+	@RequestMapping("/pagenation")
+	public String pagenation() {
+		System.out.println("오냐");
+		return "/ing/common/pagenation";
+	}
+	
+	@RequestMapping("/com/main")
+	public String commain() {
+		return "companyMain_new";
+	}
+	
+
 }

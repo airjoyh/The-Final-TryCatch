@@ -633,7 +633,7 @@ $(document).ready(function() {
 		<!-- modal 코드 -->
 
 		<!-- 회원가입 모달 ******************************************************************-->
-		<div class="modal" id="userModal">
+		<div class="modal" id="comModal">
 			<div class="modal-pannel">
 				<div id="action" class="modal-title">
 					

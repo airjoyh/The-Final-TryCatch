@@ -136,8 +136,8 @@
 	border-bottom: 1px solid #ddd;
 }
 .type-cnt{
-	position: absolute;
-	top:0;
+	position: relative;
+	float: right;
 }
 .pf-intro textarea {
 	width:100%;

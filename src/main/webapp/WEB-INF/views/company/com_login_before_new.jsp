@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <div class='section_login'>
 	<div class="wrapper">
 		<div>
@@ -20,7 +20,7 @@
 			href="#userModal" class="openFindPassModal" id="openFindPassModal">비밀번호
 				찾기</a>
 		</span> <span style="float: right; padding: 2px 6px;"> <a
-			href="#userModal" class="openJoinModal" id="openJoinModal">회원가입</a>
+			href="#comModal" class="openJoinModal" id="openJoinModal">회원가입</a>
 		</span>
 	</div>
 </div>

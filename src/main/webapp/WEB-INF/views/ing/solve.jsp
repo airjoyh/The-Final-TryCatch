@@ -36,7 +36,7 @@
 	//제한시간 타이머
 	function limitTimer() {
 		//끝나는 시간 설정
-		var endTime = new Date('2018/03/14 19:37:00');
+		var endTime = new Date('2018/03/17 19:37:00');
 		//현재시간
 		var nowTime = new Date();
 		//(끝나는 시간 설정-현재시간)/1000 = 남은시간(초)

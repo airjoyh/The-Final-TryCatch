@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
     
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/com_modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_contest.css" rel="stylesheet" type="text/css">
