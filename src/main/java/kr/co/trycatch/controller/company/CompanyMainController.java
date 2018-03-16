@@ -12,13 +12,6 @@ public class CompanyMainController {
 		return "/company/introduce";
 	}
 	
-	@RequestMapping(value="/company/personSearch/list")
-	public String goPersonSearch() {
-		System.out.println("CompanyMainController goPersonSearch");
-		
-		return "/company/personSearch/list";
-	}
-	
 	@RequestMapping(value="/company/faq")
 	public String goFaq() {
 		System.out.println("CompanyMainController goFaq");

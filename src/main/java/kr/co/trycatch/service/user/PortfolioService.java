@@ -16,4 +16,5 @@ public interface PortfolioService {
 	public List<PortfolioVO> listSearch(SearchCriteria cri) throws Exception;
 	
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+
 }

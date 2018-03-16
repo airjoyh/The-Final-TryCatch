@@ -38,14 +38,6 @@ public class PortfolioController {
 		
 		return "success";
 	}
-   
-    @RequestMapping("/list")
-    public String list(String user_id,SearchCriteria cri, Model model) throws Exception{
-    	PageMaker maker = new PageMaker();
-    	maker.setCri(cri);
-    	
-    	return "";
-    }
 	
 }
 
