@@ -20,4 +20,6 @@ public interface NoteComDAO {
 	public void delete(int note_id) throws Exception;
 
 	public int statusCount(String note_receiver) throws Exception;
+	
+	public void update(NoteVO noteVo) throws Exception;
 }

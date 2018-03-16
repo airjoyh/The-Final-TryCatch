@@ -75,4 +75,11 @@
 	         and note_receiver = #{note_receiver}
 	</select>
 
+	<!-- 읽은 쪽지 체크-->
+	<update id="updateStatus">
+	  update note 
+	  set note_status='Y' 
+	  where note_id = #{note_id}
+	</update>
+	
 </mapper>

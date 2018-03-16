@@ -31,7 +31,7 @@ public class ReviewController {
 		System.out.println("ReviewController registerGET()");
 		model.addAttribute("company_id", company_id);
 		
-		return "/user/com_info/review/register";
+		return "/user/com_info/review/register_new"; //"/user/com_info/review/register";
 	}
 	
 	@RequestMapping(value="/register", method = RequestMethod.POST )
@@ -41,7 +41,7 @@ public class ReviewController {
 		System.err.println(reviewVo);
 		int company_id = reviewVo.getCompany_id();
 		
-		return "redirect:/user/com_info/list?company_id="+company_id;//"redirect:/user/review/list?company_id="+company_id;
+		return "redirect:/user/review/list?company_id="+company_id;//"redirect:/user/review/list?company_id="+company_id;
 	}
 	
 	@RequestMapping(value="/list")
@@ -77,7 +77,7 @@ public class ReviewController {
 		//댓글 수 보여지는건데 화면이 깜빡거려야하는데 댓글을 ajax로 처리했기 때문에 댓글 추가 삭제하면 반영이안됨. 화면 새로고침해야함.
 		//model.addAttribute("review_replyCount", review_replyService.count(review_no));
 		
-		return "/user/com_info/review/read";
+		return "/user/com_info/review/read_new"; //"/user/com_info/review/read";
 	}
 	
 	@RequestMapping(value="/modify",method=RequestMethod.GET)
@@ -100,7 +100,7 @@ public class ReviewController {
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
 		
-		return "redirect:/user/review/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		return "redirect:/user/review/list_new?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 		+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 		+"&company_id="+company_id;
 	}
@@ -114,7 +114,7 @@ public class ReviewController {
 		rttr.addAttribute("msg","SUCCESS");
 		System.out.println("reviewController 삭제성공");
 		
-		return "redirect:/user/review/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		return "redirect:/user/review/list_new?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 						+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 						+"&company_id="+company_id;
 	}

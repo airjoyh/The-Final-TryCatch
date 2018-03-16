@@ -169,7 +169,7 @@ $(function(){
 								               </select> <input type="text" name='keyword' id="keywordInput"
 								                  value='${cri.keyword }'>
 								               <button id='searchBtn'>검색</button>
-								               <button id='registBtn'>글쓰기</button>
+								               <!-- <button id='registBtn'>글쓰기</button> -->
 								
 								   </div>
 								</div><!-- com-contest-paging -->

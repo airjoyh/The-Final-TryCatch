@@ -11,7 +11,7 @@ public interface NoteService {
 
 	public List<NoteVO> list(SearchCriteria cri, String note_receiver) throws Exception;
 	
-	public NoteVO read(int note_id) throws Exception;
+	public NoteVO read(int note_id, NoteVO noteVo) throws Exception;
 	
 	public void remove(int note_id) throws Exception;
 	
@@ -20,4 +20,6 @@ public interface NoteService {
     public int listSearchCount(SearchCriteria cri, String note_receiver)throws Exception;
     
     public int statusCount(String note_receiver) throws Exception;
+    
+    //public void update(NoteVO noteVo) throws Exception;
 }

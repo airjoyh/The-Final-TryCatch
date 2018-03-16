@@ -29,8 +29,9 @@ public class NoteServiceImpl implements NoteService{
 	}
 
 	@Override
-	public NoteVO read(int note_id) throws Exception {
-	
+	public NoteVO read(int note_id, NoteVO noteVo) throws Exception {
+		noteDao.update(noteVo);
+		
 		return noteDao.read(note_id);
 	}
 
@@ -53,10 +54,17 @@ public class NoteServiceImpl implements NoteService{
 	}
 
 	@Override
-	public int statusCount(String note_receiver) throws Exception {
+	public int statusCount (String note_receiver) throws Exception {
+		//noteDao.update(noteVo);
 		
 		return noteDao.statusCount(note_receiver);
 	}
+
+	/*@Override
+	public void update(NoteVO noteVo) throws Exception {
+		noteDao.update(noteVo);
+		
+	}*/
 
 	
 }

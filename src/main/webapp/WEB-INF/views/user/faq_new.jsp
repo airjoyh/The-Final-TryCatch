@@ -1,21 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- C태그 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>쪽지게시판</title>
+<title>tc FAQ</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tc_mail_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/tc_faq_sw.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -24,22 +20,7 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-
-<style>
-.simple-table{
-	position: relative;
-	text-align: left;
-	font-size: 15px;
-	border-bottom: 1px solid #bbb;
-}
-.simple-table .tbl-h1{
-	width: 80%;
-}
-.simple-table .tbl-h2{
-	width: 20%;
-}
-
-</style>
+<!-- 임시 js -->
 <script type="text/javascript">
 
 </script>
@@ -47,87 +28,32 @@
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
-<body>
-	
- <%-- 	<!-- nav-area -->
-	<%@ include file="../../user-nav_new.jsp" %> --%>
+<body>	
+
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
-		<div class='column-left'>
-		
-			<div class='section_main'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
-						<div class='column-title'>받은쪽지함</div>
-					</div>
-					<div class="com-contest-paging">
-					    <div class='cont-qna-search'>
-					               <select name="searchType">
-					                  <option value="n"
-					                     <c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-					                  <option value="t"
-					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					보낸기업</option>                  
-					                  <option value="w"
-					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 내용</option>
-					                  <option value="tw"
-					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 보낸기업+내용</option>
-					               </select> <input type="text" name='keyword' id="keywordInput"
-					                  value='${cri.keyword }'>
-					               <button id='searchBtn'>검색</button>
-					
-					   </div>
-					</div><!-- com-contest-paging -->
-					<div class='company-contest-table'>
-						<div class='wrapper'>
-							<table cellspacing='0'>
-								<tr>
-									<th style="width: 8%">읽은상태</th>
-									<th style="width: 60%">내용</th>
-									<th style="width: 15%">보낸 기업</th>									
-									<th style="width: 17%">날짜</th>																	
-								</tr>				
-						 <c:forEach items="${list }" var="note" varStatus="stat">
-								<tr>
-									<td>${note.note_status}</td>																		
-									<td><a href="${initParam.rootPath }/user/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }">${note.note_contents}</a></td>																		
-									<td>${note.note_sender}</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>
-								</tr>
-						  </c:forEach>	
-							</table>
-						</div>
-					</div>
-
-					<div class="cont-page">
-						      <ul class="pagination">
-						      <c:if test="${pageMaker.prev}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&note_receiver=${param.note_receiver }">&laquo;</a></li>
-						      </c:if>
-						      <c:forEach begin="${pageMaker.startPage }"
-						            end="${pageMaker.endPage }" var="idx">
-						      <li 
-						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						         <a href="list${pageMaker.makeSearch(idx)}&note_receiver=${param.note_receiver }">${idx}</a>
-						      </li>
-						      </c:forEach>
+		<div class='column-left'>	
+			<div class='com-contest-head'>
+				<div class='title-wrapper'>
+					<div class='column-title'>FAQ</div>
+				</div>
+				<div class='faq-box'>
+					<ul class="faq">
+						<li class="q">질문사항을 적어주세요</li>
+						<li class="a">답변을 적으시오</li>
 						
-						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&note_receiver=${param.note_receiver }">&raquo;</a></li>
-						      </c:if>         
-						      </ul>
-					</div><!-- cont-qna-page -->
-
-				</div><!-- com-contest-head -->
-				<div>
+						<li class="q">뭐가 궁금한가</li>
+						<li class="a">답변을 적으시오</li>
+						
+						<li class="q">뭐가 궁금한가</li>
+						<li class="a">답변을 적으시오</li>
+						
+					</ul>
 				</div>
 			</div><!-- section_main1 -->
-				
-		</div>
+			
+		</div><!-- column-left -->
 		
 		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
@@ -223,37 +149,23 @@
 					<input type="button" name="emailConfirm" id="emailConfirm"
 				       	value="완료">
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
-		
-
 
 	<!-- frame -->
 <script type="text/javascript">
-/* $(function(){
-	$('#registBtn').on("click", function(){
-		self.location="${initParam.rootPath }/mailread"
+var action = 'click';
+var speed = "500";
+	//Document.Ready
+$(function(){
+	//Question handler
+	$('li.q').on(action, function(){
+		$(this).next().slideToggle(speed).siblings('li.a').slideUp();
+		
+		
 	});
-}); */
-
-$(document).ready(function() {
-    
-    $('#searchBtn').on("click", function(event) {
-		//검색(Search) 버튼을 클릭하면
-			self.location = "list" //'list'
-							+ '${pageMaker.makeQuery(1)}'
-							  //'list?page=1&perPageNum=10'
-							+ "&searchType="
-							//'list?page=1&perPageNum=10&searchType='
-							+ $("select option:selected").val()
-							//'list?page=1&perPageNum=10&searchType=t'
-							+ "&keyword=" + $('#keywordInput').val()
-							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
-							+"&note_receiver=${param.note_receiver}";
-		});
 });
-
 </script>
 
 </body>

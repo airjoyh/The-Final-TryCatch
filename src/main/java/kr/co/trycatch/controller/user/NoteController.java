@@ -54,8 +54,10 @@ public class NoteController {
 	}
 	
 	@RequestMapping("/user/note/read")
-	public String read(String note_receiver, int note_id, Model model, SearchCriteria cri )throws Exception{
-		NoteVO noteVo= noteService.read(note_id);
+	public String read(String note_receiver, int note_id, Model model, SearchCriteria cri, NoteVO noteVo)throws Exception{
+		noteVo= noteService.read(note_id, noteVo);
+		//NoteVO noteVo = noteService.read(note_id);
+		
 		//System.out.println("noteVo"+noteVo);
 		
 		model.addAttribute("note",noteVo);
@@ -105,8 +107,8 @@ public class NoteController {
 	}
 	
 	@RequestMapping("/company/note/read")
-	public String readCom(String note_receiver, int note_id, Model model, SearchCriteria cri )throws Exception{
-		NoteVO noteVo= notecomService.read(note_id);
+	public String readCom(String note_receiver, int note_id, Model model, SearchCriteria cri,NoteVO noteVo )throws Exception{
+		noteVo= notecomService.read(note_id, noteVo);
 		System.out.println("noteVo"+noteVo);
 		
 		model.addAttribute("note",noteVo);

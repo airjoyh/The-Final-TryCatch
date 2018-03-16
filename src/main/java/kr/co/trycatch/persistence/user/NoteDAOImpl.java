@@ -71,4 +71,11 @@ public class NoteDAOImpl implements NoteDAO {
 		return session.selectOne("note.statusCount", note_receiver);
 	}
 
+	@Override
+	public void update(NoteVO noteVo) throws Exception {
+		
+		session.update("note.updateStatus", noteVo);
+		
+	}
+
 }

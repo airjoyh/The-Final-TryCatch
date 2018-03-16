@@ -64,7 +64,9 @@
 	margin:55px auto 0 auto;
 }
 
-.pf-info .com-zzim-btn{
+.pf-info .com-zzim-btn,
+#pf-modify-fin,
+#pf-modify-btn{
 	position:absolute;
 	top:15px;
 	right:15px;
@@ -117,14 +119,15 @@
 .pf-navbar ul li:hover {
 	border-bottom: 3px solid #ddd;
 }
+/* body*************** */
 .pf-intro,
 .pf-skill,
 .pf-lisence,
 .pf-award,
 .pf-pflink{
 	padding:50px 15px;
-	
 }
+
 
 .body-title{
 	color:#444;
@@ -132,18 +135,85 @@
 	font-size:20px;
 	border-bottom: 1px solid #ddd;
 }
-
+.type-cnt{
+	position: absolute;
+	top:0;
+}
 .pf-intro textarea {
 	width:100%;
 	resize: none;
-	padding-top:10px;
-	padding-bottom:10px;
-	
+	padding:10px;
+	line-height:20px;
 	border:0;
 	background-color:#f9f9f9;
 	border-bottom: 1px solid #ddd;   
-	text-indent: 10px;                                                                                                                                                                                                                                                
+}
+/* 수정클라스!! */
+.pf-body .pf-modify{
+	/* display:none; */
+	cursor: pointer;
+	color: #55ff88;
 }
 
+.pf-body input[type='text'],
+.pf-body .pf-skill select{
+	display:inline-block;
+	float:left;
+	width: 552px;
+	height: 38px;
+	border: 2px solid #ddd;
+	border-right:0;
+	padding-left: 10px;
+	outline-style: none;
+}
+.pf-body .pf-skill select{
+	cursor: pointer;
+}
+.pf-body .add-btn{
+	display:inline-block;
+	text-align:center;
+	float:left;
+	background-color:#ddd;
+	cursor: pointer;
+	padding:6px 50px;
+	font-size:15px;
+	color:#666;
+	font-weight: 500;
+	
+}
+.pf-body .add-btn:hover {
+	background-color:#d1d1d1;
+}
 
+/* .pf-body .fin-btn{
+	display:inline-block;
+	text-align:center;
+	float:right;
+	background-color:#70ed87;
+	cursor: pointer;
+	padding:6px 35px;
+	color:#fff;
+	font-size:15px;
+	font-weight: 500;
+}
+.pf-body .fin-btn:hover{
+	background-color:#70ed55;
+}
 
+ */
+ 
+.pf-list{
+	display: block;
+ 	background-color: #f9f9f9;
+ 	margin-bottom: 10px;
+}
+
+.pf-list td{
+  	padding-right:10px;
+  	padding-left:10px;
+  	border-bottom: 1px solid #ddd;
+}
+.del-td{
+	width: 188px;
+	text-align: right;
+}

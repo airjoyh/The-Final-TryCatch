@@ -1,21 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- C태그 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>쪽지게시판</title>
+<title>콘테스트개최</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tc_mail_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/com_contest.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -24,22 +22,7 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-
-<style>
-.simple-table{
-	position: relative;
-	text-align: left;
-	font-size: 15px;
-	border-bottom: 1px solid #bbb;
-}
-.simple-table .tbl-h1{
-	width: 80%;
-}
-.simple-table .tbl-h2{
-	width: 20%;
-}
-
-</style>
+<!-- 임시 js -->
 <script type="text/javascript">
 
 </script>
@@ -48,84 +31,135 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
 <body>
-	
- <%-- 	<!-- nav-area -->
-	<%@ include file="../../user-nav_new.jsp" %> --%>
+	<!-- com-nav area -->
+	<%@include file="com-nav.jsp" %>
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='section_main'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
-						<div class='column-title'>받은쪽지함</div>
-					</div>
-					<div class="com-contest-paging">
-					    <div class='cont-qna-search'>
-					               <select name="searchType">
-					                  <option value="n"
-					                     <c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-					                  <option value="t"
-					                     <c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					보낸기업</option>                  
-					                  <option value="w"
-					                     <c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 내용</option>
-					                  <option value="tw"
-					                     <c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 보낸기업+내용</option>
-					               </select> <input type="text" name='keyword' id="keywordInput"
-					                  value='${cri.keyword }'>
-					               <button id='searchBtn'>검색</button>
-					
-					   </div>
-					</div><!-- com-contest-paging -->
-					<div class='company-contest-table'>
-						<div class='wrapper'>
-							<table cellspacing='0'>
-								<tr>
-									<th style="width: 8%">읽은상태</th>
-									<th style="width: 60%">내용</th>
-									<th style="width: 15%">보낸 기업</th>									
-									<th style="width: 17%">날짜</th>																	
-								</tr>				
-						 <c:forEach items="${list }" var="note" varStatus="stat">
-								<tr>
-									<td>${note.note_status}</td>																		
-									<td><a href="${initParam.rootPath }/user/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }">${note.note_contents}</a></td>																		
-									<td>${note.note_sender}</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>
-								</tr>
-						  </c:forEach>	
-							</table>
-						</div>
-					</div>
-
-					<div class="cont-page">
-						      <ul class="pagination">
-						      <c:if test="${pageMaker.prev}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&note_receiver=${param.note_receiver }">&laquo;</a></li>
-						      </c:if>
-						      <c:forEach begin="${pageMaker.startPage }"
-						            end="${pageMaker.endPage }" var="idx">
-						      <li 
-						         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						         <a href="list${pageMaker.makeSearch(idx)}&note_receiver=${param.note_receiver }">${idx}</a>
-						      </li>
-						      </c:forEach>
-						
-						      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						         <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&note_receiver=${param.note_receiver }">&raquo;</a></li>
-						      </c:if>         
-						      </ul>
-					</div><!-- cont-qna-page -->
-
-				</div><!-- com-contest-head -->
-				<div>
+			<div class='com-contest-head'>
+				<div class='title-wrapper'>
+					<div class='column-title'>콘테스트 리스트</div>
 				</div>
-			</div><!-- section_main1 -->
+				<div class='wrapper'>
+					<div class='com-inline-txt'>
+						<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
+						<p class='inline-txt-body'>
+							- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br>
+							- 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
+							- 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
+							- 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
+						</p>
+					
+					</div>
+					<div class='com-inline-btn'>
+						<input type="button" class='register-contest' value='콘테스트 등록'>
+					</div>
+					
+					</div>
+				</div><!-- section_main1 -->
+				
+			<div class='com-contest-table'>
+				<div class='company-contest-table'>
+					<div class='wrapper'>
+						<table cellspacing='0'>
+							<tr>
+								<th>콘테스트명</th>
+								<th>개최시각</th>
+								<th>시험시간</th>
+								<th>담당부서</th>
+								<th>담장자명</th>
+								<th>등록</th>
+							</tr>
+
+							<tr>
+								<td><a href="#">제1회 삼성전자 천하제일코딩대회</a></td>
+								<td>18/02/03 14:00</td>
+								<td>2시간30분</td>
+								<td>인사팀</td>
+								<td>손상현</td>
+								<td><button class='fin-contest'>등록</button></td>
+							</tr>
+							<tr class='even'>
+								<td><a href="#">제2회 삼성전자 실력자코딩대회</a></td>
+								<td>18/01/23 13:00</td>
+								<td>4시간00분</td>
+								<td>인사팀</td>
+								<td>이길재</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr>
+								<td><a href="#">제3회 삼성전자 천하제일코딩대회</a></td>
+								<td>18/02/03 14:00</td>
+								<td>1시간00분</td>
+								<td>인사팀</td>
+								<td>손상현</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr class='even'>
+								<td><a href="#">제4회 삼성전자 실력자코딩대회</a></td>
+								<td>18/01/23 13:00</td>
+								<td>6시간00분</td>
+								<td>인사팀</td>
+								<td>이길재</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr>
+								<td><a href="#">제5회 삼성전자 천하제일코딩대회</a></td>
+								<td>18/01/19 14:00</td>
+								<td>7시간30분</td>
+								<td>인사팀</td>
+								<td>손상현</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr class='even'>
+								<td><a href="#">제6회 삼성전자 실력자코딩대회</a></td>
+								<td>18/01/23 13:00</td>
+								<td>5시간00분</td>
+								<td>인사팀</td>
+								<td>이길재</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr>
+								<td><a href="#">제7회 삼성전자 천하제일코딩대회</a></td>
+								<td>18/02/03 14:00</td>
+								<td>5시간30분</td>
+								<td>인사팀</td>
+								<td>손상현</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr class='even'>
+								<td><a href="#">제8회 삼성전자 실력자코딩대회</a></td>
+								<td>18/01/23 13:00</td>
+								<td>3시간30분</td>
+								<td>인사팀</td>
+								<td>이길재</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr>
+								<td><a href="#">제9회 삼성전자 천하제일코딩대회</a></td>
+								<td>18/02/03 14:00</td>
+								<td>3시간00분</td>
+								<td>인사팀</td>
+								<td>손상현</td>
+								<td><span>Y</span></td>
+							</tr>
+							<tr class='even'>
+								<td><a href="#">제10회 삼성전자 실력자코딩대회</a></td>
+								<td>18/01/23 13:00</td>
+								<td>4시간30분</td>
+								<td>인사팀</td>
+								<td>이길재</td>
+								<td><span>Y</span></td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+				
+				<input>
+			</div><!-- section_main2 -->
 				
 		</div>
 		
@@ -223,38 +257,12 @@
 					<input type="button" name="emailConfirm" id="emailConfirm"
 				       	value="완료">
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
-		
-
 
 	<!-- frame -->
-<script type="text/javascript">
-/* $(function(){
-	$('#registBtn').on("click", function(){
-		self.location="${initParam.rootPath }/mailread"
-	});
-}); */
 
-$(document).ready(function() {
-    
-    $('#searchBtn').on("click", function(event) {
-		//검색(Search) 버튼을 클릭하면
-			self.location = "list" //'list'
-							+ '${pageMaker.makeQuery(1)}'
-							  //'list?page=1&perPageNum=10'
-							+ "&searchType="
-							//'list?page=1&perPageNum=10&searchType='
-							+ $("select option:selected").val()
-							//'list?page=1&perPageNum=10&searchType=t'
-							+ "&keyword=" + $('#keywordInput').val()
-							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
-							+"&note_receiver=${param.note_receiver}";
-		});
-});
-
-</script>
 
 </body>
 </html>

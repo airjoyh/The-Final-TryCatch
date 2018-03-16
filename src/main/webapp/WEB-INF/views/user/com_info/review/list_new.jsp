@@ -306,22 +306,17 @@
 												<th style="width: 10%">조회수</th>									
 												<th style="width: 10%">댓글</th>									
 											</tr>				
+										<c:forEach items="${list }" var="review" varStatus="stat">
 											<tr>
-												<td>1</td>																		
-												<td><a href="">삼성전자 기업면접봤어요....</a></td>																		
-												<td>이성원</td>
-												<td>18/03/09</td>
-												<td>412</td>
-												<td><span id="com_reply">10</span></td>
+												<td style="width: 10%;">${review.review_no }</td>
+												<td style="width: 40%;"><a
+													href="${initParam.rootPath }/user/review/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${param.company_id }&no=${review.review_no }">${review.review_title }</a></td>
+												<td style="width: 10%;">${review.review_writer }</td>
+												<td style="width: 15%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${review.review_wdate}" /></td>
+												<td id="count" style="width: 10%;">${review.review_viewCount }</td>
+												<td><span class="badge">${review.review_replyCount }</span></td>
 											</tr>
-											<tr class='even'>
-												<td>2</td>																		
-												<td><a href="">삼성전자 면접후기</a></td>																		
-												<td>송다정</td>
-												<td>18/03/02</td>
-												<td>999</td>
-												<td><span id="com_reply">100</span></td>
-											</tr>		
+										</c:forEach>		
 										</table>
 						</div>
 					</div>
@@ -363,7 +358,7 @@
 								               </select> <input type="text" name='keyword' id="keywordInput"
 								                  value='${cri.keyword }'>
 								               <button id='searchBtn'>검색</button>
-								               <button id='registBtn'>글쓰기</button>
+								               <a href="javascript:loginCheck()"><button id='registBtn'>글쓰기</button></a>
 								
 								   </div>
 								</div><!-- com-contest-paging -->
@@ -472,12 +467,5 @@
 
 	<!-- frame -->
 
-<script type="text/javascript">
-$(function(){
-	$('#registBtn').on("click", function(){
-		self.location="${initParam.rootPath }/comreregister"
-	});
-});
-</script>
 </body>
 </html>
