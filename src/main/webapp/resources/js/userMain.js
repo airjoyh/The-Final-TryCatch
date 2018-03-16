@@ -38,6 +38,7 @@ $(document).ready(function() {
 						alert('메일 인증이 완료되지 않았습니다.')
 						self.location = 'noAuth?id='+login_id.val();
 					}else if(strArr[0]=='login'){
+						alert("strArr[1] >>> "+strArr[1]);
 						afterLogin(strArr[1]);
 						$('#login_beforeDiv').hide();
 						$('#login_afterDiv').show();

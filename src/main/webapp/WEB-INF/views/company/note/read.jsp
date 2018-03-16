@@ -124,7 +124,7 @@ $("#noteModBtn").on("click", function() {
 				console.log("result: " + result);
 				if(result == 'success'){
 					alert("등록 되었습니다.");
-					
+					$('#sendMail').fadeOut();
 				}
 		}}); 
 	  $("#note_contents").val("");

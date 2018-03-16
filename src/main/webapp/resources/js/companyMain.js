@@ -30,6 +30,7 @@ $(document).ready(function(){
 					alert('아이디와 비밀번호가 일치하지 않습니다.');
 			
 				}else if(strArr[0]=='login'){
+					alert("strArr[1] >>> "+strArr[1]);
 					afterLogin(strArr[1]);
 					$('#login_beforeDiv').hide();
 					$('#login_afterDiv').show();
@@ -208,6 +209,7 @@ $(document).ready(function(){
 	// 로그인한 후에 아이디랑 쪽지 숫자 뜨게 하기
 	function afterLogin(noteCount) {
 		console.log('afterLogin>>>');
+		console.log('afterLogin에 들어오는 쪽지 갯수 >>> '+noteCount);
 		var login_id = $('#login_id').val();
 		// var statusCount = '${statusCount}';
 	
