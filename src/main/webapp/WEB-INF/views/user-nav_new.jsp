@@ -10,6 +10,7 @@
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/portfolio.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->

@@ -20,12 +20,12 @@ public class PortfolioController {
 	@Inject
 	private PortfolioService portfolioService; 
 
-	@RequestMapping(value="/register",method= RequestMethod.GET)
-	public String registerGET(String user_id, Model model) {
+	@RequestMapping(value="/show",method= RequestMethod.GET)
+	public String show(String user_id, Model model) {
 		System.out.println("PortfolioController register");
 		model.addAttribute("user_id",user_id);
 		
-		return "/user/portfolio/register";
+		return "user/portfolio/register_new";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
@@ -33,9 +33,8 @@ public class PortfolioController {
 		System.out.println("PortfolioController register()");
 		
 		portfolioService.regist(portfolioVo);
-	    String user_id= portfolioVo.getUser_id();
 		
-		return "redirect:/user/portfolio/list?user_id="+user_id;
+		return "redirect:/user/main";
 	}
    
     @RequestMapping("/list")

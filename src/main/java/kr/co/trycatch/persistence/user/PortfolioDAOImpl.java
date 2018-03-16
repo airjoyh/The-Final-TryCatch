@@ -32,19 +32,22 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 	}
 
 	@Override
-	public PortfolioVO read(int port_id) throws Exception {
+	public PortfolioVO select(int port_id) throws Exception {
 		
-		return session.selectOne("portfolio.read", port_id);
+		return session.selectOne("portfolio.select", port_id);
 	}
 
 	@Override
-	public List<PortfolioVO> list(SearchCriteria cri, String user_id) throws Exception {
+	public List<PortfolioVO> listSearch(SearchCriteria cri) throws Exception {
 	RowBounds bounds = new RowBounds(cri.getPageStart(),cri.getPerPageNum());
-	Map<String , Object> map = new HashMap<>();
-	map.put("user_id", user_id);
-	map.put("cri", cri);
 	
-	return session.selectList("portfolio.list", map, bounds);
+	return session.selectList("portfolio.listSearch", cri, bounds);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		
+		return session.selectOne("portfolio.listSearchCount", cri);
 	}
 	
 }

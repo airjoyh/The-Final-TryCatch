@@ -5,11 +5,9 @@ public class PortfolioVO {
 	private String port_id;
 	private String port_exp;
 	private String port_skill;
-	private String port_interest;
 	private String port_award;
 	private String port_link;
 	private String port_license;
-	private String port_img;
 	private String user_id;
 
 	public String getPort_id() {
@@ -36,14 +34,6 @@ public class PortfolioVO {
 		this.port_skill = port_skill;
 	}
 
-	public String getPort_interest() {
-		return port_interest;
-	}
-
-	public void setPort_interest(String port_interest) {
-		this.port_interest = port_interest;
-	}
-
 	public String getPort_award() {
 		return port_award;
 	}
@@ -68,14 +58,6 @@ public class PortfolioVO {
 		this.port_license = port_license;
 	}
 
-	public String getPort_img() {
-		return port_img;
-	}
-
-	public void setPort_img(String port_img) {
-		this.port_img = port_img;
-	}
-
 	public String getUser_id() {
 		return user_id;
 	}
@@ -87,8 +69,8 @@ public class PortfolioVO {
 	@Override
 	public String toString() {
 		return "PortfolioVO [port_id=" + port_id + ", port_exp=" + port_exp + ", port_skill=" + port_skill
-				+ ", port_interest=" + port_interest + ", port_award=" + port_award + ", port_link=" + port_link
-				+ ", port_license=" + port_license + ", port_img=" + port_img + ", user_id=" + user_id + "]";
+				+ ", port_award=" + port_award + ", port_link=" + port_link + ", port_license=" + port_license
+				+ ", user_id=" + user_id + "]";
 	}
 
 }

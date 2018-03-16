@@ -11,7 +11,9 @@ public interface PortfolioService {
 	
 	public void modify(PortfolioVO portfolioVo) throws Exception;
 	
-	public List<PortfolioVO> list(SearchCriteria cri, String user_id) throws Exception;
-	
 	public PortfolioVO read(int port_id) throws Exception;
+	
+	public List<PortfolioVO> listSearch(SearchCriteria cri) throws Exception;
+	
+	public int listSearchCount(SearchCriteria cri) throws Exception;
 }

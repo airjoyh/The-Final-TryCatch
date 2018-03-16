@@ -36,12 +36,6 @@ public class TestController {
 		return "/ing/codemirror";
 	}
 	
-	@RequestMapping("/user/portfolio")
-	public String portfolio() {
-		System.out.println("오냐");
-		return "/ing/user_portfolio";
-	}
-	
 	@RequestMapping("/pagenation")
 	public String pagenation() {
 		System.out.println("오냐");

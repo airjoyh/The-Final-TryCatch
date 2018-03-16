@@ -288,6 +288,14 @@ $(document).ready(function() {
 		         
             	   self.location= rootPath+'/user/note/list'; //"${initParam.rootPath }/user/note/list";
 	          }); 	
+               
+/* ---------------------------------------- 포트폴리오 ----------------------------------------*/
+               
+               $('.mypage-dropdown').on("click", ".portfolio",function(){
+            	  console.log('포트폴리오 버튼 클릭');
+            	  
+            	  self.location = rootPath+'/user/portfolio/show';
+               });
 				
 	});//ready function()	
 	

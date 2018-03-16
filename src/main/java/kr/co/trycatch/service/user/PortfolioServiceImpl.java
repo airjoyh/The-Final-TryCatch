@@ -31,13 +31,19 @@ public class PortfolioServiceImpl implements PortfolioService{
 	@Override
 	public PortfolioVO read(int port_id) throws Exception {
 		
-		return portfolioDao.read(port_id);
+		return portfolioDao.select(port_id);
 	}
 
 	@Override
-	public List<PortfolioVO> list(SearchCriteria cri, String user_id) throws Exception {
+	public List<PortfolioVO> listSearch(SearchCriteria cri) throws Exception {
 	
-		return portfolioDao.list(cri, user_id);
+		return portfolioDao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		
+		return portfolioDao.listSearchCount(cri);
 	}
 	
 	

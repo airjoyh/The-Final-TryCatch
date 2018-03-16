@@ -4,42 +4,54 @@
 
     <insert id="create">
 		insert into 
-		portfolio (port_id, port_exp, port_skill, port_interest, port_award,
-                port_link, port_license, port_img, user_id)
-		values(#{port_id}, #{port_exp}, #{port_skill},#{port_interest},
-			   #{port_award}, #{port_link}, #{port_license}, #{port_img}, #{user_id})
+		portfolio (port_id, port_exp, port_skill, port_award,
+                port_link, port_license, user_id)
+		values(portfolio_seq.nextval, #{port_exp}, #{port_skill},
+			   #{port_award}, #{port_link}, #{port_license}, #{user_id})
 	</insert>
 
     <delete id="delete">
 		delete from portfolio
-		where user_id = #{user_id}
+		where port_id = #{port_id}
 	</delete>
 	
 	<update id="update">
 	  update portfolio
-	  set port_exp=#{port_exp}, port_skill=#{port_skill}, port_interest=#{port_interest}, port_img=#{port_img}
+	  set port_exp=#{port_exp}, port_skill=#{port_skill},  
 	      port_award=#{port_award}, port_link=#{port_link}, port_license=#{port_license}, 
-	  where port_id=#{port_id}
+	  where port_id = #{port_id}
 	</update>
 	
-	<select id="read" resultType="PortfolioVO">
-	  select   port_id, port_exp, port_skill, port_interest, port_award,
-               port_link, port_license, port_img, user_id
-	  from portfolio
-	  where port_id=#{port_id}
-	</select>
-	
 	<select id="select" resultType="PortfolioVO">
-		select *
-		from portfolio
-		order by port_id desc
+	  select   port_id, port_exp, port_skill, port_award,
+               port_link, port_license, user_id
+	  from portfolio
+	  where port_id = #{port_id}
 	</select>
 	
-	<select id="list" resultType="PortfolioVO">
-	  select port_id, port_exp, port_skill, port_interest, port_award,
-               port_link, port_license, port_img, user_id
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString() ">
+				where port_skill like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString() ">
+				where port_license like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</sql> 
+	
+	<select id="listSearchCount" resultType="int">
+	  select count(*)
       from portfolio
-      where user_id=#{use_id}
       order by port_id desc
+      <include refid="search"></include>
+	</select>
+	
+	<select id="listSearch" resultType="PortfolioVO">
+	  select port_id, port_exp, port_skill, port_award,
+               port_link, port_license, user_id
+      from portfolio
+      order by port_id desc
+      <include refid="search"></include>
 	</select>
 </mapper>
