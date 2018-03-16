@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- C태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">

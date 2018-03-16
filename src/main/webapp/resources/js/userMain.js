@@ -41,6 +41,7 @@ $(document).ready(function() {
 						afterLogin(strArr[1]);
 						$('#login_beforeDiv').hide();
 						$('#login_afterDiv').show();
+						loginState = 'login';
 					}
 				}
 			});
