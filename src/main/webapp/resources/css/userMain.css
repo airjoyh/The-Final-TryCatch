@@ -215,23 +215,44 @@ left side CSS
 
 .section_main1 {
     position: relative;
-    height: 500px;
+    height: 400px;
     border: 1px solid #dee3eb;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.section_main1 img{
+	width:740px;
+	height: auto;
+}
+.section_main2 {
+    position: relative;
+    height: 400px;
+    border: 1px solid #dee3eb;
+    overflow: hidden;
     background: #fff;
     
     margin-bottom: 8px;
 }
+
+.section_main2 img{
+	width:740px;
+	height: auto;
+}
+
 .com_main1 {
     position: relative;
     height: 400px;
     border: 1px solid #dee3eb;
+    overflow: hidden;
     background: #fff;
     margin-bottom: 8px;
 }
 .com_main1 img{
 	width:740px;
-	height: 400px;
-	overflow: hidden;
+	height: auto;
+	
 }
 
 .com_main2 {
@@ -240,18 +261,13 @@ left side CSS
     border: 1px solid #dee3eb;
     background: #fff;
     margin-bottom: 8px;
+	overflow: hidden;
 }
 .com_main2 img{
 	width:740px;
-	height: 400px;
-	overflow: hidden;
+	height: auto;
 }
-.section_main2 {
-    position: relative;
-    height: 500px;
-    border: 1px solid #dee3eb;
-    background: #fff;
-}
+
 
 /***************** 
 
@@ -292,13 +308,9 @@ right side CSS
 
 .login-input {
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin: 0 0 12px 0;
     border: 1px solid #65737e;
-    -webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
-	border-radius: 25px;
-    box-sizing: border-box;
     outline: none;
 }
 .login-btn{

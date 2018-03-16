@@ -15,12 +15,10 @@
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Mina:400,700" rel="stylesheet">
 
 <!-- JS,JQUERY -->
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
 
 <style>
@@ -28,6 +26,7 @@
 </style>
 
 <script type="text/javascript">
+
 
 $(function() {
 	//글자수 제한 1000자
@@ -38,6 +37,37 @@ $(function() {
         }
         $('.type-cnt').text($(this).val().length+'자/1000자')
     });
+	
+	//추가버튼 클릭 액션
+	$('.add-btn').on('click',function(){
+		var insertData = $(this).prev().val();
+		var test = $(this).closest('div').siblings().
+		append('<tr><td width="552px">'+insertData+'</td><td class="del-td"><a class="pf-modify del-list">삭제</a></td></tr>');
+		$(this).siblings().val('');
+	});
+	
+	//삭제클릭
+	$('.del-list').on('click',function(){
+		alert("오냐??");
+		//var tr = $(this).closest('tr').html('');
+	});
+	
+	//완료클릭
+	$('#pf-modify-fin').on('click',function(){
+		$('#pf-intro-ta').attr('disabled','disabled');
+		$(this).hide();
+		$('#pf-modify-btn').show();
+		$('.pf-modify').hide();
+	});
+	
+	//수정클릭
+	$('#pf-modify-btn').on('click',function(){
+		$('#pf-intro-ta').removeAttr('disabled')
+		$(this).hide();
+		$('#pf-modify-fin').show();
+		$('.pf-modify').show();
+	});
+	
 });
 
 </script>
@@ -89,9 +119,9 @@ $(function() {
 						<div class='pf-title'>
 							bluecatseyes
 						</div>
+						<div id='pf-modify-fin'>완료</div> 
+						<div id='pf-modify-btn' style="display:none;">수정</div> 
 						<div class='com-zzim-btn' style="display:none;">찜하기</div> 
-						<div id='pf-modify-fin' style="display:none;">완료</div> 
-						<div id='pf-modify-btn'>수정</div> 
 					</div>
 					<div class='pf-navbar'>
 						<ul>
@@ -110,107 +140,79 @@ $(function() {
 						<textarea rows="10" placeholder="자기소개를 해주세요 (1000자 제한)" id='pf-intro-ta'></textarea>
 					</div>
 					<div class='pf-skill'>
-						<div class='body-title'>Skills</div>
-						<div class='skill-list'>
+						<p class='body-title'>Skills</p>
+						<div class='skills'>
 							<table class='pf-list'>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>	
+								
 							</table>
-						</div>
-						<div class='pf-modify'>
-							<select style="color: #777;">
-							<option selected="selected" style="color: #ddd;">직군을선택해주세요</option>
-							<option>웹 개발자</option>
-							<option>서버 개발자</option>
-							<option>자바 개발자</option>
-							<option>프론트엔드 개발자</option>
-							<option>iOS 개발자</option>
-							<option>파이썬 개발자</option>
-							<option>안드로이드 개발자</option>
-							<option>C,C++ 개발자</option>
-							<option>데이터 엔지니어</option>
-							<option>시스템,네트워크 관리자</option>
-							<option>DevOps 시스템 관리자</option>
-							<option>Node.js 개발자</option>
-							<option>PHP 개발자</option>
-							<option>Spring 개발자</option>
-							<option>개발 매니저</option>
-							<option>프로덕트 매니저</option>
-							<option>QA,테스트 엔지니어</option>
-							<option>영상,음성 엔지니어</option>
-							<option>보안 엔지니어</option>
-							<option>웹 퍼블리셔</option>
-							<option>.net개발자</option>
-							<option>임베디드 개발자</option>
-							<option>하드웨어 엔지니어</option>
-							<option>루비온레일즈 개발자</option>
-							<option>그래픽스 엔지니어</option>
-							<option>CTO</option>
-							</select>
-							<span id='' class='add-btn'>추가하기</span>
+
+							<div class='pf-modify'>
+								<select style="color: #777;">
+									<option selected="selected" style="color: #ddd;">직군을선택해주세요</option>
+									<option>웹 개발자</option>
+									<option>서버 개발자</option>
+									<option>자바 개발자</option>
+									<option>프론트엔드 개발자</option>
+									<option>iOS 개발자</option>
+									<option>파이썬 개발자</option>
+									<option>안드로이드 개발자</option>
+									<option>C,C++ 개발자</option>
+									<option>데이터 엔지니어</option>
+									<option>시스템,네트워크 관리자</option>
+									<option>DevOps 시스템 관리자</option>
+									<option>Node.js 개발자</option>
+									<option>PHP 개발자</option>
+									<option>Spring 개발자</option>
+									<option>개발 매니저</option>
+									<option>프로덕트 매니저</option>
+									<option>QA,테스트 엔지니어</option>
+									<option>영상,음성 엔지니어</option>
+									<option>보안 엔지니어</option>
+									<option>웹 퍼블리셔</option>
+									<option>.net개발자</option>
+									<option>임베디드 개발자</option>
+									<option>하드웨어 엔지니어</option>
+									<option>루비온레일즈 개발자</option>
+									<option>그래픽스 엔지니어</option>
+									<option>CTO</option>
+								</select> <span id='' class='add-btn'>추가하기</span>
+							</div>
 						</div>
 					</div>
 					<div class='pf-lisence'>
-						<div class='body-title'>Lisence</div>
-						<div class='skill-list'>
+						<p class='body-title'>Lisence</p>
+						<div class='lisence'>
 							<table class='pf-list'>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
+								
 							</table>
-						</div>
-						<div class='pf-modify'>
-							<input type="text" id='lisence-name' placeholder="자격증명을 입력하세요.">
-							<span id='' class='add-btn'>추가하기</span>
+							<div class='pf-modify'>
+								<input type="text" id='lisence-name' placeholder="자격증명을 입력하세요.">
+								<span id='' class='add-btn'>추가하기</span>
+							</div>
 						</div>
 					</div>
 					<div class='pf-award'>
-						<div class='body-title'>Award</div>
-												<div class='skill-list'>
+						<p class='body-title'>Award</p>
+						<div class='award'>
 							<table class='pf-list'>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>	
+								
 							</table>
-						</div>
-						<div class='pf-modify'>
-							<input type="text" id='award-name' placeholder="수상경력을 입력하세요.">
-							<span id='' class='add-btn'>추가하기</span>
+							<div class='pf-modify'>
+								<input type="text" id='award-name' placeholder="수상경력을 입력하세요.">
+								<span id='' class='add-btn'>추가하기</span>
+							</div>
 						</div>
 					</div>
 					<div class='pf-pflink'>
-						<div class='body-title'>Portfolio</div>
-						<div class='skill-list'>
+						<p class='body-title'>Portfolio</p>
+						<div class='portfolio'>
 							<table class='pf-list'>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
-								<tr>
-									<td width="552px">웹 개발자</td>
-									<td class='del-td'><a class='pf-modify del-list'>삭제</a></td>
-								</tr>
+								
 							</table>
-						</div>
-						<div class='pf-modify'>
-							<input type="text" id='pf-url' placeholder="사이트 url을 입력해주세요">
-							<span id='' class='add-btn'>추가하기</span>
+							<div class='pf-modify'>
+								<input type="text" id='pf-url' placeholder="사이트 url을 입력해주세요">
+								<span id='' class='add-btn'>추가하기</span>
+							</div>
 						</div>
 					</div>
 				</div>

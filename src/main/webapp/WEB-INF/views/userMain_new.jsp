@@ -36,11 +36,11 @@
 		<div class='column-left'>
 		
 			<div class='section_main1'>
-				
+				<img src="${initParam.rootPath }/resources/image/building/building_8.jpg">
 			</div><!-- section_main1 -->
 				
 			<div class='section_main2'>
-			
+				<img src="${initParam.rootPath }/resources/image/monitor/monitor_1.jpg">
 			</div><!-- section_main2 -->
 				
 		</div>

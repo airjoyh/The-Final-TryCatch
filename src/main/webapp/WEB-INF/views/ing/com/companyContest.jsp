@@ -158,7 +158,7 @@
 					</div>
 				</div>
 				
-				<input>
+				
 			</div><!-- section_main2 -->
 				
 		</div>
