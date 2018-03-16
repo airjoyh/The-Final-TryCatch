@@ -11,12 +11,12 @@
 
 .com-contest-table {
     position: relative;
-    height: 500px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
 }
 
-.com-contest-table input[type="button"]{
+.com-contest-table button{
 	font-size:13px;
 	padding:3px 10px;
     margin: 0;
@@ -33,7 +33,7 @@
     transition: all .3s ease;
 }
 
-.com-contest-table input[type="button"]:hover{
+.com-contest-table button:hover{
 	background-color: #2b303b;
 }
 
@@ -88,4 +88,12 @@
 	display: inline-block;
 	position: absolute;
 }
-
+/* 작성페이지 */
+.com-contest-info{
+    position: relative;
+    height: auto;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    
+    margin-bottom: 8px;
+}
