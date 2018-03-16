@@ -12,8 +12,8 @@
     margin-bottom: 8px;
 }
 
-.register-qna {
-	height:35px;
+.register-btn {
+	height:30px;
 	width:125px;
 	font-size:15px;
     margin: 0;
@@ -35,7 +35,7 @@
 	background-color: #2b303b;
 }
 
-.com-qna-title{
+.com-review-title{
 	height:45px;
 	width:700px;
 	margin: 0;
@@ -45,7 +45,7 @@
 	
 }
 
-.com-qna-good{
+.com-review-good{
 	margin-top: 50px;
 	height:75px;
 	width:700px;
@@ -53,46 +53,41 @@
 	
 }
 
-.com-qna-bad{
+.com-review-bad{
 	height:75px;
 	width:700px;
 	display: inline-block;
 	
 }
 
-.com-qna-ceo{
+.com-review-ceo{
 	height:75px;
 	width:700px;
 	display: inline-block;
 	
 }
 
-.com-qna-star{
+.com-review-star{
 	height:320px;
 	width:700px;
 	display: inline-block;
 	
 }
 
-/* .inline-qna-body {
-	line-height: 20px;
-	color: #a1a1a1;
-	font-size: 13px;
-	padding-bottom: 5px;
-} */
-
 .star-line {
 	height: 100%;
 }
-
+.comreview-star .star-line ul,li{
+	list-style: none;
+}
 .com-inline-btn {
-	height: 35px;
-	right: 250px;
-    bottom: 0;
-	margin: 0;
+    height: 70px;
+    bottom: 100px;
+    left: 240px;
+    margin: 0;
     padding: 0;
     display: inline-block;
-    position: absolute;
+    position: relative;
 }
 
 .form-ta {

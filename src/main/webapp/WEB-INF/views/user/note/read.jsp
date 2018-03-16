@@ -42,9 +42,8 @@
 					</div>
 					<div class='com-inline-btn'>
 						<input type="button" class='qna-list' id="goList" value='목록보기'>
-						<a href="#sendMail"><input type="button" class='qna-list'
-							value='답장'></a> <input type="button" class='qna-list'
-							id="deleteList" value='삭제' onclick="removeReview()">
+						<a href="#sendMail"><input type="button" class='qna-list'value='답장'></a> 
+						<input type="button" class='qna-list' id="deleteList" value='삭제' onclick="removeReview()">
 						<!-- <input type="button" class='qna-modify' value='수정'>
 						<input type="button" class='qna-delete' value='삭제'> -->
 					</div>
@@ -84,7 +83,7 @@
 					
 				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
 					<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
-					</div>+
+					</div>
 			</div>
 		</div>
 	<!-- frame -->
@@ -125,6 +124,8 @@ $("#noteModBtn").on("click", function() {
 				if(result == 'success'){
 					alert("등록 되었습니다.");
 					//$("#tcmail").modal('hide');
+					//self.location = '${initParam.rootPath}/company/note/read';
+					$('#sendMail').fadeOut();
 				
 				}
 		}}); 

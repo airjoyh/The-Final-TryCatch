@@ -4,7 +4,7 @@
 ******************************************************************/
  .section_main {
     position: relative;
-    height: 920px;
+    height: 960px;
     border: 1px solid #dee3eb;
     background: #fff;
 } 
@@ -26,18 +26,20 @@
 }
 
 .review-box {
-	border: orange 2px solid;
+	/* border: orange 2px solid; */
 	width: 100%;
 	height: 300px;
 }
 
 .star-left{
-    width: 50%;
-    height: 300px;
+    width: 47%;
+    height: 280px;
     float: left;
     display: flex;
     flex-direction: column;
     position: relative;
+    border: 1px solid #c0c0c0;
+    margin-right: 30px;
 }
 
 .star-left label{
@@ -50,7 +52,7 @@
 }
 
 .star-left font{
-	color: teal;
+	color: #004080;
 	font-size: medium;
 	padding-left: 10px;
 }
@@ -59,12 +61,13 @@
 	padding-right: 10px;
 }
 .star-right{
-    width: 50%;
-    height: 300px;
+    width: 47%;
+    height: 280px;
     float: left;
     display: flex;
     flex-direction: column;
     position: relative;
+    border: 1px solid #c0c0c0;
 }
 
 .star-right label{
@@ -77,7 +80,7 @@
 }
 
 .star-right font{
-	color: #ff8040;
+	color: #004080;
 	font-size: medium;
 	padding-left: 10px;
 }
@@ -89,32 +92,6 @@
 	padding: 10px;
 }
 
-/*****************************************************************
-						sw_qna
-******************************************************************/
-#com_reply{
-	border: 1px blue solid;
-	border-radius: 10px;
-	background: #867d88;
-	color: #fff;
-}
-.table-label label{
-	padding: 10px;
-	font-weight: bold;
-	font-size: 30px;
-}
-
-.com-contest-paging{
-	display: inline-flex;
-    flex-direction: column;
-    align-items:center;
-    margin-left: 180px;
-}
-
-#registBtn {
-	right: 0;
-	bottom: 0;
-}
 /*****************************************************************
 						progress bar
 ******************************************************************/
@@ -136,7 +113,7 @@ progress::-webkit-progress-bar {
 	height:15px;
 	width:200px;
 	margin:0 auto;
-	background-color: #66bb6a;
+	background-color: #eef0f0;
 	border-radius: 15px;
 	box-shadow:0px 0px 6px #777 inset;
 }
@@ -145,7 +122,7 @@ progress::-webkit-progress-value {
 	float:left;
 	height:15px;
 	margin:0px -10px 0 0;
-	background: #ef5350;
+	background: #00ffff;
 	border-radius: 15px;
 	box-shadow:0px 0px 6px #777 inset;
 }
@@ -160,25 +137,38 @@ progress:after {
 
 .star-btn {
 	width: 200px;
-	margin-left:75px;
-	/* background: #80ffff; */
-	color: #000000;
-	opacity: 0.7;
-	bottom: 20px;
-	position: absolute;
-}
-.star-rank{
-	position: relative;
-	width: 350px;
-	padding-left: 40px;
+    margin-top: 5px;
+    margin-left: 65px;
+    background: #80ffff;
+    color: #000000;
+    opacity: 0.7;
+    position: absolute;
 }
 
+.star-rank{
+	position: relative;
+    width: 350px;
+    padding-left: 40px;
+    padding-top: 20px;
+}
 .star-left .star-rank-box{
 	display: inline-flex;
 	flex-direction: column;
+	border: 1px solid #c0c0c0;
+	height: 45px;
+}
+.star-right .star-rank-box{
+	display: inline-flex;
+	flex-direction: column;
+	border: 1px solid #c0c0c0;
+	height: 45px;
+}
+
+.star-rank-box .star-label{
+	padding-top: 25px;
 }
 .star-label{
 	right: 5px;
 	position: absolute;
-	background-color: teal;
+	/* background-color: teal; */
 }
