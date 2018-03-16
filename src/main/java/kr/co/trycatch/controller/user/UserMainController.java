@@ -13,7 +13,7 @@ public class UserMainController {
 	@RequestMapping(value = "/user/main", method = RequestMethod.GET)
 	public String userMain() throws Exception{
 		System.out.println("MainController userMain()");
-		return "userMain_new2";//"userMain";
+		return "userMain_new";//"userMain";
 	}
 	
 	@RequestMapping(value = "/user/beforeLogin")
