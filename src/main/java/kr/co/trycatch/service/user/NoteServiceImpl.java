@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.trycatch.domain.user.NoteVO;
 import kr.co.trycatch.domain.user.SearchCriteria;
@@ -28,6 +29,7 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.list(cri, note_receiver);
 	}
 
+	@Transactional
 	@Override
 	public NoteVO read(int note_id, NoteVO noteVo) throws Exception {
 		noteDao.update(noteVo);

@@ -2,13 +2,12 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
-.com-contest-head {
+.section_main {
     position: relative;
     height: 500px;
     border: 1px solid #dee3eb;
     background: #fff;
-    
-    margin-bottom: 8px;
+
 }
 
 .qna-list {
@@ -104,9 +103,9 @@
 
 .com-inline-btn {
 	height: 35px;
-	right: 200px;
+    right: 200px;
     bottom: 10px;
-	margin: 0;
+    margin: 0;
     padding: 0;
     display: inline-block;
     position: absolute;

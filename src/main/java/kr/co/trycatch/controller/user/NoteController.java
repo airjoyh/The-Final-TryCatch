@@ -46,6 +46,10 @@ public class NoteController {
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
 		maker.setTotalCount(noteService.listSearchCount(cri, note_receiver));
+		
+		int statusCount=noteService.statusCount(note_receiver);
+		session.setAttribute("statusCount" ,statusCount);//읽지 않은 쪽지 갯수 조회 
+		
 		model.addAttribute("list",noteService.listSearchCriteria(cri, note_receiver));
 		model.addAttribute("cri",cri);
 		model.addAttribute("pageMaker",maker);
@@ -54,14 +58,18 @@ public class NoteController {
 	}
 	
 	@RequestMapping("/user/note/read")
-	public String read(String note_receiver, int note_id, Model model, SearchCriteria cri, NoteVO noteVo)throws Exception{
-		noteVo= noteService.read(note_id, noteVo);
+	public String read(NoteVO noteVo, Model model, SearchCriteria cri)throws Exception{
+		String  before_status = noteVo.getNote_status();
+		System.out.println("쪽지읽기 (상태) : "+ before_status);
+		noteVo= noteService.read(noteVo.getNote_id(), noteVo);//읽은 쪽지상태 수정 ---> 쪽지 읽기
 		//NoteVO noteVo = noteService.read(note_id);
 		
 		//System.out.println("noteVo"+noteVo);
 		
 		model.addAttribute("note",noteVo);
+		
 		model.addAttribute("cri",cri); 
+		model.addAttribute("before_status",before_status);
 		
 		return "/user/note/read";
 	}
@@ -99,6 +107,10 @@ public class NoteController {
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
 		maker.setTotalCount(notecomService.listSearchCount(cri, note_receiver));
+		
+		int statusCount=noteService.statusCount(note_receiver);
+		session.setAttribute("statusCount" ,statusCount);//읽지 않은 쪽지 갯수 조회 
+		
 		model.addAttribute("list",notecomService.listSearchCriteria(cri, note_receiver));
 		model.addAttribute("cri",cri);
 		model.addAttribute("pageMaker",maker);
@@ -107,12 +119,17 @@ public class NoteController {
 	}
 	
 	@RequestMapping("/company/note/read")
-	public String readCom(String note_receiver, int note_id, Model model, SearchCriteria cri,NoteVO noteVo )throws Exception{
-		noteVo= notecomService.read(note_id, noteVo);
+	public String readCom(Model model, SearchCriteria cri,NoteVO noteVo )throws Exception{
+		String  before_status = noteVo.getNote_status();
+		System.out.println("쪽지읽기 (상태) : "+ before_status);
+		
+		noteVo= notecomService.read(noteVo.getNote_id(), noteVo);
 		System.out.println("noteVo"+noteVo);
 		
 		model.addAttribute("note",noteVo);
-		model.addAttribute("cri",cri); 
+		model.addAttribute("cri",cri);
+		
+		model.addAttribute("before_status",before_status);
 		
 		return "/company/note/read";
 	}
