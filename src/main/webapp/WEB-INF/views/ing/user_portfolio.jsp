@@ -47,9 +47,8 @@ $(function() {
 	});
 	
 	//삭제클릭
-	$('.del-list').on('click',function(){
-		alert("오냐??");
-		//var tr = $(this).closest('tr').html('');
+	$(document).on('click','.del-list',function(){
+		$(this).closest('tr').remove();
 	});
 	
 	//완료클릭
@@ -205,7 +204,7 @@ $(function() {
 					</div>
 					<div class='pf-pflink'>
 						<p class='body-title'>Portfolio</p>
-						<div class='portfolio'>
+						<div class='pf-link'>
 							<table class='pf-list'>
 								
 							</table>
