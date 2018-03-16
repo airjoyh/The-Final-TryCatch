@@ -68,11 +68,13 @@ public class UserContestController {
 	public String readQuiz(@RequestParam("contest_id") int contest_id, int quiz_no, Model model) throws Exception {
 
 		Contest_quizVO contest_quizVo = contest_quizService.readQuiz(contest_id, quiz_no);
+		
 		if(contest_quizVo == null) {//마지막 문제를 풀었다면
 			
 			return "redirect:/user/contest/quiz/answer/score?contest_id="+contest_id;
 		}
 		
+		model.addAttribute("contest", contestService.read(contest_id));
 		model.addAttribute("contest_quiz", contest_quizVo);
 		model.addAttribute("quiz_no", quiz_no);
 		
@@ -80,7 +82,7 @@ public class UserContestController {
 		model.addAttribute("quiz_id", quiz_id);
 		model.addAttribute("exampleList", contest_quizService.readExample(quiz_id));
 		
-		return "/user/contest/quiz/solve";
+		return "/user/contest/quiz/solve_new";
 	}
 	
 	@ResponseBody

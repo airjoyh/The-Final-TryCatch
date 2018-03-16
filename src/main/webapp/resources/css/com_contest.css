@@ -88,7 +88,9 @@
 	display: inline-block;
 	position: absolute;
 }
-/* 작성페이지 */
+
+/* contest register ***************/
+
 .com-contest-info{
     position: relative;
     height: auto;
@@ -97,3 +99,84 @@
     
     margin-bottom: 8px;
 }
+
+.cont-reg-title{
+	color:#444;
+	font-weight:500;
+ 	margin-top:20px;
+	height: 25px;
+}
+
+.com-contest-info .cont-regist-contents{
+	position:inherit;
+	display:block;
+	padding-bottom: 20px;
+}
+
+.com-contest-info input,
+.com-contest-info select{
+	width: 100%;
+	height: 38px;
+	border: 2px solid #ddd;
+	padding-left: 10px;
+	outline-style: none;
+}
+
+.half-contents input{
+	
+}
+
+/* #contest_startDate,
+#contest_endDate,
+#contest_hireNumber{
+	width: 50%;
+} */
+.com-contest-info .pf-skill select{
+	cursor: pointer;
+}
+.com-contest-info .add-btn{
+	text-align:center;
+	background-color:#ddd;
+	cursor: pointer;
+	padding:9px 50px;
+	font-size:15px;
+	color:#666;
+	font-weight: 500;
+	
+}
+.com-contest-info .add-btn:hover {
+	background-color:#d1d1d1;
+}
+.com-contest-info textarea {
+	width:100%;
+	resize: none;
+	padding:10px;
+	line-height:20px;
+	border:0;
+	background-color:#f9f9f9;
+	border-bottom: 1px solid #ddd;   
+	border-top: 1px solid #ddd;   
+}
+.cont-reg-btn-area{
+	margin-top: 30px;
+	height: 70px;
+}
+
+.cont-reg-btn-area button{
+	color:#444;
+	font-size:15px;
+	font-weight:600;
+	border:0;
+	float:left;
+	background-color: #ddd;
+	padding:20px 30px 20px 30px;
+	width: 50%;
+	cursor: pointer;
+}
+
+.cont-reg-btn-area button:hover {
+	background-color: #777;
+	color: #f1f1f1;
+}
+
+

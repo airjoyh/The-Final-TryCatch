@@ -32,7 +32,7 @@
 
 </style>
 <script type="text/javascript">
-	
+
 	//제한시간 타이머
 	function limitTimer() {
 		//끝나는 시간 설정
@@ -63,28 +63,61 @@
 		return limitTime;
 	}
 	
-	 $(function() {
-		 //timer event
-		 var timerId = setInterval("limitTimer()", 1000); 
-		 if(limitTimer()=='00:00:00'){
-			 clearInterval(timerId);
-		}
+$(function() {
+	//timer event
+	var timerId = setInterval("limitTimer()", 1000); 
+	if(limitTimer()=='00:00:00'){
+		clearInterval(timerId);
+	}
 		 
-		//codemirror
-		var code = $('#codeMirror-txt')[0];
-		var editor = CodeMirror.fromTextArea(code, {
-			val: "what the f",
-			mode:"text/x-java",
-			theme:"dracula",
-			tabSize: 5,
-			lineNumbers: true,
-			scrollbarStyle: "overlay",
+	//codemirror
+	var code = $('#codeMirror-txt')[0];
+	var editor = CodeMirror.fromTextArea(code, {
+		val: "what the f",
+		mode:"text/x-java",
+		theme:"dracula",
+		tabSize: 5,
+		lineNumbers: true,
+		scrollbarStyle: "overlay",
 			//readOnly: true
 			
-		});
+	});
+	
+	/* var loginState = '${user_loginState}';
+	if(loginState != 'login'){
+		alert('로그인되지 않은 상태입니다.');
+		self.location = '${initParam.rootPath}/user/main';
+	} */
+	
+	var quiz_id = '${quiz_id}';
+	var user_id = '${user_login_id}';
+	var quiz_type = '${contest_quiz.quiz_type}';
+	var quiz_typeSpan = $('#quiz_typeSpan');
+	var questionDiv = $('#questionDiv');
+	
+	if(quiz_type == '1'){
+		quiz_typeSpan.html('객관식');
+		questionDiv.html('다음 중 알맞은 답을 선택하고 제출을 눌러주세요.');
+		/* $('#exampleDiv').html('<c:forEach items="${exampleList }" var="example">'
+								+'<input type="radio" name="item" value="${example.item }">${example.item_no}. ${example.item }<br>'
+								+'</c:forEach>'); */
 		
-	 });
-
+	}else if(quiz_type == '2'){
+		questionDiv.html('다음 중 빈칸에 알맞은 답을 적고 제출을 눌러주세요.');
+		quiz_typeSpan.html('주관식');
+		/* $('#exampleDiv').html('<c:forEach items="${exampleList }" var="example">'
+								+'${example.item_no}. (<input type="text" name="item" value="">)<br>'
+								+'</c:forEach>'); */
+	}else if(quiz_type== '3'){
+		questionDiv.html('');
+		quiz_typeSpan.html('코딩');
+		/* $('#exampleDiv').html('<textarea name="code" cols="50" rows="20"></textarea>'
+								+'<button type="button" id="compileBtn">실행</button><br>'
+								+'결과 출력<textarea name="answer_contents"></textarea>'); */
+	} 
+	
+	
+ });
 </script>
 </head>
 <!--[if lt IE 9]> 
@@ -94,12 +127,15 @@
 	
 	
 	<div class='container'>
-	
+		<input type="hidden" id="user_id" name="user_id" value="${user_login_id }">
+	   <input type="hidden" id="action" name="action" value="">
+	   <input type="hidden" id="quiz_id" name="quiz_id" value="${quiz_id }">
+	   <input type="hidden" id="contest_id" name="contest_id" value="${param.contest_id }">
 		<!-- header section!!************************************************************** -->
 		<div class='header'>
 			<div class='section-header'>
 				<div class='title-area'>
-					<div class=title>제1회 삼성 - 천하제일 코딩대회</div>
+					<div class=title>${contest.contest_title }</div>
 					<div class='timer'>남은시간 : 
 						<span class='limit-time'>00:00:00</span>
 						
@@ -128,11 +164,13 @@
 			<div class='section_question'>
 			
 				<div class='title-wrapper'>
-					<div class='column-title'>문제 1번</div>
+					<div class='column-title'>문제 ${quiz_no }번</div>
+					<div class='column-title'>배점 (${contest_quiz.quiz_point}점)</div>
 				</div>
 				<div class='wrapper' style="height: 150px;">
-					<i class='question-type'>*<span>객관식</span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.</i>
-					<div class='question'>다음중 빈칸에 알맞은 자료형은?</div>
+					<i class='question-type'>*<span id="quiz_typeSpan"></span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.</i>					
+					<div class='question'>${contest_quiz.quiz_contents}</div>
+					<div class='question' id="questionDiv"></div>
 				</div>
 				
 				<div class='wrapper'>

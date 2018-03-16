@@ -21,7 +21,7 @@
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
     pointer-events: none;
-    z-index: 1000000;
+    z-index: 10000000;
     overflow: hidden;
 }
 .modal:target {
@@ -56,7 +56,7 @@
 }
 .modal .modal-body{
 	padding: 3%;
-	height:60%;
+	height:400px;
 	overflow: auto;
 }
 .modal .modal-body input[type="email"] {
@@ -72,10 +72,10 @@
     outline: none;
 }
 .modal .modal-body input[type="password"] {
-	width: 49.5%;
+	width: 48.5%;
 	height:50px;
-    padding: 10px 20px;
-    margin: 0 0 10px 0;
+    padding: 10px 10px ;
+    margin: 10px 0 10px 0;
     border: 1px solid #65737e;
     -webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
@@ -83,16 +83,37 @@
     outline: none;
 }
 .modal .modal-body input[type="text"]{
-	width: 49.5%;
+	width: 79.5%;
 	height:50px;
     padding: 10px 20px;
-    margin: 0;
+    margin: 10px 0 10px 0;
     border: 1px solid #65737e;
     -webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	border-radius: 25px;
     outline: none;
-    background-color:#aaa;
+    background-color:#fff;
+	color: #000;
+}
+.modal .modal-body #member_id{
+	width: 77%;
+	height:50px;
+    padding: 10px 20px;
+    margin: 10px 0 10px 0;
+    border: 1px solid #65737e;
+    -webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+    outline: none;
+    background-color:#fff;
+	color: #000;
+}
+.modal .modal-body select{
+	width: 49.5%;
+    padding: 10px 20px;
+    margin: 0;
+    outline: none;
+    background-color:#fff;
 	color: #000;
 }
 .modal .modal-body input[type="button"] {
