@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>콘테스트개최</title>
+<title>콘테스트 리스트</title>
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">

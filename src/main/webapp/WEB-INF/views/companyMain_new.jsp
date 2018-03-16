@@ -18,12 +18,12 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='section_main1'>
-				
+			<div class='com_main1'>
+				<img src="${initParam.rootPath }/resources/image/building/building_9.jpg">
 			</div><!-- section_main1 -->
 				
-			<div class='section_main2'>
-			
+			<div class='com_main2'>
+				<img src="${initParam.rootPath }/resources/image/building/building_4.jpg">
 			</div><!-- section_main2 -->
 				
 		</div>

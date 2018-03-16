@@ -221,6 +221,31 @@ left side CSS
     
     margin-bottom: 8px;
 }
+.com_main1 {
+    position: relative;
+    height: 400px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+}
+.com_main1 img{
+	width:740px;
+	height: 400px;
+	overflow: hidden;
+}
+
+.com_main2 {
+    position: relative;
+    height: 400px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+}
+.com_main2 img{
+	width:740px;
+	height: 400px;
+	overflow: hidden;
+}
 .section_main2 {
     position: relative;
     height: 500px;
