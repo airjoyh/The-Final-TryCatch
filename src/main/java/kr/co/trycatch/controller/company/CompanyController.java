@@ -69,9 +69,10 @@ public class CompanyController {
 			int company_id = company_infoService.selectCompany_id(login_id);
 			session.setAttribute("company_login_company_id", company_id);
 			
-			state = "login";
 			
-			 session.setAttribute("statusCount" ,notecomService.statusCount(login_id));//읽지 않은 쪽지 갯수 조회 
+			int statusCount= notecomService.statusCount(login_id);
+			    session.setAttribute("statusCount", statusCount);
+			    state = "login|"+statusCount;
 
 		}
 		return state;
