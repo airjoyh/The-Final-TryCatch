@@ -14,7 +14,7 @@
 <!-- JS,JQUERY -->
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	var loginState = '${user_loginState}'; //로그인하면 'login'
+	var loginState = '${company_loginState}'; //로그인하면 'login'
 	var rootPath = '${initParam.rootPath}'; //  /tc
 </script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/companyMain.js"></script>    
