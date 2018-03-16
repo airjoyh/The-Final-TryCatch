@@ -17,7 +17,7 @@
 			id="checkboxtoggle" name="checkbox" type="checkbox"> <label
 			for="checkboxtoggle">정보기억</label>
 		</span> <span style="float: right; padding: 2px 0 0 6px;"> <a
-			href="#userModal" class="openFindPassModal" id="openFindPassModal">비밀번호
+			href="#comModal" class="openFindPassModal" id="openFindPassModal">비밀번호
 				찾기</a>
 		</span> <span style="float: right; padding: 2px 6px;"> <a
 			href="#comModal" class="openJoinModal" id="openJoinModal">회원가입</a>

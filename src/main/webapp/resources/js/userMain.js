@@ -288,8 +288,9 @@ $(document).ready(function() {
             	   self.location= rootPath+'/user/note/list'; //"${initParam.rootPath }/user/note/list";
 	          }); 	
 				
-	});//function	
+	});//ready function()	
 	
+	//제한 시간 안에 인증못하면 1차 회원가입된 아이디 삭제
 	function removeRegist() {//인증안된 아이디 삭제
 		console.log('setTimeout 작동');
 		var member_id = $('#member_id');
@@ -309,6 +310,7 @@ $(document).ready(function() {
 		});
 	}
 	
+	//로그인한 후에 아이디랑 쪽지 숫자 뜨게 하기
 	function afterLogin(noteCount){
 		console.log('afterLogin>>>');
 		var login_id = $('#login_id').val();

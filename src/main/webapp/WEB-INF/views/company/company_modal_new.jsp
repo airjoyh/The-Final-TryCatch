@@ -6,14 +6,14 @@
 		<div class="modal" id="comModal">
 			<div class="modal-pannel">
 				<div id="action" class="modal-title">
-					기업 회원가입
+				
 				</div>
 				<div class="modal-body">
 					<form method="post" id="registerForm" name="registerForm">
 					<input id="member_id" name="member_id" type="text"
 						placeholder="아이디를 입력하세요"> 
-					<input type="button" id="idCheckDiv" value="중복확인">	
-						<br>
+					<input type="button" id="idCheckBtn" value="중복확인">	
+					<div id="idCheckDiv"></div><br>	
 					<input id="member_pass"
 						name="member_pass" type="password" placeholder="비밀번호를 입력하세요">
 					<input id="member_pass2" name="member_pass2" type="password"
@@ -34,7 +34,7 @@
 						      <option value="중소기업(50명 이상)">중소기업 (50명 이상)</option>
 						      <option value="소기업">소기업 (50명 미만)</option>
 				    </select><br>
-				    <label for="company_size">기업 산업군</label>	
+				    <label for="company_line">기업 산업군</label>	
 					<select class="form-control" id="company_line" name="company_line">
 								<option selected="selected" class="text-primary">==선택==</option>
 								<optgroup label="사무직">
@@ -70,7 +70,7 @@
 		        	</form>
 				</div>
 				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm" value="완료">
+					<input type="button" name="registerBtn" id="registerBtn" value="완료">
 				</div>
 			</div>
 		</div>

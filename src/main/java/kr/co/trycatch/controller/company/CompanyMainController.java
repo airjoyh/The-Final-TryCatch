@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CompanyMainController {
 
+	@RequestMapping(value="/company/intro")
+	public String goIntro() {
+		
+		return "/company/introduce";
+	}
+	
 	@RequestMapping(value="/company/personSearch/list")
 	public String goPersonSearch() {
 		System.out.println("CompanyMainController goPersonSearch");

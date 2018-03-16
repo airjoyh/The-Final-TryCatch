@@ -4,14 +4,14 @@
 <div class="section_login">
 	<div class="login-info">
 		<div class="user-icon">
-			<img src="${initParam.rootPath }/resources/image/ing/icon-1.svg">
+			<img src="${initParam.rootPath }/resources/image/ing/icon-1.jpg">
 		</div>
 		<div class="id_div">
 			<div id="logoutDiv" class="logout-btn">
 				<a id="logout">로그아웃</a>
 			</div>
 		</div>
-		<div class="user-email">${user_login_id}</div>
+		<div class="user-email">${company_login_member_id}</div>
 	</div>
 	<div class="login-tab">
 		<div class="mypage">비밀번호 변경</div>

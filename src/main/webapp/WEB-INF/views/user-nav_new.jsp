@@ -45,7 +45,7 @@ $(function(){
 		self.location = "${initParam.rootPath }/user/faq";
 	});
 	
-	$('#com-user').on("click", function(){
+	$('#user-com').on("click", function(){
 		self.location = "${initParam.rootPath }/company/main";
 	});
 	
@@ -66,7 +66,7 @@ $(function(){
 					<li id='contest'>콘테스트</li>
 					<li id='community'>커뮤니티</li>
 					<li id='faq' style="">FAQ</li>
-					<li id='com-user' style='float: right; text-align: right;'>기업회원</li>
+					<li id='user-com' style='float: right; text-align: right;'>기업회원</li>
 				</ul>
 			</div>
 			<div class='nav-list'></div>

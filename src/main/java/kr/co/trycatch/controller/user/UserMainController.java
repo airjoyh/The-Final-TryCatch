@@ -33,7 +33,7 @@ public class UserMainController {
 	public String goIntro() throws Exception{
 		System.out.println("MainController goIntro()");
 
-		return "introduce";
+		return "/user/introduce";
 	}
 
 	
@@ -49,7 +49,7 @@ public class UserMainController {
 	public String goCompanyMain() {
 		System.out.println("MainController goCompanyMain()");
 
-		return "companyMain";
+		return "companyMain_new";//companyMain
 	}
 
 }
