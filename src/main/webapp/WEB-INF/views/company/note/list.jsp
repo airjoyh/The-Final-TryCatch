@@ -84,14 +84,14 @@
 						<div class='wrapper'>
 							<table cellspacing='0'>
 								<tr>
-									<th style="width: 8%">번호</th>
+									<th style="width: 8%">읽은상태</th>
 									<th style="width: 60%">내용</th>
 									<th style="width: 15%">보낸 구직자</th>									
 									<th style="width: 17%">날짜</th>																	
 								</tr>				
 						 <c:forEach items="${list }" var="note" varStatus="stat">
 								<tr>
-									<td>${note.note_id} </td>																		
+									<td>${note.note_status} </td>																		
 									<td><a href="${initParam.rootPath }/company/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }">${note.note_contents}</a></td>																		
 									<td>${note.note_sender}</td>
 									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>

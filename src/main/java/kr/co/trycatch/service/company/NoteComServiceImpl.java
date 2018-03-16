@@ -29,8 +29,9 @@ public class NoteComServiceImpl implements NoteComService{
 	}
 
 	@Override
-	public NoteVO read(int note_id) throws Exception {
-	
+	public NoteVO read(int note_id, NoteVO noteVo) throws Exception {
+	    notecomDao.update(noteVo);
+		
 		return notecomDao.read(note_id);
 	}
 

@@ -121,7 +121,7 @@
 													</div>
 												</div>
 												</c:forEach>
-												<a href="${initParam.rootPath }/user/cominfo/list/welSalRank?action=welSal"><button class="star-btn">더보기</button></a>
+												<a href="${initParam.rootPath }/user/com_info/list/welSalRank?action=welSal"><button class="star-btn">더보기</button></a>
 											</div>
 											<div class="star-right">
 												<label>업무와 삶의 균형</label><br>										
@@ -139,7 +139,7 @@
 													</div>
 												</div>
 												</c:forEach>
-												<a href="${initParam.rootPath }/user/cominfo/list/balanceRank?action=balance"><button class="star-btn">더보기</button></a>
+												<a href="${initParam.rootPath }/user/com_info/list/balanceRank?action=balance"><button class="star-btn">더보기</button></a>
 											</div>
 										</div>
 									</div>
@@ -161,7 +161,7 @@
 													</div>
 												</div>
 												</c:forEach>
-												<a href="${initParam.rootPath }/user/cominfo/list/cultureRank?action=culture"><button class="star-btn">더보기</button></a>
+												<a href="${initParam.rootPath }/user/com_info/list/cultureRank?action=culture"><button class="star-btn">더보기</button></a>
 											</div>
 											<div class="star-right">
 												<label>경영진</label><br>										
@@ -179,7 +179,7 @@
 													</div>
 												</div>
 												</c:forEach>
-												<a href="${initParam.rootPath }/user/cominfo/list/managerRank?action=manager"><button class="star-btn">더보기</button></a>
+												<a href="${initParam.rootPath }/user/com_info/list/managerRank?action=manager"><button class="star-btn">더보기</button></a>
 											</div>
 										</div>
 									</div>

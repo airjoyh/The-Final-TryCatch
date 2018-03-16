@@ -71,4 +71,11 @@ public class NoteComDAOImpl implements NoteComDAO{
 		return session.selectOne("notecom.statusCount",note_receiver);
 	}
 
+	@Override
+	public void update(NoteVO noteVo) throws Exception {
+		
+		session.update("notecom.updateStatus", noteVo);
+		
+	}
+
 }

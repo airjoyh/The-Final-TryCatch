@@ -71,14 +71,16 @@ $(document).ready(function() {
 				url: "loginPost",
 				data:{"login_id":login_id.val(), "login_pass":login_pass.val()},
 				success:function(result){
-					console.log(result);
-					if(result=='noRegister'){
+					console.log(result);//result = "noRegister" 또는 "noAuth" 또는 "login|7"
+					var strArr = result.split('|'); //strArr[] = ["login","7"];
+					//if(result=='noRegister'){
+					if(strArr[0]=='noRegister'){
 						alert('아이디와 비밀번호가 일치하지 않습니다.');
-					}else if(result=='noAuth'){
+					}else if(strArr[0]=='noAuth'){
 						alert('메일 인증이 완료되지 않았습니다.')
 						self.location = 'noAuth?id='+login_id.val();
-					}else if(result=='login'){
-						afterLogin();							
+					}else if(strArr[0]=='login'){
+						afterLogin(strArr[1]);							
 						
 					}
 				}
@@ -366,7 +368,7 @@ $(document).ready(function() {
 	}
 	
 	
-	function afterLogin(){
+	function afterLogin(noteCount){
 		console.log('afterLogin>>>');
 		var login_id = $('#login_id').val();
 		var statusCount = '${statusCount}';
@@ -435,8 +437,8 @@ $(document).ready(function() {
 		}
 		
 		if($('#rightDiv #note-cnt').html()==''){
-			console.log('쪽지 갯수 >>> '+statusCount);
-			$('#rightDiv #note-cnt').html(statusCount);
+			console.log('쪽지 갯수 >>> '+noteCount);
+			$('#rightDiv #note-cnt').html(noteCount);
 		}
 	}
 	

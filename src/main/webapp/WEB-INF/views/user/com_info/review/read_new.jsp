@@ -25,10 +25,11 @@
 <!-- JS,JQUERY -->
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <!-- 임시 js -->
 <script type="text/javascript">
-	
+
 </script>
 </head>
 <!--[if lt IE 9]> 
@@ -43,7 +44,7 @@
 					<div class='column-title'>기업후기 글상세보기</div>
 				</div>
 				<div class='wrapper'>
-					<%-- <form id="readForm" name="readForm" method="POST">
+					 <form id="readForm" name="readForm" method="POST">
 			  	 		<input type="hidden" id="review_no" name="review_no" value="${review.review_no }">
 			  	 		<input type="hidden" name="writer_id" value="${review.user_id }">
 			  	 		<input type="hidden" id="company_id" name="company_id" value="${param.company_id }">
@@ -51,7 +52,7 @@
 			  	 		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 						<input type='hidden' name='searchType' value="${cri.searchType}">
 						<input type='hidden' name='keyword' value="${cri.keyword}">
-					</form> --%>
+					</form>
 					<div class='com-qna-title'>
 						<div>
 							<span class="input-group-addon">글번호</span> 
@@ -63,10 +64,10 @@
 						</div>
 						<div>
 							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; 
-							<input class="qna-title" id="title" name="title" type="text" style="width: 35%" value="${review.review_title }">
+							<input class="qna-title" id="title" name="title" type="text" style="width: 35%" value="${review.review_title }" readonly="readonly">
 				            
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
-				            <input class="qna-writer" id="writer" name="writer" style="width: 35%" value="${review.review_writer }">
+				            <input class="qna-writer" id="writer" name="writer" style="width: 35%" value="${review.review_writer }" readonly="readonly">
 				        </div>
 					</div>
 					<div class='com-qna-good'>
@@ -329,8 +330,8 @@
 		</div>
 
 	<!-- frame -->
-
 <script type="text/javascript">
+
 $(function(){
  		//라디오버튼 점수체크해준다.
 	  	$('input:radio[name=review_possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
@@ -351,7 +352,7 @@ $(function(){
 		var formObj = $("form[name=readForm]");
 		var review_no = $('#review_no');
 	
-		getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" ); 
+		//getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" ); 
 		
 		$('#goList').on("click", function() {
 	  		console.log('목록보기 버튼 클릭');

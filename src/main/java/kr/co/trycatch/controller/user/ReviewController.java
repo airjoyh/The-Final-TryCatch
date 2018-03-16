@@ -100,7 +100,7 @@ public class ReviewController {
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
 		
-		return "redirect:/user/review/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		return "redirect:/user/review/list_new?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 		+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 		+"&company_id="+company_id;
 	}
@@ -114,7 +114,7 @@ public class ReviewController {
 		rttr.addAttribute("msg","SUCCESS");
 		System.out.println("reviewController 삭제성공");
 		
-		return "redirect:/user/review/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		return "redirect:/user/review/list_new?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 						+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 						+"&company_id="+company_id;
 	}

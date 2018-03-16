@@ -49,8 +49,8 @@
 <![endif]-->
 <body>
 	
- 	<!-- nav-area -->
-	<%@ include file="../../user-nav_new.jsp" %>
+ <%-- 	<!-- nav-area -->
+	<%@ include file="../../user-nav_new.jsp" %> --%>
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->

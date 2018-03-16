@@ -111,9 +111,11 @@ public class UserController {
 				/*while(!session.getAttribute("user_login_id").equals(login_id)) {
 					Thread.sleep(1000);
 				}*/
-				state = "login";
 				
-				 session.setAttribute("statusCount" ,noteService.statusCount(login_id));//읽지 않은 쪽지 갯수 조회 
+				int statusCount=noteService.statusCount(login_id);
+				session.setAttribute("statusCount" ,statusCount);//읽지 않은 쪽지 갯수 조회 
+				state = "login|"+statusCount;
+				
 				
 			}
 		}
