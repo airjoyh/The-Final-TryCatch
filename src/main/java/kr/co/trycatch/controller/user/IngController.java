@@ -101,5 +101,17 @@ public class IngController {
 		System.out.println("test");
 		return "/test";
 	}
+	
+	@RequestMapping("/com/finduser")
+	public String test2() {
+		System.out.println("test");
+		return "/company/personSearch/com_find_user";
+	}
+	
+	@RequestMapping("/com/userpf")
+	public String test3() {
+		System.out.println("test");
+		return "/company/personSearch/com_view_portfolio";
+	}
 
 }

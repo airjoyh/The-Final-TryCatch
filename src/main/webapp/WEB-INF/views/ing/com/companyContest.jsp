@@ -58,7 +58,7 @@
 					</div>
 					
 					</div>
-				</div><!-- section_main1 -->
+				</div><!-- com-contest-head -->
 				
 			<div class='com-contest-table'>
 				<div class='company-contest-table'>
@@ -159,9 +159,9 @@
 				</div>
 				
 				
-			</div><!-- section_main2 -->
+			</div>
 				
-		</div>
+		</div><!-- section_main2 -->
 		
 		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
