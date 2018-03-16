@@ -59,9 +59,11 @@
 	display: inline-flex;
 	flex-direction: row;
 }
-.ct-box{
-	width: 100%;
+.community-title-box .form-group{
+	width: 340px;
+	display: flex;
 }
+
 
 .community-content{
 	padding: 10px;

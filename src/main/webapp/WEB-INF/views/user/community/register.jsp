@@ -64,7 +64,7 @@ $(function(){
 				                  class="qna-title" id="community_title" name="community_title" type="text"
 				                  style="width: 35%" placeholder="제목을 입력하세요.">
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="community_writer" name="community_writer" value="${user_login_id }"
+				                  class="qna-writer" id="community_writer" name="community_writer" value="${user_login_id}"
 				                  style="width: 35%" readonly="readonly">
 					</div>
 				   </div>
@@ -72,7 +72,7 @@ $(function(){
 				   <div class="form-group"> 
 					<div class='com-qna-content'>
 						<label for="community_contents">글 내용</label><br>
-				        <textarea name="strong" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
+				        <textarea name="community_contents" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
 					</div>
 				   </div>
 				   

@@ -41,7 +41,7 @@
 		     <input type="text"  id="community_writer"
 				   name="community_writer" class="form-control" value="${user_login_id }" >
 		  </div>
-		  
+		   
        </div>
        <!-- /.box-body -->
 
