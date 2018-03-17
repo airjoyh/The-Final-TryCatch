@@ -1,0 +1,28 @@
+.pagination {
+    font-size: 16px;
+    font-weight: 600;
+    list-style-type: none;
+}
+.pagination li{
+	
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.pagination a.active {
+	background-color: #6abded;
+    color: white;
+}
+.pagination a:focus {
+	background-color: #6abded;
+    color: white;
+}
