@@ -8,7 +8,8 @@
     height: 660px;
     border: 1px solid #dee3eb;
     background: #fff;  
-    margin-bottom: 5px;
+    
+
 }
 
 .section_main2 {
@@ -16,7 +17,7 @@
     height: 600px;
     border: 1px solid #dee3eb;
     background: #fff;  
-    margin-bottom: 5px;
+	display: block;
 }
 
 .com-review-head .com-review-body{
@@ -96,7 +97,7 @@
 
 .register-btn {
 	height:28px;
-	width:125px;
+	width:128px;
 	font-size:15px;
     margin: 0;
     padding:0;
@@ -115,7 +116,7 @@
 
 .upDel-btn {
 	height:25px;
-	width:59px;
+	width:62.5px;
 	font-size:15px;
     margin-top:1px;
     padding:0;

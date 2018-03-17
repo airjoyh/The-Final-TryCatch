@@ -177,16 +177,15 @@
 							<c:if test="${not empty user_login_id }">
 								<div class="box-body">
 									<label for="exampleInputEmail1">작성자</label> 
-									<input class="form-control" type="text" id="newReplyWriter"
-										value="${user_login_id }" readonly> 
+									<input class="form-control" type="text" id="newReplyWriter"> 
 									<label for="exampleInputEmail1">댓글</label> 
-									<input
-										class="form-control" type="text" id="newReplyText">
+									<input class="form-control" type="text" id="newReplyText">
 
 								</div>
 								<!-- /.box-body -->
-								<div class="box-footer">
-								</div>
+									<div class="box-footer">
+								<button type="button" id="replyAddBtn">댓글 등록</button>
+							</div>
 							</c:if>
 
 							<c:if test="${empty user_login_id }">
@@ -202,8 +201,7 @@
 						<!-- The time line -->
 						<ul class="timeline">
 							<!-- timeline time label -->
-							<li class="time-label" id="repliesDiv"><span
-								class="bg-green">댓글</span></li>
+							<li class="time-label" id="repliesDiv"></li>
 						</ul>
 
 						<div class='text-center'>
@@ -216,20 +214,19 @@
 					<!-- /.col -->
 				</div>
 
-				<!-- Modal -->
+		<!-- 댓글 수정 모달	 -->
 		<div class="modal" id="modifyModal">
 			<div class="modal-pannel">
-				<div id="action" class="modal-title">
-					
-				</div>
+				<div class="modal-title">댓글수정 <a href="#close">CLOSE</a></div>
 				<div class="modal-body">
-					<input type="text" id="replytext" value="${reply_contents}">
+					<h4 class="modal_title"></h4>
+					<p><input type="text" id="replytext" class="form-control" style="width: 90%;"></p>
 				</div>
-		
-				<div class="modal-footer">
-					<input type="button" name="replyModBtn" id="replyModBtn" value="완료">
-					<input type="button" name="replyDelBtn" id="replyDelBtn" value="취소">
-				</div>
+					
+				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+					<input type="button" name="replyConfirm" id="replyModBtn" value="수정">
+					<input type="button" name="replyDelete" id="replyDelBtn" value="삭제">
+					</div>
 			</div>
 		</div>
 <!-- 				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
@@ -395,8 +392,9 @@
 						alert("등록 되었습니다.");
 						replyPage = 1;
 						getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/"+replyPage );
-						//replyerObj.val("");
-						Obj.val("");
+						replyerObj.val("");
+						replytextObj.val("");
+						//Obj.val("");
 					}
 			}});
 	});
@@ -432,7 +430,8 @@
 					if(result == 'success'){
 						alert("수정 되었습니다.");
 						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
-						reply_contents.val("");
+						//reply_contents.val("");
+						$("#modifyModal").fadeOut();
 					}
 			}});
 	});
@@ -454,7 +453,7 @@
 					if(result == 'success'){
 						alert("삭제 되었습니다.");
 						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
-						$("#modifyModal").modal('toggle');
+						$("#modifyModal").fadeOut();
 					}
 			}});
 	});
