@@ -9,7 +9,8 @@
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
-
+<!-- 핸들바 js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
@@ -79,44 +80,85 @@
 							<div class="box-header">
 								<h3 class="box-title">REPLY</h3>
 							</div>
-							<c:if test="${not empty company_login_member_id }">
+							<c:if test="${not empty user_login_id }">
 							<div class="box-body">
 							    	<label for="exampleInputEmail1">작성자</label> 
-								    <input class="form-control" type="text" id="newReplyWriter" value="${company_login_member_id }" readonly> 
+								    <input class="form-control" type="text" id="newReplyWriter" value="${user_login_id}" readonly><br> 
 									<label for="exampleInputEmail1">댓글</label> 
-									<input class="form-control" type="text" id="newReplyText">
-			
-							</div>
+									<input class="form-control" type="text" id="newReply_contents">
+			                </div>
 							<!-- /.box-body -->
 							<div class="box-footer">
 								<button type="button" class='inline-btn' id="replyAddBtn">댓글 등록</button>
 								<!-- timeline time label -->
-								<button class='inline-btn' id="replyBtn">댓글</button>
 							</div>
 							</c:if>
 							
-							<c:if test="${empty company_login_member_id }">
+							<c:if test="${empty user_login_id }">
 								<div class="box-body">
 									<div><a id="goLogin">Login Please</a></div>
 								</div>
 							</c:if>
 						</div>
-			
 
-							<!-- The time line -->
+						<!-- The time line -->
+						<ul class="timeline">
+							<!-- timeline time label -->
+							<li class="time-label" id="community_repliesDiv"><span
+								class="bg-green">댓글</span></li>
+						</ul>
+
+						<div class='text-center'>
+							<ul id="pagination" class="pagination pagination-sm no-margin ">
+
+							</ul>
+						</div>
+
+						<!--  The time line 
 							<ul class="timeline" style="display: inline-flex; flex-direction: column;">
-								<!-- timeline time label -->
-								 <li class="time-label" id="repliesDiv"></li> 
+								timeline time label
+								 <li class="time-label" id="community_repliesDiv"></li> 
 							</ul>
 						
 							<div class='text-center' style="align-content: center;">
 								<ul id="pagination" style="display: flex; flex-direction: row;" class="pagination pagination-sm">
 				
 								</ul>
-							</div>
+							</div> -->
 
 					</div>
 					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!--  댓글 수정 Modal --> 
+				<div id="modifyModal" name="modifyModal" class="modal modal-primary fade" role="dialog">
+					<div class="modal-dialog">
+						<!-- Modal content -->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<div class="row" style="padding-left: 1em; padding-right: 20em;">
+									<h4 class="modal-title"></h4>
+									<span><input type="text" id="reply_writer"
+										class="form-control"></span>
+								</div>
+							</div>
+							<div class="modal-body" data-reply_no>
+								<p>
+									<input type="text" id="reply_contents" class="form-control">
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-info" id="replyModBtn">댓글
+									수정</button>
+								<button type="button" class="btn btn-danger" id="replyDelBtn">댓글
+									삭제</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div><!-- section_qnareply -->
 		</div><!-- column-left -->
@@ -140,12 +182,205 @@
 	</div>
 
 	<!-- frame -->
+<script id="template" type="text/x-handlebars-template">
+{{#each .}}
+<li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
+<i class="fa fa-comments bg-blue"></i>
+ <div class="timeline-item" >
+  <span class="time">
+    <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
+  </span>
+  <h3 class="timeline-header"><strong>{{reply_no}}</strong> -{{reply_writer}}</h3>
+  <div class="timeline-body">{{reply_contents}}</div>
+    <div class="timeline-footer">
+	{{#eqReply_writer reply_writer }}
+     <a class="btn btn-primary btn-xs" 
+	    data-toggle="modal" data-target="#modifyModal">Modify</a>
+	{{/eqReply_writer}}
+    </div>
+  </div>			
+</li>
+{{/each}}
+</script>
+
 <script type="text/javascript">
+ Handlebars.registerHelper("prettifyDate", function(timeValue) {
+		var dateObj = new Date(timeValue);
+		var year = dateObj.getFullYear();
+		var month = dateObj.getMonth() + 1;
+		var date = dateObj.getDate();
+		return year + "/" + month + "/" + date;
+	});
+	
+	Handlebars.registerHelper("eqReply_writer", function(reply_writer,block){
+		var accum = '';
+		
+		if(reply_writer == '${user_login_id}'){
+			accum += block.fn();
+		}
+		return accum;
+	});
+	
+	var printData = function(replyArr, target, templateObject) {
+
+		var template = Handlebars.compile(templateObject.html());
+
+		var html = template(replyArr);
+		$(".replyLi").remove();
+		target.after(html);
+	}
+
+	var community_no = ${community.community_no};
+	
+	var replyPage = 1;
+
+	function getPage(pageInfo) {
+		
+	
+		$.getJSON(pageInfo, function(data) {
+			printData(data.list, $("#community_repliesDiv"), $('#template'));
+			printPaging(data.pageMaker, $(".pagination"));
+	
+			//$("#modifyModal").modal('toggle');
+	
+		});
+	}
+	
+	var printPaging = function(pageMaker, target) {//아래부분에 페이징하는 것
+
+		var str = "";
+
+		if (pageMaker.prev) {
+			str += "<li><a href='" + (pageMaker.startPage - 1)
+					+ "'> << </a></li>";
+		}
+
+		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+			var strClass = pageMaker.cri.page == i ? 'class=active' : ''; //현제 페이지가 i와 같다면 class="active"를 넣어주고 아니면 '';
+			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+		}
+
+		if (pageMaker.next) {
+			str += "<li><a href='" + (pageMaker.endPage + 1)
+					+ "'> >> </a></li>";
+		}
+
+		target.html(str);
+	};
+ 
+	$(".pagination").on("click", "li a", function(event){//pagination클래스를 가진 태그의 li의 a태그를 클릭하면
+		//댓글 페이징 버튼을 클릭하면
+		
+		event.preventDefault();
+		
+		replyPage = $(this).attr("href");//a태그의 href --> 페이지(i)
+		
+		getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage);
+		
+	});
+	
+ $("#replyAddBtn").on("click",function(){//댓글 추가(add Reply)를 클릭했을 때
+	  //console.log("ddd");
+	 var reply_writerObj = $("#newReplyWriter"); 
+	 var reply_contentsObj = $("#newReply_contents"); 
+	 var reply_writer = reply_writerObj.val(); //댓글 작성자
+	 var reply_contents = reply_contentsObj.val(); //댓글 내용
+	 var community_noObj = $("input[name=community_no]");
+	 var community_no = community_noObj.val();
+	 
+	 console.log('>>>'+reply_writer,reply_contents,community_no+'<<<<');
+	  $.ajax({
+			type:'post', //post로 지정
+			url:'${initParam.rootPath}/community/reply',
+			/* headers: { 
+			      "Content-Type": "application/json", //서버에 json형식으로 데이터를 전달하기 위해
+			      "X-HTTP-Method-Override": "POST" }, */
+			dataType:'text',
+			data:{"community_no":community_no,
+				"reply_writer":reply_writer, 
+				"reply_contents":reply_contents}, //JSON데이터를 구성해서 전달하도록
+			success:function(result){
+				console.log("result: " + result);
+				if(result == 'success'){//서버에 데이터를 전달하고 'SUCCESS'라는 결과값이 왔다면(댓글 등록이 되었다면)
+					alert("등록 되었습니다.");
+					replyPage = 1;
+					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+				    //reply_writerObj.val(""); //댓글 작성자 빈칸으로
+					reply_contentsObj.val(""); //댓글 내용 빈칸으로
+				}
+		}});
+});
+ 
+ $(".timeline").on("click", ".replyLi", function(event){
+	    console.log("ddd");
+		
+	    var reply = $(this);
+		
+		$("#reply_contents").val(reply.find('.timeline-body').text());
+		$('#reply_writer').val(reply.attr("data-reply_writer"));
+		$(".modal-title").html(reply.attr("data-reply_no"));
+		
+	});
+ 
+ $("#replyModBtn").on("click",function(){
+	  
+	  var reply_no = $(".modal-title").html();
+	  var reply_writer = $('#reply_writer').val();
+	  var reply_contents = $("#reply_contents").val();
+	  
+	  $.ajax({
+			type:'put',
+			url:'${initParam.rootPath}/community/reply/'+reply_no,
+			headers: { 
+			      "Content-Type": "application/json",
+			      "X-HTTP-Method-Override": "PUT" },
+			data:JSON.stringify({reply_writer:reply_writer,reply_contents:reply_contents}), 
+			dataType:'text', 
+			success:function(result){
+				console.log("result: " + result);
+				if(result == 'success'){
+					alert("수정 되었습니다.");
+					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+					$('#reply_writer').val("");
+					$("#reply_contents").val("");
+				}
+		}});
+});
+
+$("#replyDelBtn").on("click",function(){
+	  
+	  var reply_no = $(".modal-title").html();
+	  var reply_contents = $("#reply_contents").val();
+	  
+	  $.ajax({
+			type:'delete',
+			url:'${initParam.rootPath}/community/reply/'+reply_no,
+			headers: { 
+			      "Content-Type": "application/json",
+			      "X-HTTP-Method-Override": "DELETE" },
+			dataType:'text', 
+			success:function(result){
+				console.log("result: " + result);
+				if(result == 'success'){
+					alert("삭제 되었습니다.");
+					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+				}
+		}});
+   
+});
+
+var formObj = $("form[name=readForm]");
+var review_no = $('#community_no');
+
+getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage);
+
+
 $(function(){
 	$('#goList').on("click", function(){
-		self.location="${initParam.rootPath }/communitylist"
+		self.location="${initParam.rootPath }/user/community/list"
 	});
 });
+
 /* $(function(){
 		
 		var formObj = $("form[name=readForm]");

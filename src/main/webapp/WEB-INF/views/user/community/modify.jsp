@@ -71,10 +71,10 @@
 		<div class='column-right'>
 			<div id="rightDiv" class='column-right'>
 				<div id="login_beforeDiv">
-					<%@ include file="../../user/login_before_new.jsp"%>
+					<%@ include file="../login_before_new.jsp"%>
 				</div>
 				<div id="login_afterDiv" style="display: none">
-					<%@ include file="../../user/login_after_new.jsp"%>
+					<%@ include file="../login_after_new.jsp"%>
 				</div>
 			</div>
 			<!-- column-right -->
@@ -82,7 +82,7 @@
 
 
 			<!-- modal 코드 --> 
-       <%@ include file="../../user/user_modals_new.jsp" %>
+       <%@ include file="../user_modals_new.jsp" %>
 				
 		</div><!-- column-right -->
 			

@@ -14,6 +14,17 @@
     line-height: 1.6em;
 }
 
+.section-faq {
+    position: relative;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
 /*****************************************************************
 							 faq
 ******************************************************************/
