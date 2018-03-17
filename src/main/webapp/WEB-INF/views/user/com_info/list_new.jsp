@@ -58,7 +58,7 @@
 									<td style="width: 7%">${avgScore.rank }</td>
 									<td style="width: 50%">
 										<div style="display: flex;">
-											<img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;">
+											<!-- <img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;"> -->
 											<div style="flex-direction: column;">
 												<div style="height: 50%;">
 													<a href="${initParam.rootPath }/user/review/list?company_id=${avgScore.company_id }">${avgScore.company_name }</a>	

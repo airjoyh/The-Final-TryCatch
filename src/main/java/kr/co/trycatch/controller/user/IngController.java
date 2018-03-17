@@ -113,5 +113,10 @@ public class IngController {
 		System.out.println("test");
 		return "/company/personSearch/com_view_portfolio";
 	}
+	@RequestMapping("/com/cont/qreg")
+	public String test4() {
+		System.out.println("test");
+		return "/company/contest/quiz/quiz_register_new";
+	}
 
 }

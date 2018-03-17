@@ -8,7 +8,8 @@
     height: 660px;
     border: 1px solid #dee3eb;
     background: #fff;  
-    margin-bottom: 5px;
+    
+
 }
 
 .section_main2 {
@@ -16,7 +17,7 @@
     height: 600px;
     border: 1px solid #dee3eb;
     background: #fff;  
-    margin-bottom: 5px;
+	display: block;
 }
 
 .com-review-head .com-review-body{
@@ -39,7 +40,9 @@
 	
 }
 
-.com-reivew-good{
+
+.com-re-good{
+	border: 1px solid #dfdfdf;
 	margin-top:10px;
 	height:60px;
 	width:700px;
@@ -48,6 +51,7 @@
 }
 
 .com-review-bad{
+	border: 1px solid #dfdfdf;
 	margin-top:10px;
 	height:60px;
 	width:700px;
@@ -56,6 +60,7 @@
 }
 
 .com-review-ceo{
+	border: 1px solid #dfdfdf;
 	margin-top:10px;
 	height:60px;
 	width:700px;
@@ -91,8 +96,8 @@
 }
 
 .register-btn {
-	height:30px;
-	width:125px;
+	height:28px;
+	width:128px;
 	font-size:15px;
     margin: 0;
     padding:0;
@@ -108,6 +113,26 @@
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
+
+.upDel-btn {
+	height:25px;
+	width:62.5px;
+	font-size:15px;
+    margin-top:1px;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
 .register-reviewBtn {
 	height:30px;
 	width:120px;
