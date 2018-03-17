@@ -1,7 +1,11 @@
 .pagination {
-    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    list-style-type: none;
 }
-
+.pagination li{
+	
+}
 .pagination a {
     color: black;
     float: left;

@@ -118,5 +118,10 @@ public class IngController {
 		System.out.println("test");
 		return "/company/contest/quiz/quiz_register_new";
 	}
+	@RequestMapping("/pagen")
+	public String test5() {
+		System.out.println("test");
+		return "/ing/common/pagenation";
+	}
 
 }
