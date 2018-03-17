@@ -18,7 +18,7 @@ a:hover {
 	text-decoration:underline;
 } */
 .company-contest-table{
-	text-align: left;
+	text-align: center;
 }
 
 .company-contest-table table a:link {
@@ -52,6 +52,7 @@ a:hover {
 
 }
 .company-contest-table table th:first-child{
+	text-align:left;
 	padding-left:20px;
 }
 
@@ -59,11 +60,13 @@ a:hover {
 	padding-left:20px;
 }
 .company-contest-table table tr td:first-child{
+	text-align:left;
 	width: 335px;
 	padding-left:20px;
 	border-left: 0;
 }
 .company-contest-table table tr td {
+	
 	padding:8px;
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
