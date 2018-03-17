@@ -82,7 +82,7 @@ public class CompanyContestController {
 	public String quizRegisterGet() throws Exception {
 		
 		
-		return "/company/contest/quiz/register";
+		return "/company/contest/quiz/register_new";
 	}
 
 	@RequestMapping(value = "/quiz/register", method = RequestMethod.POST)

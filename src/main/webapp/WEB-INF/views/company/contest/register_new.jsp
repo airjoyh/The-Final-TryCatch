@@ -34,8 +34,8 @@
 					<div class='cont-regist-contents'>
 						<div class='cont-reg-title'>일자선택</div>
 						<div class='half-contents'>
-							<input id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018/03/07 18:30">
-							<input id="contest_endDate" name="contest_endDate" 
+							<input type="text" id="contest_startDate" name="contest_startDate" placeholder="시작 날짜  ex)2018/03/07 18:30">
+							<input type="text" id="contest_endDate" name="contest_endDate" 
 								placeholder="끝날짜 ex)2013/03/07 19:30:00" style="border-top: 0;">
 						</div>
 					</div>
@@ -95,7 +95,9 @@ $(document).ready(function() {
 var validateCheck=function(){
 		console.log('콘테스트 등록 버튼 클릭');
 		var startDate = $('#contest_startDate').val();
+		var endDate = $('#contest_endDate').val();
 		console.log('시작날짜 >>> '+startDate);
+		console.log('끝날짜 >>> '+endDate);
 		var contest_hireNumberExp = /^[0-9]{1,3}/;
 		if($('#contest_title').val()==''){
 			alert('제목을 입력하세요.');
