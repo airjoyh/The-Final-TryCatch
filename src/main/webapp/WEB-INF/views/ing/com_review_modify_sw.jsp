@@ -36,12 +36,15 @@
 		<div class='column-left'>	
 			<div class='com-contest-head'>
 				<div class='title-wrapper'>
-					<div class='column-title'>콘테스트 Q&A 글수정</div>
+					<div class='column-title'>${param.company_id } 후기 글수정</div>
 				</div>
+				<form action="register" name="registerForm" method="post">
 				<div class='wrapper'>
-					<div class='com-qna-title'>
-							<div class="row" hidden="" >
+					<div class='com-review-title'>
+						 	<div class="row" hidden="" >
 						        <div class="input-group">
+						         <input type="hidden" id="user_id" name="user_id" value="${user_login_id }">
+		                         <input type="hidden" id="company_id" name="company_id" value="${param.company_id }">
 						            <span class="input-group-addon">글번호</span> <input
 						            	  class="form-control" id="title" name="title" type="text"
 						                  style="width: 35%" placeholder="글번호 자동입력." readonly="readonly">
@@ -50,93 +53,123 @@
 						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
 						        </div>
 						    </div>
-							<span class="input-group-addon" >제목</span>&nbsp;&nbsp;&nbsp; <input
-				                  class="qna-title" id="title" name="title" type="text"
-				                  style="width: 35%" placeholder="제목을 입력하세요." readonly="readonly">
+							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
+				                  class="qna-title" id="review_title" name="review_title" type="text"
+				                  style="width: 35%" placeholder="제목을 입력하세요.">
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="writer" name="writer"
-				                  style="width: 35%" placeholder="작성자를 입력하세요." readonly="readonly">
+				                  class="qna-writer" id="review_writer" name="review_writer"
+				                  style="width: 35%">
 					</div>
-					<div class='com-qna-good'>
+					<div class='com-review-good'>
 						<label for="good">해당 기업의 장점을 적어주세요</label><br>
-				        <textarea name="strong" rows="3" class="form-ta" id="good"></textarea>
+				        <textarea name="review_strong" rows="3" class="form-ta" id="review_strong"></textarea>
 					</div>
-					<div class='com-qna-bad'>
+					<div class='com-review-bad'>
 						<label for="bad">해당 기업의 단점을 적어주세요</label><br>
-				        <textarea name="weak" rows="3" class="form-ta" id="bad"></textarea>
+				        <textarea name="review_weak" rows="3" class="form-ta" id="review_weak"></textarea>
 					</div>
-					<div class='com-qna-ceo'>
+					<div class='com-review-ceo'>
 						<label for="want">경영진에게 바라는점을 적어주세요</label><br>
-				        <textarea name="toCEO" rows="3" class="form-ta" id="want"></textarea>
+				        <textarea name="review_toCEO" rows="3" class="form-ta" id="review_toCEO"></textarea>
 					</div>
-					<div class='com-qna-star'>
+					<div class='com-review-star'>
 						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
-							<div class="star-line">
-					            <ul class="list-group">
-					               <li class="list-group-item">승진기회 및 가능성 
-					               	  <span class="star-input" id="star-A" style="float: right;">
-						                  <span class="input"> 
-						                  <input type="radio" name="possibility" id="p1" value="1"> <label for="p1">1</label> 
-						                  <input type="radio" name="possibility" id="p2" value="2"> <label for="p2">2</label> 
-						                  <input type="radio" name="possibility" id="p3" value="3"> <label for="p3">3</label> 
-						                  <input type="radio" name="possibility" id="p4" value="4"> <label for="p4">4</label> 
-						                  <input type="radio" name="possibility" id="p5" value="5"> <label for="p5">5</label> 
-						                  </span> &nbsp;
-									 </span>
-					              </li><br>
-					              <li class="list-group-item">복지 및 급여 
-					              	 <span class="star-input" id="star-B" style="float: right;">
-					                      <span class="input"> 
-					                      <input type="radio" name="welSal" id="p6" value="1"> <label for="p6">1</label>
-					                      <input type="radio" name="welSal" id="p7" value="2"> <label for="p7">2</label> 
-					                      <input type="radio" name="welSal" id="p8" value="3"> <label for="p8">3</label> 
-					                      <input type="radio" name="welSal" id="p9" value="4"> <label for="p9">4</label> 
-					                      <input type="radio" name="welSal" id="p10" value="5"> <label for="p10">5</label> 
-					                      </span> &nbsp;
-					                 </span>
-					             </li><br>
-					             <li class="list-group-item">업무와 삶의 균형
-					              <span class="star-input" id="star-C" style="float: right;">
-					                   <span class="input"> 
-					                   <input type="radio" name="balance" id="p11" value="1"> <label for="p11">1</label>
-					                   <input type="radio" name="balance" id="p12" value="2"> <label for="p12">2</label> 
-					                   <input type="radio" name="balance" id="p13" value="3"> <label for="p13">3</label>
-					                   <input type="radio" name="balance" id="p14" value="4"> <label for="p14">4</label>
-					                   <input type="radio" name="balance" id="p15" value="5"> <label for="p15">5</label>
-					                   </span> &nbsp;
-					             </span>
-					            </li><br>
-					            <li class="list-group-item">사내문화 
-					             <span class="star-input" id="star-D" style="float: right;"> 
-					             	  <span class="input">
-					                  <input type="radio" name="culture" id="p16" value="1"> <label for="p16">1</label> 
-					                  <input type="radio" name="culture" id="p17" value="2"> <label for="p17">2</label>
-					                  <input type="radio" name="culture" id="p18" value="3"> <label for="p18">3</label> 
-					                  <input type="radio" name="culture" id="p19" value="4"> <label for="p19">4</label>
-					                  <input type="radio" name="culture" id="p20" value="5"> <label for="p20">5</label>
-					                  </span> &nbsp;
-					            </span>
-					           </li><br>
-					           <li class="list-group-item">경영진 
-					            <span class="star-input" id="star-E" style="float: right;"> 
-					            	<span class="input">
-					                <input type="radio" name="manager" id="p21" value="1"> <label for="p21">1</label> 
-					                <input type="radio" name="manager" id="p22" value="2"> <label for="p22">2</label>
-					                <input type="radio" name="manager" id="p23" value="3"> <label for="p23">3</label> 
-					                <input type="radio" name="manager" id="p24" value="4"> <label for="p24">4</label>
-					                <input type="radio" name="manager" id="p25" value="5"> <label for="p25">5</label>
-					                </span> &nbsp;
-					           </span>
-					          </li>
-					         </ul>
-					      </div>
+						<div class="star-line">
+							<ul class="list-group">
+								<li class="list-group-item">승진기회 및 가능성 <span
+									class="star-input" id="star-A" style="float: right;"> 
+									<span class="input"> 
+									<input type="radio" name="review_possibility" id="p1" value="1"> 
+									<label for="p1">1</label> 
+									<input type="radio" name="review_possibility" id="p2" value="2"> 
+									<label for="p2">2</label> 
+									<input type="radio" name="review_possibility" id="p3" value="3"> 
+									<label for="p3">3</label> 
+									<input type="radio" name="review_possibility" id="p4" value="4"> 
+									<label for="p4">4</label> 
+									<input type="radio" name="review_possibility" id="p5" value="5">
+									<label for="p5">5</label>
+									</span> &nbsp; <span class="badge" id="star-1"><b>${review.review_possibility }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">복지 및 급여 <span
+									class="star-input" id="star-B" style="float: right;"> 
+									<span class="input">
+									<input type="radio" name="review_welSal" id="p6" value="1"> 
+									<label for="p6">1</label> 
+									<input type="radio" name="review_welSal" id="p7" value="2"> 
+									<label for="p7">2</label> 
+									<input type="radio" name="review_welSal" id="p8" value="3"> 
+									<label for="p8">3</label> 
+									<input type="radio" name="review_welSal" id="p9" value="4"> 
+									<label for="p9">4</label> 
+									<input type="radio" name="review_welSal" id="p10" value="5">
+									<label for="p10">5</label>
+									</span> &nbsp; <span class="badge" id="star-2"><b>${review.review_welSal }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">업무와 삶의 균형 <span
+									class="star-input" id="star-C" style="float: right;"> 
+									<span class="input"> 
+									<input type="radio" name="review_balance" id="p11" value="1"> 
+									<label for="p11">1</label> 
+									<input type="radio" name="review_balance" id="p12" value="2"> 
+									<label for="p12">2</label> 
+									<input type="radio" name="review_balance" id="p13" value="3"> 
+									<label for="p13">3</label> 
+									<input type="radio" name="review_balance" id="p14" value="4"> 
+									<label for="p14">4</label> 
+									<input type="radio" name="review_balance" id="p15" value="5"> 
+									<label for="p15">5</label>
+									</span> &nbsp; <span class="badge" id="star-3"><b>${review.review_balance }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">사내문화 <span class="star-input"
+									id="star-D" style="float: right;"> 
+									<span class="input">
+									<input type="radio" name="review_culture" id="p16" value="1">
+									<label for="p16">1</label> 
+									<input type="radio" name="review_culture" id="p17" value="2"> 
+									<label for="p17">2</label> 
+									<input type="radio" name="review_culture" id="p18" value="3"> 
+									<label for="p18">3</label> 
+									<input type="radio" name="review_culture" id="p19" value="4"> 
+									<label for="p19">4</label> 
+									<input type="radio" name="review_culture" id="p20" value="5"> 
+									<label for="p20">5</label>
+									</span> &nbsp; <span class="badge" id="star-4"><b>${review.review_culture }</b>점</span>
+								</span>
+								</li>
+								<br>
+								<li class="list-group-item">경영진 <span class="star-input"
+									id="star-E" style="float: right;">
+									<span class="input">
+									<input type="radio" name="review_manager" id="p21" value="1">
+									<label for="p21">1</label> 
+									<input type="radio" name="review_manager" id="p22" value="2"> 
+									<label for="p22">2</label>
+									<input type="radio" name="review_manager" id="p23" value="3"> 
+									<label for="p23">3</label> 
+									<input type="radio" name="review_manager" id="p24" value="4">
+									<label for="p24">4</label> 
+									<input type="radio" name="review_manager" id="p25" value="5"> 
+									<label for="p25">5</label>
+									</span> &nbsp; <span class="badge" id="star-5"><b>${review.review_manager }</b>점</span>
+								</span>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div class='com-inline-btn'>
-						<input type="button" class='register-qna' value='글 등록'>
-						<input type="button" class='register-qna' value='취소'>
+						<input type="button" class='register-btn' id="registBtn" onclick="validateCheck()" value='글등록'>
+						<input type="button" class='register-btn' id="cancelBtn" value='취소'>
 					</div>
 					
 					</div>
+					</form>
 			</div><!-- section_main1 -->
 			
 		</div><!-- column-left -->

@@ -29,16 +29,16 @@
 					<div class='wrapper'>
 						<table cellspacing='0'>
 							<tr>
-								<th>아이디</th>
-								<th>기술</th>
-								<th>자격증</th>
+								<th style="width: 20%">아이디</th>
+								<th style="width: 50%">기술</th>
+								<th style="width: 30%">자격증</th>
 							</tr>
 							<c:forEach items="${list }" var="portfolio" varStatus="stat">
 								<tr>
-									<td><a
+									<td  style="width: 20%"><a
 										href="${initParam.rootPath }/company/personSearch/read${pageMaker.makeSearch(pageMaker.cri.page)}&no=${portfolio.port_id }">${portfolio.user_id }</a></td>
-									<td>${portfolio.port_skill }</td>
-									<td>${portfolio.port_license }</td>
+									<td style="width: 50%">${portfolio.port_skill }</td>
+									<td style="width: 30%">${portfolio.port_license }</td>
 								</tr>
 							</c:forEach>
 						</table>

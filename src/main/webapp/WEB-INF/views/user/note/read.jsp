@@ -70,22 +70,32 @@
 	<!-- frame -->
 	
 		<!-- mail 모달	 -->
-		<div class="modal" id="sendMail">
-			<div class="modal-pannel">
-				<div class="modal-title">쪽지 답장 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">   
-					<h4>보낸 구직자 아이디</h4><p><input type="text" id="note_sender" value="${user_login_id}"  
-					    class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 기업 아이디</h4><p><input type="text" id="note_receiver" value="${note.note_sender}"
-					 class="form-control" style="width: 90%; height: 15px;"></p>
-					<textarea rows="4" cols="78px" placeholder="답장 내용을 입력" style="margin-top: 5px;" id="note_contents"></textarea>
-				</div>
-					
-				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
-					<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
-					</div>
+	<div class="modal" id="sendMail">
+		<div class="modal-pannel">
+			<div class="modal-title">
+				쪽지 답장 <a href="#close">CLOSE</a>
+			</div>
+			<div class="modal-body">
+				<h4>보낸 구직자 아이디</h4>
+				<p>
+					<input type="text" id="note_sender" value="${user_login_id}"
+						class="form-control" style="width: 90%; height: 15px;">
+				</p>
+				<h4>받는 기업 아이디</h4>
+				<p>
+					<input type="text" id="note_receiver" value="${note.note_sender}"
+						class="form-control" style="width: 90%; height: 15px;">
+				</p>
+				<textarea rows="4" cols="40px" placeholder="답장 내용을 입력"
+					style="margin-top: 5px;" id="note_contents"></textarea>
+			</div>
+
+			<div class="modal-footer"
+				style="display: inline-flex; flex-direction: row; width: 100%;">
+				<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
 			</div>
 		</div>
+	</div> 
 	<!-- frame -->
 
 <script type="text/javascript">
