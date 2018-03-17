@@ -66,7 +66,8 @@
 					   </div>
 					</div>
 					<div class='com-inline-btn'>
-						<input type="button" class='inline-btn' id="goList" value='목록보기'>
+						<input type="button" class='inline-btn' id="goListBtn" name="goListBtn" value='목록보기'>
+
 					</div>
 					
 					</div>
@@ -322,119 +323,22 @@
 		
 	});
  
- $("#replyModBtn").on("click",function(){
-	  
-	  var reply_no = $(".modal-title").html();
-	  var reply_writer = $('#reply_writer').val();
-	  var reply_contents = $("#reply_contents").val();
-	  
-	  $.ajax({
-			type:'put',
-			url:'${initParam.rootPath}/community/reply/'+reply_no,
-			headers: { 
-			      "Content-Type": "application/json",
-			      "X-HTTP-Method-Override": "PUT" },
-			data:JSON.stringify({reply_writer:reply_writer,reply_contents:reply_contents}), 
-			dataType:'text', 
-			success:function(result){
-				console.log("result: " + result);
-				if(result == 'success'){
-					alert("수정 되었습니다.");
-					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
-					$('#reply_writer').val("");
-					$("#reply_contents").val("");
-				}
-		}});
-});
-
-$("#replyDelBtn").on("click",function(){
-	  
-	  var reply_no = $(".modal-title").html();
-	  var reply_contents = $("#reply_contents").val();
-	  
-	  $.ajax({
-			type:'delete',
-			url:'${initParam.rootPath}/community/reply/'+reply_no,
-			headers: { 
-			      "Content-Type": "application/json",
-			      "X-HTTP-Method-Override": "DELETE" },
-			dataType:'text', 
-			success:function(result){
-				console.log("result: " + result);
-				if(result == 'success'){
-					alert("삭제 되었습니다.");
-					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
-				}
-		}});
-   
-});
-
-var formObj = $("form[name=readForm]");
-var review_no = $('#community_no');
-
-getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage);
-
-
-$(function(){
-	$('#goList').on("click", function(){
-		self.location="${initParam.rootPath }/user/community/list"
-	});
-});
-
-/* $(function(){
-		
-		var formObj = $("form[name=readForm]");
-		var review_no = $('#review_no');
+ 
+</script>
+<script>
+$(document).ready(function(){
+	var formObj = $("form[role='form']");
 	
-		getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" );
-		
-		$('#goList').on("click", function() {
-	  		console.log('목록보기 버튼 클릭');
-	  		self.location="${initParam.rootPath }/ing/cont_qna_sw?page=${cri.page }"
-	  					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-	  					+"&keyword=${cri.keyword }&company_id=${param.company_id}";
-	  	});
-		
-		$("#goLogin").on("click", function(){
-			formObj.attr("method", "get");
-			formObj.attr("action", "${initParam.rootPath}/review/reply/goLogin");
-			formObj.submit();
-		});
-	  	
-	  	//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
-	  	function writerCheck(){
-	  		var login_id='${user_login_id}';
-	  		//alert(login_id)
-	  		var writer_id = document.readForm.writer_id.value;
-	  		
-	  		var no = document.getElementById('review_no').innerHTML;
-	  		
-	  		//alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
-	  		
-	  		if(login_id==writer_id){//일치하면 수정 삭제 버튼 나오게.
-	  			var upDel = document.getElementById('upDel');
-				upDel.innerHTML = '<button type=buttion  id="update" onclick="modifyReview()">수정</button>'+
-							      '<button type=button id="delete" onclick="removeReview()">삭제</button>';
-	  		}
-	  	}
-	  	
-	  	//게시글 수정 버튼 클릭
-	  	function modifyReview(){
-	  		self.location="${initParam.rootPath }/ing/cont_qna_modify?page=${cri.page }"
-					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-					+"&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
-	  	}
-	  	
-	  	//게시글 삭제 버튼 클릭
-	  	function removeReview(){
-	  		
-	  		if(confirm('정말로 삭제하시겠습니까?')){
-	  			self.location="${initParam.rootPath }/user/review/remove?page=${cri.page }"
-					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-					+"&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
-	  		}
-	  	} */
-	  
+	var community_no = $('#community_no').val();
+	getPage("${initParam.rootPath}/community/reply/"+community_no+"/1");
+	console.log(formObj);
+	
+	$("#goListBtn").on("click",function(){
+		formObj.attr("method","get");
+		formObj.attr("action","${initParam.rootPath}/user/community/list");
+		formObj.submit();
+	});
+});	
 </script>
 </body>
 
