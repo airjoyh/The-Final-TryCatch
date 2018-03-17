@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- C태그 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,22 +9,6 @@
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/comRank_sw.css" rel="stylesheet" type="text/css">
 
-
-<style>
-.simple-table{
-	position: relative;
-	text-align: left;
-	font-size: 15px;
-	border-bottom: 1px solid #bbb;
-}
-.simple-table .tbl-h1{
-	width: 80%;
-}
-.simple-table .tbl-h2{
-	width: 20%;
-}
-
-</style>
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
@@ -57,7 +37,7 @@
 												<div class="star-rank-box">										
 														<label for="a_${total.rank}">
 															<font>${total.rank}위</font>
-															<a href="${initParam.rootPath }/user/review/list?company_id=${total.company_id }" style="text-decoration: none; color: black;">${total.company_name }</a>
+															<a href="${initParam.rootPath }/user/review/list?company_id=${total.company_id }" >${total.company_name }</a>
 														</label>
 														<div class="star-rank" id="a_${total.rank}">
 															<progress id="progressBar" max="100" value="${total.avg_all*20 }"></progress>								
@@ -75,7 +55,7 @@
 												<div class="star-rank-box">
 													<label for="a_${possibility.rank}">
 														<font>${possibility.rank}위</font>
-														<a href="${initParam.rootPath }/user/review/list?company_id=${possibility.company_id }" style="text-decoration: none; color: black;">${possibility.company_name }</a>
+														<a href="${initParam.rootPath }/user/review/list?company_id=${possibility.company_id }">${possibility.company_name }</a>
 													</label>
 													<div class="star-rank" id="a_${possibility.rank}">
 														<progress id="progressBar" max="100" value="${possibility.avg_possibility*20}"></progress>								
@@ -97,7 +77,7 @@
 												<div class="star-rank-box">
 													<label for="a_${welSal.rank}">
 														<font>${welSal.rank}위</font>
-														<a href="${initParam.rootPath }/user/review/list?company_id=${welSal.company_id }" style="text-decoration: none; color: black;">${welSal.company_name }</a>
+														<a href="${initParam.rootPath }/user/review/list?company_id=${welSal.company_id }">${welSal.company_name }</a>
 													</label>
 													<div class="star-rank" id="a_${welSal.rank}">
 														<progress id="progressBar" max="100" value="${welSal.avg_welSal*20 }"></progress>								
@@ -115,7 +95,7 @@
 												<div class="star-rank-box">
 													<label for="a_${balance.rank}">
 														<font>${balance.rank}위</font>
-														<a href="${initParam.rootPath }/user/review/list?company_id=${balance.company_id }" style="text-decoration: none; color: black;">${balance.company_name }</a>
+														<a href="${initParam.rootPath }/user/review/list?company_id=${balance.company_id }">${balance.company_name }</a>
 													</label>
 													<div class="star-rank" id="a_${balance.rank}">
 														<progress id="progressBar" max="100" value="${balance.avg_balance*20 }"></progress>								
@@ -137,7 +117,7 @@
 												<div class="star-rank-box">
 													<label for="a_${culture.rank}">
 														<font>${culture.rank}위</font>
-														<a href="${initParam.rootPath }/user/review/list?company_id=${culture.company_id }" style="text-decoration: none; color: black;">${culture.company_name }</a>
+														<a href="${initParam.rootPath }/user/review/list?company_id=${culture.company_id }">${culture.company_name }</a>
 													</label>
 													<div class="star-rank" id="a_${culture.rank}">
 														<progress id="progressBar" max="100" value="${culture.avg_culture*20 }"></progress>								
@@ -155,7 +135,7 @@
 												<div class="star-rank-box">
 													<label for="a_${manager.rank}">
 														<font>${manager.rank}위</font>
-														<a href="${initParam.rootPath }/user/review/list?company_id=${manager.company_id }" style="text-decoration: none; color: black;">${manager.company_name }</a>
+														<a href="${initParam.rootPath }/user/review/list?company_id=${manager.company_id }">${manager.company_name }</a>
 													</label>
 													<div class="star-rank" id="a_${manager.rank}">
 														<progress id="progressBar" max="100" value="${manager.avg_manager*20 }"></progress>								
