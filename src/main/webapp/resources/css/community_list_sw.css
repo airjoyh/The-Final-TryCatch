@@ -300,17 +300,6 @@
 	font-size: 30px;
 }
 
-.com-contest-paging{
-	display: inline-flex;
-    flex-direction: column;
-    align-items:center;
-    margin-left: 180px;
-}
-
-.cont-qna-page ul,li{
-	display:flex;
-	list-style: none;
-}
 
 #registBtn {
 	right: 0;
