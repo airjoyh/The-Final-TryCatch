@@ -16,6 +16,6 @@ public class CompanyMainController {
 	public String goFaq() {
 		System.out.println("CompanyMainController goFaq");
 		
-		return "/company/faq";
+		return "/company/faq_new";
 	}
 }

@@ -41,7 +41,7 @@ public class UserMainController {
 	public String goFaq() throws Exception{
 		System.out.println("MainController goFaq()");
 
-		return "user/faq";
+		return "user/faq_new";
 	}
 
 

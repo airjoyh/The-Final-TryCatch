@@ -4,51 +4,91 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>tc FAQ</title>
+<title>구직자tc FAQ</title>
 
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/tc_faq_sw.css" rel="stylesheet" type="text/css">
-<!-- ICON -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-<!-- font -->
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-<!-- JS,JQUERY -->
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 
-<!-- 임시 js -->
-<script type="text/javascript">
-
-</script>
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
 <body>	
-
+		<!-- nav-area -->
+	<%@ include file="../user-nav_new.jsp" %>
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
 			<div class='com-contest-head'>
 				<div class='title-wrapper'>
-					<div class='column-title'>FAQ</div>
+					<div class='column-title'>구직자용 FAQ</div>
 				</div>
 				<div class='faq-box'>
 					<ul class="faq">
-						<li class="q">질문사항을 적어주세요</li>
-						<li class="a">답변을 적으시오</li>
-						
-						<li class="q">뭐가 궁금한가</li>
-						<li class="a">답변을 적으시오</li>
-						
-						<li class="q">뭐가 궁금한가</li>
-						<li class="a">답변을 적으시오</li>
-						
+						<li class="q">Q. [회원가입/탈퇴] 회원가입은 무료인가요?</li>
+						<li class="a"><div class="panel-body">
+								Try Catch 회원가입은 무료입니다.<br> 회원가입 방법으로는 '개인 회원가입','기업 회원가입'이
+								있습니다.<br> Try Catch 아이디 만들기<br> 아이디, 비밀번호, 이메일 주소 등
+								간단한 개인정보를 입력하면 <br> 바로 회원가입이 되어 알바몬의 개인회원 서비스를 이용하실 수 있습니다.<br>
+
+								* 가입 시 작성한 정보를 수정은 로그인 후 마이페이지 > 회원정보 수정 메뉴에서 하실 수 있습니다.
+							</div></li>
+
+						<li class="q">Q. [회원가입/탈퇴] 회원탈퇴는 어디에서 하나요?</li>
+						<li class="a">
+							<div class="panel-body">
+								회원탈퇴는 회원 로그인 > 개인서비스 > 회원정보 관리 페이지의 회원탈퇴 메뉴에서 신청하실 수 있습니다.<br>
+
+								탈퇴 시 주의사항을 반드시 읽어보신 후 탈퇴를 위한 정보를 모두 입력하면 탈퇴신청이 접수됩니다.<br>
+
+								즉시 탈퇴처리가 되는 것은 아니며, 운영자 확인을 거쳐 탈퇴가 이루어집니다.<br> 운영자 확인까지 1시간
+								가량 시간이 걸릴 수 있으니 양해해 주시기 바랍니다.<br> 탈퇴처리가 되면 회원님의 메일로 탈퇴 되었다는
+								메일이 발송됩니다.
+							</div>
+						</li>
+
+						<li class="q">Q. [회원가입/탈퇴] 개인회원으로는 채용공고를 등록할 수 없나요?</li>
+						<li class="a">
+							<div class="panel-body">
+								기본적으로 채용공고 등록/관리는 기업회원님께 제공하는 서비스입니다.<br> 기업회원으로 가입/로그인 후
+								공고등록 이용을 부탁 드립니다.
+							</div>
+						</li>
+
+						<li class="q">Q.[회원정보관리]아이디와 비밀번호를 다른 걸로 변경할 수 있나요?</li>
+						<li class="a">
+							<div class="panel-body">
+								네, 가능합니다.<br> 아이디 및 비밀번호 변경은 로그인 후 마이페이지 > 회원정보 수정 에서 수정하실
+								수 있습니다.
+							</div>
+						</li>
+
+						<li class="q">Q. [회원정보관리] 회원정보는 어디서 수정할 수 있나요?</li>
+						<li class="a"><div class="panel-body">회원정보는 로그인 후 마이페이지
+								> 회원정보 수정 에서 수정하실 수 있습니다.</div></li>
+
+						<li class="q">Q. [기업후기] 기업 후기는 내가 쓴 글만 볼 수 있나요?</li>
+						<li class="a">
+							<div class="panel-body">기업후기는 회원가입한 사람은 누구나 볼 수 있습니다.</div>
+						</li>
+
+						<li class="q">Q. [기업후기] 작성한 기업후기를 수정 하고 싶어요. 어떻게 하나요?</li>
+						<li class="a">
+							<div class="panel-body">
+								작성한 기업후기를 수정하고 싶을 시 <br> 후기 > 글 선택 > 수정 메뉴를 누르시고 글을 다시 작성하신
+								후 <br> 등록하시면 됩니다.
+							</div>
+						</li>
+
+						<li class="q">Q. [기업후기] 익명이 보장되나요?</li>
+						<li class="a">
+							<div class="panel-body">
+								네. 기업후기는 철저하게 <span style="color: red">익명으로 처리</span>되오니 솔직한 경험을
+								공유해주세요.
+							</div>
+						</li>
+
 					</ul>
 				</div>
 			</div><!-- section_main1 -->
@@ -56,103 +96,21 @@
 		</div><!-- column-left -->
 		
 		<!-- right section!!************************************************************** -->
-		<div class='column-right'>
-		
-			<div class="section_login">
-				<div class="wrapper">
-				    <div><input class='login-input' type="email" name="email" placeholder="이메일"></div>
-				    <div><input class='login-input' type="password" name="password" placeholder="비밀번호"></div>
-				    <div><input type="button" value="로그인" class='login-btn'> </div>
-				    <span class="pure-checkbox" style="float: left;">
-                  	  <input id="checkboxtoggle" name="checkbox" type="checkbox">
-                      <label for="checkboxtoggle">정보기억</label>
-                      </span>
-                    <span style="float: right;padding: 2px 0 0 6px;">
-                	  <a href='#find-pwd'>비밀번호 찾기</a>
-                	  </span>
-                    <span style="float: right;padding: 2px 6px;">
-                	  <a href='#register'>회원가입</a>
-                	  </span>
-				  </div>
-				</div><!-- section_login -->
-				
-				<div class="section_zzim">
-					<div class="title-wrapper">
-						<div class='column-title'>관심기업 리스트</div>
-					</div>
-					<div class='wrapper'>
-						<div class='column-contents'>
-							<i>현재 찜한 기업이 없습니다.</i><!-- 있으면 테이블 없으면 i -->
-							<table class='zzim-table'>
-								<thead>
-									<tr>
-										<th>기업명</th>
-										<th>평점</th>
-										</tr>
-									</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										</tr>
-									</tbody>
-								
-							</table>
-						</div>
-					</div>
-						
-						
-						
-				</div><!-- section_zzim -->
-				
-			</div><!-- column-right -->
-			
+		<div id="rightDiv" class='column-right'>
+			<div id="login_beforeDiv">
+				<%@ include file="login_before_new.jsp"%>
+			</div>
+			<div id="login_afterDiv" style="display: none">
+				<%@ include file="login_after_new.jsp"%>
+			</div>
+		</div>
+		<!-- column-right -->
 			
 			
 		<!-- modal 코드 -->
+		<%@ include file="user_modals_new.jsp" %>
+</div>		
 		
-		<!-- 회원가입 모달 -->
-		<div class="modal" id="register">
-			<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호를 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호 확인" style="float: right;">
-					<input id="user_authCode" name="user_authCode"
-					  	type="text" placeholder="60초 안에 인증코드를 입력해주세요" size="20">
-					<input type="button" name="sendEmail" id="sendEmail"
-				       	value="인증코드 요청">
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-			
-		<!-- 비밀번호 찾기 모달 -->	
-		<div class="modal" id="find-pwd">
-		<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<i>*가입하신 이메일로 임시 비밀번호가 전송됩니다.</i>
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-				</div>
-			</div>
-		</div>
-
 	<!-- frame -->
 <script type="text/javascript">
 var action = 'click';
