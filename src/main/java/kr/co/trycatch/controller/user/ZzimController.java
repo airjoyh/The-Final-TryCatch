@@ -43,17 +43,17 @@ public class ZzimController {
 			}*/
    }
 
-	@RequestMapping("/ing/zzimlist")
-	public void list(String zzim_select,SearchCriteria cri, Model model)throws Exception{
+	@RequestMapping("/user/zzimlist")
+	public String list(String zzim_select,SearchCriteria cri, Model model)throws Exception{
 		System.out.println("zzimController list");
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
 		maker.setTotalCount(zzimService.totalCnt(cri));
-		model.addAttribute("list",zzimService.listSearchCriteria(cri, zzim_select));
+		model.addAttribute("zzimList",zzimService.listSearchCriteria(cri, zzim_select));
 		model.addAttribute("cri",cri);
 		model.addAttribute("pageMaker",maker);
 		
-		//return "";
+		return "/ing/zzimlist";
 	}
 	
 	

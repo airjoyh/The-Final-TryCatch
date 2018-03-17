@@ -28,5 +28,13 @@ public class PersonSearchController {
 
 		return "/company/personSearch/list";
 	}
+	
+	@RequestMapping("/read")
+	public String read(int port_id, Model model, SearchCriteria cri) throws Exception{
+		model.addAttribute("port", portfolioService.read(port_id));
+		model.addAttribute("cri", cri);
+		
+		return "/company/personSearch/com_view_portfolio";
+	}
 
 }

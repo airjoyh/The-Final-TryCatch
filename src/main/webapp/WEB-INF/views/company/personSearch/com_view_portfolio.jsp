@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,35 +7,17 @@
 <title>콘테스트 리스트</title>
 
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/com_contest.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/portfolio.css" rel="stylesheet" type="text/css">
-<!-- ICON -->
-
-<script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 
 <!-- 임시 js -->
-<script type="text/javascript">
-	$(function(){
-        $('a').click(function (e) {  
-            e.preventDefault();  
-            var url = "www.naver.com";  
-            location.href=url;  
-        }); 
 
-	});
-</script>
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
 <body>
-	<!-- com-nav area -->
-	<%@include file="../../ing/com/com-nav.jsp" %>
+<!-- com-nav -->
+	<%@include file="../../company-nav_new.jsp" %>
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
@@ -52,7 +33,7 @@
 					</div>
 					<div class='pf-info'>
 						<div class='pf-title'>
-							bluecatseyes
+							${port.user_id }
 						</div>
 						<div class='com-zzim-btn'>찜하기</div> 
 					</div>
@@ -70,49 +51,60 @@
 				<div class='pf-body'>
 					<div class='pf-intro'>
 						<div class='body-title'>Self-introduce</div>
-						<pre id='introduce'></pre>
+						<pre id='introduce'>${port.port_exp}</pre>     
 					</div>
 					<div class='pf-skill'>
 						<p class='body-title'>Skills</p>
-						<c:forEach begin="1" end="2">
-							<div class='skill-box'></div>
-						</c:forEach>
+						
+						<div class='skill-box'>${port.port_skill}</div>
+						
 					</div>
 					<div class='pf-lisence'>
 						<p class='body-title'>Lisence</p>
-						<c:forEach begin="1" end="2">
-							<div class='lisence-box'></div>
-						</c:forEach>
+							<div class='lisence-box'>${port.port_license}</div>
 					</div>
 					<div class='pf-award'>
 						<p class='body-title'>Award</p>
-						<c:forEach begin="1" end="2">
-							<div class='award-box'></div>
-						</c:forEach>
+							<div class='award-box'>${port.port_award}</div>
 					</div>
 					<div class='pf-pflink'>
 						<p class='body-title'>Portfolio site</p>
-						<c:forEach begin="1" end="2">
-							<a class='portfolio-link'>www.naver.com</a><span>바로가기▶</span>
-						</c:forEach>
+							<a class='portfolio-link'>${port.port_link }</a>
 					</div>
 				</div>
 
 			</div><!-- section_pf -->				
 		</div>
 		
-		<!-- right section!!************************************************************** -->
-		<div class='column-right'>
-			<!-- login include -->
-				
-		</div><!-- column-right -->
-			
-
-			
+			<!-- right section!!************************************************************** -->
+     <div id="rigthDiv" class="column-right">
+       <div id="login_beforeDiv">
+          <%@ include file="../../company/com_login_before_new.jsp" %>
+       </div>
+       <div id="login_afterDiv" style="display: none">
+          <%@ include file="../../company/com_login_after_new.jsp" %>
+       </div> 
+       		<!-- modal import -->
+		<%@ include file="../../company/company_modal_new.jsp" %>  
+     </div>
 			
 	</div><!-- container -->
 
+<script type="text/javascript">
+	$(function(){
+        $('a').click(function (e) {  
+            e.preventDefault();  
+            var url = "www.naver.com";  
+            location.href=url;  
+        }); 
 
+	});
+/* 
+	  var skills= '${port.port_skill}';
+	  var array = skills.split('-');
+	  console.log(array[1]);
+	 */
+</script>
 
 </body>
 </html>

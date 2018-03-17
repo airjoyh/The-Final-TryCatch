@@ -79,6 +79,7 @@
 													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
 													<button style="float: right;" id="zzimOutBtn" type="button">찜하기
 														취소</button>
+													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
 												</form>
 											</div>
 										</div>
@@ -303,9 +304,9 @@
 
 		});
 		 
-	 	 $('#zzimlistBtn').on("click", function() {//찜리스트 보이기
+	 	 $('#zzimListBtn').on("click", function() {//찜리스트 보이기
 			
-			self.location="${initParam.rootPath}/ing/zzimlist?zzim_select=${user_login_id}";
+			self.location="${initParam.rootPath}/user/zzimlist?zzim_select=${user_login_id}";
 		
 		});   
 	 	 
@@ -323,7 +324,7 @@
 			   url: '${initParam.rootPath}/zziminout',
 			   type:'post',
 			   data: {
-				    zzim_selected:${company_info.company_id},
+				    zzim_selected:'${company_info.company_id}',
 				    zzim_select:'${user_login_id }'
 			   },
 			   success: function (result) {

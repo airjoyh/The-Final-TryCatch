@@ -73,7 +73,7 @@
 								</tr>				
 						 <c:forEach items="${list }" var="note" varStatus="stat">
 								<tr>
-									<td>${note.note_status}</td>																		
+									<td><img style="width: 20px; height: 20px;" src="${initParam.rootPath}/resources/image/ing/${note.note_status}.png"> </td>																		
 									<td><a href="${initParam.rootPath }/user/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }&note_status=${note.note_status}">${note.note_contents}</a></td>																		
 									<td>${note.note_sender}</td>
 									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>

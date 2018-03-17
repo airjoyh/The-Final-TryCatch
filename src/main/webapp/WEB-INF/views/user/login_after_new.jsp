@@ -32,21 +32,17 @@
 		</div>
 	<div class="wrapper">
 		<div class="column-contents">
-			<i>현재 찜한 기업이 없습니다.</i>
-			<!-- 있으면 테이블 없으면 i -->
 			<table class="zzim-table">
 				<thead>
 					<tr>
 						<th>기업명</th>
-						<th>평점</th>
 					</tr>
-						</thead>
-						<tbody>
+				</thead>
+			<tbody>
 			<!-- 찜한기업리스트  forEach-->
-			<c:forEach begin="1" end="5" var="ss">
+			<c:forEach varStatus="stat" items="${zzimList }" var="zzim">
 			<tr>
-				<td></td>
-				<td></td>
+				<td>${zzim.company_name}</td>
 			</tr>
 			</c:forEach>
 			</tbody>

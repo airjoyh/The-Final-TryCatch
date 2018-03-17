@@ -72,7 +72,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list }" var="zzim" varStatus="stat">
+					<c:forEach items="${zzimList }" var="zzim" varStatus="stat">
 					<tr>
 					    <td style="width: 10%;">${zzim.ZZIM_NO }</td>
 						<td style="width: 25%;"><a href="${initParam.rootPath }/user/review/list?company_id=${zzim.ZZIM_SELECTED }">${zzim.COMPANY_NAME }</a></td>
