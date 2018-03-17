@@ -215,7 +215,7 @@
 					<!--company-contest-table -->
 				</div>
 				<!-- com-contest-head -->
-				<div class="com-contest-paging">
+				<div class="com-contest-paging"  style="display: flex;flex-direction: column; align-items: center">
 					<div class="cont-qna-page">
 						<ul class="pagination">
 							<c:if test="${pageMaker.prev}">
