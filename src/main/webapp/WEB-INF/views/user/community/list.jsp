@@ -124,15 +124,15 @@
 					<%@ include file="../../user/login_before_new.jsp"%>
 				</div>
 				<div id="login_afterDiv" style="display: none">
-					<%@ include file="../../user/login_after_new.jsp"%>
+					<%@ include file="../login_after_new.jsp"%>
 				</div>
 			</div>
 			<!-- column-right -->
 		</div>
 		<!-- modal 코드 --> 
-       <%@ include file="../../user/user_modals_new.jsp" %>
+       <%@ include file="../user_modals_new.jsp" %>
 				
-		</div><!-- column-right -->
+		</div><!-- container -->
 			
 	
 	<!-- frame -->
