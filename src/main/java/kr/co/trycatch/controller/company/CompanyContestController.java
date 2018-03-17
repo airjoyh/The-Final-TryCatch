@@ -34,7 +34,7 @@ public class CompanyContestController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGet() throws Exception {
-		return "/company/contest/register";
+		return "/company/contest/register_new";//register
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
