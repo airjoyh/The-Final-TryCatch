@@ -50,7 +50,7 @@ public class UserContestController {
 		model.addAttribute("cri", cri);// 현재페이지, 페이지당 레코드수, 검색타입, 검색어
 		model.addAttribute("pageMaker", maker);
 
-		return "/user/contest/list";
+		return "/user/contest/list_new";
 	}
 
 	@RequestMapping(value = "/read")

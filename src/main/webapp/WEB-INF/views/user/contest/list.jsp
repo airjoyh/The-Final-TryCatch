@@ -23,7 +23,6 @@
 		$('.initial').hide();
 		$('.tdTtl').mouseenter(function() {
 
-		});
 		
 		
 
@@ -56,6 +55,7 @@
 		var txt = $(e.target).text();
 		$('.taco-input').val(txt);
 	});
+});
 
 	function loginCheck() {
 
