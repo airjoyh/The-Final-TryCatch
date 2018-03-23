@@ -108,8 +108,8 @@
 	<!-- 구직자에게 보여질 최종 등록된 콘테스트 정보들 -->
 	<select id="selectAll" resultType="ContestVO">
 		select contest_id, company_id, contest_title, 
-       		   to_char(contest_startDate, 'YYYY/MM/DD HH24:MI'),
-       		   to_char(contest_endDate, 'YYYY/MM/DD HH24:MI'),
+       		   contest_startDate,
+       		   contest_endDate,
        		   contest_field, contest_hireNumber, 
        		   contest_contents, manager_name, 
        		   team_name, manager_email, manager_tel, contest_status,

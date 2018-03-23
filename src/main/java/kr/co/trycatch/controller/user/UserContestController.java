@@ -82,7 +82,7 @@ public class UserContestController {
 		model.addAttribute("quiz_id", quiz_id);
 		model.addAttribute("exampleList", contest_quizService.readExample(quiz_id));
 		
-		return "/user/contest/quiz/solve_new";
+		return "/user/contest/quiz/solve";
 	}
 	
 	@ResponseBody
@@ -123,7 +123,7 @@ public class UserContestController {
 		}
 		System.out.println("클래스파일생성 ^^*");
 		
-		String compileResult = ch.java("cmd","/c","java -classpath c:/coding "+className);
+		String compileResult = ch.java("cmd","/c","java -classpath c:/coding "+className);//str2
 	    System.out.println("실행 완료!!");	    
 	    System.out.println("compileResult="+compileResult);
 		//model.addAttribute("compileResult", compileResult);
