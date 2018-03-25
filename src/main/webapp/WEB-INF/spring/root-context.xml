@@ -29,6 +29,7 @@
 				<prop key="mail.smtp.auth">true</prop>
 				<prop key="mail.smtp.starttls.enable">true</prop>
 				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop><!-- 지원이 같은 경우 안되기 때문에 gmail사용 코드 하나 넣어주었다. -->
 			</props>
 		</property>
 	</bean>
