@@ -68,7 +68,7 @@
 					<thead>
 						<tr>
 							<th style="width: 10%;">번호</th>
-							<th style="width: 25%;">찜한기업</th>
+							<th style="width: 25%;">찜한구직자</th>
 						</tr>
 					</thead>
 					<tbody>
