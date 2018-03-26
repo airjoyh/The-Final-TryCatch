@@ -26,6 +26,13 @@
        and zim.zzim_select=#{zzim_select}
    </select>
    
+      <select id="ComlistAll" resultType="map">
+      select port.user_id, zim.zzim_selected, zim.zzim_no
+       from portfolio port, zzim zim 
+      where port.port_id=zim.zzim_selected
+       and zim.zzim_select=#{zzim_select}
+   </select>
+   
    <select id="totalCnt" resultType="int">
       select count(*) from zzim
    </select>

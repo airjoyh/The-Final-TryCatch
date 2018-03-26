@@ -10,7 +10,6 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.domain.user.ZzimVO;
 
@@ -43,7 +42,7 @@ public class ZzimDAOImpl implements ZzimDAO{
 	}
 
 	@Override
-	public List<Map<String, Object>> listSearch(SearchCriteria cri, String zzim_select) throws Exception {
+	public List<Map<String, Object>> listCriteria(SearchCriteria cri, String zzim_select) throws Exception {
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 		List<Map<String, Object>> list = session.selectList("zzim.listAll", zzim_select, bounds);
 		//Map: select com.company_name, zim.zzim_no 
@@ -66,6 +65,14 @@ public class ZzimDAOImpl implements ZzimDAO{
 	@Override
 	public void deletezzim(ZzimVO zzimVo) throws Exception {//¬Ú«œ±‚ √Îº“
 	    session.delete("zzim.deletezzim", zzimVo);
+	}
+
+	@Override
+	public List<Map<String, Object>> ComlistCriteria(SearchCriteria cri, String zzim_select) throws Exception {
+		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
+		List<Map<String, Object>> list = session.selectList("zzim.ComlistAll", zzim_select, bounds);
+	
+		return list;
 	}
 	
 	

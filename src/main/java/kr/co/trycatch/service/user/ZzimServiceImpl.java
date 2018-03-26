@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.domain.user.ZzimVO;
 import kr.co.trycatch.persistence.user.ZzimDAO;
@@ -40,15 +39,15 @@ public class ZzimServiceImpl implements ZzimService {
 	}
 
 	@Override
-	public List<Map<String, Object>> listSearchCriteria(SearchCriteria cri, String zzim_select) throws Exception {
+	public List<Map<String, Object>> listCriteria(SearchCriteria cri, String zzim_select) throws Exception {
 
-		return zzimDao.listSearch(cri, zzim_select);
+		return zzimDao.listCriteria(cri, zzim_select);
 	}
 
 	@Override
 	public boolean countzzim(int zzim_selected, String zzim_select) throws Exception {//동일한 찜 레코드 확인 
 	
-		return zzimDao.countzzim(zzim_selected, zzim_select);
+		return zzimDao.countzzim(zzim_selected, zzim_select); //true or false
 	}
 
 	@Override
@@ -56,6 +55,12 @@ public class ZzimServiceImpl implements ZzimService {
 		
 		zzimDao.deletezzim(zzimVo);
 		
+	}
+
+	@Override
+	public List<Map<String, Object>> ComlistCriteria(SearchCriteria cri, String zzim_select) throws Exception {
+		
+		return zzimDao.ComlistCriteria(cri, zzim_select);
 	}
 
 }
