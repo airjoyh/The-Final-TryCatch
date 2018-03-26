@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<!-- CSS -->
+<link href="${initParam.rootPath }/resources/css/zzim_jw.css" rel="stylesheet" type="text/css">
+	
+	
 <div class="section_login">
 	<div class="login-info">
 		<div class="user-icon">
@@ -28,26 +33,45 @@
 	<!-- section_login -->
 	<div class="section_zzim">
 		<div class="title-wrapper">
-			<div class="column-title">관심기업 리스트</div>
+			<div class="column-zzimtitle">관심기업 리스트</div>
 		</div>
 	<div class="wrapper">
 		<div class="column-contents">
+		
+		<div class="zzim-content-box">
 			<table class="zzim-table">
-				<thead>
-					<tr>
-						<th>기업명</th>
-					</tr>
-				</thead>
-			<tbody>
+				<tbody>
 			<!-- 찜한기업리스트  forEach-->
-			<c:forEach varStatus="stat" items="${zzimList }" var="zzim">
+			<%-- <c:forEach varStatus="stat" items="${zzimList }" var="zzim">
 			<tr>
 				<td>${zzim.company_name}</td>
 			</tr>
-			</c:forEach>
-			</tbody>
-		</table>
+			</c:forEach> --%>
+					
+					<tr>
+						<td><a href="#가라컴퍼니">가라컴퍼니</a></td>
+					</tr>
+					<tr>
+						<td><a href="#가라컴퍼니">다정엔터테인먼트</a></td>
+					</tr>
+					<tr> 
+						<td><a href="#가라컴퍼니">지원프로덕션</a></td>
+					</tr>
+					<!-- <tr>
+						<td><a href="#가라컴퍼니">할리스커피</a></td>
+					</tr>
+					<tr>
+						<td><a href="#가라컴퍼니">맥도날드</a></td>
+					</tr> -->
+					 
+				</tbody>
+			</table>
 		</div>
+		
+			<div class="zzim-page-box">페이징</div>
+			
+		</div>
+		
 	</div>
 </div>
 <!-- section_zzim -->
