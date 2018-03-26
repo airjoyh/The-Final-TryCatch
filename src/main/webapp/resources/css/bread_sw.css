@@ -1,10 +1,10 @@
-.section_main {
+.com_section_main {
     position: relative;
-    height: 500px;
+    height: 700px;
     border: 1px solid #dee3eb;
     background: #fff;
 }/*기업탭부분*/ 
-.section_board {
+.com_section_board {
     position: relative;
     height: 700px;
     border: 1px solid #dee3eb;
@@ -14,31 +14,6 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
-.content1 {
-	width: 740px;
-	height: 470px;
-	margin: 15px 0 15px 0;
-	/* border: 3px green solid; */
-	display: flex;
-	flex-direction: column;
-}
-
-.box1 {
-	width: 740px;
-	height: 470px;
-	margin: 0;
-
-}
-
-.elem {
-	position: relative;
-	/* border: solid 3px red; */
-	top: 0;
-}
-
-.elem-yellow {
-	/* border: solid 3px yellow; */	
-}
 
 .com-select{
 	padding-left: 15px;
@@ -77,10 +52,6 @@
 }
 
 
-.row {
-	width: 100%;
-}
-
 .review-name .com-img {
 	width: 100px;
 	/* border: blue 2px solid; */
@@ -95,12 +66,30 @@
 	padding: 10px;
 }
 
+
+
+/* ------ 찜하기 버튼 ------ */
 .review-name .com-btn {
-	left: 600px;
-	width: 100px;
+	width: 200px;
 	/* border: blue 2px solid; */
-	padding: 10px;
+	padding: 20px;
 }
+.com-btn .com-zzim-btn{
+	cursor: pointer;
+	background: yellow;
+	width: 80px;
+	height: 50px;
+}
+.com-btn .com-zzim-btn input[type="submit"]{
+	border: none;
+	cursor: pointer;
+	background: yellow;
+	width: 80px;
+	height: 50px;
+}
+
+
+
 
 .row #comStar1 {
 	left: 0;
@@ -116,22 +105,47 @@
 	display: -webkit-flex;
 	flex-direction: column;
 	height: 500px;
+	border: 3px yellow solid;
 }
-
-.review-box {
-	/* border: orange 2px solid; */
-	width: 100%;
-	height: 100px;
-	padding: 10px;
-}
-
+/*기업 이름*/
 .review-name {
+	border: blue 2px solid;
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: row;
 	width: 100%;
 	height: 100%;
+	padding: 10px;
 }
+.com-skill .review-name-text p{
+	color: #65737e;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 6px 0 6px 6px;	
+}
+.com-skill .review-name-text span{
+	font-size: 22px;
+}
+/*기업 이름*/
+.review-box-title {
+	border: orange 2px solid;
+	width: 100%;
+	height: 180px;
+}
+
+/*기업 소개*/
+.review-box-intro {
+	border: orange 2px solid;
+	width: 100%;
+	height: 300px;
+	padding: 30px;
+}
+
+/*기업 정보*/
+.review-box-info{
+	
+}
+
 
 .com-info {
 	display: flex;

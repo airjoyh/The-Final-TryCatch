@@ -190,10 +190,16 @@ body:lang(en) {
 }
 
 .column-title{
-	color: #2b303b;
+	/* color: #2b303b;
 	font-size: 14px;
 	font-weight: 600;
 	padding: 12px 0 12px 0;
+	*//*---- 0326오전 바꾼부분 ----*/
+	color: #b8babc;
+    font-size: 28px;
+    font-weight: 600;
+    padding: 16px 0 16px 6px;
+    /*----------------------*/
 }
 .column-contents{
 	position:relative;
