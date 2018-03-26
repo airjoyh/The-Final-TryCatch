@@ -20,7 +20,7 @@ public class DataSourceTest {
 	@Test
 	public void testConnection() throws Exception{
 		Connection conn = ds.getConnection();
-		System.out.println("DB연결(DBCP) 성공~^^");
+		System.out.println("DB연결(DBCP) 성공~^^ >>> "+conn);
 	}
 	
 }

@@ -263,8 +263,8 @@
 			<div class="modal-pannel">
 				<div class="modal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
 				<div class="modal-body">
-					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id} " class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${contest_qna.qna_writer} " class="form-control" style="width: 90%; height: 15px;"></p>
+					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id}" class="form-control" style="width: 90%; height: 15px;"></p>
+					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${contest_qna.qna_writer}" class="form-control" style="width: 90%; height: 15px;"></p>
 					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;" id="note_contents"></textarea>
 				</div>
 					
