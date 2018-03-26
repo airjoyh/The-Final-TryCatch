@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<mvc:resources location="/favicon.ico" mapping="/favicon.ico"></mvc:resources>
+	<!-- <mvc:resources location="/favicon.ico" mapping="/favicon.ico"></mvc:resources> -->
 	
 	<!-- 메일 보내기 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -29,6 +29,7 @@
 				<prop key="mail.smtp.auth">true</prop>
 				<prop key="mail.smtp.starttls.enable">true</prop>
 				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop><!-- 지원이 같은 경우 안되기 때문에 gmail사용 코드 하나 넣어주었다. -->
 			</props>
 		</property>
 	</bean>
