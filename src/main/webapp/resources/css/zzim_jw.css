@@ -1,0 +1,51 @@
+/*  
+ *zzim_jw.css
+ *2018/03/26
+ *writer_jiwon
+*/
+
+.column-zzimtitle{
+	color: #b8babc;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 9px 0 9px 0;
+}
+
+.zzim-content-box{ /*찜리스트 들어갈 박스*/
+	position: absolute;
+	width: auto;
+	height: auto;
+}
+
+.zzim-page-box{ /*찜리스트 하단 페이징 박스*/
+	position: absolute;
+	width: 100%;
+	background-color: ;
+	bottom: 0;
+	padding: 10px;
+	text-align: center;
+}
+
+.zzim-table td{
+	position: relative;
+	padding: 7px 7px 7px 14px;
+	width: 300px;
+	background-color: rgba(247, 249, 255, 0.2);
+	text-shadow: 1px 1px 0px #fff;
+	border-bottom : 1px solid thin;
+}
+
+.zzim-table td:hover{
+	background-color: rgba(247, 249, 255, 0.7);
+}
+
+.zzim-table td a{
+	text-decoration:none;
+	color: #2b303b;
+}
+
+.zzim-table td a:hover {
+	text-decoration: underline;
+	font-weight: 400;
+	color: #a1b4ea;
+}
