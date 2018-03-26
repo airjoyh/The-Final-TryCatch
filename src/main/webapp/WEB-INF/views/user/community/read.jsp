@@ -21,58 +21,62 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
-				<div class='title-wrapper'>
-					<div class='column-title'>커뮤니티 글상세보기</div>
-				</div>
-				<form role="form" action="modifyPage" method="post">
-				<div class='wrapper'>
-				   <input type='hidden' id="community_no" name='community_no' value="${community.community_no}">
-                   <input type='hidden' name='page' value="${cri.page}">
-                   <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-                   <input type='hidden' name='searchType' value="${cri.searchType}">
-                   <input type='hidden' name='keyword' value="${cri.keyword}">
-				
-				
-					<div class='community-title'>
-						<!-- <div class="community-title-box">
-							<div class="ct-box">
-								<label class="ct-box-label">글번호</label> 
-								<p class="form-control" id="title" name="title" type="text" style="width: 15%" placeholder="글번호 자동입력." readonly="readonly">
-						    </div>
-						    <div class="ct-box">
-							    <label class="ct-box-label">작성일</label> 
-							    <p class="form-control" id="writer" name="writer" style="width: 15%" placeholder="yy-mm-dd hh-MM-ss">
-						    </div>
-						</div> -->
+			<div class="section_read">
+					<div class='title-wrapper'>
+						<div class='column-title'>커뮤니티 글상세보기</div>
+					</div>
+					<form id="readForm" name="readForm" method="post">
+					<div class='wrapper'>
+					   <input type='hidden' id="community_no" name='community_no' value="${community.community_no}">
+	                   <input type="hidden" id="community_writer" name="community_writer" value="${community.community_writer }">
+	                   <input type='hidden' name='page' value="${cri.page}">
+	                   <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+	                   <input type='hidden' name='searchType' value="${cri.searchType}">
+	                   <input type='hidden' name='keyword' value="${cri.keyword}">
+					
+					
+						<div class='community-title'>
+							<!-- <div class="community-title-box">
+								<div class="ct-box">
+									<label class="ct-box-label">글번호</label> 
+									<p class="form-control" id="title" name="title" type="text" style="width: 15%" placeholder="글번호 자동입력." readonly="readonly">
+							    </div>
+							    <div class="ct-box">
+								    <label class="ct-box-label">작성일</label> 
+								    <p class="form-control" id="writer" name="writer" style="width: 15%" placeholder="yy-mm-dd hh-MM-ss">
+							    </div>
+							</div> -->
+							
+							<div class="community-title-box">
+							   <div class="form-group">	
+									<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
+									<p class="qna-title" id="community_title" name="community_title" type="text" style="width: 15%" readonly="readonly">${community.community_title}</p> <!-- placeholder="제목을 입력하세요." -->
+					           </div>
+					           
+					           <div class="form-group">    
+						            <label class="ct-box-label">작성자</label> 
+						            <p class="qna-writer" id="community_writer" name="community_writer" style="width: 15%" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
+					           </div>  
+					        </div>
+						</div>
 						
-						<div class="community-title-box">
+						<div class='community-content'>
 						   <div class="form-group">	
-								<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
-								<p class="qna-title" id="community_title" name="community_title" type="text" style="width: 15%" readonly="readonly">${community.community_title}</p> <!-- placeholder="제목을 입력하세요." -->
-				           </div>
-				           
-				           <div class="form-group">    
-					            <label class="ct-box-label">작성자</label> 
-					            <p class="qna-writer" id="community_writer" name="community_writer" style="width: 15%" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
-				           </div>  
-				        </div>
-					</div>
-					
-					<div class='community-content'>
-					   <div class="form-group">	
-						<label class="content-label" for="good">글 내용</label><br>
-				        <p name="community_contents" class="form-p" id="good">${community.community_contents}</p>
-					   </div>
-					</div>
-					<div class='com-inline-btn'>
-						<input type="button" class='inline-btn' id="goListBtn" name="goListBtn" value='목록보기'>
-
-					</div>
-					
-					</div>
-					</form>
-			</div><!-- section_main1 -->
+							<label class="content-label" for="good">글 내용</label><br>
+					        <p name="community_contents" class="form-p" id="good">${community.community_contents}</p>
+						   </div>
+						</div>
+						<div class='community-button'>
+							<input type="button" class='inline-btn' id="goListBtn" name="goListBtn" value='목록보기'>
+	                      	<div class="row">
+							  <span id="upDel" class="mybutton"></span>
+					        </div>
+						</div>
+						
+						</div>
+						</form>
+				<!-- section_main1 -->
+			</div>
 			<div class='section_reply'>
 				<div class="row" align="center">
 					<div class="reply-box">
@@ -102,11 +106,10 @@
 							</c:if>
 						</div>
 
-						<!-- The time line -->
+								<!-- The time line -->
 						<ul class="timeline">
 							<!-- timeline time label -->
-							<li class="time-label" id="community_repliesDiv"><span
-								class="bg-green">댓글</span></li>
+							<li class="time-label" id="community_repliesDiv"></li>
 						</ul>
 
 						<div class='text-center'>
@@ -114,18 +117,6 @@
 
 							</ul>
 						</div>
-
-						<!--  The time line 
-							<ul class="timeline" style="display: inline-flex; flex-direction: column;">
-								timeline time label
-								 <li class="time-label" id="community_repliesDiv"></li> 
-							</ul>
-						
-							<div class='text-center' style="align-content: center;">
-								<ul id="pagination" style="display: flex; flex-direction: row;" class="pagination pagination-sm">
-				
-								</ul>
-							</div> -->
 
 					</div>
 					<!-- /.col -->
@@ -195,8 +186,7 @@
   <div class="timeline-body">{{reply_contents}}</div>
     <div class="timeline-footer">
 	{{#eqReply_writer reply_writer }}
-     <a class="btn btn-primary btn-xs" 
-	    data-toggle="modal" data-target="#modifyModal">Modify</a>
+     <span><a href="#modifyModal">Modify</a></span>
 	{{/eqReply_writer}}
     </div>
   </div>			
@@ -312,6 +302,52 @@
 		}});
 });
  
+ $("#replyModBtn").on("click",function(){
+	  
+	  var reply_no = $(".modal-title").html();
+	  var reply_writer = $('#reply_writer').val();
+	  var reply_contents = $("#reply_contents").val();
+	  
+	  $.ajax({
+			type:'put',
+			url:'${initParam.rootPath}/community/reply/'+reply_no,
+			headers: { 
+			      "Content-Type": "application/json",
+			      "X-HTTP-Method-Override": "PUT" },
+			data:JSON.stringify({reply_writer:reply_writer,reply_contents:reply_contents}), 
+			dataType:'text', 
+			success:function(result){
+				console.log("result: " + result);
+				if(result == 'success'){
+					alert("수정 되었습니다.");
+					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+					$("#modifyModal").fadeOut();
+				}
+		}});
+});
+
+$("#replyDelBtn").on("click",function(){
+	  
+	  var reply_no = $(".modal-title").html();
+	  var reply_contents = $("#reply_contents").val();
+	  
+	  $.ajax({
+			type:'delete',
+			url:'${initParam.rootPath}/community/reply/'+reply_no,
+			headers: { 
+			      "Content-Type": "application/json",
+			      "X-HTTP-Method-Override": "DELETE" },
+			dataType:'text', 
+			success:function(result){
+				console.log("result: " + result);
+				if(result == 'success'){
+					alert("삭제 되었습니다.");
+					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
+					$("#modifyModal").fadeOut();
+				}
+		}});
+});
+ 
  $(".timeline").on("click", ".replyLi", function(event){
 	    console.log("ddd");
 		
@@ -329,16 +365,55 @@
 $(document).ready(function(){
 	var formObj = $("form[role='form']");
 	
+	writerCheck();
+	
 	var community_no = $('#community_no').val();
 	getPage("${initParam.rootPath}/community/reply/"+community_no+"/1");
 	console.log(formObj);
+
 	
-	$("#goListBtn").on("click",function(){
-		formObj.attr("method","get");
-		formObj.attr("action","${initParam.rootPath}/user/community/list");
-		formObj.submit();
-	});
+	$('#goListBtn').on("click", function() {
+  		console.log('목록보기 버튼 클릭');
+  		self.location="${initParam.rootPath }/user/community/list";
+  	});
 });	
+
+//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
+	function writerCheck(){
+	console.log('writerCheck()')
+		var login_id='${user_login_id}';
+		//alert(login_id)
+		var community_writer = document.readForm.community_writer.value;
+	
+		var community_no = document.readForm.community_no.value;
+		
+		
+		 if(login_id==community_writer){//일치하면 수정 삭제 버튼 나오게.
+			console.log('일치하는 아이디');
+			var upDel = document.getElementById('upDel');
+		upDel.innerHTML = '<button type=button  class="inline-btn" id="update" onclick="modifyReview()">수정</button>'+
+					      '<button type=button class="inline-btn" id="delete" onclick="removeReview()">삭제</button>';
+		}else{
+			console.log('일치하지않는 아이디');
+		} 
+}
+	
+	//게시글 수정 버튼 클릭
+	function modifyReview(){
+		self.location="${initParam.rootPath }/user/community/modify?page=${cri.page }"
+			+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+			+"&keyword=${cri.keyword }}&community_no=${community.community_no }";
+	}
+	
+	//게시글 삭제 버튼 클릭
+	function removeReview(){
+		
+		if(confirm('정말로 삭제하시겠습니까?')){
+			self.location="${initParam.rootPath }/user/community/remove?page=${cri.page }"
+			+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+			+"&keyword=${cri.keyword }&community_no=${community.community_no }";
+		}
+	}
 </script>
 </body>
 

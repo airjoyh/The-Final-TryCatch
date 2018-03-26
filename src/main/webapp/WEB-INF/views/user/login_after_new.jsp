@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/zzim_jw.css" rel="stylesheet" type="text/css">
 	
@@ -42,13 +42,13 @@
 			<table class="zzim-table">
 				<tbody>
 			<!-- 찜한기업리스트  forEach-->
-			<%-- <c:forEach varStatus="stat" items="${zzimList }" var="zzim">
-			<tr>
-				<td>${zzim.company_name}</td>
-			</tr>
-			</c:forEach> --%>
-					
-					<tr>
+						<c:forEach items="${zzimList }" var="zzim" varStatus="stat">
+							<tr>
+								<td style="width: 25%;"><a
+									href="${initParam.rootPath }/user/review/list?company_id=${zzim.ZZIM_SELECTED }">${zzim.COMPANY_NAME }</a></td>
+							</tr>
+						</c:forEach>
+						<!-- <tr>
 						<td><a href="#가라컴퍼니">가라컴퍼니</a></td>
 					</tr>
 					<tr>
@@ -56,7 +56,7 @@
 					</tr>
 					<tr> 
 						<td><a href="#가라컴퍼니">지원프로덕션</a></td>
-					</tr>
+					</tr> -->
 					<!-- <tr>
 						<td><a href="#가라컴퍼니">할리스커피</a></td>
 					</tr>
@@ -65,11 +65,30 @@
 					</tr> -->
 					 
 				</tbody>
-			</table>
+			</table>	
 		</div>
-		
-			<div class="zzim-page-box">페이징</div>
-			
+			<!-- <div class="zzim-page-box">페이징</div> -->
+			<div align="center">
+				<ul class="zzim-page-box">
+					<c:if test="${pageMaker.prev}">
+						<li><a
+							href="zzimlist${pageMaker.makeSearch(pageMaker.startPage - 1) }&zzim_select=${param.zzim_select }">&laquo;</a></li>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage }"
+						end="${pageMaker.endPage }" var="idx">
+						<li
+							<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+							<a
+							href="zzimlist${pageMaker.makeSearch(idx)}&zzim_select=${param.zzim_select }">${idx}</a>
+						</li>
+					</c:forEach>
+
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li><a
+							href="zzimlist${pageMaker.makeSearch(pageMaker.endPage +1) }&zzim_select=${param.zzim_select }">&raquo;</a></li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
 		
 	</div>

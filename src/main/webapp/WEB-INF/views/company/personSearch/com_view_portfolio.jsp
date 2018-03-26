@@ -33,9 +33,30 @@
 					</div>
 					<div class='pf-info'>
 						<div class='pf-title'>
-							${port.user_id }
+							<a id="noteA" href="#tcmail">${port.user_id }</a>
 						</div>
-						<div class='com-zzim-btn'>찜하기</div> 
+							<%-- <div class="com-btn">
+												<form method="post">
+													<input type="hidden" id="zzim_select" name="zzim_select"
+														value="${company_login_member_id}"> <input type="hidden"
+														name="zzim_selected" id="zzim_selected"
+														value="${port.port_id}">
+													<button id="zzimBtn" type="submit" class="com-zzim-btn">찜하기</button>
+													<button id="zzimOutBtn" type="button" class="com-zzim-btn">찜하기 취소</button>
+													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
+												</form>
+							</div> --%>
+							<div class="com-btn">
+												<form action="${initParam.rootPath }/com/port/list" method="post" >
+													<input type="hidden" id="zzim_select" name="zzim_select"
+														value="${company_login_member_id }"> 
+													<input type="hidden" name="zzim_selected" id="zzim_selected"
+														value="${port.port_id}">
+													<button style="float: right;" id="zzimBtn" type="button">찜하기</button>
+													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
+													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
+												</form>
+											</div>
 					</div>
 					<div class='pf-navbar'>
 						<ul>
@@ -89,16 +110,110 @@
      </div>
 			
 	</div><!-- container -->
-
+	
+	<!-- mail 모달	 -->
+		<div class="modal" id="tcmail">
+			<div class="modal-pannel">
+				<div class="modal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
+				<div class="modal-body">
+					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id}" class="form-control" style="width: 90%; height: 15px;"></p>
+					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${port.user_id}" class="form-control" style="width: 90%; height: 15px;"></p>
+					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;" id="note_contents"></textarea>
+				</div>
+					
+				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+					<input type="button" name="noteConfirm" id="noteModBtn" value="전송">
+					<!-- <input type="button" name="replyDelete" id="replyDelBtn" value="취소"> -->
+					</div>
+			</div>
+		</div><!-- 쪽지모달 -->
+		
 <script type="text/javascript">
-	$(function(){
-        $('a').click(function (e) {  
+  $(document).ready(function() {
+	  if(loginState != 'login'){// 로그인을 하지 않았다면
+		  $('#noteA').attr("href", "#"); //쪽지 못보내게 하기
+		  $('#zzimBtn').hide();
+		  
+	  }else {
+		  $('#zzimBtn').show();
+		  $('#noteA').attr("href", "#tcmail"); //쪽지 보내게 하기
+	  }
+	  
+	  
+	  $('.pf-info').on("click", "#noteA", function(){
+		  console.log('쪽지 보내기 버튼 클릭');
+		  if(loginState != 'login'){
+			  alert('쪽지는 로그인한 후에 보낼 수 있습니다.');
+		  }
+	  });
+	  
+	  //찜한 행 존재 유무  
+ 	  $.ajax({
+		   url: '${initParam.rootPath}/com/port/zziminout',
+		   type:'post',
+		   data: {
+			    zzim_selected:'${port.port_id}',
+			    zzim_select:'${company_login_member_id }'
+		   },
+		   success: function (result) {
+			   console.log(result);
+	        		if(result=="exist"){
+	        			 $('#zzimBtn').hide();
+	        		}else{
+	        			 $('#zzimOutBtn').hide();
+	        		}
+		     }//function
+
+	  }); //ajax
+		
+        $('a').on("click", ".portfolio-link", function (e) {  
             e.preventDefault();  
             var url = "www.naver.com";  
             location.href=url;  
-        }); 
+        }); //a
 
-	});
+       $('#zzimListBtn').on("click", function() {//찜리스트 보이기
+			
+			self.location="${initParam.rootPath}/com/port/zzimlist?zzim_select=${company_login_member_id}";
+		
+		});   //zzimlist
+		
+		
+	 	 $('#zzimOutBtn').on("click", function () {//찜하기 취소버튼 클릭시
+	 		 console.log('찜하기취소버튼');
+	 		var form=$(this).parent(); 
+	 		 form.attr('action','${initParam.rootPath}/com/port/remove');
+			  //<form action="remove">
+			  form.submit();	 		 
+		});//zzimout
+
+	
+	 		$("#noteModBtn").on("click", function() {
+	 		    var note_contents = $("#note_contents");
+	 		    var note_sender= '${company_login_member_id}';
+	 		    var note_receiver= '${port.user_id }';
+	 		    
+	 		    //console.log(note_receiver);
+	 		    
+	 			  $.ajax({
+	 					type:'post',
+	 					url:'${initParam.rootPath}/user/note/register',
+	 					data:{"note_contents":note_contents.val(),"note_sender":note_sender, "note_receiver":note_receiver},
+	 					success:function(result){
+	 						console.log("result: " + result);
+	 						if(result == 'success'){
+	 							alert("등록 되었습니다.");
+	 							//$("#tcmail").modal('hide');
+	 							//$("#tcmail").fadeOut();
+	 						}
+	 				}//success 
+	 					
+	 			  });//ajax
+	 		});//쪽지 보내기 버튼 클릭
+	});//document	  
+
+
+	
 /* 
 	  var skills= '${port.port_skill}';
 	  var array = skills.split('-');

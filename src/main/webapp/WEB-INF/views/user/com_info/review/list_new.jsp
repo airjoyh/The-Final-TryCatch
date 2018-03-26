@@ -77,8 +77,7 @@
 														name="zzim_selected" id="zzim_selected"
 														value="${company_info.company_id}">
 													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
-													<button style="float: right;" id="zzimOutBtn" type="button">찜하기
-														취소</button>
+													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
 													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
 												</form>
 											</div>
