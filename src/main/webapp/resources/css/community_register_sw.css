@@ -2,18 +2,21 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
-
-.wrapper{
-	display:block;
-	padding: 15px;
-}
-.com-contest-head {
+ .section_communityregister {
     position: relative;
+    width: 740px;
     height: 500px;
     border: 1px solid #dee3eb;
     background: #fff;
-    
-    margin-bottom: 8px;
+} 
+
+
+.community_wrapper{
+	margin-top:10px;
+	display:block;
+	padding: 0;
+	height: 425px;
+	position: relative;
 }
 
 .register-contest:hover{
@@ -26,30 +29,28 @@
 	margin: 0;
     padding:0;
 	display: inline-block;
-	position: absolute;
+	position: relative;
 	
 }
 
 .com-qna-content{
-	top:100px;
-	height:400px;
-	width:700px;
+	height:auto;
+	width:720px;
 	margin: 0;
-    padding:0;
+    padding:10px;
 	display: inline-block;
-	position: absolute;
+	position: relative;
 	
 }
 
 
 .com-inline-btn {
-	height: 35px;
-	right: 250px;
-    bottom: 10px;
+	height: auto;
+	width:720px;
 	margin: 0;
-    padding: 0;
+    padding: 10px;
     display: inline-block;
-    position: absolute;
+    position: relative;
 }
 
 .register-qna {
@@ -70,26 +71,3 @@
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-/*****************************************************************
-							Label
-******************************************************************/
-
-.com-qna-content label{
-  width: 100%;
-   float: left;
-   line-height: 15px;
-   font-size: 15px;
-   font-weight: 700;
-   letter-spacing: 2px;
-   color: #55acee;
-   position: relative;
-} 
-.com-qna-content label:before {
-  content: "";
-   width: 5px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   left: -10px;
-   background: #55acee;
-} 

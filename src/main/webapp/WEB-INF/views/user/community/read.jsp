@@ -21,32 +21,20 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class="section_read">
+			<div class="section_communityread">
 					<div class='title-wrapper'>
 						<div class='column-title'>커뮤니티 글상세보기</div>
 					</div>
 					<form id="readForm" name="readForm" method="post">
-					<div class='wrapper'>
+					<div class='community_readwrapper'>
 					   <input type='hidden' id="community_no" name='community_no' value="${community.community_no}">
 	                   <input type="hidden" id="community_writer" name="community_writer" value="${community.community_writer }">
 	                   <input type='hidden' name='page' value="${cri.page}">
 	                   <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 	                   <input type='hidden' name='searchType' value="${cri.searchType}">
 	                   <input type='hidden' name='keyword' value="${cri.keyword}">
-					
-					
-						<div class='community-title'>
-							<!-- <div class="community-title-box">
-								<div class="ct-box">
-									<label class="ct-box-label">글번호</label> 
-									<p class="form-control" id="title" name="title" type="text" style="width: 15%" placeholder="글번호 자동입력." readonly="readonly">
-							    </div>
-							    <div class="ct-box">
-								    <label class="ct-box-label">작성일</label> 
-								    <p class="form-control" id="writer" name="writer" style="width: 15%" placeholder="yy-mm-dd hh-MM-ss">
-							    </div>
-							</div> -->
-							
+										
+						<div class='community-title'>					
 							<div class="community-title-box">
 							   <div class="form-group">	
 									<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
@@ -66,7 +54,7 @@
 					        <p name="community_contents" class="form-p" id="good">${community.community_contents}</p>
 						   </div>
 						</div>
-						<div class='community-button'>
+						<div class='community-button' align="center">
 							<input type="button" class='inline-btn' id="goListBtn" name="goListBtn" value='목록보기'>
 	                      	<div class="row">
 							  <span id="upDel" class="mybutton"></span>
@@ -75,41 +63,43 @@
 						
 						</div>
 						</form>
-				<!-- section_main1 -->
+				<!-- section_communityread -->
 			</div>
-			<div class='section_reply'>
-				<div class="row" align="center">
-					<div class="reply-box">
-			
-						<div class="box box-success">
+			<div class='section_communityreply'>
+				<div class="row">
+					<div class="reply-container">
+						<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">REPLY</h3>
+								<h3>REPLY</h3>
 							</div>
 							<c:if test="${not empty user_login_id }">
-							<div class="box-body">
-							    	<label for="exampleInputEmail1">작성자</label> 
-								    <input class="form-control" type="text" id="newReplyWriter" value="${user_login_id}" readonly><br> 
-									<label for="exampleInputEmail1">댓글</label> 
-									<input class="form-control" type="text" id="newReply_contents">
-			                </div>
-							<!-- /.box-body -->
-							<div class="box-footer">
-								<button type="button" class='inline-btn' id="replyAddBtn">댓글 등록</button>
-								<!-- timeline time label -->
-							</div>
+								<div class="reply-content">
+									<div class="reply-writecontent">
+										<textarea name="reply-content" id="newReplyText"
+											class="content" placeholder="댓글을 입력하세요"
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
+									</div>
+									<div class="reply-writecontent">
+										<label>작성자</label> 
+										<input class="reply-writer" type="text" id="newReplyWriter"> 
+										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
+									</div>
+								</div>
+
 							</c:if>
-							
+
 							<c:if test="${empty user_login_id }">
 								<div class="box-body">
-									<div><a id="goLogin">Login Please</a></div>
+									<div>
+										<a id="goLogin">Login Please</a>
+									</div>
 								</div>
 							</c:if>
 						</div>
-
-								<!-- The time line -->
+						<!-- The time line -->
 						<ul class="timeline">
 							<!-- timeline time label -->
-							<li class="time-label" id="community_repliesDiv"></li>
+							<li class="time-label" id="repliesDiv"></li>
 						</ul>
 
 						<div class='text-center'>
@@ -118,10 +108,9 @@
 							</ul>
 						</div>
 
-					</div>
-					<!-- /.col -->
-				</div>
-				<!-- /.row -->
+					</div> 
+					
+				</div><!-- /row -->
 
 				<!--  댓글 수정 Modal --> 
 				<div id="modifyModal" name="modifyModal" class="modal modal-primary fade" role="dialog">
@@ -152,7 +141,7 @@
 						</div>
 					</div>
 				</div>
-			</div><!-- section_qnareply -->
+			</div><!-- section_communityreply -->
 		</div><!-- column-left -->
 				
 
@@ -174,25 +163,29 @@
 	</div>
 
 	<!-- frame -->
-<script id="template" type="text/x-handlebars-template">
+ 	<script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
-  </span>
-  <h3 class="timeline-header"><strong>{{reply_no}}</strong> -{{reply_writer}}</h3>
-  <div class="timeline-body">{{reply_contents}}</div>
-    <div class="timeline-footer">
-	{{#eqReply_writer reply_writer }}
-     <span><a href="#modifyModal">Modify</a></span>
-	{{/eqReply_writer}}
-    </div>
-  </div>			
+<div class="time_comment_box" style="width: 700px;border-top: 1px solid gray;">
+		<div class="time_area">
+			<div class="time_info">
+				<h4>{{reply_no}}-{{reply_writer}} </h4>
+			</div>
+			<div class="timeline-body">{{reply_contents}}</div>
+			<div class="time_tool">
+				<i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
+			</div>
+		</div>
+</div>
+<div class="timeline-footer" >
+		{{#eqReply_writer reply_writer}}
+		<a class="btn btn-primary btn-xs" 
+		 data-toggle="modal" href="#modifyModal">Modify</a>
+		{{/eqReply_writer}}
+</div>			
 </li>
 {{/each}}
-</script>
+</script> 
 
 <script type="text/javascript">
  Handlebars.registerHelper("prettifyDate", function(timeValue) {

@@ -23,24 +23,14 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
+			<div class='section_communityregister'>
 				<div class='title-wrapper'>
 					<div class='column-title'>커뮤니티 글작성</div>
 				</div>
-				<div class='wrapper'>
+				<div class='community_wrapper'>
 				<form method="post">
 				   <div class="form-group">
 					<div class='com-qna-title'>
-							<!-- <div class="row" hidden="" >
-						        <div class="input-group">
-						            <span class="input-group-addon">글번호</span> <input
-						            	  class="form-control" id="community_title" name="community_title" type="text"
-						                  style="width: 35%" placeholder="글번호 자동입력." readonly="readonly">
-						            <span class="input-group-addon" style="padding-left: 3em;">작성일</span> <input
-						                  class="form-control" id="community_writer" name="community_writer"
-						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
-						        </div>
-						    </div> -->
 							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
 				                  class="qna-title" id="community_title" name="community_title" type="text"
 				                  style="width: 35%" placeholder="제목을 입력하세요.">
@@ -50,23 +40,21 @@
 					</div>
 				   </div>
 					
-				   <div class="form-group"> 
+
 					<div class='com-qna-content'>
 						<label for="community_contents">글 내용</label><br>
 				        <textarea name="community_contents" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
 					</div>
-				   </div>
-				   
-				   <div class="form-group">
-					<div class='com-inline-btn'>
+			   
+					<div class='com-inline-btn' align="center">
 						<input type="submit" class='register-qna' id="registBtn" value='글등록'>
 						<input type="button" class='register-qna' id="cancelBtn" value='취소'>
 					</div>
-				   </div>	
+
 				</form>
 				</div>
 				
-			</div><!-- section_main1 -->
+			</div><!-- section_communityregister -->
 			
 		</div><!-- column-left -->
 		

@@ -1,46 +1,35 @@
 
 /*****************************************************************
-							  swlee
+							  section
 ******************************************************************/
-.section_reply {
+ .section_communityread {
     position: relative;
-    height: 300px;
-    border: 1px solid #dee3eb;
-    background: #fff;
-}
-
-.com-contest-head {
-    position: relative;
+    width: 740px;
     height: 500px;
     border: 1px solid #dee3eb;
     background: #fff;
-    
-    margin-bottom: 8px;
-}
+} 
+ .section_communityreply {
+    position: relative;
+    width: 740px;
+    height: auto;
+    border: 1px solid #dee3eb;
+    background: #fff;
+} 
 
-/* ¹öÆ°css */
-.inline-btn {
-	height:30px;
-	width:100px;
-	font-size:15px;
-    margin: 0;
-    padding:0;
-    border:none;
-    outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
 
 /*****************************************************************
 							  title
 ******************************************************************/
+
+.community_readwrapper{
+	margin-top:10px;
+	display:block;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 425px;
+	position: relative;
+}
 
 .community-title{
 	height:45px;
@@ -48,7 +37,7 @@
 	margin: 0;
     padding:0;
 	display: inline-block;
-	position: absolute;
+	position: relative;
 	
 }
 
@@ -64,32 +53,22 @@
 	display: flex;
 }
 
-
 .community-content{
 	padding: 10px;
-	margin-top: 100px;
-	height:300px;
+	height:auto;
 	width:700px;
 	display: inline-block;
+	position: relative;
 	
 }
 
-.com-qna-content {
+.community-button{
 	padding: 10px;
-}
-
-.star-line {
-	height: 100%;
-}
-
-.com-inline-btn {
-	height: 30px;
-	right: 300px;
-    bottom: 60px;
-	margin: 0;
-    padding: 0;
-    display: inline-block;
-    position: absolute;
+	height:auto;
+	width:700px;
+	display: inline-block;
+	position: relative;
+	
 }
 
 .form-p {
@@ -101,69 +80,39 @@
 .qna-title{
 	width: 230px;
 }
+
 /*****************************************************************
-							Label
+							  Reply
 ******************************************************************/
+.reply-container .box{
+	display: block;
+	height: auto;
+}
 
-.community-title-box label{
-  width: 70px;
-   float: left;
-   line-height: 15px;
-   font-size: 15px;
-   font-weight: 700;
-   letter-spacing: 2px;
-   color: #55acee;
-   position: relative;
-} 
+.reply-container .box .reply-content{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	border: solid 1px #d7dada;
+	margin-bottom: 5px;
+}
 
-.community-title-box label:before {
-  content: "";
-   width: 5px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   left: -10px;
-   background: #55acee;
-} 
-
-.com-qna-content label{
-  width: 100%;
-   float: left;
-   line-height: 15px;
-   font-size: 15px;
-   font-weight: 700;
-   letter-spacing: 2px;
-   color: #55acee;
-   position: relative;
-} 
-
-.com-qna-content label:before {
-  content: "";
-   width: 5px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   left: -10px;
-   background: #55acee;
-} 
-
-.community-content label{
-  width: 100%;
-   float: left;
-   line-height: 15px;
-   font-size: 15px;
-   font-weight: 700;
-   letter-spacing: 2px;
-   color: #55acee;
-   position: relative;
-} 
-
-.community-content label:before {
-  content: "";
-   width: 5px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   left: -10px;
-   background: #55acee;
-} 
+.reply-container .box .reply-content .reply-writecontent{
+    padding: 0;
+}
+.reply-content .reply-writer{
+	width: 250px;
+}
+.reply-content .reply-btn{
+	height: 20px;
+	width:100px;
+	background-color: #00ffff;
+	float: right;
+	border: none;
+}
+.reply_box_content_wrap{
+	display: inline-block;
+}
+.reply-container .box ul,li{
+	list-style: none;
+}
