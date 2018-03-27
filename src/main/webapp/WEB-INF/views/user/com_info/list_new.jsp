@@ -48,7 +48,6 @@
 									<th style="width: 50%">기업명</th>
 									<th style="width: 22%">기업규모</th>
 									<th style="width: 14%">매출액</th>
-									<th style="width: 7%">후기</th>
 								</tr>
 								<c:forEach items="${list }" var="avgScore" varStatus="stat">
 								<tr>
@@ -68,7 +67,6 @@
 									</td>
 									<td style="width: 22%">${avgScore.company_size }</td>
 									<td style="width: 14%">${avgScore.company_turnover }</td>
-									<td style="width: 7%"><span class="badge">${review_cnt.get(stat.index) }</span></td>
 								</tr>
 							</c:forEach>
 						</table>
