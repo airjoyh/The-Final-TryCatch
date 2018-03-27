@@ -35,7 +35,7 @@
 						<div class='pf-title'>
 							<a id="noteA" href="#tcmail">${port.user_id }</a>
 						</div>
-							<%-- <div class="com-btn">
+							<%--  <div class="com-btn">
 												<form method="post">
 													<input type="hidden" id="zzim_select" name="zzim_select"
 														value="${company_login_member_id}"> <input type="hidden"
@@ -45,14 +45,14 @@
 													<button id="zzimOutBtn" type="button" class="com-zzim-btn">찜하기 취소</button>
 													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
 												</form>
-							</div> --%>
+							</div>  --%>
 							<div class="com-btn">
 												<form action="${initParam.rootPath }/com/port/list" method="post" >
 													<input type="hidden" id="zzim_select" name="zzim_select"
 														value="${company_login_member_id }"> 
 													<input type="hidden" name="zzim_selected" id="zzim_selected"
 														value="${port.port_id}">
-													<button style="float: right;" id="zzimBtn" type="button">찜하기</button>
+													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
 													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
 													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
 												</form>
@@ -178,7 +178,6 @@
 		
 		});   //zzimlist
 		
-		
 	 	 $('#zzimOutBtn').on("click", function () {//찜하기 취소버튼 클릭시
 	 		 console.log('찜하기취소버튼');
 	 		var form=$(this).parent(); 
@@ -204,7 +203,7 @@
 	 						if(result == 'success'){
 	 							alert("등록 되었습니다.");
 	 							//$("#tcmail").modal('hide');
-	 							//$("#tcmail").fadeOut();
+	 							$("#tcmail").fadeOut();
 	 						}
 	 				}//success 
 	 					

@@ -31,7 +31,7 @@ public class ZzimController {
 		zzimService.insert(zzimVo);
 	    
 		   
-		return "redirect:/user/review/list?company_id="+company_id;
+		return "redirect:/user/review/list?company_id="+zzimVo.getZzim_selected();
 		
 		/*if(zzimService.insert(zzimVo)) {//찜하기
 		String zzim_select = zzimVo.getZzim_select();
@@ -72,7 +72,7 @@ public class ZzimController {
 		System.out.println("zzimController 삭제성공");
 		
 		//return "redirect:/ing/zzimlist?zzim_select="+zzim_select;
-			return "redirect:/user/review/list?company_id="+company_id;
+			return "redirect:/user/review/list?company_id="+zzimVo.getZzim_selected();
 	}
 
 	@RequestMapping("/zziminout")

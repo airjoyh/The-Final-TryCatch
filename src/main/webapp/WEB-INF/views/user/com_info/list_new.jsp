@@ -6,9 +6,6 @@
 <meta charset="utf-8">
 <title>그리드 테스트</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/blist_sw.css" rel="stylesheet" type="text/css">
-
 <style type="text/css">
 .simple-table{
 	position: relative;
@@ -51,7 +48,6 @@
 									<th style="width: 50%">기업명</th>
 									<th style="width: 22%">기업규모</th>
 									<th style="width: 14%">매출액</th>
-									<th style="width: 7%">후기</th>
 								</tr>
 								<c:forEach items="${list }" var="avgScore" varStatus="stat">
 								<tr>
@@ -71,7 +67,6 @@
 									</td>
 									<td style="width: 22%">${avgScore.company_size }</td>
 									<td style="width: 14%">${avgScore.company_turnover }</td>
-									<td style="width: 7%"><span class="badge">${review_cnt.get(stat.index) }</span></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -79,20 +74,20 @@
 							<ul class="pagination" style='height: 70px;width:600px;'>
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+										href="${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
 								</c:if>
 								<c:forEach begin="${pageMaker.startPage }"
 									end="${pageMaker.endPage }" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 										<a
-										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+										href="${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+										href="${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
 								</c:if>
 							</ul>
 						</div>

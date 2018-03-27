@@ -141,7 +141,13 @@
 								*                                                             *
 								************************************************************-->
 								<div class="review-content">
-									<div class="com-grade">
+									<div class="com-grade-page">
+									
+									<div class="com-grades">
+											평점을 알아봐요.
+									</div>
+									
+									<div class="com-grades">
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>종합만족도</label><br>	
@@ -153,7 +159,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="com-grade">
+									<div class="com-grades">
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>복지 및 급여</label><br>																					
@@ -165,7 +171,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="com-grade">
+									<div class="com-grades">
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>사내문화</label><br>																					
@@ -177,6 +183,7 @@
 											</div>
 										</div>
 									</div>
+								</div>
 								</div>
 								<!-- review-content -->
 							</section>

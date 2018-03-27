@@ -14,6 +14,8 @@
 <link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_contest.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/pagination.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/comRank_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/blist_sw.css" rel="stylesheet" type="text/css">
 
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />

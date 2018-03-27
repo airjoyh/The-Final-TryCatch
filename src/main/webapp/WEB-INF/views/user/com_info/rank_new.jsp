@@ -6,9 +6,6 @@
 <meta charset="utf-8">
 <title>기업순위</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/comRank_sw.css" rel="stylesheet" type="text/css">
-
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
