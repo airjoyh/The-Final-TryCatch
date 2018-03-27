@@ -66,7 +66,6 @@ $(function(){
 			</div>
 			<div class=com-search></div>
 			<ul>
-				<li id="com-intro">소개</li>
 				<li id='com-contest'>콘테스트 개최</li>
 				<li id='find-user'>인재검색</li>
 				<li id='com-faq' style="">FAQ</li>
