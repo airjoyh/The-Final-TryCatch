@@ -79,20 +79,20 @@
 							<ul class="pagination" style='height: 70px;width:600px;'>
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+										href="${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
 								</c:if>
 								<c:forEach begin="${pageMaker.startPage }"
 									end="${pageMaker.endPage }" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 										<a
-										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+										href="${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+										href="${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
 								</c:if>
 							</ul>
 						</div>
