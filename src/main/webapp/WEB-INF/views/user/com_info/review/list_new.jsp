@@ -54,7 +54,7 @@
 								*                           기업소개                                                               *
 								*                                                             *
 								************************************************************-->
-								<div class="review-content">
+								<div class="review-content-tab1">
 									<div class="review-box-title">
 										<div class="review-name">
 											<!-- <div class="com-img">
@@ -131,7 +131,7 @@
 											<p>없음 </p>
 									</div>
 								</div>
-								<!-- review-content -->
+								<!-- review-content-tab1 -->
 							</section>
 							<!-- section기업정보 -->
 							<section id="tab-item-2">
@@ -140,22 +140,28 @@
 								*                           후기                                                                     *
 								*                                                             *
 								************************************************************-->
-								<div class="review-content">
+								<div class="review-content-tab2">
 									<div class="com-grade-page">
 									
 									<div class="com-grades">
-											평점을 알아봐요.
+											평점을 알아봐요. 
 									</div>
 									
 									<div class="com-grades">
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>종합만족도</label><br>	
-												<progress id="progressBar" max="100" value="${total*20 }"></progress>								
+												<div class="com-grade-progress">
+													<progress class="com-grade-progressBar" id="progressBar" max="100" value="${total*20 }"></progress>		
+													<span><strong>${total }</strong>/5.0</span>
+												</div>					
 											</div>
 											<div class="com-grade-box">
 												<label>승진 및 기회가능성</label><br>	
-												<progress id="progressBar" max="100" value="${avgScore.avg_possibility*20 }"></progress>																
+												<div class="com-grade-progress">
+													<progress id="progressBar" max="100" value="${avgScore.avg_possibility*20 }"></progress>	
+													<span><strong>${avgScore.avg_possibility }</strong>/5.0</span>		
+												</div>
 											</div>
 										</div>
 									</div>
@@ -163,11 +169,17 @@
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>복지 및 급여</label><br>																					
-												<progress id="progressBar" max="100" value="${avgScore.avg_welSal*20 }"></progress>
+												<div class="com-grade-progress">
+													<progress id="progressBar" max="100" value="${avgScore.avg_welSal*20 }"></progress>
+													<span><strong>${avgScore.avg_welSal }</strong>/5.0</span>		
+												</div>
 											</div>
 											<div class="com-grade-box">
 												<label>업무와 삶의 균형</label><br>										
-												<progress id="progressBar" max="100" value="${avgScore.avg_balance*20 }"></progress>
+												<div class="com-grade-progress">
+													<progress id="progressBar" max="100" value="${avgScore.avg_balance*20 }"></progress>
+													<span><strong>${avgScore.avg_balance }</strong>/5.0</span>		
+												</div>
 											</div>
 										</div>
 									</div>
@@ -175,17 +187,23 @@
 										<div class="com-grade-boxs">
 											<div class="com-grade-box">
 												<label>사내문화</label><br>																					
-												<progress id="progressBar" max="100" value="${avgScore.avg_culture*20 }"></progress>
+												<div class="com-grade-progress">
+													<progress id="progressBar" max="100" value="${avgScore.avg_culture*20 }"></progress>
+													<span><strong>${avgScore.avg_culture }</strong>/5.0</span>		
+												</div>
 											</div>
 											<div class="com-grade-box">
-												<label>경영진</label><br>										
+												<label>경영진</label><br>	
+												<div class="com-grade-progress">									
 												<progress id="progressBar" max="100" value="${avgScore.avg_manager*20 }"></progress>
+												<span><strong>${avgScore.avg_manager }</strong>/5.0</span>		
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								</div>
-								<!-- review-content -->
+								<!-- review-content-tab2 -->
 							</section>
 							<!-- section 기업평점 -->
 			    			</div>

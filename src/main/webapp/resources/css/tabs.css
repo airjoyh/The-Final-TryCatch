@@ -122,11 +122,11 @@
 }
 
 #tab-1:checked ~ .line {
-	background: #ffa916;
+	background: #afdcff;
 	left: 0;
 }
 
 #tab-2:checked ~ .line {
-	background: #161dff;
+	background: #afdcff;
 	left: 50%;
 }

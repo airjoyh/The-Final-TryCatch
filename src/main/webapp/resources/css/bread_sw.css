@@ -120,7 +120,22 @@
 	flex-direction: column;
 	height: auto;
 }
-
+.review-content-tab1{
+	border: red solid 2px;
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	height: auto;
+}
+.review-content-tab2{
+	border: blue solid 2px;
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	height: auto;
+}
 
 
 
@@ -285,7 +300,7 @@
 	padding: 30px;
 }
 .com-grades{
-	border: yellow solid 2px;
+	border: #ffbad9 solid 2px;
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: column;
@@ -304,12 +319,65 @@
 	margin: 8px auto;
 }
 .com-grades .com-grade-boxs .com-grade-box label{
+	border: blue solid 2px;
 	font-size: 15px;
 	font-weight: 700;
 	color: #65737e;
 }
 
 
+/*****************************************************************
+						∆Ú¡°≈« - progress bar
+******************************************************************/
+.com-grade-progress progress {
+	display:inline-block;
+	width:200px;
+	height:25px;
+	background:none;
+	border: 0;
+	border-radius: 15px;
+	text-align: left;
+	position:relative;
+	font-size: 0.8em;
+}
+.com-grade-progress progress::-webkit-progress-bar {
+	height:20px;
+	width:200px;
+	margin:0 auto;
+	background-color: #eef0f0;
+	border-radius: 15px;
+}
+.com-grade-progress progress::-webkit-progress-value {
+	display:inline-block;
+	float:left;
+	height:20px;
+	margin:0px -10px 0 0;
+	background: #ffbad9;
+	border-radius: 15px;
+}
+
+.com-grade-progress progress:after {
+	margin:-20px 0 0 100px;
+	padding:0;
+	display:inline-block;
+	float:left;
+}
+
+.com-grade-box .com-grade-progress {
+	background: rgba(101, 115, 126, 0.2);
+	margin: 20px;
+}
+.com-grade-box .com-grade-progress span{
+	display:inline-block;
+	vertical-align:top;
+	float:right;
+	width:45px;
+	height:20px;
+	color: blue;
+	
+}
+
+/* ------------------------------------------------ */
 
 
 
@@ -361,29 +429,7 @@
 }
 
 
-/*****************************************************************
-							Label
-******************************************************************/
 
-/* .review-content label{
-  width: 100%;
-   float: left;
-   line-height: 15px;
-   font-size: 15px;
-   font-weight: 700;
-   letter-spacing: 2px;
-   color: #55acee;
-   position: relative;
-}  */
-/* .review-content label:before {
-  content: "";
-   width: 5px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   left: -20px;
-   background: #55acee;
-}  */
 
 /*****************************************************************
 							Button
@@ -529,45 +575,4 @@
 	font-weight: bold;
 	font-size: 30px;
 }
-/*****************************************************************
-						progress bar
-******************************************************************/
-progress {
-	display:inline-block;
-	width:190px;
-	height:25px;
-	/* padding:15px 0 0 0; */
-	margin: 10px 0 0 0;
-	background:none;
-	border: 0;
-	border-radius: 15px;
-	text-align: left;
-	position:relative;
-	/* font-family: Arial, Helvetica, sans-serif; */
-	font-size: 0.8em;
-}
-progress::-webkit-progress-bar {
-	height:25px;
-	width:200px;
-	margin:0 auto;
-	background-color: #66bb6a;
-	border-radius: 15px;
-	box-shadow:0px 0px 6px #777 inset;
-}
-progress::-webkit-progress-value {
-	display:inline-block;
-	float:left;
-	height:25px;
-	margin:0px -10px 0 0;
-	background: #ef5350;
-	border-radius: 15px;
-	box-shadow:0px 0px 6px #777 inset;
-}
 
-progress:after {
-	margin:-20px 0 0 100px;
-	padding:0;
-	display:inline-block;
-	float:left;
-	content: attr(value) '%';
-}
