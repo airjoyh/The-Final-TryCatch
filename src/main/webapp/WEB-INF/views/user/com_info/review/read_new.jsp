@@ -36,39 +36,46 @@
 						<input type='hidden' name='keyword' value="${cri.keyword}">
 					</form>
 					<div class='com-review-title-box'>
-						<div class="row1">
-							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-								value="${review.review_wdate}" />
-							<span class="title-writer">작성자<input class="writer"
-								id="writer" name="writer" style="border: none;"
-								value="${review.review_writer }" readonly="readonly">
-							</span>
-							<span class="title-name">조회<input
-								class="title-title" id="viewCount" name="viewCount" type="text"
-								style="border: none;"
-								value="${review.review_viewCount }" readonly="readonly">
-							</span> 
-						</div>
 						<div class="row2">
-							<span class="title-name"> <input
+							<div class="row2-top-title"><input
 								class="title-title" id="title" name="title" type="text"
 								style="border: none;"
 								value="${review.review_title }" readonly="readonly">
-							</span>
+							</div>
+						</div>
+						<div class="row1">
+							<div class="row1-top-date">
+							<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${review.review_wdate}" />
+							</div>
+							<div class="row1-top-data">작성자<input class="writer"  type="text"
+								id="writer" name="writer" style="border: none;"
+								value="${review.review_writer }" readonly="readonly">
+							</div>
+							<div class="row1-top-data">조회수<input
+								class="title-title" id="viewCount" name="viewCount" type="text"
+								style="border: none;"
+								value="${review.review_viewCount }" readonly="readonly">
+							</div> 
 						</div>
 					</div>
 					<div class="wrapper-com-review-content">
-					<div class='com-re-good'>
-						<label for="good">장점</label><br> <span
-							name="strong" class="form-ta" id="good">${review.review_strong }</span>
+					<div class='com-re-content-li'>
+						<label for="good">장점</label>
+						<div class="com-re-content-text">
+						<span name="strong" class="form-ta" id="good">${review.review_strong }</span>
+						</div>
 					</div>
-					<div class='com-review-bad'>
-						<label for="bad">단점</label><br> <span
-							name="weak" class="form-ta" id="bad">${review.review_weak }</span>
+					<div class='com-re-content-li'>
+						<label for="bad">단점</label>
+						<div class="com-re-content-text">
+						<span name="weak" class="form-ta" id="bad">${review.review_weak }</span>
+						</div>
 					</div>
-					<div class='com-review-ceo'>
-						<label for="want">경영진에게 바라는점</label><br> <span
-							name="toCEO" class="form-ta" id="want">${review.review_toCEO }</span>
+					<div class='com-re-content-li'>
+						<label for="want">경영진에게 바라는점</label>
+						<div class="com-re-content-text">
+						<span name="toCEO" class="form-ta" id="want">${review.review_toCEO }</span>
+						</div>
 					</div>
 					</div>
 					<div class='com-review-star'>

@@ -34,35 +34,54 @@
 							  title
 ******************************************************************/
 
-.com-review-title-box{ 
+.com-review-title-box{ /* 제목 작성자 등 박스*/
     height: 110px;
     width: auto;
     padding: 0;
     display: block;
     position: relative;
     border-bottom: #ebeef3 solid 5px;
+ 	background: rgba(201, 215, 226, 0.2);
 }
 
-.com-review-title-box .row1{ /*작성일 작성자 조회수*/
-	width: 100%; 
+.com-review-title-box .row1{ /*작성일 작성자 조회수 들어가는 박스*/
+	width: 600px;/*여기는 어쩔수없어요*/
+	display: block;
+	height: 30px;
+	margin-left: 25px;
+	border: blue solid 1px;
+	
+}
+
+.com-review-title-box .row1 .row1-top-date{
 	display: inline-block;
-	height: 25px;
-	margin: 10px 0 10px 0;
+	font-weight:600;
+}
+.com-review-title-box .row1 .row1-top-data{
+	display: inline-block;
+	font-weight:600;
+	padding-left: 2em;
 }
 
-.com-review-title-box .row1 .title-writer{
-	color: blue;
-	padding-left: 3em;
+.title-writer input[type="text"] {
+	padding-left: 2em;
+	padding-right: 2em;
 }
+.title-cnt input[type="text"] {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
 
 .com-review-title-box .row2 .title-title{
 	font-size: 28px;
 	font-weight: 200;
-	width: 100%;
+	width: 600px;/*여기는 어쩔수없어요*/
 	color: #65737e;
 	font-weight:200;
+	margin: 20px 0 20px 25px;
 }
-.com-review-title-box .row2{
+.com-review-title-box .row2{ /*후기 글제목*/
 	width: 100%; 
 	display: inline-block;
 }
@@ -76,7 +95,8 @@
 .wrapper-com-review-content{ /*안넘치게하고싶어요*/
     display: block;
 /*     border: #dee3eb solid 1px;
- */    border: blue solid 2px;
+ */ /* border: blue solid 2px; */
+ 	border: #dee3eb solid 1px;
     width: auto;
     padding: 20px;
 }
@@ -86,38 +106,25 @@
 	font-weight: 400;
 	color: #55acee;
 }
-
-
-.com-re-good{
-	border-left: 2px solid #dfdfdf;
-	height:60px;
-	width:608px;
+.com-re-content-li{ /*후기 질문 개당*/
+	height:auto;
+	width:auto;
 	display: block;
 	position: relative;
 	margin: 10px 0 10px 0;
-	padding-left: 15px;
+	padding: 15px;
+	/* border: pink solid 2px; */
 }
-
-
-.com-review-bad{
-	border-left: 2px solid #dfdfdf;
-	height:60px;
-	width:608px;
+.com-re-content-li label{/*장점 단점 경영진에게 타이틀*/
 	display: block;
 	position: relative;
-	margin: 10px 0 10px 0;
-	padding-left: 15px;
+	padding: 5px;
+	border-bottom: #ebeef3 solid 2px;
+}
+.com-re-content-li .com-re-content-text{ /*글내용*/
+	width: auto;
 }
 
-.com-review-ceo{
-	border-left: 2px solid #dfdfdf;
-	height:60px;
-	width:608px;
-	display: block;
-	position: relative;
-	margin: 10px 0 10px 0;
-	padding-left: 15px;
-}
 
 .com-review-star{
 	height:200px;
