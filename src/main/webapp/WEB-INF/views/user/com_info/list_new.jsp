@@ -6,9 +6,6 @@
 <meta charset="utf-8">
 <title>그리드 테스트</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/blist_sw.css" rel="stylesheet" type="text/css">
-
 <style type="text/css">
 .simple-table{
 	position: relative;
