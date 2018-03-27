@@ -6,8 +6,6 @@
 <meta charset="utf-8">
 <title>기업후기 글등록</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/com_review_register.css" rel="stylesheet" type="text/css">
 
 </head>
 <!--[if lt IE 9]> 

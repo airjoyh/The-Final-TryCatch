@@ -6,10 +6,6 @@
 <meta charset="utf-8">
 <title>그리드 테스트</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/bread_sw.css" rel="stylesheet" type="text/css">
-
 <style>
 .simple-table{
 	position: relative;

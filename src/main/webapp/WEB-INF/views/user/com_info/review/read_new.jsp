@@ -6,9 +6,6 @@
 <meta charset="utf-8">
 <title>기업후기 상세정보</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/com_review_read.css"
-	rel="stylesheet" type="text/css">
 <!-- 핸들바js -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>

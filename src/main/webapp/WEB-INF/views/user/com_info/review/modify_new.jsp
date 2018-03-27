@@ -6,8 +6,6 @@
 <meta charset="utf-8">
 <title>콘테스트 Q&A 글수정</title>
 
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/com_review_register.css" rel="stylesheet" type="text/css">
 
 </head>
 
