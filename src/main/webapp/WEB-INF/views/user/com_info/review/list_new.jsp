@@ -277,7 +277,7 @@
 							</select> <input type="text" name='keyword' id="keywordInput"
 								value='${cri.keyword }'>
 							<button class="board-btn" id='searchBtn'>검색</button>								
-							<button class="board-btn" id='registBtn'>글쓰기</button>
+							<button class="board-btn" id='newBtn'>글쓰기</button>
 						</div>
 					</div>
 				</div>
@@ -329,7 +329,12 @@
 
 		$('#newBtn').on("click", function(evt) {//글쓰기(New Board) 버튼을 클릭하면
                console.log('newnewnewnew');
-			self.location = "${initParam.rootPath}/user/review/register";//입력폼으로 이동
+			if(loginState != 'login'){
+				alert('로그인하신 후에 이용 가능합니다.');
+				login_id.focus();
+			}else{
+				location.href = '${initParam.rootPath }/user/review/register?company_id=${param.company_id}';			
+			}
 
 		});
 		 

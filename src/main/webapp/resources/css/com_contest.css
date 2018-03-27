@@ -2,10 +2,11 @@
 
 .com-contest-head {
     position: relative;
-    height: 200px;
+    height: auto;
     border: 1px solid #dee3eb;
-    background: #fff;   
-    margin: 10px;
+    background: #fff;
+
+    margin-bottom: 8px;
 }
 
 .com-contest-table {
@@ -13,7 +14,6 @@
     height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
-    margin-bottom: 8px;
 }
 
 .com-contest-table button{
@@ -25,7 +25,7 @@
 	background-color:#65737e;
 	color:#fff;
 	cursor:pointer;
-	
+
 	-webkit-transition: all .3s ease;
  	-moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -48,7 +48,7 @@
 	background-color:#65737e;
 	color:#fff;
 	cursor:pointer;
-	
+
 	-webkit-transition: all .3s ease;
  	-moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -64,7 +64,7 @@
 	height:125px;
 	width:584px;
 	display: inline-block;
-	
+
 }
 
 .inline-txt-body {
@@ -86,7 +86,7 @@
 	margin: 0;
     padding:0;
 	display: inline-block;
-	position: relative;
+	position: absolute;
 }
 
 /* contest register ***************/
@@ -96,7 +96,7 @@
     height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
-    
+
     margin-bottom: 8px;
 }
 
@@ -105,6 +105,7 @@
 	font-weight:500;
  	margin-top:20px;
 	height: 25px;
+  clear:both;
 }
 
 .com-contest-info .cont-regist-contents{
@@ -118,12 +119,16 @@
 	width: 100%;
 	height: 38px;
 	border: 2px solid #ddd;
+  border-radius: 0px;
 	padding-left: 10px;
 	outline-style: none;
 }
 
-.half-contents input{
-	
+.half-contents input,
+.half-contents select{
+  display: inline-block;
+  float:left;
+	width: 50%;
 }
 
 /* #contest_startDate,
@@ -142,7 +147,7 @@
 	font-size:15px;
 	color:#666;
 	font-weight: 500;
-	
+
 }
 .com-contest-info .add-btn:hover {
 	background-color:#d1d1d1;
@@ -154,8 +159,8 @@
 	line-height:20px;
 	border:0;
 	background-color:#f9f9f9;
-	border-bottom: 1px solid #ddd;   
-	border-top: 1px solid #ddd;   
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
 }
 .cont-reg-btn-area{
 	margin-top: 30px;
@@ -178,5 +183,3 @@
 	background-color: #777;
 	color: #f1f1f1;
 }
-
-
