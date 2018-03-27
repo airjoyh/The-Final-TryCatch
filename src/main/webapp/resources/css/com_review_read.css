@@ -4,8 +4,9 @@
 ******************************************************************/
 .wrapper-com-review-read{
 	display:block;
-	padding: 15px;
-	border: blue solid 2px;
+	padding: 45px;
+	
+	/* border: blue solid 2px; */
 }
 
 .section_com_read {
@@ -33,71 +34,89 @@
 							  title
 ******************************************************************/
 
-.com-review-title-com-review{
-    height: 130px;
-    width: 700px;
-    margin-bottom: 15px;
+.com-review-title-box{ 
+    height: 110px;
+    width: auto;
     padding: 0;
     display: block;
     position: relative;
-    border: blue solid 2px;
+    border-bottom: #ebeef3 solid 5px;
 }
 
-.com-review-title-com-review .row1{
+.com-review-title-box .row1{ /*작성일 작성자 조회수*/
 	width: 100%; 
 	display: inline-block;
 	height: 25px;
+	margin: 10px 0 10px 0;
 }
 
-.com-review-title-com-review .row1 .title-writer{
+.com-review-title-box .row1 .title-writer{
+	color: blue;
 	padding-left: 3em;
-	border: teal solid 2px;
 }
 
-.com-review-title-com-review .row2 .title-title{
+.com-review-title-box .row2 .title-title{
 	font-size: 28px;
 	font-weight: 200;
 	width: 100%;
-	border: orange solid 2px;
+	color: #65737e;
+	font-weight:200;
 }
-.com-review-title-com-review .row2{
+.com-review-title-box .row2{
 	width: 100%; 
 	display: inline-block;
-	height: 60px;
-	color:#65737;
-	border: pink solid 2px;
 }
 
-.com-review-title-com-review .row3{
+.com-review-title-box .row3{
 	width: 100%; 
 	display: inline-block;
 	height: 25px;
-	border: red solid 2px;
 }
+
+.wrapper-com-review-content{ /*안넘치게하고싶어요*/
+    display: block;
+/*     border: #dee3eb solid 1px;
+ */    border: blue solid 2px;
+    width: auto;
+    padding: 20px;
+}
+
+.wrapper-com-review-content label{
+	font-size: 14px;
+	font-weight: 400;
+	color: #55acee;
+}
+
 
 .com-re-good{
-	border: 1px solid #dfdfdf;
+	border-left: 2px solid #dfdfdf;
 	height:60px;
-	width:700px;
+	width:608px;
 	display: block;
 	position: relative;
+	margin: 10px 0 10px 0;
+	padding-left: 15px;
 }
 
+
 .com-review-bad{
-	border: 1px solid #dfdfdf;
+	border-left: 2px solid #dfdfdf;
 	height:60px;
-	width:700px;
+	width:608px;
 	display: block;
 	position: relative;
+	margin: 10px 0 10px 0;
+	padding-left: 15px;
 }
 
 .com-review-ceo{
-	border: 1px solid #dfdfdf;
-
+	border-left: 2px solid #dfdfdf;
 	height:60px;
-	width:700px;
+	width:608px;
 	display: block;
 	position: relative;
+	margin: 10px 0 10px 0;
+	padding-left: 15px;
 }
 
 .com-review-star{

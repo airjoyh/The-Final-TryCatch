@@ -23,7 +23,7 @@
 				<div class='title-wrapper'>
 					<div class='column-title'>기업후기 글상세보기</div>
 				</div>
-				<div class='wrapper'>
+				<div class='wrapper-com-review-read'>
 					<form id="readForm" name="readForm" method="POST">
 						<input type="hidden" id="review_no" name="review_no"
 							value="${review.review_no }"> <input type="hidden"
@@ -35,41 +35,41 @@
 							type='hidden' name='searchType' value="${cri.searchType}">
 						<input type='hidden' name='keyword' value="${cri.keyword}">
 					</form>
-					<div class='com-review-title'>
+					<div class='com-review-title-box'>
 						<div class="row1">
 							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 								value="${review.review_wdate}" />
-							<span class="title-writer">작성자 <input class="writer"
-								id="writer" name="writer" style="width: 35%; border: none;"
+							<span class="title-writer">작성자<input class="writer"
+								id="writer" name="writer" style="border: none;"
 								value="${review.review_writer }" readonly="readonly">
 							</span>
+							<span class="title-name">조회<input
+								class="title-title" id="viewCount" name="viewCount" type="text"
+								style="border: none;"
+								value="${review.review_viewCount }" readonly="readonly">
+							</span> 
 						</div>
 						<div class="row2">
 							<span class="title-name"> <input
 								class="title-title" id="title" name="title" type="text"
-								style="width: 35%; border: none;"
+								style="border: none;"
 								value="${review.review_title }" readonly="readonly">
 							</span>
 						</div>
-						<div class="row3">
-							<span class="title-name">조회&nbsp;&nbsp;&nbsp;&nbsp; <input
-								class="title-title" id="viewCount" name="viewCount" type="text"
-								style="width: 35%; border: none;"
-								value="${review.review_viewCount }" readonly="readonly">
-							</span> 
-						</div>
 					</div>
+					<div class="wrapper-com-review-content">
 					<div class='com-re-good'>
-						<label for="good">해당 기업의 장점을 적어주세요</label><br> <span
-							name="strong" rows="3" class="form-ta" id="good">${review.review_strong }</span>
+						<label for="good">장점</label><br> <span
+							name="strong" class="form-ta" id="good">${review.review_strong }</span>
 					</div>
 					<div class='com-review-bad'>
-						<label for="bad">해당 기업의 단점을 적어주세요</label><br> <span
-							name="weak" rows="3" class="form-ta" id="bad">${review.review_weak }</span>
+						<label for="bad">단점</label><br> <span
+							name="weak" class="form-ta" id="bad">${review.review_weak }</span>
 					</div>
 					<div class='com-review-ceo'>
-						<label for="want">경영진에게 바라는점을 적어주세요</label><br> <span
-							name="toCEO" rows="3" class="form-ta" id="want">${review.review_toCEO }</span>
+						<label for="want">경영진에게 바라는점</label><br> <span
+							name="toCEO" class="form-ta" id="want">${review.review_toCEO }</span>
+					</div>
 					</div>
 					<div class='com-review-star'>
 						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
