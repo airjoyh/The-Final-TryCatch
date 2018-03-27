@@ -117,7 +117,7 @@
 }
 
 .review-content{
-	border: red solid 2px;
+	/* border: red solid 2px; */
 	position: relative;
 	display: flex;
 	display: -webkit-flex;
@@ -125,7 +125,7 @@
 	height: auto;
 }
 .review-content-tab1{
-	border: red solid 2px;
+	/* border: red solid 2px; */
 	position: relative;
 	display: flex;
 	display: -webkit-flex;
@@ -133,7 +133,7 @@
 	height: auto;
 }
 .review-content-tab2{
-	border: blue solid 2px;
+	/* border: blue solid 2px; */
 	position: relative;
 	display: flex;
 	display: -webkit-flex;
@@ -144,10 +144,12 @@
 
 
 
-/* ------------------------------[ 기업정보 탭 ]------------------------------*
-                                                                      *
-                                                                      *
-   (1) ------------ 상단 기업 이름 박스 ----- */
+/**************************************************************************/
+/*                                                                        */
+/*                               [ 기업 정보 탭 ]                              */
+/*                                                                        */
+/**************************************************************************/
+   /*(1) ------------ 상단 기업 이름 박스 ----- */
 .review-box-title { 
 	width: 100%;
 	height: 150px;
@@ -238,7 +240,6 @@
 	padding: 30px;
 }
 
-
 .review-box-info .com-info {
 	display: flex;
 	display: -webkit-flex;
@@ -295,38 +296,58 @@
 }
 
                          
-/* ------------------------------[ 기업평점 탭 ]------------------------------*
-               
-                                                                      *
-               
-                                                                      */
+/**************************************************************************/
+/*                                                                        */
+/*                               [ 기업평점 탭 ]                              */
+/*                                                                        */
+/**************************************************************************/
+
 .com-grade-page{
 	padding: 30px;
 }
 .com-grades{
-	border: #ffbad9 solid 2px;
+	/* border: pink solid 2px; */
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: column;
 	width: 100%;
 	height: auto;
 }
+
+
+.com-grades .com-grades-companyname{
+	border-bottom: #ebeef3 solid 1px;
+	margin-bottom: 50px;
+	padding: 10px 0 20px 0;
+	font-size: 20px;
+	font-weight: 100;
+	color: #65737e;
+}
+.com-grades .com-grades-companyname span{
+	font-weight: 350;
+}
+
 .com-grades .com-grade-boxs{
 	display: block;
 	height: 50%;
+	padding-bottom: 25px;
 }
 .com-grades .com-grade-boxs .com-grade-box{
-	border: blue solid 2px;
+	/* border: blue solid 2px; */
 	display: inline-block;
 	width: 50%;
 	float: left;
-	margin: 8px auto;
+	margin: 10px auto;
+	padding-right: 15px;
+	border-left: #ebeef3 solid 5px;
 }
 .com-grades .com-grade-boxs .com-grade-box label{
-	border: blue solid 2px;
+	/* border: blue solid 2px; */
+	border-bottom: #ebeef3 solid 2px;
 	font-size: 15px;
 	font-weight: 700;
 	color: #65737e;
+	margin-left: 20px;
 }
 
 
@@ -335,7 +356,7 @@
 ******************************************************************/
 .com-grade-progress progress {
 	display:inline-block;
-	width:200px;
+	width:210px;
 	height:25px;
 	background:none;
 	border: 0;
@@ -346,7 +367,7 @@
 }
 .com-grade-progress progress::-webkit-progress-bar {
 	height:20px;
-	width:200px;
+	width:210px;
 	margin:0 auto;
 	background-color: #eef0f0;
 	border-radius: 15px;
@@ -368,7 +389,7 @@
 }
 
 .com-grade-box .com-grade-progress {
-	background: rgba(101, 115, 126, 0.2);
+	/* background: rgba(101, 115, 126, 0.2); */
 	margin: 20px;
 }
 .com-grade-box .com-grade-progress span{
@@ -377,11 +398,11 @@
 	float:right;
 	width:45px;
 	height:20px;
-	color: blue;
+	color: #65737e;
 	
 }
 
-/* ------------------------------------------------ */
+/* ------------------------------------------------------------------ */
 
 
 

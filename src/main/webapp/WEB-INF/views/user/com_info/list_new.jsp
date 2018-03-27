@@ -36,7 +36,7 @@
 			<div class='section_main_com'>
 				<div class='com-contest-heads'>
 					<div class='title-wrapper'>
-						<div id="title"></div>
+						<div id="title" class="column-title"></div>
 					</div>
 				
 				<!-- <div class="com-contest-box"> -->
@@ -60,7 +60,7 @@
 													<a href="${initParam.rootPath }/user/review/list?company_id=${avgScore.company_id }">${avgScore.company_name }</a>	
 												</div>
 												<div style="height: 50%;">
-													<span style="border-radius: 10px; background-color: darkgray;">${avgScore.company_line }</span>
+													<span>${avgScore.company_line }</span>
 												</div>
 											</div>
 										</div>
@@ -93,20 +93,20 @@
 							</ul>
 						</div>
 						<div class='board-search'align="center">
-							<select name="searchType">
+							<select name="searchType" class="searchType">
 								<option value="n"
 									<c:out value="${cri.searchType == null?'selected':''}"/>>
                    					 검색조건</option>
 								<option value="t"
 									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                    					제목</option>
+                    					기업명</option>
 								<option value="w"
 									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                   					 작성자</option>
-							</select> <input type="text" name='keyword' id="keywordInput"
+                   					 기업 규모</option>
+							</select>
+							<input type="text" name='keyword' id="keywordInput"
 								value='${cri.keyword }'>
 							<button class="board-btn" id='searchBtn'>검색</button>								
-							<button class="board-btn" id='registBtn'>글쓰기</button>
 						</div>
 					</div>
 						

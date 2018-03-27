@@ -140,7 +140,9 @@
 									<div class="com-grade-page">
 									
 									<div class="com-grades">
-											평점을 알아봐요. 
+											<div class="com-grades-companyname">
+												회원들이 평가한 <span>${company_info.company_name  }</span>의 평점입니다.
+											</div>
 									</div>
 									
 									<div class="com-grades">
