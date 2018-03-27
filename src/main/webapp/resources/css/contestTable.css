@@ -33,7 +33,7 @@ a:hover {
 }
 .company-contest-table table a:active,
 .company-contest-table table a:hover {
-	color: #1fc471;
+	color: #53c7ed;
 	text-decoration:underline;
 }
 .company-contest-table table {
@@ -50,10 +50,12 @@ a:hover {
 	padding:12px;
 	border-top:1px solid #fafafa;
 	border-bottom:1px solid #e0e0e0;
+	background-color: #80ffff;
 
 }
 .company-contest-table table th:first-child{
 	text-align:left;
+	width:30px;
 	padding-left:20px;
 }
 
@@ -62,7 +64,7 @@ a:hover {
 }
 .company-contest-table table tr td:first-child{
 	text-align:left;
-	width: 335px;
+	width: 30px;
 	padding-left:20px;
 	border-left: 0;
 }
@@ -71,11 +73,11 @@ a:hover {
 	padding:8px;
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
-	background: #fafafa;
+	background: #fff;
 
 }
 .company-contest-table table tr.even td{
-	background: #f6f6f6;
+	background: #80ffff;
 
 }
 .company-contest-table table tr:last-child td{

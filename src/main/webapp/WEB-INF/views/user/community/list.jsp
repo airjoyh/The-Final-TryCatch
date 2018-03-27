@@ -46,7 +46,6 @@
 						<div class='column-title'>커뮤니티 게시판</div>
 					</div>
 					<div class='company-contest-table'>
-						<div class='wrapper'>
 							<table cellspacing='0'>
 								<tr>
 									<th>글번호</th>
@@ -67,15 +66,12 @@
 				                        <td>${communityVo.community_viewCount}</td> 
 				                        <td>${communityVo.community_replyCount}</td>             
 				                     </tr>
-				                  </c:forEach>				
-										
-											
+				                  </c:forEach>														
 							</table>
-						</div>
 					</div>
-					<div class="com-contest-paging">
-						<div class="cont-qna-page">
-							<ul class="pagination">
+					<div class="board-paging" >
+						<div class="board-pageline" align="center">
+							<ul class="board-pagination" >
 								<c:if test="${pageMaker.prev}">
 									<li><a
 										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
@@ -94,23 +90,22 @@
 										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
 								</c:if>
 							</ul>
-							<div class='cont-qna-search'>
-								<select name="searchType">
-									<option value="n"
-										<c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-									<option value="t"
-										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					제목</option>
-									<option value="w"
-										<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 작성자</option>
-								</select> <input type="text" name='keyword' id="keywordInput"
-									value='${cri.keyword }'>
-								<button id='searchBtn'>검색</button>
-								<button id='registBtn'>글쓰기</button>
-
-							</div>
+						</div>
+						<div class='board-search'align="center">
+							<select name="searchType">
+								<option value="n"
+									<c:out value="${cri.searchType == null?'selected':''}"/>>
+                   					 검색조건</option>
+								<option value="t"
+									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                    					제목</option>
+								<option value="w"
+									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                   					 작성자</option>
+							</select> <input type="text" name='keyword' id="keywordInput"
+								value='${cri.keyword }'>
+							<button class="board-btn" id='searchBtn'>검색</button>								
+							<button class="board-btn" id='registBtn'>글쓰기</button>
 						</div>
 					</div>
 					<!-- com-contest-paging -->
