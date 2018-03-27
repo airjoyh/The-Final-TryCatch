@@ -55,19 +55,21 @@
 							  <option value="2">2</option>
 							  <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="3">5</option>
+                <option value="5">5</option>
 						  </select>
-              div.>
+              <div class="quizInput" style="margin-top:20px;"></div>
           </div>
 					</div>
 					<div class='cont-regist-contents'>
 						<div id="load"></div>
 					</div>
 					<div class='cont-regist-contents'>
-						<div class='cont-reg-title' id="correctSpan">문제정답(객관식의 경우 정답에 들어가는 텍스트를 입력하세요.)</div>
-						<div id="contentsDiv">
-							<textarea id="quiz_contents" name="quiz_contents"></textarea><br>
-						</div>
+						<div class='cont-reg-title' id="correctSpan" style="display:none;">
+              문제정답(객관식의 경우 정답에 들어가는 텍스트를 입력하세요.)
+						  <div id="quiz_answer">
+							<textarea id="quiz_answer" name="quiz_answer"></textarea>
+						 </div>
+            </div>
 					</div>
 
 
@@ -96,7 +98,7 @@
      $(function(){
     	 $('#quiz_type').change(function(){
 
-    		 $('#correctSpan').show();
+
 
     		 var sel = $('#quiz_type').val();
 
@@ -104,19 +106,35 @@
     			 //$('select[name=quiz_type]').val('1');
     			 $('#quiz_num').attr('class','objectiveType_num');
            $('#quiz_num').show();
+           $('.objectiveType_num').val('0');
+           $('.quizInput').empty();
            $(document).on('change','.objectiveType_num',function(){
+             $('.quizInput').empty();
              var createInputNum = $('.objectiveType_num').val();
              console.log(createInputNum);
              for(var i=0;i<createInputNum;i++){
-               $(this).append('<input type=text>');
+               $('.quizInput').append('<input name="'+'inputNo'+(i+1)+'" placeholder="'+(i+1)+'번 보기의 내용을 입력하세요'+'">');
              }
+             $('#correctSpan').show();
            });
-
-
     		 }else if(sel=='2'){
+           $('#correctSpan').toggle();
            $('#quiz_num').attr('class','subjectiveType_num');
            $('#quiz_num').show();
+           $('.subjectiveType_num').val('0');
+           $('.quizInput').empty();
+           $(document).on('change','.subjectiveType_num',function(){
+             $('.quizInput').empty();
+             var createInputNum = $('.subjectiveType_num').val();
+             console.log(createInputNum);
+             for(var i=0;i<createInputNum;i++){
+               $('.quizInput').append('<input name="'+'inputNo'+(i+1)+'" placeholder="'+(i+1)+'번 빈칸의 정답을 입력하세요'+'">');
+             }
+           });
     		 }else if(sel=='3'){
+           $('#correctSpan').show();
+           $('#quiz_num').hide();
+           $('.quizInput').empty();
     			 $('#load').load('codingType');
     		 }else if(sel=='0'){
     			 $('#load').html('');

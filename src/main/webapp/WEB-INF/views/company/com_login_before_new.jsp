@@ -4,7 +4,7 @@
 	<div class="wrapper">
 		<div>
 			<input class="login-input" type="email" id="login_id" name="login_id"
-				placeholder="이메일">
+				placeholder="아이디">
 		</div>
 		<div>
 			<input class="login-input" type="password" id="login_pass"
