@@ -211,8 +211,8 @@
 						</div>
 
 					</div> 
-					<!-- /.col -->
-				</div>
+					
+				</div><!-- /row -->
 
 				<!-- 댓글 수정 모달	 -->
 				<div class="modal" id="modifyModal">

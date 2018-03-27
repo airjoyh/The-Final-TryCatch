@@ -212,9 +212,8 @@
 			</div>
 			<!-- section_main -->
 
-			<div class='section_board'>
-				<div class='com-contest-head'>
-					<div class='title-wrapper'>
+			<div class='com_section_board'>
+					<div class='review-title-wrapper'>
 						<div class='column-title'>기업 후기 게시판</div>
 					</div>
 					<div class='company-contest-table'>
@@ -244,8 +243,6 @@
 						</div>
 					</div>
 					<!--company-contest-table -->
-				</div>
-				<!-- com-contest-head -->
 				<div class="com-contest-paging"  style="display: flex;flex-direction: column; align-items: center">
 					<div class="cont-qna-page">
 						<ul class="pagination">
