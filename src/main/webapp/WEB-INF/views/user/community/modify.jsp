@@ -39,14 +39,12 @@
 					    
 						<div class='community-title'>					
 							<div class="community-title-box">
-							   <div class="form-group">	
-									<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
-									<p class="qna-title" id="community_title" name="community_title" type="text" style="width: 15%" readonly="readonly">${community.community_title}</p> <!-- placeholder="제목을 입력하세요." -->
-					           </div>
-					           
+							 <span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
+				                  class="qna-title" id="community_title" name="community_title" type="text"
+				                  style="width: 35%" value="${community.community_title }">
 					           <div class="form-group">    
-						            <label class="ct-box-label">작성자</label> 
-						            <p class="qna-writer" id="community_writer" name="community_writer" style="width: 15%" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
+						            <label class="ct-box-label">작성자</label>
+						            <p class="qna-writer" id="community_writer" name="community_writer" style="padding-left: 3em;" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
 					           </div>  
 					        </div>
 						</div>

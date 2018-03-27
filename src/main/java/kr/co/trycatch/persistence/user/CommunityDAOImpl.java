@@ -77,7 +77,7 @@ public class CommunityDAOImpl implements CommunityDAO {
 	}
 */
 
-	@Override
+    @Override
 	public void update(CommunityVO communityVo) throws Exception {
 		int t = session.update("community.update", communityVo);
 		System.out.println("update ÇàÀÇ ¼ö="+ t);
