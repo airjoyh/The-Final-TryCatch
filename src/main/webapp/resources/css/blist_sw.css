@@ -3,7 +3,7 @@
 ******************************************************************/
  .section_main_com {
     position: relative;
-    height: 500px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
 } 

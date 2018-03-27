@@ -37,6 +37,7 @@ a:hover {
 	text-decoration:underline;
 }
 .company-contest-table table {
+	width: 700px;
 	color:#666;
 	font-size:12px;
 	margin:0;

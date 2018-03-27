@@ -37,7 +37,7 @@
 		<div class='column-left'>
 		
 			<div class='section_main_com'>
-				<div class='com-contest-head'>
+				<div class='com-contest-heads'>
 					<div class='title-wrapper'>
 						<div id="title"></div>
 					</div>
@@ -75,12 +75,8 @@
 								</tr>
 							</c:forEach>
 						</table>
-					</div>
-				</div>		
-			</div><!-- com-contest-head -->		
-					<div class="com-contest-paging" style="display: flex;flex-direction: column; align-items: center">
-						<div class="cont-qna-page">
-							<ul class="pagination">
+						<div style="display:block; width:600px;margin:0 auto;height: 10%;">
+							<ul class="pagination" style='height: 70px;width:600px;'>
 								<c:if test="${pageMaker.prev}">
 									<li><a
 										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
@@ -100,7 +96,7 @@
 								</c:if>
 							</ul>
 						</div>
-						<div class='cont-qna-search'>
+						<div style="clear: both;">
 							<select name="searchType">
 								<option value="n"
 									<c:out value="${cri.searchType == null?'selected':''}"/>>
@@ -120,8 +116,14 @@
 							<a href="javascript:loginCheck()"><button id='registBtn'>글쓰기</button></a>
 
 						</div>
-					</div>
 					<!-- com-contest-paging -->
+						
+						
+						
+					</div>
+				</div>		
+			</div><!-- com-contest-head -->		
+					
 							
 		</div><!-- section_main1 -->
 				

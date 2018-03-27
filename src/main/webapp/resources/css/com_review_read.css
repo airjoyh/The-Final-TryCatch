@@ -3,13 +3,11 @@
 							  swlee
 ******************************************************************/
 
-.section_main {
+.section_com_read {
     position: relative;
     height: 660px;
     border: 1px solid #dee3eb;
     background: #fff;  
-    
-
 }
 
 .section_main2 {
@@ -31,49 +29,77 @@
 ******************************************************************/
 
 .com-review-title{
-    height: 45px;
+    height: 90px;
     width: 700px;
     margin-bottom: 15px;
     padding: 0;
-    display: inline-block;
+    display: block;
     position: relative;
-	
 }
 
+.com-review-title .row1{
+	width: 100%; 
+	display: inline-block;
+	height: 15px;
+}
+
+.com-review-title .row1 .title-writer{
+	padding-left: 3em;
+}
+
+.com-review-title .row2 .title-title{
+	font-size: 50px;
+	font-weight: bold;
+}
+.com-review-title .row2{
+	width: 100%; 
+	display: inline-block;
+	height: 50px;
+}
+
+.com-review-title .row3{
+	width: 100%; 
+	display: inline-block;
+	height: 15px;
+}
 
 .com-re-good{
 	border: 1px solid #dfdfdf;
-	margin-top:10px;
 	height:60px;
 	width:700px;
-	display: inline-block;
+	display: block;
 	position: relative;
 }
 
 .com-review-bad{
 	border: 1px solid #dfdfdf;
-	margin-top:10px;
 	height:60px;
 	width:700px;
-	display: inline-block;
+	display: block;
 	position: relative;
 }
 
 .com-review-ceo{
 	border: 1px solid #dfdfdf;
-	margin-top:10px;
+
 	height:60px;
 	width:700px;
-	display: inline-block;
+	display: block;
 	position: relative;
 }
 
 .com-review-star{
-	margin-top:15px;
-	margin-bottom:5px;
-	height:270px;
+	height:200px;
 	width:700px;
-	display: inline-block;
+	display: block;
+	position: relative;
+}
+
+.com-review-button{
+	margin: auto;
+	height:70px;
+	width:700px;
+	display: block;
 	position: relative;
 }
 
@@ -158,6 +184,41 @@
 .list-group{
 	display: flex;
 	flex-direction: column;
+}
+
+/*****************************************************************
+							  Reply
+******************************************************************/
+.reply-container .box{
+	display: block;
+	height: auto;
+}
+
+.reply-container .box .reply-content{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	border: solid 1px #d7dada;
+	margin-bottom: 5px;
+}
+
+.reply-container .box .reply-content .reply-writecontent{
+    padding: 0;
+}
+.reply-content .reply-writer{
+	width: 250px;
+}
+.reply-content .reply-btn{
+	height: 20px;
+	width:100px;
+	background-color: #00ffff;
+	float: right;
+}
+.reply_box_content_wrap{
+	display: inline-block;
+}
+.reply-container .box ul,li{
+	list-style: none;
 }
 /*****************************************************************
 							 별점주기 css

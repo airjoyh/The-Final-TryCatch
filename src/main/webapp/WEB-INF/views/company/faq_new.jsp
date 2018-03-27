@@ -20,11 +20,11 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='section-faq'>
+			<div class='section_faq'>
 				<div class='title-wrapper'>
 					<div class='column-title'>기업용 FAQ</div>
 				</div>
-				<div class='faq-box'>
+				<div class='wrapper'>
 					<ul class="faq">
 						<li class="q">Q. [회원가입/탈퇴] 기업회원 가입은 무료입니까?</li>
 						<li class="a">

@@ -20,11 +20,11 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
+			<div class='section_faq'>
 				<div class='title-wrapper'>
 					<div class='column-title'>구직자용 FAQ</div>
 				</div>
-				<div class='faq-box'>
+				<div class='wrapper'>
 					<ul class="faq">
 						<li class="q">Q. [회원가입/탈퇴] 회원가입은 무료인가요?</li>
 						<li class="a"><div class="panel-body">
@@ -91,7 +91,7 @@
 
 					</ul>
 				</div>
-			</div><!-- section_main1 -->
+			</div><!-- section_faq -->
 			
 		</div><!-- column-left -->
 		

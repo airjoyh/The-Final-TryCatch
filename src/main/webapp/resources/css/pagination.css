@@ -26,3 +26,12 @@
 	background-color: #6abded;
     color: white;
 }
+
+  
+.row{
+	width: 100%;
+	height: auto;
+	display: block;
+	padding-left: 15px;
+    padding-right: 15px;
+}

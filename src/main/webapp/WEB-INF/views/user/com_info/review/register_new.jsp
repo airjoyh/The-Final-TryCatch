@@ -21,7 +21,7 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
+			<div class='section-review-register'>
 				<div class='title-wrapper'>
 					<div class='column-title'>${param.company_id } 후기 글작성</div>
 				</div>

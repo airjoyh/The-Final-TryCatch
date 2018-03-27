@@ -4,9 +4,8 @@
     position: relative;
     height: 200px;
     border: 1px solid #dee3eb;
-    background: #fff;
-    
-    margin-bottom: 8px;
+    background: #fff;   
+    margin: 10px;
 }
 
 .com-contest-table {
@@ -14,6 +13,7 @@
     height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
+    margin-bottom: 8px;
 }
 
 .com-contest-table button{
@@ -86,7 +86,7 @@
 	margin: 0;
     padding:0;
 	display: inline-block;
-	position: absolute;
+	position: relative;
 }
 
 /* contest register ***************/

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,20 +7,22 @@
 <title>기업후기 상세정보</title>
 
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/com_review_read.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/com_review_read.css"
+	rel="stylesheet" type="text/css">
 <!-- 핸들바js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 
 </head>
-<body>	
-		<!-- nav-area -->
-		<%@ include file="../../../user-nav_new.jsp" %>
-		
+<body>
+	<!-- nav-area -->
+	<%@ include file="../../../user-nav_new.jsp"%>
+
 	<div class='container'>
-	<!-- left section!!************************************************************** -->
+		<!-- left section!!************************************************************** -->
 		<div class='column-left'>
-			<div class="section_main">
+			<div class="section_com_read">
 				<div class='title-wrapper'>
 					<div class='column-title'>기업후기 글상세보기</div>
 				</div>
@@ -37,20 +39,27 @@
 						<input type='hidden' name='keyword' value="${cri.keyword}">
 					</form>
 					<div class='com-review-title'>
-						<div>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp;&nbsp; 
-							<input class="qna-title" id="title" name="title" type="text"
-								style="width: 35%; border: none;" value="${review.review_title }" readonly="readonly"> 
-							<span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
-							<input class="qna-writer"
-								id="writer" name="writer" style="width: 35%; border: none;"
-								value="${review.review_writer }" readonly="readonly">
-						</div>
-						<div>
-							 <span class="input-group-addon">작성일</span>
-							<!-- <input class="form-control" id="writer" name="writer" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"> -->
+						<div class="row1">
 							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 								value="${review.review_wdate}" />
+							<span class="title-writer">작성자 <input class="writer"
+								id="writer" name="writer" style="width: 35%; border: none;"
+								value="${review.review_writer }" readonly="readonly">
+							</span>
+						</div>
+						<div class="row2">
+							<span class="title-name"> <input
+								class="title-title" id="title" name="title" type="text"
+								style="width: 35%; border: none;"
+								value="${review.review_title }" readonly="readonly">
+							</span>
+						</div>
+						<div class="row3">
+							<span class="title-name">조회&nbsp;&nbsp;&nbsp;&nbsp; <input
+								class="title-title" id="title" name="title" type="text"
+								style="width: 35%; border: none;"
+								value="${review.review_viewCount }" readonly="readonly">
+							</span> 
 						</div>
 					</div>
 					<div class='com-re-good'>
@@ -70,122 +79,115 @@
 						<div class="star-line">
 							<ul class="list-group">
 								<li class="list-group-item">승진기회 및 가능성 <span
-									class="star-input" id="star-A" style="float: right;"> 
-									<span class="input"> 
-											<input type="radio" name="review_possibility" id="p1" value="1"> 
-											<label for="p1">1</label> 
-											<input type="radio" name="review_possibility" id="p2" value="2"> 
-											<label for="p2">2</label> 
-											<input type="radio" name="review_possibility" id="p3" value="3"> 
-											<label for="p3">3</label> 
-											<input type="radio" name="review_possibility" id="p4" value="4"> 
-											<label for="p4">4</label> 
-											<input type="radio" name="review_possibility" id="p5" value="5"> 
-											<label for="p5">5</label>
+									class="star-input" id="star-A" style="float: right;"> <span
+										class="input"> <input type="radio"
+											name="review_possibility" id="p1" value="1"> <label
+											for="p1">1</label> <input type="radio"
+											name="review_possibility" id="p2" value="2"> <label
+											for="p2">2</label> <input type="radio"
+											name="review_possibility" id="p3" value="3"> <label
+											for="p3">3</label> <input type="radio"
+											name="review_possibility" id="p4" value="4"> <label
+											for="p4">4</label> <input type="radio"
+											name="review_possibility" id="p5" value="5"> <label
+											for="p5">5</label>
 									</span> &nbsp; <span class="badge" id="star-1"><b>${review.review_possibility }</b>점</span>
 								</span>
 								</li>
 								<br>
 								<li class="list-group-item">복지 및 급여 <span
-									class="star-input" id="star-B" style="float: right;"> 
-									<span class="input"> 
-											<input type="radio" name="review_welSal" id="p6" value="1"> 
-											<label for="p6">1</label> 
-											<input type="radio" name="review_welSal" id="p7" value="2"> 
-											<label for="p7">2</label> 
-											<input type="radio" name="review_welSal" id="p8" value="3"> 
-											<label for="p8">3</label> 
-											<input type="radio" name="review_welSal" id="p9" value="4"> 
-											<label for="p9">4</label> 
-											<input type="radio" name="review_welSal" id="p10" value="5"> 
+									class="star-input" id="star-B" style="float: right;"> <span
+										class="input"> <input type="radio" name="review_welSal"
+											id="p6" value="1"> <label for="p6">1</label> <input
+											type="radio" name="review_welSal" id="p7" value="2">
+											<label for="p7">2</label> <input type="radio"
+											name="review_welSal" id="p8" value="3"> <label
+											for="p8">3</label> <input type="radio" name="review_welSal"
+											id="p9" value="4"> <label for="p9">4</label> <input
+											type="radio" name="review_welSal" id="p10" value="5">
 											<label for="p10">5</label>
 									</span> &nbsp; <span class="badge" id="star-2"><b>${review.review_welSal }</b>점</span>
 								</span>
 								</li>
 								<br>
 								<li class="list-group-item">업무와 삶의 균형 <span
-									class="star-input" id="star-C" style="float: right;"> 
-									<span class="input"> 
-											<input type="radio" name="review_balance" id="p11" value="1"> 
-											<label for="p11">1</label> 
-											<input type="radio" name="review_balance" id="p12" value="2"> 
-											<label for="p12">2</label> 
-											<input type="radio" name="review_balance" id="p13" value="3"> 
-											<label for="p13">3</label> 
-											<input type="radio" name="review_balance" id="p14" value="4"> 
-											<label for="p14">4</label> 
-											<input type="radio" name=review_balance id="p15" value="5"> 
-											<label for="p15">5</label>
+									class="star-input" id="star-C" style="float: right;"> <span
+										class="input"> <input type="radio"
+											name="review_balance" id="p11" value="1"> <label
+											for="p11">1</label> <input type="radio" name="review_balance"
+											id="p12" value="2"> <label for="p12">2</label> <input
+											type="radio" name="review_balance" id="p13" value="3">
+											<label for="p13">3</label> <input type="radio"
+											name="review_balance" id="p14" value="4"> <label
+											for="p14">4</label> <input type="radio" name=review_balance
+											id="p15" value="5"> <label for="p15">5</label>
 									</span> &nbsp; <span class="badge" id="star-3"><b>${review.review_balance }</b>점</span>
 								</span>
 								</li>
 								<br>
 								<li class="list-group-item">사내문화 <span class="star-input"
-									id="star-D" style="float: right;"> 
-									<span class="input"> 
-											<input type="radio" name="review_culture" id="p16" value="1"> 
-											<label for="p16">1</label> 
-											<input type="radio" name="review_culture" id="p17" value="2"> 
-											<label for="p17">2</label> 
-											<input type="radio" name="review_culture" id="p18" value="3"> 
-											<label for="p18">3</label> 
-											<input type="radio" name="review_culture" id="p19" value="4"> 
-											<label for="p19">4</label> 
-											<input type="radio" name="review_culture" id="p20" value="5"> 
-											<label for="p20">5</label>
+									id="star-D" style="float: right;"> <span class="input">
+											<input type="radio" name="review_culture" id="p16" value="1">
+											<label for="p16">1</label> <input type="radio"
+											name="review_culture" id="p17" value="2"> <label
+											for="p17">2</label> <input type="radio" name="review_culture"
+											id="p18" value="3"> <label for="p18">3</label> <input
+											type="radio" name="review_culture" id="p19" value="4">
+											<label for="p19">4</label> <input type="radio"
+											name="review_culture" id="p20" value="5"> <label
+											for="p20">5</label>
 									</span> &nbsp; <span class="badge" id="star-4"><b>${review.review_culture }</b>점</span>
 								</span>
 								</li>
 								<br>
 								<li class="list-group-item">경영진 <span class="star-input"
-									id="star-E" style="float: right;"> 
-									<span class="input"> 
-											<input type="radio" name="review_manager" id="p21" value="1"> 
-											<label for="p21">1</label> 
-											<input type="radio" name="review_manager" id="p22" value="2"> 
-											<label for="p22">2</label> 
-											<input type="radio" name="review_manager" id="p23" value="3"> 
-											<label for="p23">3</label> 
-											<input type="radio" name="review_manager" id="p24" value="4"> 
-											<label for="p24">4</label> 
-											<input type="radio" name="review_manager" id="p25" value="5"> 
-											<label for="p25">5</label>
+									id="star-E" style="float: right;"> <span class="input">
+											<input type="radio" name="review_manager" id="p21" value="1">
+											<label for="p21">1</label> <input type="radio"
+											name="review_manager" id="p22" value="2"> <label
+											for="p22">2</label> <input type="radio" name="review_manager"
+											id="p23" value="3"> <label for="p23">3</label> <input
+											type="radio" name="review_manager" id="p24" value="4">
+											<label for="p24">4</label> <input type="radio"
+											name="review_manager" id="p25" value="5"> <label
+											for="p25">5</label>
 									</span> &nbsp; <span class="badge" id="star-5"><b>${review.review_manager }</b>점</span>
 								</span>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div class='com-inline-btn'>
+					<div class='com-review-button' align="center">
 						<input type="button" class='register-btn' id="goList" value='목록보기'>
-						<div id="upDel">
-								<input type="button" class='upDel-btn' id='review_mod' value='수정'> 
-								<input type="button" class='upDel-btn' id='review_del' value='삭제'>
+						<div class="row">
+							<span id="upDel" class="mybutton"></span>
 						</div>
 					</div>
-				</div><!-- wrapper -->
+				</div>
+				<!-- wrapper -->
 			</div>
 			<!-- section_main -->
 			<div class='section_main2'>
-				<div class="row" align="center">
-					<div class="col-md-12">
-
-						<div class="box box-success">
+				<div class="row">
+					<div class="reply-container">
+						<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">REPLY</h3>
+								<h3>REPLY</h3>
 							</div>
 							<c:if test="${not empty user_login_id }">
-								<div class="box-body">
-									<label for="exampleInputEmail1">작성자</label> 
-									<input class="form-control" type="text" id="newReplyWriter"> 
-									<label for="exampleInputEmail1">댓글</label> 
-									<input class="form-control" type="text" id="newReplyText">
-
+								<div class="reply-content">
+									<div class="reply-writecontent">
+										<textarea name="reply-content" id="newReplyText"
+											class="content" placeholder="댓글을 입력하세요"
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
+									</div>
+									<div class="reply-writecontent">
+										<label>작성자</label> 
+										<input class="reply-writer" type="text" id="newReplyWriter"> 
+										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
+									</div>
 								</div>
-								<!-- /.box-body -->
-									<div class="box-footer">
-								<button type="button" id="replyAddBtn">댓글 등록</button>
-							</div>
+
 							</c:if>
 
 							<c:if test="${empty user_login_id }">
@@ -196,8 +198,6 @@
 								</div>
 							</c:if>
 						</div>
-
-
 						<!-- The time line -->
 						<ul class="timeline">
 							<!-- timeline time label -->
@@ -210,52 +210,38 @@
 							</ul>
 						</div>
 
-					</div>
+					</div> 
 					<!-- /.col -->
 				</div>
 
-		<!-- 댓글 수정 모달	 -->
-		<div class="modal" id="modifyModal">
-			<div class="modal-pannel">
-				<div class="modal-title">댓글수정 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<h4 class="modal_title"></h4>
-					<p><input type="text" id="replytext" class="form-control" style="width: 90%;"></p>
-				</div>
-					
-				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
-					<input type="button" name="replyConfirm" id="replyModBtn" value="수정">
-					<input type="button" name="replyDelete" id="replyDelBtn" value="삭제">
-					</div>
-			</div>
-		</div>
-<!-- 				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-					<div class="modal-dialog">
-						Modal content
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"></h4>
-							</div>
-							<div class="modal-body" data-rno>
-								<p>
-									<input type="text" id="replytext" class="form-control">
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-								<button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">닫기</button>
-							</div>
+				<!-- 댓글 수정 모달	 -->
+				<div class="modal" id="modifyModal">
+					<div class="modal-pannel">
+						<div class="modal-Title" style="font-size: 20px; font-weight: bold;">
+						댓글수정 
+						<a href="#close">CLOSE</a>
+						</div>
+						<div class="modal-body">
+							<h4 class="modal_title"></h4>
+							<p>
+								<input type="text" id="replytext" class="form-control"
+									style="width: 90%;">
+							</p>
+						</div>
+
+						<div class="modal-footer"
+							style="display: inline-flex; flex-direction: row; width: 100%;">
+							<input type="button" name="replyConfirm" id="replyModBtn"
+								value="수정"> <input type="button" name="replyDelete"
+								id="replyDelBtn" value="삭제">
 						</div>
 					</div>
-				</div> -->
+				</div>
 			</div>
 			<!-- section_main2 -->
 		</div>
 		<!-- column-left -->
-		
+
 		<!-- right section!!************************************************************** -->
 		<div id="rightDiv" class='column-right'>
 			<div id="login_beforeDiv">
@@ -266,245 +252,268 @@
 			</div>
 		</div>
 		<!-- column-right -->
-			
-			
-			
+
+
+
 		<!-- modal 코드 -->
-		<%@ include file="../../user_modals_new.jsp" %>
-</div><!-- container -->
-<script id="template" type="text/x-handlebars-template">
+		<%@ include file="../../user_modals_new.jsp"%>
+	</div>
+	<!-- container -->
+ 	<script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
-  </span>
-  <h3 class="timeline-header"><strong>{{reply_no}}</strong>-{{reply_writer}} </h3>
-  <div class="timeline-body">{{reply_contents}}</div>
-    <div class="timeline-footer">
-	{{#eqReply_writer reply_writer}}
-     <a class="btn btn-primary btn-xs" 
-	    data-toggle="modal" href="#modifyModal">Modify</a>
-	{{/eqReply_writer}}
-    </div>
-  </div>			
+<div class="time_comment_box" style="width: 700px;border-top: 1px solid gray;">
+		<div class="time_area">
+			<div class="time_info">
+				<h4>{{reply_no}}-{{reply_writer}} </h4>
+			</div>
+			<div class="timeline-body">{{reply_contents}}</div>
+			<div class="time_tool">
+				<i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
+			</div>
+		</div>
+</div>
+<div class="timeline-footer" >
+		{{#eqReply_writer reply_writer}}
+		<a class="btn btn-primary btn-xs" 
+		 data-toggle="modal" href="#modifyModal">Modify</a>
+		{{/eqReply_writer}}
+</div>			
 </li>
 {{/each}}
-</script>
+</script> 
 
-<script>
+	<script>
+		Handlebars.registerHelper("prettifyDate", function(timeValue) {
+			var dateObj = new Date(timeValue);
+			var year = dateObj.getFullYear();
+			var month = dateObj.getMonth() + 1;
+			var date = dateObj.getDate();
+			return year + "/" + month + "/" + date;
+		});
 
-	 Handlebars.registerHelper("prettifyDate", function(timeValue) {
-		var dateObj = new Date(timeValue);
-		var year = dateObj.getFullYear();
-		var month = dateObj.getMonth() + 1;
-		var date = dateObj.getDate();
-		return year + "/" + month + "/" + date;
-	});
-	 
-	 Handlebars.registerHelper("eqReply_writer", function(reply_writer,block){
+		Handlebars.registerHelper("eqReply_writer", function(reply_writer,
+				block) {
 			var accum = '';
 			//alert(reply_writer);
-			if(reply_writer == '${user_login_id}'){
+			if (reply_writer == '${user_login_id}') {
 				accum += block.fn();
 			}
 			return accum;
 		});
-	
-	var printData = function(replyArr, target, templateObject) {
-	
-		var template = Handlebars.compile(templateObject.html());
-	
-		var html = template(replyArr);
-		$(".replyLi").remove();
-		target.after(html);
-	
-	}
-	
-	var review_no = ${review.review_no};
-	
-	var replyPage = 1;
-	
-	function getPage(pageInfo) {
-	
-		$.getJSON(pageInfo, function(data) {
-			printData(data.list, $("#repliesDiv"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
-	
-			//$("#modifyModal").modal('toggle');
-	
-		});
-	}
-	
-	var printPaging = function(pageMaker, target) {
-	
-		var str = "";
-	
-		if (pageMaker.prev) {
-			str += "<li><a href='" + (pageMaker.startPage - 1)
-					+ "'> << </a></li>";
-		}
-	
-		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
-			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
-			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
-		}
-	
-		if (pageMaker.next) {
-			str += "<li><a href='" + (pageMaker.endPage + 1)
-					+ "'> >> </a></li>";
-		}
-	
-		target.html(str);
-	};
-	
-	
-	$(".pagination").on("click", "li a", function(event){
-		
-		event.preventDefault();
-		
-		replyPage = $(this).attr("href");
-		console.log(replyPage);
-		
-		getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage);
-		
-	});
-	
-	
-	$("#replyAddBtn").on("click",function(){
-		 //alert('댓글 등록')
-		 console.log("댓글 등록 클릭");
-		 var replyerObj = $("#newReplyWriter");
-		 var reply_writer=replyerObj.val();
-		 var replytextObj = $("#newReplyText");
-		 var reply_contents = replytextObj.val();
-	     var review_no = $("#review_no");
-		 var user_id = '${user_login_id }'; 
-	     
-		  $.ajax({
-				type:'post',
-				url:'${initParam.rootPath}/review/reply/',
-				data:{"reply_writer":reply_writer,"review_no":review_no.val(),"reply_contents":reply_contents, "user_id":"dajung"},
-				success:function(result){
-					console.log("result: " + result);
-					if(result == 'success'){
-						alert("등록 되었습니다.");
-						replyPage = 1;
-						getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/"+replyPage );
-						replyerObj.val("");
-						replytextObj.val("");
-						//Obj.val("");
-					}
-			}});
-	});
-	$(".timeline").on("click", ".replyLi", function(event){
-		
-		var reply = $(this);
-		console.log(">>>"+reply.find('.timeline-body').text()+"<<<");
-		$("#replytext").val(reply.find('.timeline-body').text());
-		$(".modal-title").html(reply.attr("data-reply_no"));
-		
-	});
-	
-	
-	
-	$("#replyModBtn").on("click",function(){
-		console.log('댓글 수정 버튼 클릭');
-		  
-		  var reply_no = $(".modal-title").html();
-		  var reply_contents = $("#replytext").val();
-		  
-		  console.log("수정할 번호:"+reply_no+", 수정할 내용:"+ reply_contents);
-		  
-		  $.ajax({
-				type:'put',
-				url:'${initParam.rootPath}/review/reply/'+reply_no,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({reply_contents:reply_contents}), 
-				dataType:'text', 
-				success:function(result){
-					console.log("result: " + result);
-					if(result == 'success'){
-						alert("수정 되었습니다.");
-						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
-						//reply_contents.val("");
-						$("#modifyModal").fadeOut();
-					}
-			}});
-	});
-	
-	$("#replyDelBtn").on("click",function(){
-		  console.log('댓글 삭제 버튼 클릭');
-		  var reply_no = $(".modal-title").html();
-		  var reply_contents = $("#replytext").val();
-		  
-		  $.ajax({
-				type:'delete',
-				url:'${initParam.rootPath}/review/reply/'+reply_no,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "DELETE" },
-				dataType:'text', 
-				success:function(result){
-					console.log("result: " + result);
-					if(result == 'success'){
-						alert("삭제 되었습니다.");
-						getPage("${initParam.rootPath}/review/reply/"+review_no+"/"+replyPage );
-						$("#modifyModal").fadeOut();
-					}
-			}});
-	});
-	
-	
-	
-</script>
 
-<script type="text/javascript">
-$(function(){
-		//라디오버튼 점수체크해준다.
-	  	$('input:radio[name=review_possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
-	  	$('input:radio[name=review_welSal]:radio[value=${review.review_welSal }]').prop('checked',true);
-	  	$('input:radio[name=review_balance]:radio[value=${review.review_balance }]').prop('checked',true);
-	  	$('input:radio[name=review_culture]:radio[value=${review.review_culture }]').prop('checked',true);
-	  	$('input:radio[name=review_manager]:radio[value=${review.review_manager }]').prop('checked',true);
-	 
-	  	$("input[name=review_welSal]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
-	  	$("input[name=review_balance]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
-	  	$("input[name=review_culture]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
-	  	$("input[name=review_manager]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
-	  		
-	  	writerCheck();
-		//loadReplyList();
-		//replyWriterCheck(no);
-		
-		var formObj = $("form[name=readForm]");
-		var review_no = $('#review_no');
-	
-		getPage("${initParam.rootPath}/review/reply/"+review_no.val()+"/1" );
-		
-		$('#goList').on("click", function() {
-	  		console.log('목록보기 버튼 클릭');
-	  		self.location="${initParam.rootPath }/user/review/list?page=${cri.page }"
-	  					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-	  					+"&keyword=${cri.keyword }&company_id=${param.company_id}";
-	  	});
-		
-		$("#goLogin").on("click", function(){
-			formObj.attr("method", "get");
-			formObj.attr("action", "${initParam.rootPath}/review/reply/goLogin");
-			formObj.submit();
+		var printData = function(replyArr, target, templateObject) {
+
+			var template = Handlebars.compile(templateObject.html());
+
+			var html = template(replyArr);
+			$(".replyLi").remove();
+			target.after(html);
+
+		}
+
+		var review_no = ${review.review_no};
+
+		var replyPage = 1;
+
+		function getPage(pageInfo) {
+
+			$.getJSON(pageInfo, function(data) {
+				printData(data.list, $("#repliesDiv"), $('#template'));
+				printPaging(data.pageMaker, $(".pagination"));
+
+				//$("#modifyModal").modal('toggle');
+
+			});
+		}
+
+		var printPaging = function(pageMaker, target) {
+
+			var str = "";
+
+			if (pageMaker.prev) {
+				str += "<li><a href='" + (pageMaker.startPage - 1)
+						+ "'> << </a></li>";
+			}
+
+			for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+				var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+				str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+			}
+
+			if (pageMaker.next) {
+				str += "<li><a href='" + (pageMaker.endPage + 1)
+						+ "'> >> </a></li>";
+			}
+
+			target.html(str);
+		};
+
+		$(".pagination").on("click","li a",function(event) {
+					event.preventDefault();
+
+					replyPage = $(this).attr("href");
+					console.log(replyPage);
+
+					getPage("${initParam.rootPath}/review/reply/" + review_no
+							+ "/" + replyPage);
+
+				});
+
+		$("#replyAddBtn").on("click",function() {
+					//alert('댓글 등록')
+					console.log("댓글 등록 클릭");
+					var replyerObj = $("#newReplyWriter");
+					var reply_writer = replyerObj.val();
+					var replytextObj = $("#newReplyText");
+					var reply_contents = replytextObj.val();
+					var review_no = $("#review_no");
+					var user_id = '${user_login_id }';
+
+					$.ajax({
+						type : 'post',
+						url : '${initParam.rootPath}/review/reply/',
+						data : {
+							"reply_writer" : reply_writer,
+							"review_no" : review_no.val(),
+							"reply_contents" : reply_contents,
+							"user_id" : "dajung"
+						},
+						success : function(result) {
+							console.log("result: " + result);
+							if (result == 'success') {
+								alert("등록 되었습니다.");
+								replyPage = 1;
+								getPage("${initParam.rootPath}/review/reply/"
+										+ review_no.val() + "/" + replyPage);
+								replyerObj.val("");
+								replytextObj.val("");
+								//Obj.val("");
+							}
+						}
+					});
+				});
+		$(".timeline").on("click", ".replyLi", function(event) {
+
+			var reply = $(this);
+			console.log(">>>" + reply.find('.timeline-body').text() + "<<<");
+			$("#replytext").val(reply.find('.timeline-body').text());
+			$(".modal-title").html(reply.attr("data-reply_no"));
+
 		});
-		
-		
-			
+
+		$("#replyModBtn").on("click",function() {
+					console.log('댓글 수정 버튼 클릭');
+
+					var reply_no = $(".modal-title").html();
+					var reply_contents = $("#replytext").val();
+
+					console.log("수정할 번호:" + reply_no + ", 수정할 내용:"
+							+ reply_contents);
+
+					$.ajax({
+						type : 'put',
+						url : '${initParam.rootPath}/review/reply/' + reply_no,
+						headers : {
+							"Content-Type" : "application/json",
+							"X-HTTP-Method-Override" : "PUT"
+						},
+						data : JSON.stringify({
+							reply_contents : reply_contents
+						}),
+						dataType : 'text',
+						success : function(result) {
+							console.log("result: " + result);
+							if (result == 'success') {
+								alert("수정 되었습니다.");
+								getPage("${initParam.rootPath}/review/reply/"
+										+ review_no + "/" + replyPage);
+								//reply_contents.val("");
+								$("#modifyModal").fadeOut();
+							}
+						}
+					});
+				});
+
+		$("#replyDelBtn").on("click",function() {
+					console.log('댓글 삭제 버튼 클릭');
+					var reply_no = $(".modal-title").html();
+					var reply_contents = $("#replytext").val();
+
+					$.ajax({
+						type : 'delete',
+						url : '${initParam.rootPath}/review/reply/' + reply_no,
+						headers : {
+							"Content-Type" : "application/json",
+							"X-HTTP-Method-Override" : "DELETE"
+						},
+						dataType : 'text',
+						success : function(result) {
+							console.log("result: " + result);
+							if (result == 'success') {
+								alert("삭제 되었습니다.");
+								getPage("${initParam.rootPath}/review/reply/"
+										+ review_no + "/" + replyPage);
+								$("#modifyModal").fadeOut();
+							}
+						}
+					});
+				});
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+			//라디오버튼 점수체크해준다.
+			$(
+					'input:radio[name=review_possibility]:radio[value=${review.review_possibility }]')
+					.prop('checked', true);
+			$(
+					'input:radio[name=review_welSal]:radio[value=${review.review_welSal }]')
+					.prop('checked', true);
+			$(
+					'input:radio[name=review_balance]:radio[value=${review.review_balance }]')
+					.prop('checked', true);
+			$(
+					'input:radio[name=review_culture]:radio[value=${review.review_culture }]')
+					.prop('checked', true);
+			$(
+					'input:radio[name=review_manager]:radio[value=${review.review_manager }]')
+					.prop('checked', true);
+
+			$("input[name=review_welSal]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+			$("input[name=review_balance]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+			$("input[name=review_culture]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+			$("input[name=review_manager]").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+
+			writerCheck();
+			//loadReplyList();
+			//replyWriterCheck(no);
+
+			var formObj = $("form[name=readForm]");
+			var review_no = $('#review_no');
+
+			getPage("${initParam.rootPath}/review/reply/" + review_no.val()
+					+ "/1");
+
+			$('#goList').on("click",function() {
+								console.log('목록보기 버튼 클릭');
+								self.location = "${initParam.rootPath }/user/review/list?page=${cri.page }"
+										+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+										+ "&keyword=${cri.keyword }&company_id=${param.company_id}";
+							});
+
+			$("#goLogin").on("click",function() {
+						formObj.attr("method", "get");
+						formObj.attr("action",
+								"${initParam.rootPath}/review/reply/goLogin");
+						formObj.submit();
+					});
+
 			/***************************************  
-			*                                      *
-			*               별점주기js                * 
-			*                                      *                           
-			****************************************/
+			 *                                      *
+			 *               별점주기js                * 
+			 *                                      *                           
+			 ****************************************/
 			//승진기회
 			var starRating1 = function() {
 				var $star1 = $("#star-A"), $result1 = $star1.find("#star-1>b");
@@ -529,11 +538,10 @@ $(function(){
 						$result1.text($checked1.next().text());
 					}
 				});
-				
-				
+
 			};
 			starRating1();
-			
+
 			//보수
 			var starRating2 = function() {
 
@@ -561,10 +569,10 @@ $(function(){
 				});
 			};
 			starRating2();
-			
+
 			//업무와 삶의 균형
 			var starRating3 = function() {
-				
+
 				var $star3 = $("#star-C"), $result3 = $star3.find("#star-3>b");
 				$(document).on("focusin", "#star-C>.input", function() {
 					$(this).addClass("focus");
@@ -589,10 +597,10 @@ $(function(){
 				});
 			};
 			starRating3();
-			
+
 			//사내문화
 			var starRating4 = function() {
-				
+
 				var $star4 = $("#star-D"), $result4 = $star4.find("#star-4>b");
 				$(document).on("focusin", "#star-D>.input", function() {
 					$(this).addClass("focus");
@@ -617,10 +625,10 @@ $(function(){
 				});
 			};
 			starRating4();
-			
+
 			//경영진
 			var starRating5 = function() {
-				
+
 				var $star5 = $("#star-E"), $result5 = $star5.find("#star-5>b");
 				$(document).on("focusin", "#star-E>.input", function() {
 					$(this).addClass("focus");
@@ -645,58 +653,47 @@ $(function(){
 				});
 			};
 			starRating5();
-		  	
-		  	
-		  	
-	  	});//function()
-	  	
-	  	
 
-	  	//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
-	  	function writerCheck(){
-	  		var user_login_id='${user_login_id}';
-	  		//alert(login_id)
-	  		var writer_id = document.readForm.writer_id.value;
-	
-	  		console.log('로그인한 아이디 >>> '+user_login_id);
-	  		console.log('작성한 아이디 >>> '+writer_id);
-	  		
-	  		var no = document.getElementById('review_no').innerHTML;
-	  		
-	  		//alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
-	  		
-	  		if(user_login_id==writer_id){//일치하면 수정 삭제 버튼 나오게.
-	  			//var upDel = document.getElementById('upDel');
-				$('#upDel').html('<button type=buttion class="upDel-btn" id="update" onclick="modifyReview()">수정</button>'+
-					      '<button type=button class="upDel-btn" id="delete" onclick="removeReview()">삭제</button>');
-	  		}
-	  	}
-	  	
-	  	//게시글 수정 버튼 클릭
-	  	function modifyReview(){
-	  		self.location="${initParam.rootPath }/user/review/modify?page=${cri.page }"
-					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-					+"&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
-	  	}
-	  	
-	  	//게시글 삭제 버튼 클릭
-	  	function removeReview(){
-	  		
-	  		if(confirm('정말로 삭제하시겠습니까?')){
-	  			self.location="${initParam.rootPath }/user/review/remove?page=${cri.page }"
-					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-					+"&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
-	  		}
-	  	}
-	  	
-	  	$('#review_mod').on('click',function(){
-	  		 modifyReview();
-	  	});
-	  	
-	  	$('#review_del').on('click',function(){
-	  		removeReview();
-	  	});
-	  
-</script>
+		});//function()
+
+		//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
+		function writerCheck() {
+			var user_login_id = '${user_login_id}';
+			//alert(login_id)
+			var writer_id = document.readForm.writer_id.value;
+
+			console.log('로그인한 아이디 >>> ' + user_login_id);
+			console.log('작성한 아이디 >>> ' + writer_id);
+
+			var no = document.getElementById('review_no').innerHTML;
+
+			//alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
+
+			if (user_login_id == writer_id) {//일치하면 수정 삭제 버튼 나오게.
+				//var upDel = document.getElementById('upDel');
+				$('#upDel')
+						.html(
+								'<button type=buttion class="upDel-btn" id="update" onclick="modifyReview()">수정</button>'
+										+ '<button type=button class="upDel-btn" id="delete" onclick="removeReview()">삭제</button>');
+			}
+		}
+
+		//게시글 수정 버튼 클릭
+		function modifyReview() {
+			self.location = "${initParam.rootPath }/user/review/modify?page=${cri.page }"
+					+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+					+ "&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
+		}
+
+		//게시글 삭제 버튼 클릭
+		function removeReview() {
+
+			if (confirm('정말로 삭제하시겠습니까?')) {
+				self.location = "${initParam.rootPath }/user/review/remove?page=${cri.page }"
+						+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+						+ "&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
+			}
+		}
+	</script>
 </body>
 </html>
