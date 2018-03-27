@@ -35,6 +35,7 @@ $(document).ready(function(){
 					$('#login_beforeDiv').hide();
 					$('#login_afterDiv').show();
 					loginState = 'login';
+					location.reload();
 				}
 			}
 		});
