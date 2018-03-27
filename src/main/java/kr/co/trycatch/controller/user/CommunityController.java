@@ -67,11 +67,12 @@ public class CommunityController {
    public void read(@RequestParam("community_no") int community_no, SearchCriteria cri, Model model)throws Exception{
 	   
 	   System.out.println("읽을 글번호 >>>"+ community_no);
+	   System.out.println(communityService.read(community_no));
 	   System.out.println("read cri >>>"+ cri);
 	   model.addAttribute("community",communityService.read(community_no));//communityVO   "community" ===> communityVo에 이름 부여해주기
 	   model.addAttribute("cri",cri);
-	    CommunityVO vo = communityService.read(community_no);                                             // (community.community.community_writer)
-	    System.out.println(vo);
+	    /*CommunityVO vo = communityService.read(community_no);                                             // (community.community.community_writer)
+	    System.out.println(vo);*/
 	   //자료가 DB에 insert되는지 확인작업
 	   //communityService.community_viewCount(community_no);
    }

@@ -46,6 +46,12 @@
 						            <p class="qna-writer" id="community_writer" name="community_writer" style="width: 15%" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
 					           </div>  
 					        </div>
+					        
+					        <div class="form-group">    
+						            <label class="ct-box-label">조회수</label> 
+						            <p class="qna-writer" id="community_viewCount" name="community_viewCount" style="width: 15%" readonly="readonly" >${community.community_viewCount}</p> <!-- placeholder="작성자를 입력하세요." -->
+					           </div>
+					        
 						</div>
 						
 						<div class='community-content'>
@@ -111,36 +117,31 @@
 					</div> 
 					
 				</div><!-- /row -->
+				
+				<!-- 댓글 수정 모달    -->
+            <div class="modal" id="modifyModal">
+               <div class="modal-pannel">
+                  <div class="modal-Title" style="font-size: 20px; font-weight: bold;">
+                  댓글수정 
+                  <a href="#close">CLOSE</a>
+                  </div>
+                  <div class="modal-body">
+                     <h4 class="modal_title"></h4>
+                     <p>
+                        <input type="text" id="reply_contents" class="form-control"
+                           style="width: 90%;">
+                     </p>
+                  </div>
 
-				<!--  댓글 수정 Modal --> 
-				<div id="modifyModal" name="modifyModal" class="modal modal-primary fade" role="dialog">
-					<div class="modal-dialog">
-						<!-- Modal content -->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<div class="row" style="padding-left: 1em; padding-right: 20em;">
-									<h4 class="modal-title"></h4>
-									<span><input type="text" id="reply_writer"
-										class="form-control"></span>
-								</div>
-							</div>
-							<div class="modal-body" data-reply_no>
-								<p>
-									<input type="text" id="reply_contents" class="form-control">
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-info" id="replyModBtn">댓글
-									수정</button>
-								<button type="button" class="btn btn-danger" id="replyDelBtn">댓글
-									삭제</button>
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">닫기</button>
-							</div>
-						</div>
-					</div>
-				</div>
+                  <div class="modal-footer"
+                     style="display: inline-flex; flex-direction: row; width: 100%;">
+                     <input type="button" name="replyConfirm" id="replyModBtn"
+                        value="수정"> <input type="button" name="replyDelete"
+                        id="replyDelBtn" value="삭제">
+                  </div>
+               </div>
+            </div>
+         </div>
 			</div><!-- section_communityreply -->
 		</div><!-- column-left -->
 				
@@ -314,6 +315,10 @@
 					alert("수정 되었습니다.");
 					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
 					$("#modifyModal").fadeOut();
+				    self.location="${initParam.rootPath }/user/community/read?page=${cri.page }"
+						+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+						+"&keyword=${cri.keyword }&community_no=${community.community_no }"
+						
 				}
 		}});
 });
@@ -336,6 +341,9 @@ $("#replyDelBtn").on("click",function(){
 					alert("삭제 되었습니다.");
 					getPage("${initParam.rootPath}/community/reply/"+community_no+"/"+replyPage );
 					$("#modifyModal").fadeOut();
+					 self.location="${initParam.rootPath }/user/community/read?page=${cri.page }"
+							+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+							+"&keyword=${cri.keyword }&community_no=${community.community_no }"
 				}
 		}});
 });

@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.trycatch.domain.user.CommunityVO;
 import kr.co.trycatch.domain.user.Criteria;
@@ -27,6 +28,7 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 
+	@Transactional
 	@Override
 	public CommunityVO read(int community_no) throws Exception {
 		communityDao.updateViewCount(community_no);

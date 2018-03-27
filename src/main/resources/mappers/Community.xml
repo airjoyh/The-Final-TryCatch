@@ -15,7 +15,7 @@
    
    	<!-- 특정 게시물 조회 -->
 	<select id="read" resultType="CommunityVO">
-		select community_no, community_title, community_contents, community_writer
+		select community_no, community_title, community_contents, community_writer, community_viewCount
 		from community
 		where community_no =#{community_no}
 	</select>
