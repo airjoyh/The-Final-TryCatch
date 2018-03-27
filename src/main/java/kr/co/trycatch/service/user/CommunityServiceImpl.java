@@ -35,17 +35,10 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	public List<CommunityVO> listAll() throws Exception {
+	public List<CommunityVO> listAll(SearchCriteria cri) throws Exception {
 		
-		return communityDao.listAll();
+		return communityDao.listAll(cri);
 	}
-	
-	@Override
-	public List<CommunityVO> listCriteria(Criteria cri) throws Exception {
-	
-		return communityDao.listCriteria(cri);
-	}
-
 
 	@Override
 	public List<CommunityVO> listSearchCriteria(SearchCriteria cri) throws Exception {
@@ -69,7 +62,7 @@ public class CommunityServiceImpl implements CommunityService {
 	public void modify(CommunityVO communityVo) throws Exception {
        communityDao.update(communityVo);
        
-       int community_no = communityVo.getCommunity_no();
+      // int community_no = communityVo.getCommunity_no();
        
 	}
 

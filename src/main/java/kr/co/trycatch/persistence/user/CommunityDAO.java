@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.trycatch.domain.user.CommunityVO;
+import kr.co.trycatch.domain.user.Contest_qnaVO;
 import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.SearchCriteria;
 
@@ -23,14 +24,8 @@ public interface CommunityDAO {
 	public CommunityVO read(int community_no) throws Exception;//
 
 	// (전체게시물)조회 ----> 사용: 리스트
-	public List<CommunityVO> listAll() throws Exception;
+	public List<CommunityVO> listAll(SearchCriteria cri) throws Exception;
 
-    // (페이지)조회 ---> 사용: 리스트
-    public List<CommunityVO> listPage(int page) throws Exception;
-	
-	// (페이지)조회 ---> 사용: 리스트
-	public List<CommunityVO> listCriteria(Criteria cri) throws Exception;//
-	
 	// 검색어에 대한 (페이지)조회: 한별
 	public List<CommunityVO> listSearch(SearchCriteria cri) throws Exception;
 	
@@ -41,10 +36,12 @@ public interface CommunityDAO {
 
 	public void updateViewCount(int community_no) throws Exception;
 	
-	//public void updateViewCount(int review_no) throws Exception; //조회수
-
-    // 검색어에 대한 (페이지)조회 및 댓글 수
-	//public Map<String, Object> listFinal(SearchCriteria cri) throws Exception;
+		
+		
+		
+		
+		
+		
 	
 	
 }

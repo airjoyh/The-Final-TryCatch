@@ -395,7 +395,7 @@ $(document).ready(function(){
 	function modifyReview(){
 		self.location="${initParam.rootPath }/user/community/modify?page=${cri.page }"
 			+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-			+"&keyword=${cri.keyword }}&community_no=${community.community_no }";
+			+"&keyword=${cri.keyword }&community_no=${community.community_no }";
 	}
 	
 	//게시글 삭제 버튼 클릭

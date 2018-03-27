@@ -35,36 +35,21 @@ public class CommunityDAOImpl implements CommunityDAO {
 	}
 
 	@Override
-	public List<CommunityVO> listAll() throws Exception {
-		return session.selectList("community.selectAll");
+	public List<CommunityVO> listAll(SearchCriteria cri) throws Exception {
+		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
+		
+		return session.selectList("community.selectAll", cri , bounds);
 		
 	}
-
-	@Override
-	public List<CommunityVO> listPage(int page) throws Exception {
-		
-		int skip = (page - 1) * 10;
-		
-		int limit = 10;
-		
-		RowBounds bounds = new RowBounds(skip, limit);
-		
-		return session.selectList("community.listAll", null, bounds);
-	}
-
-	@Override
-	public List<CommunityVO> listCriteria(Criteria cri) throws Exception{
-		
-		RowBounds bounds = new RowBounds(cri.getPageStart(),cri.getPerPageNum());
-		
-		return session.selectList("community.listAll", null, bounds);
-	}
-
 
 	@Override
 	public List<CommunityVO> listSearch(SearchCriteria cri) throws Exception {
         RowBounds bounds = new RowBounds(cri.getPageStart(),cri.getPerPageNum());
-		return session.selectList("community.listSearch",cri,bounds);
+		Map<String, Object> map = new HashMap<>();
+		map.put("searchType", cri.getSearchType());
+		map.put("keyword", cri.getKeyword());
+        
+        return session.selectList("community.listSearch",map,bounds);
 	}
 
     @Override
