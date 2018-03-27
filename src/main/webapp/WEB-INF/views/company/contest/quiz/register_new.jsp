@@ -118,7 +118,7 @@
              $('#correctSpan').show();
            });
     		 }else if(sel=='2'){
-           $('#correctSpan').toggle();
+           $('#correctSpan').hide();
            $('#quiz_num').attr('class','subjectiveType_num');
            $('#quiz_num').show();
            $('.subjectiveType_num').val('0');
