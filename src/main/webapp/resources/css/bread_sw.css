@@ -1,6 +1,6 @@
 .com_section_main {
     position: relative;
-    height: 700px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
 }/*기업탭부분*/ 
@@ -58,35 +58,48 @@
 	padding: 10px;
 }
 
-.review-name .com-skill {
-	left: 150px;
-	width:494px;
-	display: inline-flex;
-	flex-direction:column;
-	padding: 10px;
-}
 
-
-
-/* ------ 찜하기 버튼 ------ */
+/* --------------- 찜하기 버튼 ----------------- */
 .review-name .com-btn {
-	width: 200px;
-	/* border: blue 2px solid; */
-	padding: 20px;
+	width: 100px;
+	padding-top: 75px;
 }
-.com-btn .com-zzim-btn{
-	cursor: pointer;
-	background: yellow;
-	width: 80px;
-	height: 50px;
-}
-.com-btn .com-zzim-btn input[type="submit"]{
+
+#zzimBtn{
 	border: none;
 	cursor: pointer;
-	background: yellow;
 	width: 80px;
-	height: 50px;
+	height: 40px;
+	border: solid 1px rgba(247, 248, 252, 0.6);
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 500;
+	opacity: 0.8;
 }
+#zzimOutBtn{
+	border: none;
+	cursor: pointer;
+	background: #53c7ed;
+	width: 80px;
+	height: 40px;
+	border: solid 1px rgba(247, 248, 252, 0.6);
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 500;
+	opacity: 0.8;
+}
+#zzimBtn:hover{
+	background: #53c7ed;
+	color: #fff;
+	font-weight: 600;
+}
+#zzimOutBtn:hover{
+	background: #65737e;
+	color: #fff;
+	font-weight: 600;
+}
+
+/*----------------------------------------------*/
 
 
 
@@ -104,12 +117,23 @@
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: column;
-	height: 500px;
-	border: 3px yellow solid;
+	height: auto;
 }
-/*기업 이름*/
-.review-name {
-	border: blue 2px solid;
+
+
+
+
+
+/* ------------------------------[ 기업정보 탭 ]------------------------------*
+                                                                      *
+                                                                      *
+   (1) ------------ 상단 기업 이름 박스 ----- */
+.review-box-title { 
+	width: 100%;
+	height: 150px;
+}
+
+.review-name { /*기업 이름 바깥 박스*/
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: row;
@@ -117,37 +141,85 @@
 	height: 100%;
 	padding: 10px;
 }
+
+.review-name .com-skill { /*기업타이틀들어가는박스*/
+	left: 150px;
+	width:560px;
+	display: inline-flex;
+	flex-direction:column;
+	padding: 10px;
+}
+
 .com-skill .review-name-text p{
 	color: #65737e;
     font-size: 30px;
     font-weight: 600;
     padding: 6px 0 6px 6px;	
 }
+
 .com-skill .review-name-text span{
-	font-size: 22px;
-}
-/*기업 이름*/
-.review-box-title {
-	border: orange 2px solid;
-	width: 100%;
-	height: 180px;
+	font-size: 16px;
+	color: #a0a0a0;
 }
 
-/*기업 소개*/
-.review-box-intro {
-	border: orange 2px solid;
+.com-skill .review-name-text .score-color{
+	font-size: 22px;
+	color: #65737e;
+}
+
+.com-skill .com-skill-subinfo { /*기업이름하단에 들어가는 기업카테고리*/
+	border-top: 2px solid #ebeef3;
+	background: rgba(201, 215, 226, 0.2);
 	width: 100%;
-	height: 300px;
+	height: 60px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 7px;
+	font-size: 12px;
+	color: #a0a0a0;
+}
+
+
+/*  (2) ------------ 중단 기업 소개 박스 ----- */
+
+.review-box-intro {
+	width: 100%;
+	height: auto;
 	padding: 30px;
 }
 
-/*기업 정보*/
-.review-box-info{
+.review-box-intro .com-intro-text {
+	padding: 18px;
+	margin: 7px auto; 
+	width: 100%;
+	height: auto;
+	background: rgba(201, 215, 226, 0.2);
+	border-top: 2px solid #ebeef3;
+}
+
+.review-box-intro .com-intro-text p{
 	
 }
 
+.review-box-intro label{ /*기업인트로 라벨*/
+	font-size: 15px;
+	font-weight: 700;
+	color: #55acee;
+}
 
-.com-info {
+
+
+
+/*  (3) ------------ 하단 기업 정보 박스 ----- */
+
+.review-box-info{
+	width: 100%;
+	height: auto;;
+	padding: 30px;
+}
+
+
+.review-box-info .com-info {
 	display: flex;
 	display: -webkit-flex;
 	flex-direction: column;
@@ -155,20 +227,81 @@
 	height: 100%;
 }
 
-#box-left {
-	width:33%;
-	float: left;
+.review-box-info .com-info .com-info-boxs {
+	display: block;
+	height: 50%;
 }
 
-#box-center {
-	width:33%;
+.review-box-info .com-info .com-info-boxs .com-info-box {
+	display: inline-block;
+	width: 190px;
 	float: left;
+	margin: 8px;
 }
 
-#box-right {
-	width:33%;
-	float: left;
+.review-box-info .com-info .com-info-boxs .com-info-box p{
+	border-top: 2px solid #ebeef3;
+	background: rgba(201, 215, 226, 0.2);
+	color: #65737e;
+    font-size: 14px;
+    padding: 6px;
+    margin-top: 4px;
 }
+
+.review-box-info label{ /*기업 정보 라벨*/
+	font-size: 15px;
+	font-weight: 700;
+	color: #55acee;
+}
+
+
+/*  (4) ------------ 최하단 콘테스트 박스 ----- */
+
+.review-box-contest{
+	width: 100%;
+	height: auto;
+	padding: 30px;
+}
+.review-box-contest p{
+	border-top: 2px solid #ebeef3;
+	background: rgba(201, 215, 226, 0.2);
+	padding: 20px;
+	margin-top: 5px;
+}
+.review-box-contest label{ 
+	font-size: 15px;
+	font-weight: 700;
+	color: #65737e;
+}
+
+                         
+/* ------------------------------[ 기업평점 탭 ]------------------------------*
+                                                                      *
+                                                                      */
+.com-grade{
+	border: yellow solid 2px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+}
+.com-grade .com-grade-boxs{
+	display: block;
+	height: 50%;
+}
+.com-grade .com-grade-boxs .com-grade-box{
+	border: blue solid 2px;
+	display: inline-block;
+	width: 50%;
+	float: left;
+	margin: 8px auto;
+	
+}
+
+
+
+
 
 .star-left{
 	width:50%;
@@ -216,11 +349,13 @@
 	display:flex;
 	list-style: none;
 }
+
+
 /*****************************************************************
 							Label
 ******************************************************************/
 
-.review-content label{
+/* .review-content label{
   width: 100%;
    float: left;
    line-height: 15px;
@@ -229,7 +364,7 @@
    letter-spacing: 2px;
    color: #55acee;
    position: relative;
-} 
+}  */
 /* .review-content label:before {
   content: "";
    width: 5px;

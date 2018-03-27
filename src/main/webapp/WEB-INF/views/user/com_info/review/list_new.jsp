@@ -55,19 +55,18 @@
 								*                                                             *
 								************************************************************-->
 								<div class="review-content">
-									<div class="review-box">
+									<div class="review-box-title">
 										<div class="review-name">
-											<div class="com-img">
-												<!-- <img alt="회사이미지" src="resources/company/img/ksd.jpg"
-													style="height: 80px; width: 80px;"> -->
-											</div>
+											<!-- <div class="com-img">
+												<img alt="회사이미지" src="resources/company/img/ksd.jpg"
+													style="height: 80px; width: 80px;">
+											</div> -->
 											<div class="com-skill">
-												<div style="height: 50%;">	
-													<p>${company_info.company_name  }&nbsp;&nbsp;&nbsp;&nbsp;<span>${total }/5.0</span></p>
+												<div style="height: 50%;" class="review-name-text">	
+													<p>${company_info.company_name  }&nbsp;&nbsp;&nbsp;&nbsp;<span class="score-color">${total }</span><span>/5.0</span></p>
 												</div>
-												<div style="height: 50%;">
-													<span
-														style="border-radius: 10px; background-color: darkgray;">${company_info.company_line }</span>
+												<div class="com-skill-subinfo">
+													<span>${company_info.company_line }</span>
 												</div>
 											</div>
 											<div class="com-btn">
@@ -76,52 +75,60 @@
 														value="${user_login_id }"> <input type="hidden"
 														name="zzim_selected" id="zzim_selected"
 														value="${company_info.company_id}">
-													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
+														
+													<input style="float: right;" id="zzimBtn" type="submit" value="찜하기">
+													<input style="float: right;" id="zzimOutBtn" type="button" value="찜취소">
+													
+													<!-- <button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
 													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
-													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
+													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button> -->
 												</form>
 											</div>
 										</div>
 									</div>
-									<div class="review-box">
+									<div class="review-box-intro">
 										<label>기업 소개</label><br>
-										<textarea rows="3" cols="100px" st>${company_info.company_intro }</textarea>
+										<div class="com-intro-text">
+											<p>	
+											${company_info.company_intro }
+											</p>
+										</div>
 									</div>
-									<div class="review-box">
+									<div class="review-box-info">
 										<div class="com-info">
-											<div style="height: 50%;">
-												<div id="box-left">
+											<div class="com-info-boxs">
+												<div class="com-info-box">
 													<label id="company_line">산업군</label>
-													<div>${company_info.company_line }</div>
+													<p>${company_info.company_line }</p>
 												</div>
-												<div id="box-center">
+												<div class="com-info-box">
 													<label id="company_year">설립 년도</label>
-													<div>${company_info.company_year }</div>
+													<p>${company_info.company_year }</p>
 												</div>
-												<div id="box-right">
+												<div class="com-info-box">
 													<label id="company_site">기업 사이트</label>
-													<div>${company_info.company_site }</div>
+													<p>${company_info.company_site }</p>
 												</div>
 											</div>
-											<div style="height: 50%;">
-												<div id="box-left">
+											<div class="com-info-boxs">
+												<div class="com-info-box">
 													<label id="company_addr">기업 주소</label>
-													<div style="width: 190px">${company_info.company_addr }</div>
+													<p>${company_info.company_addr }</p>
 												</div>
-												<div id="box-center">
+												<div class="com-info-box">
 													<label id="company_size">기업 규모</label>
-													<div>${company_info.company_size }</div>
+													<p>${company_info.company_size }</p>
 												</div>
-												<div id="box-right">
+												<div class="com-info-box">
 													<label id="company_turnover">매출액</label>
-													<div>${company_info.company_turnover }</div>
+													<p>${company_info.company_turnover }</p>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="review-box" style="margin-top: 20px;">
-										<label>현재 개최중인 콘테스트 정보</label><br> <span
-											style="color: #5f63fd">없음 </span>
+									<div class="review-box-contest" style="margin-top: 20px;">
+										<label>현재 개최중인 콘테스트 정보</label><br>
+											<p>없음 </p>
 									</div>
 								</div>
 								<!-- review-content -->
@@ -134,37 +141,37 @@
 								*                                                             *
 								************************************************************-->
 								<div class="review-content">
-									<div class="review-box">
-										<div class="star-box">
-											<div class="star-left">
+									<div class="com-grade">
+										<div class="com-grade-boxs">
+											<div class="com-grade-box">
 												<label>종합만족도</label><br>	
 												<progress id="progressBar" max="100" value="${total*20 }"></progress>								
 											</div>
-											<div class="star-right">
+											<div class="com-grade-box">
 												<label>승진 및 기회가능성</label><br>	
 												<progress id="progressBar" max="100" value="${avgScore.avg_possibility*20 }"></progress>																
 											</div>
 										</div>
 									</div>
-									<div class="review-box">
-										<div class="star-box">
-											<div class="star-left">
+									<div class="com-grade">
+										<div class="com-grade-boxs">
+											<div class="com-grade-box">
 												<label>복지 및 급여</label><br>																					
 												<progress id="progressBar" max="100" value="${avgScore.avg_welSal*20 }"></progress>
 											</div>
-											<div class="star-right">
+											<div class="com-grade-box">
 												<label>업무와 삶의 균형</label><br>										
 												<progress id="progressBar" max="100" value="${avgScore.avg_balance*20 }"></progress>
 											</div>
 										</div>
 									</div>
-									<div class="review-box">
-										<div class="star-box">
-											<div class="star-left">
+									<div class="com-grade">
+										<div class="com-grade-boxs">
+											<div class="com-grade-box">
 												<label>사내문화</label><br>																					
 												<progress id="progressBar" max="100" value="${avgScore.avg_culture*20 }"></progress>
 											</div>
-											<div class="star-right">
+											<div class="com-grade-box">
 												<label>경영진</label><br>										
 												<progress id="progressBar" max="100" value="${avgScore.avg_manager*20 }"></progress>
 											</div>
@@ -282,6 +289,12 @@
 	</div><!-- container -->
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+		 if(loginState != 'login'){//로그인을 하지 않았다면
+	         $('#zzimBtn').hide();
+	      }else{
+	         $('#zzimBtn').show();
+	      }
 		
 		$('#searchBtn').on("click", function(event) {
 		//검색(Search) 버튼을 클릭하면
