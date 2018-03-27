@@ -58,7 +58,7 @@
 			</if>
 			<if test="searchType == 'tw'.toString() ">
 				and review_title like '%'||#{keyword}||'%'
-				or review_contents like '%'||#{keyword}||'%'
+				or review_writer like '%'||#{keyword}||'%'
 			</if>
 		</if>
 	</sql>
@@ -103,13 +103,13 @@
    	</select>
    	
    	<select id="totalAvgScore" resultType="double">
-   		select round((avg(review_possibility)
-   					+ avg(review_welSal)
-   					+ avg(review_balance)
-   					+ avg(review_culture)
-   					+ avg(review_manager))/5,1) avg_all
-		from review
-		where company_id = #{company_id}
-		group by company_id
+   		select nvl(round((nvl(round(avg(review_possibility),1),0.0)
+                  + nvl(round(avg(review_welSal),1),0.0)
+                  + nvl(round(avg(review_balance),1),0.0)
+                  + nvl(round(avg(review_culture),1),0.0)
+                  + nvl(round(avg(review_manager),1),0.0))/5,1),0.0) avg_all
+       from review
+       where company_id = #{company_id}
+       group by company_id
    	</select>
 </mapper>
