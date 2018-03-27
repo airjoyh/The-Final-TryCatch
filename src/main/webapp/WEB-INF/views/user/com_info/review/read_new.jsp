@@ -180,7 +180,8 @@
 									</div>
 									<div class="reply-writecontent">
 										<label>작성자</label> 
-										<input class="reply-writer" type="text" id="newReplyWriter"> 
+										<input type="hidden" id="reply_user_id" value="${user_login_id }">
+										<input class="fake-reply-writer" type="text" id="newReplyWriter"> 
 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
 									</div>
 								</div>
@@ -256,29 +257,28 @@
 		<%@ include file="../../user_modals_new.jsp"%>
 	</div>
 	<!-- container -->
- 	<script id="template" type="text/x-handlebars-template">
+<script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<div class="time_comment_box" style="width: 700px;border-top: 1px solid gray;">
-		<div class="time_area">
-			<div class="time_info">
-				<h4>{{reply_no}}-{{reply_writer}} </h4>
-			</div>
-			<div class="timeline-body">{{reply_contents}}</div>
-			<div class="time_tool">
-				<i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
-			</div>
-		</div>
+<div class="time_comment_box" style="width: 700px; height:auto; border-top: 1px solid gray;">
+      <div class="time_area">
+         <div class="time_info">
+            <h4>{{reply_no}}-{{reply_writer}} </h4>
+         </div>
+         <div class="timeline-body">{{reply_contents}}</div>
+         <div class="time_tool">
+            <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
+         </div>
+      </div>
+<div class="timeline-footer" style="display:block;">
+      {{#eqReply_writer reply_writer}}
+       <span><a href="#modifyModal">Modify</a></span>
+      {{/eqReply_writer}}
+</div>         
 </div>
-<div class="timeline-footer" >
-		{{#eqReply_writer reply_writer}}
-		<a class="btn btn-primary btn-xs" 
-		 data-toggle="modal" href="#modifyModal">Modify</a>
-		{{/eqReply_writer}}
-</div>			
 </li>
 {{/each}}
-</script> 
+</script>  
 
 	<script>
 		Handlebars.registerHelper("prettifyDate", function(timeValue) {
@@ -292,8 +292,10 @@
 		Handlebars.registerHelper("eqReply_writer", function(reply_writer,
 				block) {
 			var accum = '';
-			//alert(reply_writer);
-			if (reply_writer == '${user_login_id}') {
+			var reply_user_id = $('#reply_user_id').val(); 
+			//alert(reply_user_id);
+			
+			if (reply_user_id == '${user_login_id}') {
 				accum += block.fn();
 			}
 			return accum;
@@ -427,6 +429,9 @@
 										+ review_no + "/" + replyPage);
 								//reply_contents.val("");
 								$("#modifyModal").fadeOut();
+								self.location = "${initParam.rootPath }/user/review/read?page=${cri.page }"
+									+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+									+ "&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
 							}
 						}
 					});
@@ -452,6 +457,9 @@
 								getPage("${initParam.rootPath}/review/reply/"
 										+ review_no + "/" + replyPage);
 								$("#modifyModal").fadeOut();
+								self.location = "${initParam.rootPath }/user/review/read?page=${cri.page }"
+									+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+									+ "&keyword=${cri.keyword }&company_id=${param.company_id}&no=${review.review_no }";
 							}
 						}
 					});
