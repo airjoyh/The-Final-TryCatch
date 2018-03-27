@@ -76,7 +76,7 @@
 				            
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
 				            <span class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
-				                   value="" readonly="readonly"><a href="#tcmail">${contest_qna.qna_writer }</a></span>
+				                   value="" readonly="readonly"><a id="noteA" href="#tcmail">${contest_qna.qna_writer }</a></span>
 				            <span><input type="button" name="gonote" id="gonote"></span>
 				            <span><input type="button" name="gocomnote" id="gocomnote"></span>
 				        </div>
@@ -518,6 +518,19 @@
 <script type="text/javascript">
  $(function(){//document ready
 	      
+		 if(loginState != 'login'){// 로그인을 하지 않았다면
+			  $('#noteA').attr("href", "#");
+		 }else{
+			 $('#noteA').attr("href", "#tcmail"); //쪽지 보내게 하기
+		 }
+ 
+		  $('#noteA').on("click", function(){ //????????????
+			  console.log('쪽지 보내기 버튼 클릭');
+			  if(loginState != 'login'){
+				  alert('쪽지는 로그인한 후에 보낼 수 있습니다.');
+			  }
+		  });
+	 
 	        writerCheck();
 	        
 		    var formObj = $("form[name=readForm]");

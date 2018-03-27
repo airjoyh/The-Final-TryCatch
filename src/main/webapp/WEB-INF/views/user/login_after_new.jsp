@@ -67,7 +67,7 @@
 				</tbody>
 			</table>	
 		</div>
-			<!-- <div class="zzim-page-box">페이징</div> -->
+		<%-- 	<!-- <div class="zzim-page-box">페이징</div> -->
 			<div align="center">
 				<ul class="zzim-page-box">
 					<c:if test="${pageMaker.prev}">
@@ -88,7 +88,7 @@
 							href="zzimlist${pageMaker.makeSearch(pageMaker.endPage +1) }&zzim_select=${param.zzim_select }">&raquo;</a></li>
 					</c:if>
 				</ul>
-			</div>
+			</div> --%>
 		</div>
 		
 	</div>
