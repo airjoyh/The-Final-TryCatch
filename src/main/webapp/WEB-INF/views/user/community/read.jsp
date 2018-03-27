@@ -81,7 +81,7 @@
 									</div>
 									<div class="reply-writecontent">
 										<label>작성자</label> 
-										<input class="reply-writer" type="text" id="newReplyWriter"> 
+										<input class="reply-writer" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
 									</div>
 								</div>
@@ -166,7 +166,7 @@
  	<script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<div class="time_comment_box" style="width: 700px;border-top: 1px solid gray;">
+<div class="time_comment_box" style="width: 700px; height:auto; border-top: 1px solid gray;">
 		<div class="time_area">
 			<div class="time_info">
 				<h4>{{reply_no}}-{{reply_writer}} </h4>
@@ -176,13 +176,12 @@
 				<i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
 			</div>
 		</div>
-</div>
-<div class="timeline-footer" >
+<div class="timeline-footer" style="display:block;">
 		{{#eqReply_writer reply_writer}}
-		<a class="btn btn-primary btn-xs" 
-		 data-toggle="modal" href="#modifyModal">Modify</a>
+		 <span><a href="#modifyModal">Modify</a></span>
 		{{/eqReply_writer}}
 </div>			
+</div>
 </li>
 {{/each}}
 </script> 
@@ -222,7 +221,7 @@
 		
 	
 		$.getJSON(pageInfo, function(data) {
-			printData(data.list, $("#community_repliesDiv"), $('#template'));
+			printData(data.list, $("#repliesDiv"), $('#template'));
 			printPaging(data.pageMaker, $(".pagination"));
 	
 			//$("#modifyModal").modal('toggle');
@@ -266,7 +265,7 @@
  $("#replyAddBtn").on("click",function(){//댓글 추가(add Reply)를 클릭했을 때
 	  //console.log("ddd");
 	 var reply_writerObj = $("#newReplyWriter"); 
-	 var reply_contentsObj = $("#newReply_contents"); 
+	 var reply_contentsObj = $("#newReplyText"); 
 	 var reply_writer = reply_writerObj.val(); //댓글 작성자
 	 var reply_contents = reply_contentsObj.val(); //댓글 내용
 	 var community_noObj = $("input[name=community_no]");
