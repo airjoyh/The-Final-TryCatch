@@ -58,7 +58,7 @@
 			</if>
 			<if test="searchType == 'tw'.toString() ">
 				and review_title like '%'||#{keyword}||'%'
-				or review_contents like '%'||#{keyword}||'%'
+				or review_writer like '%'||#{keyword}||'%'
 			</if>
 		</if>
 	</sql>

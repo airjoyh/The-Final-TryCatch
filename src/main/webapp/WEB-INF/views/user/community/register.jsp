@@ -28,30 +28,29 @@
 					<div class='column-title'>커뮤니티 글작성</div>
 				</div>
 				<div class='community_wrapper'>
-				<form method="post">
-				   <div class="form-group">
-					<div class='com-qna-title'>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
-				                  class="qna-title" id="community_title" name="community_title" type="text"
-				                  style="width: 35%" placeholder="제목을 입력하세요.">
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="community_writer" name="community_writer" value="${user_login_id}"
-				                  style="width: 35%" readonly="readonly">
-					</div>
-				   </div>
-					
-
-					<div class='com-qna-content'>
-						<label for="community_contents">글 내용</label><br>
-				        <textarea name="community_contents" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
-					</div>
-			   
-					<div class='com-inline-btn' align="center">
-						<input type="submit" class='register-qna' id="registBtn" value='글등록'>
-						<input type="button" class='register-qna' id="cancelBtn" value='취소'>
-					</div>
-
-				</form>
+					<form method="post">
+					   <div class="community-readtitle">
+							<div class='com-qna-title'>
+									<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
+						                  class="qna-title" id="community_title" name="community_title" type="text"
+						                  style="width: 35%" placeholder="제목을 입력하세요.">
+						            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
+						                  class="qna-writer" id="community_writer" name="community_writer" value="${user_login_id}"
+						                  style="width: 35%" readonly="readonly">
+							</div>
+					   </div>
+						
+						<div class='community-register'>
+							<label for="community_contents">글 내용</label><br>
+					        <textarea name="community_contents" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
+						</div>
+				   
+						<div class='community-btn' align="center">
+							<input type="submit" class='register-qna' id="registBtn" value='글등록'>
+							<input type="button" class='register-qna' id="cancelBtn" value='취소'>
+						</div>
+	
+					</form>
 				</div>
 				
 			</div><!-- section_communityregister -->

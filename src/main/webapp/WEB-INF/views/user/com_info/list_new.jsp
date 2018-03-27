@@ -108,8 +108,6 @@
 							</select> <input type="text" name='keyword' id="keywordInput"
 								value='${cri.keyword }'>
 							<button id='searchBtn'>검색</button>
-							<a href="javascript:loginCheck()"><button id='registBtn'>글쓰기</button></a>
-
 						</div>
 					<!-- com-contest-paging -->
 						

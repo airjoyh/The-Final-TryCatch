@@ -19,6 +19,7 @@ a:hover {
 } */
 .company-contest-table{
 	text-align: center;
+	margin: 10px;
 }
 
 .company-contest-table table a:link {
@@ -50,12 +51,13 @@ a:hover {
 	padding:12px;
 	border-top:1px solid #fafafa;
 	border-bottom:1px solid #e0e0e0;
-	background-color: #80ffff;
+	background-color: #65737e;
+	color: #fff;
 
 }
 .company-contest-table table th:first-child{
 	text-align:left;
-	width:30px;
+	width:70px;
 	padding-left:20px;
 }
 
@@ -64,7 +66,7 @@ a:hover {
 }
 .company-contest-table table tr td:first-child{
 	text-align:left;
-	width: 30px;
+	width: 70px;
 	padding-left:20px;
 	border-left: 0;
 }

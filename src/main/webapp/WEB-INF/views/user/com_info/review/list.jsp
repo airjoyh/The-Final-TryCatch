@@ -67,7 +67,7 @@
 			   url: '${initParam.rootPath}/zziminout',
 			   type:'post',
 			   data: {
-				    zzim_selected:${company_info.company_id},
+				    zzim_selected:'${company_info.company_id}',
 				    zzim_select:'${user_login_id }'
 			   },
 			   success: function (result) {
