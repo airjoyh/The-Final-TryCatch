@@ -5,7 +5,7 @@
 		insert into 
 		review_reply(reply_no, reply_contents, review_no, 
 					 reply_wdate, user_id, reply_writer)
-    	      values(seq_review_reply.nextval, #{reply_contents}, #{review_no},
+    	      values(review_reply_seq.nextval, #{reply_contents}, #{review_no},
     	             sysdate, #{user_id}, #{reply_writer})
 	</insert>
 

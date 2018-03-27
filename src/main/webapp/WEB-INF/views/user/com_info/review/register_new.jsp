@@ -21,7 +21,7 @@
 		<div class='column-left'>	
 			<div class='section-review-register'>
 				<div class='title-wrapper'>
-					<div class='column-title'>${param.company_id } 후기 글작성</div>
+					<div class='column-title'>후기 글작성</div>
 				</div>
 				<form action="register" name="registerForm" method="post">
 				<div class='wrapper'>
@@ -29,13 +29,7 @@
 						 	<div class="row" hidden="" >
 						        <div class="input-group">
 						         <input type="hidden" id="user_id" name="user_id" value="${user_login_id }">
-		                         <input type="hidden" id="company_id" name="company_id" value="${param.company_id }">
-						            <span class="input-group-addon">글번호</span> <input
-						            	  class="form-control" id="title" name="title" type="text"
-						                  style="width: 35%" placeholder="글번호 자동입력." readonly="readonly">
-						            <span class="input-group-addon" style="padding-left: 3em;">작성일</span> <input
-						                  class="form-control" id="writer" name="writer"
-						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
+		                         <input type="hidden" id="company_id" name="company_id" value="${param.company_id }"> 
 						        </div>
 						    </div>
 							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
@@ -180,6 +174,11 @@
 <script type="text/javascript">
 $(function() {
 
+	if(loginState != 'login'){
+		alert('로그인하신 후에 이용 가능합니다.');
+		self.location = '${initParam.rootPath}/user/main';
+	}
+	
 	/***************************************  
 	 *                                      *
 	 *               별점주기js                * 
@@ -324,8 +323,15 @@ $(function() {
 		});
 	};
 	starRating5();
+	
+	
+	$('#cancelBtn').on('click',function(){
+		
+		self.location="${initParam.rootPath}/user/review/list?company_id=${param.company_id}";
 
-});
+	});
+
+});//function
 
 function validateCheck() {
 	var f = document.registerForm;
@@ -369,12 +375,6 @@ function validateCheck() {
 		document.registerForm.submit();
 	}
 }
-
-$('#cancelBtn').on('click',function(){
-	
-	self.location="${initParam.rootPath}/user/review/list?company_id=${param.company_id}";
-
-});
 </script>
 </body>
 </html>

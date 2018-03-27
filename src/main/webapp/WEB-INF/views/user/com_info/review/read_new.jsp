@@ -53,7 +53,7 @@
 						</div>
 						<div class="row3">
 							<span class="title-name">조회&nbsp;&nbsp;&nbsp;&nbsp; <input
-								class="title-title" id="title" name="title" type="text"
+								class="title-title" id="viewCount" name="viewCount" type="text"
 								style="width: 35%; border: none;"
 								value="${review.review_viewCount }" readonly="readonly">
 							</span> 
@@ -374,7 +374,7 @@
 							"reply_writer" : reply_writer,
 							"review_no" : review_no.val(),
 							"reply_contents" : reply_contents,
-							"user_id" : "dajung"
+							"user_id" : user_id
 						},
 						success : function(result) {
 							console.log("result: " + result);

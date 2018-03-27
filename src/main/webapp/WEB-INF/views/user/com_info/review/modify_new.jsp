@@ -17,7 +17,7 @@
 		<div class='column-left'>	
 			<div class='com-contest-head'>
 				<div class='title-wrapper'>
-					<div class='column-title'>${param.company_id } 후기 글수정</div>
+					<div class='column-title'>후기 글수정</div>
 				</div>
 				<form action="modify" name="modifyForm" method="post">
 				<div class='wrapper'>
@@ -31,9 +31,6 @@
 									<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 								 	<input type='hidden' name='searchType' value="${cri.searchType}">
 									<input type='hidden' name='keyword' value="${cri.keyword}">
-						            <span class="input-group-addon">작성일</span> <input
-						                  class="form-control" id="writer" name="writer"
-						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
 						        </div>
 						    </div>
 							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
@@ -176,6 +173,11 @@
 <script type="text/javascript">
 $(function() {
 
+	if(loginState != 'login'){
+		alert('로그인하신 후에 이용 가능합니다.');
+		self.location = '${initParam.rootPath}/user/main';
+	}
+	
 	$('input:radio[name=review_possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
   	$('input:radio[name=review_welSal]:radio[value=${review.review_welSal }]').prop('checked',true);
   	$('input:radio[name=review_balance]:radio[value=${review.review_balance }]').prop('checked',true);
