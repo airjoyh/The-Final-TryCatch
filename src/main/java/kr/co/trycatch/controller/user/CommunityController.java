@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import kr.co.trycatch.domain.user.CommunityVO;
-import kr.co.trycatch.domain.user.Criteria;
 import kr.co.trycatch.domain.user.PageMaker;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.user.CommunityService;
@@ -65,43 +64,35 @@ public class CommunityController {
    
    
    @RequestMapping(value="/read", method=RequestMethod.GET)
-   public void read(@RequestParam("community_no") int community_no,
-		            @ModelAttribute("cri") SearchCriteria cri, Model model)throws Exception{
+   public void read(@RequestParam("community_no") int community_no, SearchCriteria cri, Model model)throws Exception{
 	   
 	   System.out.println("읽을 글번호 >>>"+ community_no);
 	   System.out.println("read cri >>>"+ cri);
 	   model.addAttribute("community",communityService.read(community_no));//communityVO   "community" ===> communityVo에 이름 부여해주기
-	   CommunityVO cv = communityService.read(community_no);                                             // (community.community.community_writer)
-	   System.out.println(cv);
+	   model.addAttribute("cri",cri);
+	    CommunityVO vo = communityService.read(community_no);                                             // (community.community.community_writer)
+	    System.out.println(vo);
 	   //자료가 DB에 insert되는지 확인작업
 	   //communityService.community_viewCount(community_no);
    }
    
    @RequestMapping(value="/modify",method=RequestMethod.GET)
-   public String modifyPagingGet(int community_no, Model model,
-		           @ModelAttribute("cri") Criteria cri)throws Exception{
-
+   public String modifyPagingGet(int community_no, Model model, @ModelAttribute("cri") SearchCriteria cri)throws Exception{
+	      System.out.println("modifyPagingPost");
 	      model.addAttribute("community", communityService.read(community_no));
       
 	      return "/user/community/modify";
    }
    
    @RequestMapping(value="/modify",method=RequestMethod.POST)
-	public String modifyPagingPost(CommunityVO communityVo, 
-							SearchCriteria cri,
-						RedirectAttributes rttr)
-			                                            throws Exception{//DB수정 요청
+	public String modifyPagingPost(CommunityVO communityVo, SearchCriteria cri, RedirectAttributes rttr)	throws Exception {// DB수정 요청
+	 
 	    communityService.modify(communityVo);
 		//수정후 목록창으로 이동
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		//수정한 페이지 정보를 listPage.jsp에게 전달
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addAttribute("searchType", cri.getSearchType());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		
-		rttr.addFlashAttribute("msg","SUCCESS");
 		
 		return "redirect:/user/community/list";
 	}

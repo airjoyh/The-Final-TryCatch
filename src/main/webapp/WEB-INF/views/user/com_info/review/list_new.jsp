@@ -239,47 +239,44 @@
 						</div>
 					</div>
 					<!--company-contest-table -->
-				<div class="com-contest-paging"  style="display: flex;flex-direction: column; align-items: center">
-					<div class="cont-qna-page">
-						<ul class="pagination">
-							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-							</c:if>
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a
-									href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-								</li>
-							</c:forEach>
+					<div class="board-paging" >
+						<div class="board-pageline" align="center">
+							<ul class="board-pagination" >
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+										<a
+										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+									</li>
+								</c:forEach>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-							</c:if>
-						</ul>
-					</div>
-					<div class='cont-qna-search'>
-						<select name="searchType">
-							<option value="n"
-								<c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-							<option value="t"
-								<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					제목</option>
-							<option value="w"
-								<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 작성자</option>
-							<option value="tw"
-								<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 제목+작성자</option>
-						</select> <input type="text" name='keyword' id="keywordInput"
-							value='${cri.keyword }'>
-						<button id='searchBtn'>검색</button>
-						<a href="javascript:loginCheck()"><button id='registBtn'>글쓰기</button></a>
-
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+						<div class='board-search'align="center">
+							<select name="searchType">
+								<option value="n"
+									<c:out value="${cri.searchType == null?'selected':''}"/>>
+                   					 검색조건</option>
+								<option value="t"
+									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                    					제목</option>
+								<option value="w"
+									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                   					 작성자</option>
+							</select> <input type="text" name='keyword' id="keywordInput"
+								value='${cri.keyword }'>
+							<button class="board-btn" id='searchBtn'>검색</button>								
+							<button class="board-btn" id='registBtn'>글쓰기</button>
+						</div>
 					</div>
 				</div>
 				<!-- com-contest-paging -->

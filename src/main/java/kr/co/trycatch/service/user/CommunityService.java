@@ -18,10 +18,8 @@ public interface CommunityService {
 	
 	public CommunityVO read(int community_no) throws Exception;//글 한개 조회
 
-	public List<CommunityVO> listAll() throws Exception;//전체글 조회
+	public List<CommunityVO> listAll(SearchCriteria cri) throws Exception;//전체글 조회
     
-	public List<CommunityVO> listCriteria(Criteria cri) throws Exception;//특정 페이지 조회
-	
 	public List<CommunityVO> listSearchCriteria(SearchCriteria cri) throws Exception;
 	// 검색어 일치하는 글들을 조회
 	

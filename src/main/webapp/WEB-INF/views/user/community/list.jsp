@@ -41,10 +41,11 @@
 		<div class='column-left'>
 		
 			<div class='section_main_community'>
-				<div class='community-head'>
+
 					<div class='title-wrapper'>
 						<div class='column-title'>커뮤니티 게시판</div>
 					</div>
+					
 					<div class='company-contest-table'>
 							<table cellspacing='0'>
 								<tr>
@@ -69,6 +70,7 @@
 				                  </c:forEach>														
 							</table>
 					</div>
+					
 					<div class="board-paging" >
 						<div class="board-pageline" align="center">
 							<ul class="board-pagination" >
@@ -109,7 +111,7 @@
 						</div>
 					</div>
 					<!-- com-contest-paging -->
-				</div><!-- com-contest-head -->
+
 			</div><!-- section_main1 -->
 				
 		</div>

@@ -2,12 +2,18 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
-/* .section_main2 {
+.section_contestlist {
     position: relative;
-    height: 1000px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
-} */
+} 
+.section_contestqna {
+    position: relative;
+    height: auto;
+    border: 1px solid #dee3eb;
+    background: #fff;
+} 
 .content1 {
 	width: 740px;
 	height: 470px;
@@ -185,107 +191,6 @@
 
 
 /*****************************************************************
-							Table
-******************************************************************/
-.company-contest-table table a:link {
-	color: #666;
-	font-weight: bold;
-	text-decoration:none;
-}
-.company-contest-table table a:visited {
-	color: #999999;
-	font-weight:bold;
-	text-decoration:none;
-}
-.company-contest-table table a:active,
-.company-contest-table table a:hover {
-	color: #bd5a35;
-	text-decoration:underline;
-}
-.company-contest-table table {
-	font-family:Arial, Helvetica, sans-serif;
-	color:#666;
-	font-size:12px;
-	text-shadow: 1px 1px 0px #fff;
-	background:#ffffff;
-	margin:0;
-	border:#ccc 1px solid;
-
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-
-	-moz-box-shadow: 0 1px 2px #d1d1d1;
-	-webkit-box-shadow: 0 1px 2px #d1d1d1;
-	box-shadow: 0 1px 2px #d1d1d1;
-}
-.company-contest-table table th {
-	padding:12px;
-	border-top:1px solid #fafafa;
-	border-bottom:1px solid #e0e0e0;
-
-	background: #ffffff;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
-	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
-}
-.company-contest-table table th:first-child{
-	text-align: left;
-	padding-left:20px;
-}
-.company-contest-table table tr:first-child th:first-child{
-	-moz-border-radius-topleft:3px;
-	-webkit-border-top-left-radius:3px;
-	border-top-left-radius:3px;
-}
-.company-contest-table table tr:first-child th:last-child{
-	-moz-border-radius-topright:3px;
-	-webkit-border-top-right-radius:3px;
-	border-top-right-radius:3px;
-}
-.company-contest-table table tr{
-	text-align: center;
-	padding-left:20px;
-}
-.company-contest-table table tr td:first-child{
-	text-align: left;
-	padding-left:20px;
-	border-left: 0;
-	/* width: 400px; */
-}
-.company-contest-table table tr td {
-	padding:8px;
-	border-top: 1px solid #ffffff;
-	border-bottom:1px solid #e0e0e0;
-	border-left: 1px solid #e0e0e0;
-	
-	background: #fafafa;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
-	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
-}
-.company-contest-table table tr.even td{
-	background: #f6f6f6;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
-	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
-}
-.company-contest-table table tr:last-child td{
-	border-bottom:0;
-}
-.company-contest-table table tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:3px;
-	-webkit-border-bottom-left-radius:3px;
-	border-bottom-left-radius:3px;
-}
-.company-contest-table table tr:last-child td:last-child{
-	-moz-border-radius-bottomright:3px;
-	-webkit-border-bottom-right-radius:3px;
-	border-bottom-right-radius:3px;
-}
-.company-contest-table table tr:hover td{
-	background: #f2f2f2;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
-	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
-}
-/*****************************************************************
 						sw_qna
 ******************************************************************/
 #com_reply{
@@ -318,46 +223,4 @@
 #registBtn {
 	right: 0;
 	bottom: 0;
-}
-/*****************************************************************
-						progress bar
-******************************************************************/
-progress {
-	display:inline-block;
-	width:190px;
-	height:25px;
-	/* padding:15px 0 0 0; */
-	margin: 10px 0 0 0;
-	background:none;
-	border: 0;
-	border-radius: 15px;
-	text-align: left;
-	position:relative;
-	/* font-family: Arial, Helvetica, sans-serif; */
-	font-size: 0.8em;
-}
-progress::-webkit-progress-bar {
-	height:25px;
-	width:200px;
-	margin:0 auto;
-	background-color: #66bb6a;
-	border-radius: 15px;
-	box-shadow:0px 0px 6px #777 inset;
-}
-progress::-webkit-progress-value {
-	display:inline-block;
-	float:left;
-	height:25px;
-	margin:0px -10px 0 0;
-	background: #ef5350;
-	border-radius: 15px;
-	box-shadow:0px 0px 6px #777 inset;
-}
-
-progress:after {
-	margin:-20px 0 0 100px;
-	padding:0;
-	display:inline-block;
-	float:left;
-	content: attr(value) '%';
 }

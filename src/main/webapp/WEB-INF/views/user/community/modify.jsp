@@ -33,8 +33,8 @@
 						            <span class="input-group-addon" style="padding-left: 3em;">작성일</span> <input
 						                  class="form-control" id="writer" name="writer"
 						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"> -->
-						            <input id="community_no" name="community_no" value="${community.community_no} ">
-	                                <input id="community_writer" name="community_writer" value="${user_login_id }"> <%-- ekwjd72@naver.com"> --%>
+	                                <input id="community_no" name="community_no" value="${community.community_no} ">
+	                                <input id="community_writer" name="community_writer" value="${user_login_id }">
 	                                <input name='page' value="${cri.page}"> 
 	                                <input name='perPageNum' value="${cri.perPageNum}">
  	                                <input name='searchType' value="${cri.searchType}">
@@ -108,9 +108,9 @@ function validateCheck() {
 <script type="text/javascript">
 $(function(){
 	$('#cancel').on("click", function(){
-		self.location="${initParam.rootPath }/user/contest/qna/read?page=${cri.page }"
-				+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-				+"&keyword=${cri.keyword }&contest_id=${param.contest_id}&qna_no=${param.qna_no}";
+		self.location="${initParam.rootPath }/user/community/list?page=${cri.page }"
+			+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+			+"&keyword=${cri.keyword }&community_no=${community.community_no }";
 	});
 });
 </script>

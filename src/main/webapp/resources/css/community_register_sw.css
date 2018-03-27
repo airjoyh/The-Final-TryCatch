@@ -10,7 +10,6 @@
     background: #fff;
 } 
 
-
 .community_wrapper{
 	margin-top:10px;
 	display:block;
@@ -23,7 +22,7 @@
 	background-color: #2b303b;
 }
 
-.com-qna-title{
+.community-readtitle{
 	height:45px;
 	width:700px;
 	margin: 0;
@@ -33,8 +32,8 @@
 	
 }
 
-.com-qna-content{
-	height:auto;
+.community-register{
+	height:300px;
 	width:720px;
 	margin: 0;
     padding:10px;
@@ -43,9 +42,8 @@
 	
 }
 
-
-.com-inline-btn {
-	height: auto;
+.community-btn {
+	height: 70px;
 	width:720px;
 	margin: 0;
     padding: 10px;
