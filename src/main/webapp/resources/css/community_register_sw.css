@@ -10,8 +10,9 @@
     background: #fff;
 } 
 
+
 .community_wrapper{
-	margin-top:10px;
+	margin:10px;
 	display:block;
 	padding: 0;
 	height: 425px;
@@ -24,12 +25,27 @@
 
 .community-readtitle{
 	height:45px;
-	width:700px;
+	width:100%;
 	margin: 0;
-    padding:0;
+    padding: 10px;
+	display: block;
+	position: relative;	
+}
+
+.community-readtitle .readtitle{
 	display: inline-block;
 	position: relative;
-	
+	width: 340px;
+	height: 45px;
+}
+
+ .title-label{
+	font-size: 20px;
+}
+
+.readtitle .community-box{
+	width: 270px;
+	height: 20px;
 }
 
 .community-register{
@@ -41,7 +57,11 @@
 	position: relative;
 	
 }
-
+.community-register .ta{
+	resize:none;
+	width: 700px;
+	height: 230px;
+}
 .community-btn {
 	height: 70px;
 	width:720px;
@@ -68,4 +88,38 @@
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+}
+
+/*****************************************************************
+							  modify
+******************************************************************/
+
+ .section_communitymod {
+    position: relative;
+    width: 740px;
+    height: 500px;
+    border: 1px solid #dee3eb;
+    background: #fff;
+} 
+
+.community-register .modta{
+	resize:none;
+	width: 700px;
+	height: 230px;
+}
+
+.community-modtitle{
+	height:60px;
+	width:100%;
+	margin: 0;
+    padding: 10px;
+	display: block;
+	position: relative;	
+}
+
+.community-modtitle .readtitle{
+	display: inline-block;
+	position: relative;
+	width: 340px;
+	height: 40px;
 }

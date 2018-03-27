@@ -30,19 +30,22 @@
 				<div class='community_wrapper'>
 					<form method="post">
 					   <div class="community-readtitle">
-							<div class='com-qna-title'>
-									<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
-						                  class="qna-title" id="community_title" name="community_title" type="text"
-						                  style="width: 35%" placeholder="제목을 입력하세요.">
-						            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-						                  class="qna-writer" id="community_writer" name="community_writer" value="${user_login_id}"
-						                  style="width: 35%" readonly="readonly">
+							<div class='readtitle'>
+									<span class="title-label">제목</span>&nbsp;&nbsp;&nbsp; 
+									<input class="community-box" id="community_title" name="community_title" type="text"
+						                   placeholder="제목을 입력하세요.">
+							</div>
+							<div class='readtitle'>
+						            <span class="title-label">작성자</span>&nbsp;&nbsp; 
+						            <input class="community-box" id="community_writer" name="community_writer" value="${user_login_id}"
+						                  readonly="readonly">
 							</div>
 					   </div>
 						
 						<div class='community-register'>
-							<label for="community_contents">글 내용</label><br>
-					        <textarea name="community_contents" style="width: 700px;" rows="6" class="form-ta" id="good"></textarea>
+							<label class="title-label" for="community_contents">글 내용</label><br>
+					        <textarea name="community_contents" class="ta" id="good"></textarea>
+					        
 						</div>
 				   
 						<div class='community-btn' align="center">
@@ -57,7 +60,7 @@
 			
 		</div><!-- column-left -->
 		
-		<<!-- right section!!************************************************************** -->
+		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
 			<div id="rightDiv" class='column-right'>
 				<div id="login_beforeDiv">

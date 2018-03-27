@@ -31,26 +31,20 @@
 	position: relative;
 }
 
-.community-title{
-	height:45px;
-	width:700px;
+.community-readtitle{
+	height:auto;
+	width:100%;
 	margin: 0;
-    padding:0;
-	display: inline-block;
-	position: relative;
-	
+    padding: 10px;
+	display: block;
+	position: relative;	
 }
 
-.community-title-box{
-	width: 680px;
-	padding-left: 10px;
-	padding-right: 10px;
-	display: inline-flex;
-	flex-direction: row;
-}
-.community-title-box .form-group{
+.community-readtitle .readtitle{
+	display: inline-block;
+	position: relative;
 	width: 340px;
-	display: flex;
+	height: 25px;
 }
 
 .community-content{

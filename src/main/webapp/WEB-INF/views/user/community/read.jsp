@@ -33,26 +33,23 @@
 	                   <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 	                   <input type='hidden' name='searchType' value="${cri.searchType}">
 	                   <input type='hidden' name='keyword' value="${cri.keyword}">
-										
-						<div class='community-title'>					
-							<div class="community-title-box">
-							   <div class="form-group">	
-									<label class="ct-box-label">제목 </label>&nbsp;&nbsp;&nbsp; 
-									<p class="qna-title" id="community_title" name="community_title" type="text" style="width: 15%" readonly="readonly">${community.community_title}</p> <!-- placeholder="제목을 입력하세요." -->
-					           </div>
-					           
-					           <div class="form-group">    
-						            <label class="ct-box-label">작성자</label> 
-						            <p class="qna-writer" id="community_writer" name="community_writer" style="width: 15%" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
-					           </div>  
-					        </div>
-					        
-					        <div class="form-group">    
-						            <label class="ct-box-label">조회수</label> 
-						            <p class="qna-writer" id="community_viewCount" name="community_viewCount" style="width: 15%" readonly="readonly" >${community.community_viewCount}</p> <!-- placeholder="작성자를 입력하세요." -->
-					           </div>
-					        
-						</div>
+						
+					<div class="community-readtitle">
+							<div class='readtitle'>
+								<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp;
+								<input class="qna-title" id="community_title" name="community_title" type="text"
+					                  style="width: 270px; border: none;" value="${community.community_title }" readonly="readonly">
+							</div>
+							<div class='readtitle'>
+						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;
+						        <span class="qna-writer" id="community_writer" name="community_writer" 
+						        	style=" width: 280px; readonly="readonly" >${community.community_writer}</span>
+							</div>
+							<div class='readtitle'>
+						        <label class="ct-box-label">조회수</label> 
+						        <span class="qna-writer" id="community_viewCount" name="community_viewCount" style="width: 15%" readonly="readonly" >${community.community_viewCount}</span>
+							</div>
+					   </div>
 						
 						<div class='community-content'>
 						   <div class="form-group">	

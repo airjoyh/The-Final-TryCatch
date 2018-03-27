@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <title>커뮤니티 글수정</title>
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_register_sw.css" rel="stylesheet" type="text/css">
 <!-- 임시 js -->
 
 </head>
@@ -19,7 +19,7 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='section_communityread'>
+			<div class='section_communitymod'>
 				<div class='title-wrapper'>
 					<div class='column-title'>커뮤니티 글수정</div>
 				</div>
@@ -37,23 +37,25 @@
 						        </div>
 					    </div>
 					    
-						<div class='community-title'>					
-							<div class="community-title-box">
-							 <span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
-				                  class="qna-title" id="community_title" name="community_title" type="text"
-				                  style="width: 35%" value="${community.community_title }">
-					           <div class="form-group">    
-						            <label class="ct-box-label">작성자</label>
-						            <p class="qna-writer" id="community_writer" name="community_writer" style="padding-left: 3em;" readonly="readonly" >${community.community_writer}</p> <!-- placeholder="작성자를 입력하세요." -->
-					           </div>  
-					        </div>
-						</div>
+					   <div class="community-modtitle">
+							<div class='readtitle'>
+								<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp;
+								<input class="qna-title" id="community_title" name="community_title" type="text"
+					                  style="width: 270px;" value="${community.community_title }">
+							</div>
+							<div class='readtitle'>
+						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;
+						        <span class="qna-writer" id="community_writer" name="community_writer" 
+						        	style="width: 280px; border: 1px solid gray" readonly="readonly" >${community.community_writer}</span>
+							</div>
+					   </div>
 
-					<div class='community-content'>
+					<div class='community-register'>
 						<label for="good">커뮤니티내용</label><br>
-				        <textarea name="community_contents" style="width: 680px;" rows="10" class="form-ta" id="community_contents">${community.community_contents }</textarea>
+				        <textarea name="community_contents" class="modta" id="community_contents">${community.community_contents }</textarea>
 					</div>
-					<div class='community-button' align="center">
+					
+					<div class='community-btn' align="center">
 						<input type="submit" class='inline-btn' id="regist" onclick="validateCheck()" value='글 수정'>
 						<input type="button" class='inline-btn' id="cancel" value='취소'>
 					</div>
