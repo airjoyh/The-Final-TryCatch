@@ -18,4 +18,6 @@ public interface Contest_quizService {
 	public Contest_quizVO readQuiz(int contest_id, int quiz_no) throws Exception;
 	
 	public List<ExampleVO> readExample(int quiz_id) throws Exception;
+
+	public int quizCount(int contest_id) throws Exception;
 }

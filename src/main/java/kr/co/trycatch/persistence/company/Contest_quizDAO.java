@@ -22,5 +22,7 @@ public interface Contest_quizDAO {
 	public List<ExampleVO> selectExample(int quiz_id) throws Exception; 
 	
 	public int selectQuiz_seq() throws Exception;
+	
+	public int quizCount(int contest_id) throws Exception;
 
 }

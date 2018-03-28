@@ -76,4 +76,10 @@ public class Contest_quizDAOImpl implements Contest_quizDAO {
 		return session.selectOne("contest_quiz.selectQuiz_seq");
 	}
 
+	@Override
+	public int quizCount(int contest_id) throws Exception {
+		
+		return session.selectOne("contest_quiz.quizCount", contest_id);
+	}
+
 }

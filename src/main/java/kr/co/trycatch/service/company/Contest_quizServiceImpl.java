@@ -65,4 +65,10 @@ public class Contest_quizServiceImpl implements Contest_quizService {
 		return contest_quizDao.selectExample(quiz_id);
 	}
 
+	@Override
+	public int quizCount(int contest_id) throws Exception {
+		
+		return contest_quizDao.quizCount(contest_id);
+	}
+
 }

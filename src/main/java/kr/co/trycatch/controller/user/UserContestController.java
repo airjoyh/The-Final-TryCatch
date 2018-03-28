@@ -81,8 +81,23 @@ public class UserContestController {
 		int quiz_id = contest_quizService.readQuiz_id(contest_id, quiz_no);
 		model.addAttribute("quiz_id", quiz_id);
 		model.addAttribute("exampleList", contest_quizService.readExample(quiz_id));
+		model.addAttribute("quizCount", contest_quizService.quizCount(contest_id));
 		
-		return "/user/contest/quiz/solve";
+		int quiz_type = contest_quizVo.getQuiz_type();
+		String type ="";
+		if(quiz_type==1) {
+			type = "obj";
+			
+		}else if(quiz_type==2) {
+			type="subj";
+			
+		}else if(quiz_type==3) {
+			type="coding";
+		}
+		
+		
+		
+		return "/user/contest/quiz/solve_"+type;
 	}
 	
 	@ResponseBody

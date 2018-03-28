@@ -8,7 +8,9 @@ public class Contest_quizVO {
 	private int quiz_type;
 	private int quiz_point;
 	private String quiz_correct;
-	
+	private String company_name;
+	private String contest_title;
+
 	public int getQuiz_id() {
 		return quiz_id;
 	}
@@ -65,11 +67,27 @@ public class Contest_quizVO {
 		this.quiz_correct = quiz_correct;
 	}
 
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	public String getContest_title() {
+		return contest_title;
+	}
+
+	public void setContest_title(String contest_title) {
+		this.contest_title = contest_title;
+	}
+
 	@Override
 	public String toString() {
 		return "Contest_quizVO [quiz_id=" + quiz_id + ", contest_id=" + contest_id + ", quiz_contents=" + quiz_contents
 				+ ", quiz_no=" + quiz_no + ", quiz_type=" + quiz_type + ", quiz_point=" + quiz_point + ", quiz_correct="
-				+ quiz_correct + "]";
+				+ quiz_correct + ", company_name=" + company_name + ", contest_title=" + contest_title + "]";
 	}
 
 }

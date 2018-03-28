@@ -28,8 +28,16 @@
 	
 	<!-- 문제번호에 따른 전체 문제 정보 조회 -->
 	<select id="selectQuiz" resultType="Contest_quizVO">
-		select quiz_id, contest_id, quiz_contents, quiz_no, quiz_type, quiz_point, quiz_correct
-		from contest_quiz
+		select quiz_id, contest_id, quiz_contents, quiz_no, quiz_type, quiz_point, quiz_correct, company_name, contest_title
+		from contest_quiz 
+		natural join contest
+		natural join company_info
+		where contest_id = #{contest_id}
+	</select>
+	
+	<select id="quizCount" resultType="int">
+		select count(*) 
+		from contest_quiz 
 		where contest_id = #{contest_id}
 	</select>
 	
