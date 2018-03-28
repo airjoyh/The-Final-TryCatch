@@ -280,14 +280,14 @@
 							<button class="board-btn" id='newBtn'>글쓰기</button>
 						</div>
 					</div>
-				</div>
-				<!-- com-contest-paging -->
-
+					<!-- board-paging -->
 			</div>
-			<!-- section_board -->
+			<!-- com_section_board -->
+			</div>
+			<!-- column-left -->
 
-		</div>
-		<!-- column-left -->
+
+
 		<!-- right section!!************************************************************** -->
 		<div id="rightDiv" class='column-right'>
 			<div id="login_beforeDiv">

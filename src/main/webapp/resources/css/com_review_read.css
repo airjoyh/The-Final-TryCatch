@@ -11,14 +11,14 @@
 
 .section_com_read {
     position: relative;
-    height: 660px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;  
 }
 
 .section_main2 {
     position: relative;
-    height: 600px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;  
 	display: block;
@@ -31,126 +31,146 @@
 }
 
 /*****************************************************************
-							  title
+                                        title
 ******************************************************************/
 
-.com-review-title-box{ /* 제목 작성자 등 박스*/
-    height: 110px;
+.wrapper-com-review-read{ /*상세게시물 상단 - 제목 작성자 등*/
+     display:block;
+     padding: 35px 45px 45px 45px;
+     
+     /* border: blue solid 2px; */
+}
+.com-review-title-box{ /* ------------------■ 제목 작성자 등 박스*/
+    height: auto;
     width: auto;
     padding: 0;
-    display: block;
     position: relative;
-    border-bottom: #ebeef3 solid 5px;
- 	background: rgba(201, 215, 226, 0.2);
+     background: #65737e;
+     color: #fff;
 }
 
-.com-review-title-box .row1{ /*작성일 작성자 조회수 들어가는 박스*/
-	width: 600px;/*여기는 어쩔수없어요*/
-	display: block;
-	height: 30px;
-	margin-left: 25px;
-	border: blue solid 1px;
-	
+.com-review-title-box input[type="text"]{ /*전체 인풋타입박스 배경과 보더 없애줍니다.*/
+     border: none;
+     background: none;
+     color: #fff;
+     height: auto;
+}
+
+.com-review-title-box .row1{ /* ------> 작성일 작성자 조회수 들어가는 박스*/
+     display: block;
+     width: auto;/*여기는 어쩔수없어요*/
+     height: auto;
+     margin-bottom: 0;
+     padding: 15px 25px 15px 25px;
+     background: rgba(201, 215, 226, 0.2);
+     color: #fff;
+     opacity: 0.8;
 }
 
 .com-review-title-box .row1 .row1-top-date{
-	display: inline-block;
-	font-weight:600;
+     display: inline-block;
+     font-weight:600;
+     margin: 0 75px 0 15px;
+}
+
+.com-review-title-box .row1 .row1-top-datas {
+     display: inline-block;
+     float: right;
 }
 .com-review-title-box .row1 .row1-top-data{
-	display: inline-block;
-	font-weight:600;
-	padding-left: 2em;
+     display: inline-block;
+     font-weight:600;
+     margin: 0 5px 0 5px;
+     /* border: yellow solid 1px; */
 }
 
-.title-writer input[type="text"] {
-	padding-left: 2em;
-	padding-right: 2em;
+.row1-top-date input[type="text"] {
+     padding-left: 15px;
+     width: 250px;
 }
-.title-cnt input[type="text"] {
-	padding-left: 2em;
-	padding-right: 2em;
+.row1-top-data input[type="text"] {
+     padding-left: 15px;
+     width: 130px;
 }
 
-
+.com-review-title-box .row2{ /* ------> 후기 글제목*/
+     width: auto;
+     height: auto;
+     display: inline-block;
+}
 .com-review-title-box .row2 .title-title{
-	font-size: 28px;
-	font-weight: 200;
-	width: 600px;/*여기는 어쩔수없어요*/
-	color: #65737e;
-	font-weight:200;
-	margin: 20px 0 20px 25px;
+     font-size: 22px;
+     font-weight: 100;
+     width: 600px;
+     height: auto;
+     color: #fff;
+     font-weight:200;
+     margin: 35px;
 }
-.com-review-title-box .row2{ /*후기 글제목*/
-	width: 100%; 
-	display: inline-block;
-}
-
-.com-review-title-box .row3{
-	width: 100%; 
-	display: inline-block;
-	height: 25px;
-}
-
-.wrapper-com-review-content{ /*안넘치게하고싶어요*/
+.wrapper-com-review-content{  /* -------■ 상세 게시글 중단 내용 콘텐트 장점 단점 등 */
     display: block;
-/*     border: #dee3eb solid 1px;
- */ /* border: blue solid 2px; */
- 	border: #dee3eb solid 1px;
+     border: #ebeef3 solid 1px;
     width: auto;
-    padding: 20px;
+    padding: 15px;
+    margin-bottom: 0;
 }
 
 .wrapper-com-review-content label{
-	font-size: 14px;
-	font-weight: 400;
-	color: #55acee;
+     font-size: 14px;
+     font-weight: 400;
+     color: #55acee;
 }
 .com-re-content-li{ /*후기 질문 개당*/
-	height:auto;
-	width:auto;
-	display: block;
-	position: relative;
-	margin: 10px 0 10px 0;
-	padding: 15px;
-	/* border: pink solid 2px; */
+     height:auto;
+     width:auto;
+     display: block;
+     position: relative;
+     margin: 10px 0 10px 0;
+     padding: 15px 0 15px 0 ;
+     /* border: pink solid 2px; */
 }
 .com-re-content-li label{/*장점 단점 경영진에게 타이틀*/
-	display: block;
-	position: relative;
-	padding: 5px;
-	border-bottom: #ebeef3 solid 2px;
+     display: block;
+     position: relative;
+     padding: 0 5px 5px 0;
+     border-bottom: #ebeef3 solid 2px;
 }
 .com-re-content-li .com-re-content-text{ /*글내용*/
-	width: auto;
+     width: auto;
+     margin: 10px 0 10px 0;
 }
 
 
-.com-review-star{
-	height:200px;
-	width:700px;
+.wrapper-com-review-content { /* -------■상세 게시글 하단 평점 */
+    display: block;
+    position:relative;
+     padding: 35px;
+     height: auto;
+     
+}
+
+
+.wrapper-com-review-content .com-review-star{
+     height:auto;
+     display: inline-block;
+     position: relative;
+     width: 100%;
+}
+
+.com-review-button{ /*버튼있는 디브*/
 	display: block;
-	position: relative;
-}
-
-.com-review-button{
-	margin: auto;
-	height:70px;
-	width:700px;
-	display: block;
-	position: relative;
-}
-
-.star-line {
-	height: 100%;
+     margin: 0 auto;
+     padding: 20px;
+     height:auto;
+     width: 100%;
 }
 
 .star-line ul{
-	list-style: none;
+     list-style: none;
 }
 
 .com-inline-btn {
-	height: 70px;
+     height: 70px;
     left: 300px;
     bottom:20px;
     margin: 0;
@@ -159,106 +179,77 @@
     position: relative;
 }
 
-.register-btn {
-	height:28px;
-	width:128px;
-	font-size:15px;
-    margin: 0;
+.register-btn { /*목록으로 버튼*/
+	display: inline-block;
+     height:35px;
+     width:100px;
+     border-radius: 2px;
+     font-size:15px;
+    margin: 20px auto;
     padding:0;
     border:none;
     outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
+     background-color:#65737e;
+     color:#fff;
+     cursor:pointer;
+     
+     -webkit-transition: all .3s ease;
+     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
+.register-btn :hover{
+	background-color:#4b565e;
+}
+
 
 .upDel-btn {
-	height:25px;
-	width:62.5px;
-	font-size:15px;
+     height:25px;
+     width:62.5px;
+     font-size:15px;
     margin-top:1px;
     padding:0;
     border:none;
     outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
+     background-color:#65737e;
+     color:#fff;
+     cursor:pointer;
+     
+     -webkit-transition: all .3s ease;
+     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
 
 .register-reviewBtn {
-	height:30px;
-	width:120px;
-	font-size:15px;
+     height:30px;
+     width:120px;
+     font-size:15px;
     margin: 0;
     padding:0;
     border:none;
     outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
+     background-color:#65737e;
+     color:#fff;
+     cursor:pointer;
+     
+     -webkit-transition: all .3s ease;
+     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
 .form-ta {
-	width: 700px;
+     width: 700px;
 }
 
 .list-group{
-	display: flex;
-	flex-direction: column;
+     display: flex;
+     flex-direction: column;
 }
 
-/*****************************************************************
-							  Reply
-******************************************************************/
-.reply-container .box{
-	display: block;
-	height: auto;
-}
-
-.reply-container .box .reply-content{
-	display: inline-block;
-	position: relative;
-	width: 100%;
-	border: none;
-	margin-bottom: 5px;
-}
-
-.reply-container .box .reply-content .reply-writecontent{
-    padding: 0;
-}
-.reply-content .reply-writer{
-	width: 250px;
-	border: none;
-}
-.reply-content .reply-btn{
-	height: 20px;
-	width:100px;
-	background-color: #00ffff;
-	float: right;
-}
-.reply_box_content_wrap{
-	display: inline-block;
-}
-.reply-container .box ul,li{
-	list-style: none;
-}
 /*****************************************************************
 							 별점주기 css
 ******************************************************************/

@@ -39,7 +39,6 @@
 						<div class="row2">
 							<div class="row2-top-title"><input
 								class="title-title" id="title" name="title" type="text"
-								style="border: none;"
 								value="${review.review_title }" readonly="readonly">
 							</div>
 						</div>
@@ -47,15 +46,16 @@
 							<div class="row1-top-date">
 							<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${review.review_wdate}" />
 							</div>
+							<div class="row1-top-datas">
 							<div class="row1-top-data">작성자<input class="writer"  type="text"
-								id="writer" name="writer" style="border: none;"
+								id="writer" name="writer"
 								value="${review.review_writer }" readonly="readonly">
 							</div>
 							<div class="row1-top-data">조회수<input
 								class="title-title" id="viewCount" name="viewCount" type="text"
-								style="border: none;"
 								value="${review.review_viewCount }" readonly="readonly">
 							</div> 
+							</div>
 						</div>
 					</div>
 					<div class="wrapper-com-review-content">
@@ -78,9 +78,10 @@
 						</div>
 					</div>
 					</div>
+					
+					<div class="wrapper-com-review-content">
 					<div class='com-review-star'>
-						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
-						<div class="star-line">
+						<label for="starPoint">평점</label>
 							<ul class="list-group">
 								<li class="list-group-item">승진기회 및 가능성 <span
 									class="star-input" id="star-A" style="float: right;"> <span
@@ -159,14 +160,16 @@
 								</span>
 								</li>
 							</ul>
-						</div>
 					</div>
-					<div class='com-review-button' align="center">
+					</div>
+					
+					<div class='com-review-button'>
 						<input type="button" class='register-btn' id="goList" value='목록보기'>
 						<div class="row">
 							<span id="upDel" class="mybutton"></span>
 						</div>
 					</div>
+					
 				</div>
 				<!-- wrapper -->
 			</div>
@@ -181,15 +184,15 @@
 							<c:if test="${not empty user_login_id }">
 								<div class="reply-content">
 									<div class="reply-writecontent">
-										<textarea name="reply-content" id="newReplyText"
-											class="content" placeholder="댓글을 입력하세요"
-											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
-									</div>
-									<div class="reply-writecontent">
 										<label>작성자</label> 
 										<input type="hidden" id="reply_user_id" value="${user_login_id }">
 										<input class="fake-reply-writer" type="text" id="newReplyWriter"> 
 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
+									</div>
+									<div class="reply-writecontent">
+										<textarea name="reply-content" id="newReplyText"
+											class="content" placeholder="댓글을 입력하세요"
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
 									</div>
 								</div>
 
