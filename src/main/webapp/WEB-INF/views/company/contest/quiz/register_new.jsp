@@ -49,7 +49,7 @@
 							  <option value="3">코딩</option>
 						  </select>
               <!-- <select class="objectiveType-quiz_num subjectiveType-quiz_num" style="display:none"> -->
-              <select id='quiz_num' style="display:none">
+              <select id='quiz_num' name="quiz_num" style="display:none">
               	<option value="0">==문항수를 선택하세요==</option>
 							  <option value="1">1</option>
 							  <option value="2">2</option>
@@ -67,7 +67,7 @@
 						<div class='cont-reg-title' id="correctSpan" style="display:none;">
               문제정답(객관식의 경우 정답에 들어가는 텍스트를 입력하세요.)
 						  <div id="quiz_answer">
-							<textarea id="quiz_answer" name="quiz_answer"></textarea>
+							<textarea id="quiz_correct" name="quiz_correct"></textarea>
 						 </div>
             </div>
 					</div>
@@ -96,6 +96,12 @@
 	</div>
 <script type="text/javascript">
      $(function(){
+    	 
+    	 if(loginState != 'login'){
+    		 alert('해당 페이지는 로그인한 후에 이용가능합니다.');
+    		 self.location = '${initParam.rootPath}/company/main';
+    	 }
+    	 
     	 $('#quiz_type').change(function(){
 
 
@@ -113,7 +119,7 @@
              var createInputNum = $('.objectiveType_num').val();
              console.log(createInputNum);
              for(var i=0;i<createInputNum;i++){
-               $('.quizInput').append('<input name="'+'inputNo'+(i+1)+'" placeholder="'+(i+1)+'번 보기의 내용을 입력하세요'+'">');
+               $('.quizInput').append('<input name="item" placeholder="'+(i+1)+'번 보기의 내용을 입력하세요'+'">');
              }
              $('#correctSpan').show();
            });
@@ -128,7 +134,7 @@
              var createInputNum = $('.subjectiveType_num').val();
              console.log(createInputNum);
              for(var i=0;i<createInputNum;i++){
-               $('.quizInput').append('<input name="'+'inputNo'+(i+1)+'" placeholder="'+(i+1)+'번 빈칸의 정답을 입력하세요'+'">');
+               $('.quizInput').append('<input name="item" placeholder="'+(i+1)+'번 빈칸의 정답을 입력하세요'+'">');
              }
            });
     		 }else if(sel=='3'){
@@ -159,25 +165,55 @@
 			var quiz_contents = $('#quiz_contents');
 			var quiz_type = $('select[name=quiz_type]');
 			var quiz_correct = $('#quiz_correct');
-			var quiz_pointExp = /^[0-9]{1,2}/;
+			var quiz_pointExp = /^[0-9]*$/;
 
-			console.log(quiz_contents.val());
-			if(!quiz_pointExp.test(quiz_point.val())){
+			//console.log($('input[name=item]').val());
+			if(!quiz_pointExp.test(quiz_point.val()) || quiz_point.val()==''){
 				alert('문제 배점은 숫자만 입력가능합니다.');
 				quiz_point.focus();
+				
 			}else if(quiz_contents.val()==''){
 				alert('문제 내용을 입력해주세요.');
 				quiz_contents.focus();
+				
 			}else if(quiz_type.val()=='0'){
 				alert('문제 형식을 선택해주세요.');
-			}else if(quiz_correct.val()==''){
-				alert('문제의 정답을 입력해주세요.');
-				quiz_correct.focus();
-			}else{
-				document.quizRegisterForm.submit();
+				
+			}else if(quiz_type.val()!='0'){
+				
+				if(quiz_type.val() == '1'){
+					if($('select[name=quiz_num]').val()=='0'){
+						alert('문항 수를 선택하여 주세요.');
+					}else if(quiz_correct.val()==''){
+						alert('문제의 정답을 입력해주세요.');
+						quiz_correct.focus();
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}else if(quiz_type.val() == '2'){
+					console.log('2');
+					if($('select[name=quiz_num]').val()=='0'){
+						alert('문항 수를 선택하여 주세요.');
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}else if(quiz_type.val()=='3'){
+					console.log('3');
+					if(quiz_correct.val()==''){
+						alert('문제의 정답을 입력해주세요.');
+						quiz_correct.focus();
+						
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}
+	
 			}
 
-		});
+		});//문제 추가 버튼 클릭
 
 		//콘테스트 등록 완료 버튼을 눌렀을 때
 		$('#contestCompleteBtn').on("click", function(){
@@ -189,26 +225,56 @@
 			var quiz_contents = $('#quiz_contents');
 			var quiz_type = $('select[name=quiz_type]');
 			var quiz_correct = $('#quiz_correct');
-			var quiz_pointExp = /^[0-9]{1,2}/;
+			var quiz_pointExp = /^[0-9]*$/;
 
-			console.log(quiz_contents.val());
-			if(!quiz_pointExp.test(quiz_point.val())){
+			//console.log($('input[name=item]').val());
+			if(!quiz_pointExp.test(quiz_point.val()) || quiz_point.val()==''){
 				alert('문제 배점은 숫자만 입력가능합니다.');
 				quiz_point.focus();
+				
 			}else if(quiz_contents.val()==''){
 				alert('문제 내용을 입력해주세요.');
 				quiz_contents.focus();
+				
 			}else if(quiz_type.val()=='0'){
 				alert('문제 형식을 선택해주세요.');
-			}else if(quiz_correct.val()==''){
-				alert('문제의 정답을 입력해주세요.');
-				quiz_correct.focus();
-			}else{
-				document.quizRegisterForm.submit();
+				
+			}else if(quiz_type.val()!='0'){
+				
+				if(quiz_type.val() == '1'){
+					if($('select[name=quiz_num]').val()=='0'){
+						alert('문항 수를 선택하여 주세요.');
+					}else if(quiz_correct.val()==''){
+						alert('문제의 정답을 입력해주세요.');
+						quiz_correct.focus();
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}else if(quiz_type.val() == '2'){
+					console.log('2');
+					if($('select[name=quiz_num]').val()=='0'){
+						alert('문항 수를 선택하여 주세요.');
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}else if(quiz_type.val()=='3'){
+					console.log('3');
+					if(quiz_correct.val()==''){
+						alert('문제의 정답을 입력해주세요.');
+						quiz_correct.focus();
+						
+					}else{
+						console.log('else에 들어왔다');
+						document.quizRegisterForm.submit();
+					}
+				}
+	
 			}
-		});
+		});//콘테스트 등록 완료 버튼 클릭
 
-     });
+     });//function
 
   </script>
 </body>

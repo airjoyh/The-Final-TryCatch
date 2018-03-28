@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="portfolio">
+<mapper namespace="portfolio"><!-- MySQL로 변환 -->
 
     <insert id="create">
 		insert into 
-		portfolio (port_id, port_exp, port_skill, port_award,
+		portfolio (port_exp, port_skill, port_award,
                 port_link, port_license, user_id)
-		values(portfolio_seq.nextval, #{port_exp}, #{port_skill},
+		values(#{port_exp}, #{port_skill},
 			   #{port_award}, #{port_link}, #{port_license}, #{user_id})
 	</insert>
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="zzim">
+<mapper namespace="zzim"><!-- MySQL로 변환 -->
   <insert id="create"> 
-    insert into zzim (zzim_no,zzim_select,zzim_selected) values (zzim_seq.nextval, #{zzim_select},#{zzim_selected})
+    insert into zzim (zzim_select,zzim_selected) 
+    values (#{zzim_select},#{zzim_selected})
   </insert>
  
  <!-- 동일한 찜 레코드 확인 -->
@@ -23,13 +24,6 @@
       select com.company_name, zim.zzim_selected, zim.zzim_no
        from company_info com, zzim zim 
       where com.company_id=zim.zzim_selected
-       and zim.zzim_select=#{zzim_select}
-   </select>
-   
-      <select id="ComlistAll" resultType="map">
-      select port.user_id, zim.zzim_selected, zim.zzim_no
-       from portfolio port, zzim zim 
-      where port.port_id=zim.zzim_selected
        and zim.zzim_select=#{zzim_select}
    </select>
    

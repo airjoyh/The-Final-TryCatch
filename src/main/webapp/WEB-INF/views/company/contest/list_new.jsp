@@ -55,10 +55,8 @@
 								<tr>
 									<td><a
 										href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
-									<td><fmt:formatDate pattern="yyyy/MM/dd H:mm"
-											value="${contest.contest_startDate}" /></td>
-									<td><fmt:formatDate pattern="yyyy/MM/dd H:mm"
-											value="${contest.contest_endDate}" /></td>
+									<td>${contest.contest_startDate}</td>
+									<td>${contest.contest_endDate}</td>
 									<td>${contest.team_name }</td>
 									<td>${contest.manager_name }</td>
 									<td><button type="button" class='fin-contest'

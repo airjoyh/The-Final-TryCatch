@@ -1,72 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="company_rank">
+<mapper namespace="company_rank"><!-- MySQL로 변환 -->
 	<select id="totalRank" resultType="AvgScoreVO"><![CDATA[
-		select company_id, company_name, avg_all, rank 
-		from 
-		(select company_id, company_name, 
-		  		nvl(round((avg(review_possibility) 
-		  					+ avg(review_welSal) 
-		  					+ avg(review_balance)
-		  					+ avg(review_culture)
-		  					+ avg(review_manager))/5,1),0.0) avg_all,
-				RANK() OVER(order by nvl((avg(review_possibility
-											+ review_welSal
-											+ review_balance
-											+ review_culture
-											+ review_manager))/5,0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+		select company_id, company_name, avg_all, 
+		       case
+		       when @value = avg_all then @rank
+		       when @value := avg_all then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round((avg(review_possibility) 
+				  + avg(review_welSal) 
+				  + avg(review_balance)
+				  + avg(review_culture)
+				  + avg(review_manager))/5,1),0.0) avg_all
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_all desc limit 5
 	]]></select>
 	
 	<select id="possibilityRank" resultType="AvgScoreVO"><![CDATA[
-		select company_id, company_name, avg_possibility, rank 
-		from 
-		(select company_id, company_name, 
-				nvl(round(avg(review_possibility),1),0.0) avg_possibility,
-				RANK() OVER(order by nvl(avg(review_possibility),0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+		select company_id, company_name, avg_possibility,
+		       case
+		       when @value = avg_possibility then @rank
+		       when @value := avg_possibility then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round(avg(review_possibility),2),0.0) as avg_possibility
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_possibility desc limit 5
 	]]></select>
   
   	<select id="welSalRank" resultType="AvgScoreVO"><![CDATA[
-  		select company_id, company_name, avg_welSal, rank 
-		from 
-		(select company_id, company_name, 
-				nvl(round(avg(review_welSal),1),0.0) avg_welSal,
-				RANK() OVER(order by nvl(avg(review_welSal),0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+  		select company_id, company_name, avg_welSal,
+		       case
+		       when @value = avg_welSal then @rank
+		       when @value := avg_welSal then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round(avg(review_welSal),1),0.0) avg_welSal
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_welSal desc limit 5
   	]]></select>
   	
   	<select id="balanceRank" resultType="AvgScoreVO"><![CDATA[
-  		select company_id, company_name, avg_balance, rank 
-		from 
-		(select company_id, company_name,
-				nvl(round(avg(review_balance),1),0.0) avg_balance,
-				RANK() OVER(order by nvl(avg(review_balance),0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+  		select company_id, company_name, avg_balance, 
+		       case
+		       when @value = avg_balance then @rank
+		       when @value := avg_balance then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round(avg(review_balance),1),0.0) avg_balance
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_balance desc limit 5
   	]]></select>
   	
   	<select id="cultureRank" resultType="AvgScoreVO"><![CDATA[
-  		select company_id, company_name, avg_culture, rank 
-		from 
-		(select company_id, company_name, 
-				nvl(round(avg(review_culture),1),0.0) avg_culture,
-				RANK() OVER(order by nvl(avg(review_culture),0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+  		select company_id, company_name, avg_culture, 
+		       case
+		       when @value = avg_culture then @rank
+		       when @value := avg_culture then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round(avg(review_culture),1),0.0) avg_culture
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_culture desc limit 5
   	]]></select>
   	
   	<select id="managerRank" resultType="AvgScoreVO"><![CDATA[
-  		select company_id, company_name, avg_manager, rank 
-		from 
-		(select company_id, company_name, 
-		 		nvl(round(avg(review_manager),1),0.0) avg_manager,
-		 		RANK() OVER(order by nvl(avg(review_manager),0.0) desc) as rank 
-		from review natural join company_info group by company_id, company_name)
-		where rank<6
+  		select company_id, company_name, avg_manager, 
+		       case
+		       when @value = avg_manager then @rank
+		       when @value := avg_manager then @rank := @rank+1
+		       end as rank
+		from (
+		       select company_id, company_name, 
+			ifnull(round(avg(review_manager),1),0.0) avg_manager
+			from review natural join company_info group by company_id, company_name) as t,
+		             (select @rank := 0) as r
+		order by avg_manager desc limit 5
   	]]></select>
   	
   	<sql id="search">
@@ -87,96 +107,126 @@
   	</select>
   	 	
    	<select id="totalList" resultType="AvgScoreVO">
-  		select company_id, company_name, company_size, company_turnover,
-  			   company_line, rank, avg_all
-		from
-		(select company_info.company_id as company_id, company_name,
-				company_size, company_turnover, company_line, 
-				nvl(round((avg(review_possibility
-							 + review_welSal
-							 + review_balance
-							 + review_culture
-							 + review_manager))/5,1),0.0) avg_all,
-				RANK() OVER(order by nvl((avg(review_possibility
-											+ review_welSal
-											+ review_balance
-											+ review_culture
-											+ review_manager))/5,0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name, 
-					 company_size, company_turnover, company_line)
-			<include refid="search"></include>
+  		select company_id, company_name, company_size, company_turnover, 
+		       company_line, avg_all,
+		       case
+		       when @value = avg_all then @rank
+		       when @value := avg_all then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round((avg(review_possibility
+					 + review_welSal
+					 + review_balance
+					 + review_culture
+					 + review_manager))/5,1),0.0) avg_all
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+		<include refid="search"></include>
+		order by avg_all desc
   	</select>
   	
   	<select id="possibilityList" resultType="AvgScoreVO">
   		select company_id, company_name, company_size, company_turnover, 
-  			   company_line, rank, avg_possibility
-		from
-		(select company_info.company_id as company_id, company_name,
-				company_size, company_turnover, company_line,
-				nvl(round(avg(review_possibility),1),0.0) avg_possibility,
-				RANK() OVER(order by nvl(avg(review_possibility),0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name,
-					 company_size, company_turnover, company_line)
-			<include refid="search"></include>
+		       company_line, avg_possibility,
+		       case
+		       when @value = avg_possibility then @rank
+		       when @value := avg_possibility then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round(avg(review_possibility),1),0.0) avg_possibility
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+		<include refid="search"></include>
+		order by avg_possibility desc
   	</select> 	
   	
   	<select id="welSalList" resultType="AvgScoreVO">
-  		select company_id, company_name, company_size, company_turnover,
-  			   company_line, rank, avg_welSal
-		from(select company_info.company_id as company_id, company_name,
-					company_size, company_turnover, company_line,
-					nvl(round(avg(review_welSal),1),0.0) avg_welSal,
-					RANK() OVER(order by nvl(avg(review_welSal),0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name,
-					 company_size, company_turnover, company_line)
-  			<include refid="search"></include>
+  		select company_id, company_name, company_size, company_turnover, 
+		       company_line, avg_welSal,
+		       case
+		       when @value = avg_welSal then @rank
+		       when @value := avg_welSal then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round(avg(review_welSal),1),0.0) avg_welSal
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+  		<include refid="search"></include>
+		order by avg_welSal desc
   	</select>
   	
   	<select id="balanceList" resultType="AvgScoreVO">
-  		select company_id, company_name, company_size, company_turnover,
-  		 	   company_line, rank, avg_balance
-		from(select company_info.company_id as company_id, company_name,
-					company_size, company_turnover, company_line,
-					nvl(round(avg(review_balance),1),0.0) avg_balance,
-					RANK() OVER(order by nvl(avg(review_balance),0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name,
-					 company_size, company_turnover, company_line)
-  			<include refid="search"></include>
+  		select company_id, company_name, company_size, company_turnover, 
+		       company_line, avg_balance,
+		       case
+		       when @value = avg_balance then @rank
+		       when @value := avg_balance then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round(avg(review_balance),1),0.0) avg_balance
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+  		<include refid="search"></include>
+		order by avg_balance desc
   	</select>
   	
   	<select id="cultureList" resultType="AvgScoreVO">
-  		select company_id, company_name, company_size, company_turnover,
-  			   company_line, rank, avg_culture
-		from(select company_info.company_id as company_id, company_name,
-					company_size, company_turnover, company_line,
-					nvl(round(avg(review_culture),1),0.0) avg_culture,
-					RANK() OVER(order by nvl(avg(review_culture),0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name,
-					 company_size, company_turnover, company_line)
-  			<include refid="search"></include>
+  		select company_id, company_name, company_size, company_turnover, 
+		       company_line, avg_culture,
+		       case
+		       when @value = avg_culture then @rank
+		       when @value := avg_culture then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round(avg(review_culture),1),0.0) avg_culture
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+  		<include refid="search"></include>
+		order by avg_culture desc
   	</select>
   	
   	<select id="managerList" resultType="AvgScoreVO">
-  		select company_id, company_name, company_size, company_turnover,
-  			   company_line, rank, avg_manager
-		from(select company_info.company_id as company_id, company_name,
-					company_size, company_turnover, company_line,
-					nvl(round(avg(review_manager),1),0.0) avg_manager,
-					RANK() OVER(order by nvl(avg(review_manager),0.0) desc) as rank
-			from company_info left outer join review 
-			on company_info.company_id = review.company_id
-			group by company_info.company_id, company_name,
-					 company_size, company_turnover, company_line)
-  			<include refid="search"></include>
+  		select company_id, company_name, company_size, company_turnover, 
+		       company_line, avg_manager,
+		       case
+		       when @value = avg_manager then @rank
+		       when @value := avg_manager then @rank := @rank+1
+		       end as rank
+		from (
+		      select company_info.company_id as company_id, company_name,
+			     company_size, company_turnover, company_line,
+			     ifnull(round(avg(review_manager),1),0.0) avg_manager
+		      from company_info left outer join review 
+			   on company_info.company_id = review.company_id
+		      group by company_info.company_id, company_name,
+			       company_size, company_turnover, company_line) as t,
+		      (select @rank := 0) as r
+  		<include refid="search"></include>
+		order by avg_manager desc
   	</select>
 </mapper>

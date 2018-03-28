@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="community_reply">
+<mapper namespace="community_reply"><!-- MySQL로 변환 -->
    
    <insert id="create">
-      insert into community_reply (reply_no,community_no,reply_contents,reply_writer,reply_wdate)
-                  values (community_reply_seq.nextval,#{community_no},#{reply_contents},#{reply_writer},sysdate)
+      insert into community_reply (community_no,reply_contents,reply_writer,reply_wdate)
+                  values (#{community_no},#{reply_contents},#{reply_writer},now())
    </insert>
    
    <select id="list" resultType="Community_replyVO">
@@ -27,7 +27,7 @@
 	
 	<update id="update">
 	  	update community_reply 
-	  	set reply_contents = #{reply_contents}, reply_wdate=sysdate
+	  	set reply_contents = #{reply_contents}, reply_wdate=now()
 	  	where reply_no = #{reply_no}
 	</update>
 	

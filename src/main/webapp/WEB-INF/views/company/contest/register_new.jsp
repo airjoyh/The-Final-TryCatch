@@ -22,6 +22,7 @@
 
 			<form action="register" name="contestRegisterForm" method="post">
 				<div class='title-wrapper'>
+					<input type="hidden" id="contest_id" name="contest_id" value="${contest_id }">
 					<input type="hidden" id="company_id" name="company_id" value="${company_login_company_id }">
 					<div class='column-title'>콘테스트 개최정보 입력</div>
 				</div>
@@ -113,7 +114,7 @@
 					</div>
 					<div class='cont-regist-contents'>
 						<div class='cont-reg-title'style="margin-top:60px;">채용인원수</div>
-						<input id="contest_hireNumber" name="contest_hireNumber" placeholder="숫자만 입력해주세요">
+						<input id="contest_hireNumber" name="contest_hireNumber" placeholder="채용 인원 수를 입력해주세요">
 					</div>
 					<div class='cont-regist-contents'>
 						<input id="contest_field" name="contest_field" placeholder="분야를 입력해주세요.">
@@ -135,7 +136,7 @@
 						<input id="manager_tel" name="manager_tel" placeholder="담당자 연락처">
 					</div>
 						<div class='cont-reg-btn-area'>
-							<button type="button" id="contestRegisterBtn" onclick="validateCheck()">다음</button>
+							<button type="button" id="contestRegisterBtn">다음</button>
 							<button type="reset" >취소</button>
 						</div>
 
@@ -163,51 +164,95 @@ $(document).ready(function() {
 		alert('로그인되지 않은 상태입니다.');
 		self.location = '${initParam.rootPath}/company/main';
 	}
-});
-var validateCheck=function(){
-		console.log('콘테스트 등록 버튼 클릭');
-		var startDate = $('#contest_startDate').val();
-		var endDate = $('#contest_endDate').val();
-		console.log('시작날짜 >>> '+startDate);
-		console.log('끝날짜 >>> '+endDate);
-		var contest_hireNumberExp = /^[0-9]{1,3}/;
+
+	$('#contestRegisterBtn').on("click", function(){
+		console.log('콘테스트 등록버튼 클릭');
+		//var contest_hireNumberExp = /^[0-9]{1,3}/;
 		if($('#contest_title').val()==''){
 			alert('제목을 입력하세요.');
 			$('#contest_title').focus();
 		}else if($('#contest_startDate').val()==''){
 			alert('시작 날짜를 입력하세요.');
-			$('#contest_startDate').focus();
+			
+		}else if($('select[name=contest_startHour]').val()=='시간 선택'){
+			alert('시작 시간을선택하세요.');
+		
+		}else if($('select[name=contest_startMin]').val()=='분 선택'){
+			alert('시작 분을 선택하세요');
+		
 		}else if($('#contest_endDate').val()==''){
 			alert('끝 날짜을 입력하세요.');
-			$('#contest_endDate').focus();
-		}else if(!contest_hireNumberExp.test($('#contest_hireNumber').val())){
-			alert('숫자만 입력하세요.');
+			
+		}else if($('select[name=contest_endtHour]').val()=='시간 선택'){
+			alert('끝나는 시간을 선택하세요.');
+		
+		}else if($('select[name=contest_endMin]').val()=='분 선택'){
+			alert('끝나는 분을 선택하세요.');
+		
+		}else if($('#contest_hireNumber').val()==''){
+			alert('채용 인원 수를 입력하세요.');
 			$('#contest_hireNumber').focus();
+			
 		}else if($('#contest_field').val()==''){
 			alert('분야를 입력하세요.');
 			$('#contest_field').focus();
+			
 		}else if($('#contest_contents').val()==''){
 			alert('내용을 입력하세요.');
 			$('#contest_contents').focus();
+			
 		}else if($('#manager_name').val()==''){
 			alert('담당자 이름을 입력하세요.');
 			$('#manager_name').focus();
+			
 		}else if($('#team_name').val()==''){
 			alert('담당자 소속을 입력하세요.');
 			$('#team_name').focus();
+			
 		}else if($('#manager_email').val()==''){
 			alert('담당자 이메일을 입력하세요.');
 			$('#manager_email').focus();
+			
 		}else if($('#manager_tel').val()==''){
 			alert('담당자 번호를 입력하세요.');
 			$('#manager_tel').focus();
+			
 		}else{
-			document.contestRegisterForm.submit();
+			var contest_startDate = $('#contest_startDate').val()+' '+$('select[name=contest_startHour]').val()+':'+$('select[name=contest_startMin]').val()+':00';
+			var contest_endDate = $('#contest_endDate').val()+' '+$('select[name=contest_endHour]').val()+':'+$('select[name=contest_endMin]').val()+':00';
+			console.log('시작 날짜 >>> '+contest_startDate);
+			console.log('끝 날짜 >>> '+contest_endDate);
+			$.ajax({
+				type: 'post',
+				url: '${initParam.rootPath}/company/contest/register',
+				data:{
+					"company_id":$('#company_id').val(),
+					"contest_title":$('#contest_title').val(),
+					"contest_startDate":contest_startDate,
+					"contest_endDate":contest_endDate,
+					"contest_field":$('#contest_field').val(),
+					"contest_hireNumber":$('#contest_hireNumber').val(),
+					"contest_contents":$('#contest_contents').val(),
+					"manager_name":$('#manager_name').val(),
+					"team_name":$('#team_name').val(),
+					"manager_email":$('#manager_email').val(),
+					"manager_tel":$('#manager_tel').val()
+				},
+				success:function(result){
+					if(result == 'success'){
+						alert('콘테스트 등록에 필요한 문제를 출제하는 페이지로 이동합니다.');
+						var contest_id = $('#contest_id').val();
+						//alert('콘테스트 아이디 >>> '+contest_id);
+						self.location='${initParam.rootPath}/company/contest/quiz/register?contest_id='+contest_id+'&quiz_no=1';
+					}
+				}
+			});
+			//document.contestRegisterForm.submit();
 		}
+	});
+	
+});
 
-
-
-	}
 </script>
 </body>
 </html>

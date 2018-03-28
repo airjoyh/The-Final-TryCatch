@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="review">
+<mapper namespace="review"><!-- MySQL로 변환 -->
   	<insert id="create">
   		insert into
-  		review (review_no, review_title, review_writer, 
+  		review (review_title, review_writer, 
   				review_possibility, review_welSal, review_balance,
   				review_culture, review_manager, review_strong, 
   				review_weak, review_toCEO, review_wdate, 
   				company_id, user_id)
-  	    values (review_seq.nextval, #{review_title}, #{review_writer}, 
+  	    values (#{review_title}, #{review_writer}, 
   				#{review_possibility}, #{review_welSal}, #{review_balance},
   				#{review_culture}, #{review_manager}, #{review_strong}, 
-  				#{review_weak}, #{review_toCEO}, sysdate, 
+  				#{review_weak}, #{review_toCEO}, now(), 
   				#{company_id}, #{user_id})
   	</insert>
   	
@@ -31,12 +31,12 @@
   		   review_toCEO, review_possibility, review_welSal, review_balance, review_culture, review_manager,
   		   review_viewCount
   		from review
-  		where review_no=#{review_no}
+  		where review_no = #{review_no}
   	</select>
   	
   	<update id="update">
     	update review 
-    	set review_title=#{review_title}, review_wdate=sysdate, review_strong=#{review_strong},
+    	set review_title=#{review_title}, review_wdate=now(), review_strong=#{review_strong},
   			review_weak=#{review_weak}, review_toCEO=#{review_toCEO}, review_possibility=#{review_possibility},
   			review_welSal=#{review_welSal}, review_balance=#{review_balance}, review_culture=#{review_culture},
   			review_manager=#{review_manager}
@@ -93,23 +93,23 @@
    	</update>
    	
    	<select id="avgScore" resultType="AvgScoreVO">
-   		select nvl(round(avg(review_possibility),1),0.0) avg_possibility, 
-  	       nvl(round(avg(review_welSal),1),0.0) avg_welSal,
-  		   nvl(round(avg(review_balance),1),0.0) avg_balance,
-  		   nvl(round(avg(review_culture),1),0.0) avg_culture,
-  		   nvl(round(avg(review_manager),1),0.0) avg_manager
+   		select ifnull(round(avg(review_possibility),1),0.0) avg_possibility, 
+  	       ifnull(round(avg(review_welSal),1),0.0) avg_welSal,
+  		   ifnull(round(avg(review_balance),1),0.0) avg_balance,
+  		   ifnull(round(avg(review_culture),1),0.0) avg_culture,
+  		   ifnull(round(avg(review_manager),1),0.0) avg_manager
 		from review
 		where company_id = #{company_id}
    	</select>
    	
    	<select id="totalAvgScore" resultType="double">
-   		select nvl(round((nvl(round(avg(review_possibility),1),0.0)
-                  + nvl(round(avg(review_welSal),1),0.0)
-                  + nvl(round(avg(review_balance),1),0.0)
-                  + nvl(round(avg(review_culture),1),0.0)
-                  + nvl(round(avg(review_manager),1),0.0))/5,1),0.0) avg_all
-       from review
-       where company_id = #{company_id}
-       group by company_id
+   		select round((avg(review_possibility)
+   					+ avg(review_welSal)
+   					+ avg(review_balance)
+   					+ avg(review_culture)
+   					+ avg(review_manager))/5,1) avg_all
+		from review
+		where company_id = #{company_id}
+		group by company_id
    	</select>
 </mapper>

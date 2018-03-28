@@ -33,20 +33,26 @@ public class CompanyContestController {
 	private Contest_quizService contest_quizService;
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String registerGet() throws Exception {
+	public String registerGet(Model model) throws Exception {
+		
+		int contest_id = contestService.selectContest_id();
+		model.addAttribute("contest_id", contest_id);
+		
 		return "/company/contest/register_new";//register
 	}
 
+	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPost(ContestVO contestVo, HttpSession session) throws Exception {
-		System.out.println("CompanyContestController registerPost() ");
+	public String registerPost(ContestVO contestVo, Model model) throws Exception {
+		System.out.println("CompanyContestController registerPost()");
 		System.out.println(contestVo);
-		int contest_id = contestService.selectContest_id();
-		contestVo.setContest_id(contest_id);
+		//int contest_id = contestService.selectContest_id();
+		//contestVo.setContest_id(contest_id);
+		//System.out.println("contest_id >>> "+contest_id);
 		contestService.register(contestVo);
-		// session.setAttribute("contest_id", contest_id);
 
-		return "redirect:/company/contest/quiz/register?contest_id=" + contest_id+"&quiz_no=1";
+		//return "redirect:/company/contest/quiz/register?contest_id=" + contest_id+"&quiz_no=1";
+		return "success";
 	}
 	
 	@RequestMapping(value="/list")
@@ -61,7 +67,7 @@ public class CompanyContestController {
 		System.out.println("검색된 글의 수 >>> "+contestService.listSearchCount(cri, company_id));
 		maker.setTotalCount(contestService.listSearchCount(cri, company_id));
 		List<ContestVO> list = contestService.selectByCompany(cri, company_id);
-		System.out.println("selectByCompany list >>> "+list);
+		//System.out.println("selectByCompany list >>> "+list);
 		model.addAttribute("list", list);
 		model.addAttribute("cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
 		model.addAttribute("pageMaker", maker);
@@ -97,6 +103,7 @@ public class CompanyContestController {
         for(String str: items) {
         	System.out.println("--->"+str);
         }
+        
         System.out.println("item >>> "+item);//aa,bb,cc (보기항목)
         int quiz_type = contest_quizVo.getQuiz_type();
         if(quiz_type == 2) {

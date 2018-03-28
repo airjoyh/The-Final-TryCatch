@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="contest_qna">
+<mapper namespace="contest_qna"><!-- MySQL로 변환 -->
 
   	<insert id="create">
   		insert into
-  		contest_qna (qna_no, qna_writer, qna_title, qna_wdate, qna_contents, contest_id)
-  		values (contest_qna_seq.nextval, #{qna_writer}, #{qna_title}, sysdate, #{qna_contents}, #{contest_id})
+  		contest_qna (qna_writer, qna_title, qna_wdate, qna_contents, contest_id)
+  		values (#{qna_writer}, #{qna_title}, now(), #{qna_contents}, #{contest_id})
   	</insert>
   	
   	<select id="list" resultType="Contest_qnaVO">
@@ -29,7 +29,7 @@
   	
   	<update id="update">
     	update contest_qna 
-    	set qna_title=#{qna_title}, qna_wdate=sysdate, qna_contents=#{qna_contents}
+    	set qna_title=#{qna_title}, qna_wdate=now(), qna_contents=#{qna_contents}
   		where qna_no=#{qna_no}
   	</update>
   	

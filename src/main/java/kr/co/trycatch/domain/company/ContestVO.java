@@ -1,15 +1,15 @@
 package kr.co.trycatch.domain.company;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ContestVO {
 	private int contest_id;
 	private int company_id;
 	private String contest_title;
-	private Date contest_startDate;
-	private Date contest_endDate;
+	private String contest_startDate;
+	private String contest_endDate;
 	private String contest_field;
-	private int contest_hireNumber;
+	private String contest_hireNumber;
 	private String contest_contents;
 	private String manager_name;
 	private String team_name;
@@ -42,19 +42,19 @@ public class ContestVO {
 		this.contest_title = contest_title;
 	}
 
-	public Date getContest_startDate() {
+	public String getContest_startDate() {
 		return contest_startDate;
 	}
 
-	public void setContest_startDate(Date contest_startDate) {
+	public void setContest_startDate(String contest_startDate) {
 		this.contest_startDate = contest_startDate;
 	}
 
-	public Date getContest_endDate() {
+	public String getContest_endDate() {
 		return contest_endDate;
 	}
 
-	public void setContest_endDate(Date contest_endDate) {
+	public void setContest_endDate(String contest_endDate) {
 		this.contest_endDate = contest_endDate;
 	}
 
@@ -66,11 +66,11 @@ public class ContestVO {
 		this.contest_field = contest_field;
 	}
 
-	public int getContest_hireNumber() {
+	public String getContest_hireNumber() {
 		return contest_hireNumber;
 	}
 
-	public void setContest_hireNumber(int contest_hireNumber) {
+	public void setContest_hireNumber(String contest_hireNumber) {
 		this.contest_hireNumber = contest_hireNumber;
 	}
 

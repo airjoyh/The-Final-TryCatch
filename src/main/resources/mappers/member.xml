@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="member">
+<mapper namespace="member"><!-- MySQL로 변환 -->
 	<!-- 구직자 회원가입 -->
 	<insert id="createUser">
 		insert into
 		member(member_id, member_pass, member_type, registDate)
-		values(#{member_id}, CryptString.encrypt(#{member_pass}, 'encrypt'), 'user', sysdate)
+		values(#{member_id}, #{member_pass}, 'user', now())
 	</insert>
 	
 	<!-- 구직자 인증코드 생성 -->
@@ -49,21 +49,21 @@
 	
 	<!-- 구직자 로그인 조회 -->
 	<select id="loginUser" resultType="MemberVO">
-		select member_id, CryptString.decrypt(member_pass, 'encrypt') member_pass, member_type, user_authCode, user_authStatus from member
+		select member_id, member_pass, member_type, user_authCode, user_authStatus from member
 		where member_type = 'user'
-		and member_id = #{member_id} and CryptString.decrypt(member_pass, 'encrypt') = #{member_pass}
+		and member_id = #{member_id} and member_pass = #{member_pass}
 	</select>
 	
 	<!-- 기업 로그인 조회 -->
 	<select id="loginCompany" resultType="MemberVO">
-		select member_id, CryptString.decrypt(member_pass, 'encrypt') member_pass, member_type, user_authCode, user_authStatus from member
+		select member_id, member_pass, member_type, user_authCode, user_authStatus from member
 		where member_type = 'company'
-		and member_id = #{member_id} and CryptString.decrypt(member_pass, 'encrypt') = #{member_pass}
+		and member_id = #{member_id} and member_pass = #{member_pass}
 	</select>
 	
 	<!-- (인증안한)구직자 가입날짜 조회 -->
 	<select id="registDate" resultType="String">
-		select to_char(registDate,'DDHH12MISS')SYS_DATE24 from member
+		select curtime()+0 from member
 		where member_type = 'user'
 		and member_id = #{member_id}
 		and user_authStatus = 'N'
@@ -71,7 +71,7 @@
 	
 	<!-- (인증안한)구직자 현재 날짜 조회 -->
 	<select id="sysDate" resultType="String">
-		select to_char(sysdate,'DDHH12MISS')SYS_DATE24 from member
+		select now()+0 from member
 		where member_type = 'user'
 		and member_id = #{member_id}
 		and user_authStatus = 'N'
@@ -84,7 +84,7 @@
 	
 	<!-- 비밀번호 변경 -->
 	<update id="updatePass">
-		update member set member_pass = CryptString.encrypt(#{member_pass}, 'encrypt')
+		update member set member_pass = #{member_pass}
 		where member_id = #{member_id}
 	</update>
 
@@ -92,16 +92,16 @@
 	<insert id="createCompany">
 		insert into
 		member(member_id, member_pass, member_type, registDate)
-		values(#{member_id}, CryptString.encrypt(#{member_pass}, 'encrypt'), 'company', sysdate)
+		values(#{member_id}, #{member_pass}, 'company', now())
 	</insert>
 	
 	<insert id="createCompanyInfo">
 		insert into 
-		company_info(company_id, member_id, company_name,
+		company_info(member_id, company_name,
 					company_year, company_line, 
 					company_size, company_turnover, company_number,
 					company_addr, company_site, company_intro)
-     	values(company_info_seq.nextval, #{member_id}, #{company_name},
+     	values(#{member_id}, #{company_name},
      				#{company_year}, #{company_line}, 
      				#{company_size}, #{company_turnover}, #{company_number},
      				#{company_addr}, #{company_site}, #{company_intro})
@@ -112,7 +112,7 @@
 			   company_addr, company_size, company_turnover,
 			   company_line, company_intro
 		from company_info
-		where company_id=#{company_id}
+		where company_id = #{company_id}
 	</select>
 	
 	<select id="selectCompany_id" resultType="int">

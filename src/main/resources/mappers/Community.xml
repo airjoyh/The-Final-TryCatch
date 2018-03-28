@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="community">
+<mapper namespace="community"><!-- MySQL로 변환 -->
    
    <!-- community_no, community_title, content, writer 추가 -->
    <insert id="create">
-      insert into community (community_no, community_title, community_wdate, community_contents, community_writer)
-      values (community_seq.nextval, #{community_title}, sysdate, #{community_contents}, #{community_writer})
+      insert into community (community_title, community_wdate, community_contents, community_writer)
+      values (#{community_title}, now(), #{community_contents}, #{community_writer})
    </insert>
    
    <select id="selectAll" resultType="CommunityVO">
@@ -15,7 +15,7 @@
    
    	<!-- 특정 게시물 조회 -->
 	<select id="read" resultType="CommunityVO">
-		select community_no, community_title, community_contents, community_writer, community_viewCount
+		select community_no, community_title, community_contents, community_writer
 		from community
 		where community_no =#{community_no}
 	</select>

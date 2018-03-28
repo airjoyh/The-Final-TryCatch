@@ -112,11 +112,11 @@ $(function(){
 				        </tr>
 				        <tr style="height: 50px">
 				            <td style="text-align: center; font-weight: bold;">콘테스트 시작날짜</td>
-				            <td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest.contest_startDate}" /></td>
+				            <td style="text-align: center;">${contest.contest_startDate}</td>
 				        </tr>
 				         <tr style="height: 50px">
 				            <td style="text-align: center; font-weight: bold;">콘테스트 끝날짜</td>
-				            <td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${review.contest_endDate}" /></td>
+				            <td style="text-align: center;">${contest.contest_endDate}</td>
 				        </tr>
 				        <tr style="height: 50px">
 				        	<td style="text-align: center; font-weight: bold;">콘테스트 분야</td>
