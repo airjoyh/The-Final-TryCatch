@@ -122,8 +122,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void removeRegist(String member_id) throws Exception {
 
-		int registDate = Integer.parseInt(memberDao.registDate(member_id));
-		int sysDate = Integer.parseInt(memberDao.sysDate(member_id));
+		double registDate = Double.parseDouble(memberDao.registDate(member_id));
+		double sysDate = Double.parseDouble(memberDao.sysDate(member_id));
 
 		System.out.println("1차 가입한 시간 >>> " + registDate);
 		System.out.println("현재 시간 >>> " + sysDate);
