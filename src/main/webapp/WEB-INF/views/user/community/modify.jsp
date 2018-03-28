@@ -46,7 +46,9 @@
 							<div class='readtitle'>
 						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;
 						        <span class="qna-writer" id="community_writer" name="community_writer" 
-						        	style="width: 280px; border: 1px solid gray" readonly="readonly" >${community.community_writer}</span>
+						        	style=" border: 1px solid #bbbbbb" readonly="readonly" >${community.community_writer}</span>
+						        <%-- <input class="qna-writer" id="community_writer" name="community_writer" 
+					                  style="width: 270px;" value="${community.community_writer}" readonly="readonly"> --%>	
 							</div>
 					   </div>
 

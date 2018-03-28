@@ -264,7 +264,7 @@
 							</ul>
 						</div>
 						<div class='board-search'align="center">
-							<select name="searchType">
+							<select name="searchType" class="board_select">
 								<option value="n"
 									<c:out value="${cri.searchType == null?'selected':''}"/>>
                    					 검색조건</option>

@@ -66,8 +66,8 @@
 						
 						</div>
 						</form>
-				<!-- section_communityread -->
 			</div>
+			<!-- section_communityread -->
 			<div class='section_communityreply'>
 				<div class="row">
 					<div class="reply-container">
@@ -80,7 +80,7 @@
 									<div class="reply-writecontent">
 										<textarea name="reply-content" id="newReplyText"
 											class="content" placeholder="댓글을 입력하세요"
-											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none; resize: none;"></textarea>
 									</div>
 									<div class="reply-writecontent">
 										<label>작성자</label> 
@@ -105,12 +105,35 @@
 							<li class="time-label" id="repliesDiv"></li>
 						</ul>
 
-						<div class='text-center'>
+					<div class="reply-paging" >
+						<div class="reply-pageline" align="center">
+							<ul class="reply-pagination" >
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+										<a
+										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+									</li>
+								</c:forEach>
+
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+					<!-- reply-paging -->
+<!-- 						<div class='text-center'>
 							<ul id="pagination" class="pagination pagination-sm no-margin ">
 
 							</ul>
-						</div>
-
+						</div> -->
 					</div> 
 					
 				</div><!-- /row -->
@@ -139,27 +162,29 @@
                </div>
             </div>
          </div>
-			</div><!-- section_communityreply -->
-		</div><!-- column-left -->
+            <!-- section_communityreply -->
+			</div>
+			<!-- column-left -->
+		
 				
 
 	<!-- right section!!************************************************************** -->
-	<div id="rightDiv" class='column-right'>
-		<div id="login_beforeDiv">
-			<%@ include file="../login_before_new.jsp"%>
+		<div id="rightDiv" class='column-right'>
+			<div id="login_beforeDiv">
+				<%@ include file="../login_before_new.jsp"%>
+			</div>
+			<div id="login_afterDiv" style="display: none">
+				<%@ include file="../login_after_new.jsp"%>
+			</div>
 		</div>
-		<div id="login_afterDiv" style="display: none">
-			<%@ include file="../login_after_new.jsp"%>
-		</div>
-	</div>
-	<!-- column-right -->
+		<!-- column-right -->
 
 
 	<!-- modal 코드 -->
 	<%@ include file="../user_modals_new.jsp"%>
 
 	</div>
-
+	<!-- container -->
 	<!-- frame -->
  	<script id="template" type="text/x-handlebars-template">
 {{#each .}}
