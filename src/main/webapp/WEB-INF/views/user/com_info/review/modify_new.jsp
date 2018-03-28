@@ -15,13 +15,18 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
+			<div class='section-board-register'>
 				<div class='title-wrapper'>
 					<div class='column-title'>후기 글수정</div>
 				</div>
+				<div class='board-register-wrapper'>
+				<div class="board-register-box">
+				
+				
 				<form action="modify" name="modifyForm" method="post">
-				<div class='wrapper'>
-					<div class='com-review-title'>
+				<!-- <div class='wrapper'> -->
+					<div class='com-review-register'>
+					  <div class='board-register-top'>
 						 	<div class="row" hidden="" >
 						        <div class="input-group">
 						        	<input type="hidden" id="review_no" name="review_no" value="${review.review_no }">
@@ -33,25 +38,40 @@
 									<input type='hidden' name='keyword' value="${cri.keyword}">
 						        </div>
 						    </div>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
-				                  class="qna-title" id="review_title" name="review_title" type="text"
-				                  style="width: 35%" value="${review.review_title }">
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="review_writer" name="review_writer" value="${review.review_writer }" readonly
-				                  style="width: 35%">
+							<div class='board-register-top-input'>
+									<label>제목</label>
+									<input class="" id="review_title" name="review_title" type="text"
+				                  			value="${review.review_title }">
+				            </div>
+				            <div class='board-register-top-input'>
+						            <label>작성자</label>
+						            <input class="" id="review_writer" name="review_writer" type="text"
+						            		value="${review.review_writer }" readonly>
+				            </div>
 					</div>
-					<div class='com-review-good'>
-						<label for="good">해당 기업의 장점을 적어주세요</label><br>
-				        <textarea name="review_strong" rows="3" class="form-ta" id="good">${review.review_strong }</textarea>
+					
+					<div class='board-register-write'>
+						<div class='com-review-good'>
+							<div class='board-register-write-box'>
+							<label for="good">해당 기업의 장점을 적어주세요</label><br>
+					        <textarea name="review_strong" rows="3" class="form-ta" id="good">${review.review_strong }</textarea>
+							</div>
+						</div>
+						<div class='com-review-bad'>
+							<div class='board-register-write-box'>
+							<label for="bad">해당 기업의 단점을 적어주세요</label><br>
+					        <textarea name="review_weak" rows="3" class="form-ta" id="bad">${review.review_weak }</textarea>
+							</div>
+						</div>
+						<div class='com-review-ceo'>
+							<div class='board-register-write-box'>
+							<label for="want">경영진에게 바라는점을 적어주세요</label><br>
+					        <textarea name="review_toCEO" rows="3" class="form-ta" id="want">${review.review_toCEO }</textarea>
+							</div>
+						</div>
 					</div>
-					<div class='com-review-bad'>
-						<label for="bad">해당 기업의 단점을 적어주세요</label><br>
-				        <textarea name="review_weak" rows="3" class="form-ta" id="bad">${review.review_weak }</textarea>
-					</div>
-					<div class='com-review-ceo'>
-						<label for="want">경영진에게 바라는점을 적어주세요</label><br>
-				        <textarea name="review_toCEO" rows="3" class="form-ta" id="want">${review.review_toCEO }</textarea>
-					</div>
+					
+					<div class='board-register-write'>
 					<div class='com-review-star'>
 						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
 						<div class="star-line">
@@ -142,14 +162,20 @@
 								</li>
 							</ul>
 						</div>
+					</div><!-- star -->
 					</div>
-					<div class='com-inline-btn'>
+					
+					<div class="board-register-button">
+					<div class='board-register-button-box' align="center">
 						<input type="button" class='register-btn' id="registBtn" onclick="validateCheck()" value='글수정'>
 						<input type="button" class='register-btn' id="cancelBtn" value='취소'>
+					</div>
 					</div>
 					
 					</div>
 					</form>
+					</div>
+					</div>
 			</div><!-- section_main1 -->
 			
 		</div><!-- column-left -->
