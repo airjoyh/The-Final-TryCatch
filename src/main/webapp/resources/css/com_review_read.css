@@ -36,7 +36,7 @@
 
 .wrapper-com-review-read{ /*상세게시물 상단 - 제목 작성자 등*/
      display:block;
-     padding: 35px 45px 45px 45px;
+     padding: 25px;
      
      /* border: blue solid 2px; */
 }
@@ -45,8 +45,8 @@
     width: auto;
     padding: 0;
     position: relative;
-     background: #65737e;
-     color: #fff;
+    background: #65737e;
+    color: #fff;
 }
 
 .com-review-title-box input[type="text"]{ /*전체 인풋타입박스 배경과 보더 없애줍니다.*/
@@ -109,7 +109,7 @@
 }
 .wrapper-com-review-content{  /* -------■ 상세 게시글 중단 내용 콘텐트 장점 단점 등 */
     display: block;
-     border: #ebeef3 solid 1px;
+    border: #ebeef3 solid 1px;
     width: auto;
     padding: 15px;
     margin-bottom: 0;

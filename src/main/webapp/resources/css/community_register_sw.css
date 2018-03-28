@@ -2,22 +2,112 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
- .section_communityregister {
+ .section-board-register {
     position: relative;
     width: 740px;
-    height: 500px;
+    height: auto;
     border: 1px solid #dee3eb;
     background: #fff;
 } 
 
-
-.community_wrapper{
+.board-register-wrapper{
 	margin:10px;
 	display:block;
-	padding: 0;
-	height: 425px;
+	padding: 20px;
+	height: auto;
 	position: relative;
+	/* border: orange solid 2px; */
 }
+
+.board-register-box{
+	/* border: 1px solid #dee3eb; */
+		
+}
+
+.board-register-top { /* ------------------■ 상단) 제목 작성자 등 박스*/
+	height:auto;
+	width:100%;
+	margin: 0;
+    padding: 10px 30px 10px 20px;
+	display: block;
+	position: relative;	
+	background: #fff;
+    color: #65737e;
+    /* border: 1px solid #dee3eb; */
+    /* border: blue solid 2px; */
+}
+.board-register-top .board-register-top-input{
+	height: 30px;
+	margin: 0px;
+	
+}
+.board-register-top .board-register-top-input label{
+	font-size: 15px;
+	font-weight: 200;
+	color: #65737e;
+}
+.board-register-top .board-register-top-input input[type="text"]{
+	font-size: 15px;
+	height: 24px;
+	color: #65737e;
+	width: 560px;
+	margin-left: 5px;
+	padding-left: 5px;
+	font-weight: 200;
+	float: right;
+}
+
+.board-register-write { /* ------------------■ 중단) */
+	height:auto;
+	width:100%;
+	margin: 0;
+    padding: 10px;
+	display: block;
+	position: relative;	
+	background: #fff;
+    color: #65737e;
+    border-top: #dee3eb solid 1px;
+    /* border: 1px solid #dee3eb; */
+    /* border: blue solid 2px; */
+}
+
+.board-register-write-box {
+	margin: 0;
+    padding: 10px;
+    /* border: red solid 2px; */
+}
+.board-register-write label{
+	font-size: 15px;
+	font-weight: 200;
+	color: #65737e;
+	
+}
+.board-register-write textarea{
+	font-size: 15px;
+	width: 625px;
+	height: 180px;
+}
+
+.com-review-register .board-register-write textarea{ /*후기부분*/
+	font-size: 15px;
+	width: 625px;
+	height: 90px;
+}
+
+
+.board-register-button { /* ------------------■ 하단) 버튼 */
+	width: 100%;
+	height: 60px;
+    /* border: 1px solid #dee3eb; */
+    /* border: pink solid 2px; */
+}
+.board-register-button .board-register-button-box{
+	margin: 10px auto;
+}
+
+
+
+
 
 .register-contest:hover{
 	background-color: #2b303b;

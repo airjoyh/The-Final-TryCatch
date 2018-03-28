@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <title>기업후기 글등록</title>
 
+<link href="${initParam.rootPath }/resources/css/community_register_sw.css" rel="stylesheet" type="text/css">
 
 </head>
 <!--[if lt IE 9]> 
@@ -19,45 +20,61 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='section-review-register'>
+			<div class='section-board-register'>
 				<div class='title-wrapper'>
 					<div class='column-title'>후기 글작성</div>
 				</div>
+				<div class='board-register-wrapper'>
+				<div class="board-register-box">
 				
 				<form action="register" name="registerForm" method="post">
-				<div class='wrapper'>
-					<div class='com-review-title'>
+				<div class='com-review-register'>
+					<div class='board-register-top'>
 						 	<div class="row" hidden="" >
 						        <div class="input-group">
 						         <input type="hidden" id="user_id" name="user_id" value="${user_login_id }">
 		                         <input type="hidden" id="company_id" name="company_id" value="${param.company_id }"> 
 						        </div>
 						    </div>
-							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
-				                  class="qna-title" id="review_title" name="review_title" type="text"
-				                  style="width: 35%" placeholder="제목을 입력하세요.">
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="review_writer" name="review_writer"
-				                  style="width: 35%">
+							 <div class='board-register-top-input'>
+									<label>제목</label>
+									<input class="" id="review_title" name="review_title" type="text"
+				                  	 	   placeholder="제목을 입력하세요.">
+				             </div>
+				            <div class='board-register-top-input'>
+						            <label>작성자</label>
+						            <input class="" id="review_writer" name="review_writer" type="text"
+				                  	 	   placeholder="닉네임을 입력하세요.">
+				            </div>
 					</div>
 					
-					<div class='com-review-good'>
-						<label for="good">해당 기업의 장점을 적어주세요</label><br>
-				        <textarea name="review_strong" rows="3" class="form-ta" id="review_strong"></textarea>
+					<div class='board-register-write'>
+						<div class='com-review-good'>
+							<div class='board-register-write-box'>
+							<label for="good">해당 기업의 장점을 적어주세요</label><br>
+					        <textarea name="review_strong" id="review_strong"></textarea>
+							</div>
+						</div>
+						
+						<div class='com-review-bad'>
+							<div class='board-register-write-box'>
+							<label for="bad">해당 기업의 단점을 적어주세요</label><br>
+					        <textarea name="review_weak" id="review_weak"></textarea>
+							</div>
+						</div>
+						
+						<div class='com-review-ceo'>
+							<div class='board-register-write-box'>
+							<label for="want">경영진에게 바라는점을 적어주세요</label><br>
+					        <textarea name="review_toCEO" id="review_toCEO"></textarea>
+							</div>
+						</div>
 					</div>
 					
-					<div class='com-review-bad'>
-						<label for="bad">해당 기업의 단점을 적어주세요</label><br>
-				        <textarea name="review_weak" rows="3" class="form-ta" id="review_weak"></textarea>
-					</div>
-					
-					<div class='com-review-ceo'>
-						<label for="want">경영진에게 바라는점을 적어주세요</label><br>
-				        <textarea name="review_toCEO" rows="3" class="form-ta" id="review_toCEO"></textarea>
-					</div>
+					<div class='board-register-write'>
 					<div class='com-review-star'>
 						<div class="review-star">
-						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
+						<label for="starPoint">평점</label>
 							<ul class="list-group">
 								<li class="list-group-item">승진기회 및 가능성 
 								<span
@@ -146,14 +163,21 @@
 								</li>
 							</ul>
 						</div>
+					</div><!-- star -->
 					</div>
-					<div class='com-review-btn' align="center">
-						<input type="button" class='register-btn' id="registBtn" onclick="validateCheck()" value='글등록'>
-						<input type="button" class='register-btn' id="cancelBtn" value='취소'>
+					
+					<div class="board-register-button">
+					<div class='board-register-button-box' align="center">
+						<input type="button" class='register-qna' id="registBtn" onclick="validateCheck()" value='글등록'>
+						<input type="button" class='register-qna' id="cancelBtn" value='취소'>
+					</div>
 					</div>
 					
 					</div>
 					</form>
+					</div>
+					</div>
+					
 			</div><!-- section_main1 -->
 			
 		</div><!-- column-left -->

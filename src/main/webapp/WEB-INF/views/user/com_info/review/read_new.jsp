@@ -7,6 +7,9 @@
 <title>기업후기 상세정보</title>
 
 
+<!-- CSS -->
+<link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
+
 
 <!-- 핸들바js -->
 <script
@@ -165,10 +168,10 @@
 					</div>
 					</div>
 					
-					<div class='com-review-button' align="center">
-						<input type="button" class='register-btn' id="goList" value='목록보기'>
-						<div class="row">
-							<span id="upDel" class="mybutton"></span>
+					<div class='board-read-buttons' align="center">
+						<input type="button" class='board-read-button-toList' id="goList" value='목록보기'>
+						<div class="board-read-button-myBtns">
+							<span id="upDel" class=""></span>
 						</div>
 					</div>
 					
@@ -176,25 +179,30 @@
 				<!-- wrapper -->
 			</div>
 			<!-- section_main -->
-			<div class='section_main2'>
+			<div class='section-board-reply'>
 				<div class="row">
 					<div class="reply-container">
 						<div class="box">
-							<div class="box-header">
-								<h3>REPLY</h3>
-							</div>
+							<div class="box-header">REPLY</div>
 							<c:if test="${not empty user_login_id }">
 								<div class="reply-content">
 									<div class="reply-writecontent">
 										<label>작성자</label> 
-										<input type="hidden" id="reply_user_id" value="${user_login_id }">
+										<input type="hidden"id="reply_user_id" value="${user_login_id }">
 										<input class="fake-reply-writer" type="text" id="newReplyWriter"> 
-										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
 									</div>
 									<div class="reply-writecontent">
+										<div class="reply-content-contents">
 										<textarea name="reply-content" id="newReplyText"
 											class="content" placeholder="댓글을 입력하세요"
-											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none;"></textarea>
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%;  border: 1px solid lightgray; resize: none; margin-top: 5px;"></textarea>
+										</div>
+									</div>
+									<div class="reply-writecontent">
+										<div class="reply-content-button">
+ 											<input type="submit" id="replyAddBtn" value="댓글 등록">
+<!-- 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button> -->
+										</div>
 									</div>
 								</div>
 
@@ -690,8 +698,8 @@
 				//var upDel = document.getElementById('upDel');
 				$('#upDel')
 						.html(
-								'<button type=buttion class="upDel-btn" id="update" onclick="modifyReview()">수정</button>'
-										+ '<button type=button class="upDel-btn" id="delete" onclick="removeReview()">삭제</button>');
+								'<button type=buttion class="board-read-button-myBtn" id="update" onclick="modifyReview()">수정</button>'
+										+ '<button type=button class="board-read-button-myBtn" id="delete" onclick="removeReview()">삭제</button>');
 			}
 		}
 

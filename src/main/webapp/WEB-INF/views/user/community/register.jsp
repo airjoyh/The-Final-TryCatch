@@ -23,39 +23,43 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='section_communityregister'>
+			<div class='section-board-register'>
 				<div class='title-wrapper'>
 					<div class='column-title'>커뮤니티 글작성</div>
 				</div>
-				<div class='community_wrapper'>
+				<div class='board-register-wrapper'>
+				<div class="board-register-box">
 					<form method="post">
-					   <div class="community-readtitle">
-							<div class='readtitle'>
-									<span class="title-label">제목</span>&nbsp;&nbsp;&nbsp; 
-									<input class="community-box" id="community_title" name="community_title" type="text"
+					   <div class="board-register-top">
+							<div class='board-register-top-input'>
+									<label>제목</label>
+									<input class="" id="community_title" name="community_title" type="text"
 						                   placeholder="제목을 입력하세요.">
 							</div>
-							<div class='readtitle'>
-						            <span class="title-label">작성자</span>&nbsp;&nbsp; 
-						            <input class="community-box" id="community_writer" name="community_writer" value="${user_login_id}"
-						                  readonly="readonly">
+							<div class='board-register-top-input'>
+						            <label>작성자</label>
+						            <input class="board-register-top-input" id="community_writer" name="community_writer" type="text" value="${user_login_id}"
+						                  readonly="readonly" style="border:none;">
 							</div>
 					   </div>
 						
-						<div class='community-register'>
-							<label class="title-label" for="community_contents">글 내용</label><br>
+						<div class='board-register-write'>
+							<div class='board-register-write-box'>
+							<label class="" for="community_contents">글 내용</label><br>
 					        <textarea name="community_contents" class="ta" id="good"></textarea>
-					        
+					        </div>
 						</div>
 				   
-						<div class='community-btn' align="center">
+				   		<div class="board-register-button">
+						<div class='board-register-button-box' align="center">
 							<input type="submit" class='register-qna' id="registBtn" value='글등록'>
 							<input type="button" class='register-qna' id="cancelBtn" value='취소'>
+						</div>
 						</div>
 	
 					</form>
 				</div>
-				
+				</div>
 			</div><!-- section_communityregister -->
 			
 		</div><!-- column-left -->

@@ -21,12 +21,12 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class="section_communityread">
+			<div class="section-board-read">
 					<div class='title-wrapper'>
 						<div class='column-title'>커뮤니티 글상세보기</div>
 					</div>
 					<form id="readForm" name="readForm" method="post">
-					<div class='community_readwrapper'>
+					<div class='board-read-wrapper'>
 					   <input type='hidden' id="community_no" name='community_no' value="${community.community_no}">
 	                   <input type="hidden" id="community_writer" name="community_writer" value="${community.community_writer }">
 	                   <input type='hidden' name='page' value="${cri.page}">
@@ -34,33 +34,35 @@
 	                   <input type='hidden' name='searchType' value="${cri.searchType}">
 	                   <input type='hidden' name='keyword' value="${cri.keyword}">
 						
-					<div class="community-readtitle">
-							<div class='readtitle'>
-								<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp;
-								<input class="qna-title" id="community_title" name="community_title" type="text"
-					                  style="width: 270px; border: none;" value="${community.community_title }" readonly="readonly">
+					<div class="board-read-top">
+							<div class='board-read-title'>
+								<input class="" id="community_title" name="community_title" type="text"
+					                  value="${community.community_title }" readonly="readonly">
 							</div>
-							<div class='readtitle'>
-						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;
-						        <span class="qna-writer" id="community_writer" name="community_writer" 
-						        	style=" width: 280px; readonly="readonly" >${community.community_writer}</span>
+							<div class='board-read-datas'>
+							<div class='board-read-data'>
+						        <label>작성자</label>&nbsp;&nbsp;
+						        <div class="board-read-data-content" id="community_writer" name="community_writer" 
+						        	 readonly="readonly" >${community.community_writer}</div>
 							</div>
-							<div class='readtitle'>
-						        <label class="ct-box-label">조회수</label> 
-						        <span class="qna-writer" id="community_viewCount" name="community_viewCount" style="width: 15%" readonly="readonly" >${community.community_viewCount}</span>
+							<div class='board-read-data'>
+						        <label>조회수</label> 
+						        <div class="board-read-data-content" id="community_viewCount" name="community_viewCount" readonly="readonly" >${community.community_viewCount}</div>
 							</div>
-					   </div>
+							<%-- <div class="board-read-date">${community.community_wdate} 시간</div> --%>
+							</div>
+					 </div>
 						
-						<div class='community-content'>
+						<div class='board-read-contents'>
 						   <div class="form-group">	
-							<label class="content-label" for="good">글 내용</label><br>
-					        <p name="community_contents" class="form-p" id="good">${community.community_contents}</p>
+					        <div class="board-read-content" id="good">${community.community_contents}</div>
 						   </div>
 						</div>
-						<div class='community-button' align="center">
-							<input type="button" class='inline-btn' id="goListBtn" name="goListBtn" value='목록보기'>
-	                      	<div class="row">
-							  <span id="upDel" class="mybutton"></span>
+						
+						<div class='board-read-buttons' align="center">
+							<input type="button" class='board-read-button-toList' id="goListBtn" name="goListBtn" value='목록보기'>
+	                      	<div class="board-read-button-myBtns">
+							  <span id="upDel" class=""></span>
 					        </div>
 						</div>
 						
@@ -68,24 +70,32 @@
 						</form>
 			</div>
 			<!-- section_communityread -->
-			<div class='section_communityreply'>
+			<div class='section-board-reply'>
 				<div class="row">
 					<div class="reply-container">
 						<div class="box">
-							<div class="box-header">
-								<h3>REPLY</h3>
-							</div>
+							<div class="box-header">REPLY</div>
+							
 							<c:if test="${not empty user_login_id }">
 								<div class="reply-content">
 									<div class="reply-writecontent">
-										<label>작성자</label> 
-										<input class="reply-writer" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
-										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
+										<div class="reply-content-writer">
+											<label>작성자</label> 
+											<input class="reply-writer" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
+										</div>
 									</div>
 									<div class="reply-writecontent">
-										<textarea name="reply-content" id="newReplyText"
+										<div class="reply-content-contents">
+											<textarea name="reply-content" id="newReplyText"
 											class="content" placeholder="댓글을 입력하세요"
 											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: 1px solid lightgray; resize: none; margin-top: 5px;"></textarea>
+										</div>
+									</div>
+									<div class="reply-writecontent">
+										<div class="reply-content-button">
+<!-- 											<input type="submit" class="reply-btn" id="replyAddBtn" value="댓글 등록"> -->
+											<input type="submit" id="replyAddBtn" value="댓글 등록">
+										</div>
 									</div>
 								</div>
 
@@ -413,8 +423,8 @@ $(document).ready(function(){
 		 if(login_id==community_writer){//일치하면 수정 삭제 버튼 나오게.
 			console.log('일치하는 아이디');
 			var upDel = document.getElementById('upDel');
-		upDel.innerHTML = '<button type=button  class="inline-btn" id="update" onclick="modifyReview()">수정</button>'+
-					      '<button type=button class="inline-btn" id="delete" onclick="removeReview()">삭제</button>';
+		upDel.innerHTML = '<button type=button  class="board-read-button-myBtn" id="update" onclick="modifyReview()">수정</button>'+
+					      '<button type=button class="board-read-button-myBtn" id="delete" onclick="removeReview()">삭제</button>';
 		}else{
 			console.log('일치하지않는 아이디');
 		} 
