@@ -179,68 +179,6 @@
     position: relative;
 }
 
-.register-btn { /*목록으로 버튼*/
-	display: inline-block;
-     height:35px;
-     width:100px;
-     border-radius: 2px;
-     font-size:15px;
-    margin: 20px auto;
-    padding:0;
-    border:none;
-    outline: none;
-     background-color:#65737e;
-     color:#fff;
-     cursor:pointer;
-     
-     -webkit-transition: all .3s ease;
-     -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-.register-btn :hover{
-	background-color:#4b565e;
-}
-
-
-.upDel-btn {
-     height:25px;
-     width:62.5px;
-     font-size:15px;
-    margin-top:1px;
-    padding:0;
-    border:none;
-    outline: none;
-     background-color:#65737e;
-     color:#fff;
-     cursor:pointer;
-     
-     -webkit-transition: all .3s ease;
-     -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.register-reviewBtn {
-     height:30px;
-     width:120px;
-     font-size:15px;
-    margin: 0;
-    padding:0;
-    border:none;
-    outline: none;
-     background-color:#65737e;
-     color:#fff;
-     cursor:pointer;
-     
-     -webkit-transition: all .3s ease;
-     -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
 .form-ta {
      width: 700px;
 }

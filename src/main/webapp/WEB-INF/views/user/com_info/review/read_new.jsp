@@ -6,6 +6,8 @@
 <meta charset="utf-8">
 <title>기업후기 상세정보</title>
 
+
+
 <!-- 핸들바js -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -163,7 +165,7 @@
 					</div>
 					</div>
 					
-					<div class='com-review-button'>
+					<div class='com-review-button' align="center">
 						<input type="button" class='register-btn' id="goList" value='목록보기'>
 						<div class="row">
 							<span id="upDel" class="mybutton"></span>
