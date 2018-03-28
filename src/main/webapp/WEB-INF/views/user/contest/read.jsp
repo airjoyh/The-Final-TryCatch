@@ -95,7 +95,7 @@ $(function(){
 				<input type='hidden' name='keyword' value="${cri.keyword}">
 			</form>
 	  	 		<div id="board" align="center">
-<!-- 	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width: 600px; height: 950px"> -->
+
 	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width:100% height: 90%">
 	  	 				<tr style="height: 50px">
 	  	 					<td style="text-align: center; font-weight: bold;">글번호</td>
@@ -150,9 +150,7 @@ $(function(){
 				        	<td></td>
 				        	<td align="center">			
 							<button type="button" id="goList">목록보기</button>
-<%-- <button><a 
-href="${initParam.rootPath }/user/review/list?page=${cri.page }&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }&keyword=${cri.keyword }&company_id=${param.company_id}">
-목록보기</a></button> --%>
+
 							</td>
 				        </tr>
 				        	  	 				
