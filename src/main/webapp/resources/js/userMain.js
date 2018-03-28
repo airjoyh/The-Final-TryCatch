@@ -11,12 +11,10 @@ $(document).ready(function() {
 		if(loginState != 'login'){//로그인상태가 아닐때
 			$('#login_beforeDiv').show();
 			$('#login_afterDiv').hide();
-			location.reload();
 			
 		}else if(loginState == 'login'){//로그인 상태일때			
 			$('#login_beforeDiv').hide();
 			$('#login_afterDiv').show();
-			location.reload();
 			
 		}
 				
