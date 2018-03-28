@@ -54,7 +54,7 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 'a'.toString() ">
-				and user_id like '%'||#{keyword}||'%'
+				and user_id like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>

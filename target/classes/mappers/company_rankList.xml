@@ -92,10 +92,10 @@
   	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString() ">
-				where company_name like '%'||#{keyword}||'%'
+				where company_name like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'w'.toString() ">
-				where company_size like '%'||#{keyword}||'%'
+				where company_size like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql> 

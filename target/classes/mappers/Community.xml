@@ -36,14 +36,14 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString() ">
-				where community_title like '%'||#{keyword}||'%'
+				where community_title like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'w'.toString() ">
-				where community_writer like '%'||#{keyword}||'%'
+				where community_writer like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'tw'.toString() ">
-				where community_title like '%'||#{keyword}||'%'
-				or community_writer like '%'||#{keyword}||'%'
+				where community_title like CONCAT('%',#{keyword},'%')
+				or community_writer like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>

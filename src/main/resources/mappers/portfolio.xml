@@ -32,10 +32,10 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 'a'.toString() ">
-				where port_skill like '%'||#{keyword}||'%'
+				where port_skill like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'b'.toString() ">
-				where port_license like '%'||#{keyword}||'%'
+				where port_license like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql> 

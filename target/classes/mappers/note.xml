@@ -31,15 +31,15 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString() ">
-				and note_sender like '%'||#{keyword}||'%'
+				and note_sender like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'w'.toString() ">
-				and note_contents like '%'||#{keyword}||'%'
+				and note_contents like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'tw'.toString() ">
-				and note_sender like '%'||#{keyword}||'%'
+				and note_sender like CONCAT('%',#{keyword},'%')
 				or note_contents like
-				'%'||#{keyword}||'%'
+				CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>

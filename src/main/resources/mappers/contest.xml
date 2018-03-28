@@ -47,22 +47,22 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 'a'.toString() ">
-				and contest_title like '%'||#{keyword}||'%'
+				and contest_title like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'b'.toString() ">
-				and team_name like '%'||#{keyword}||'%'
+				and team_name like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'c'.toString() ">
-				and manager_name like '%'||#{keyword}||'%'
+				and manager_name like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'd'.toString() ">
-				and contest_status like '%'||#{keyword}||'%'
+				and contest_status like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'e'.toString() ">
-				and company_name like '%'||#{keyword}||'%'
+				and company_name like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'f'.toString() ">
-				and contest_field like '%'||#{keyword}||'%'
+				and contest_field like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>

@@ -41,14 +41,14 @@
   	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString() ">
-				and qna_title like '%'||#{keyword}||'%'
+				and qna_title like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'w'.toString() ">
-				and qna_writer like '%'||#{keyword}||'%'
+				and qna_writer like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType == 'tw'.toString() ">
-				and qna_title like '%'||#{keyword}||'%'
-				or qna_writer like '%'||#{keyword}||'%'
+				and qna_title like CONCAT('%',#{keyword},'%')
+				or qna_writer like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>

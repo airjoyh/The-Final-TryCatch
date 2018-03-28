@@ -274,6 +274,9 @@
 								<option value="w"
 									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
                    					 작성자</option>
+                   				<option value="tw"
+									<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+									제목+작성자</option>
 							</select> <input type="text" name='keyword' id="keywordInput"
 								value='${cri.keyword }'>
 							<button class="board-btn" id='searchBtn'>검색</button>								
