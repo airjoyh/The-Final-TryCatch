@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+v<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -45,10 +45,9 @@
 							</div>
 							<div class='readtitle'>
 						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;&nbsp;
-						         <span class="qna-writer" id="community_writer" name="community_writer" 
-						        	style=" border: 1px solid #bbbbbb; padding-right: 150px;" readonly="readonly" >${community.community_writer}</span>
-						         <%-- <input class="qna-writer" id="community_writer" name="community_writer" type="text"
-					                  style="width: 270px;" value="${community.community_writer}" readonly="readonly"> --%> 	
+						          <span class="qna-writer" id="community_writer" name="community_writer" 
+						        	style=" border: 1px solid #bbbbbb; padding-right: 100px;" readonly="readonly" >${community.community_writer}</span> 
+					         	  	
 							</div>
 					   </div>
 

@@ -36,33 +36,12 @@
 		<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 
-			<div class='section_main'>
-				<div class='com-contest-head'>
+			<div class='section_notelist'>
+			
 					<div class='title-wrapper'>
 						<div class='column-title'>받은쪽지함</div>
 					</div>
-					<div class="com-contest-paging">
-						<div class='cont-qna-search'>
-							<select name="searchType">
-								<option value="n"
-									<c:out value="${cri.searchType == null?'selected':''}"/>>
-                    					 검색조건</option>
-								<option value="t"
-									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                     					보낸 구직자</option>
-								<option value="w"
-									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                    					 내용</option>
-								<option value="tw"
-									<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
-                    					 보낸 구직자+내용</option>
-							</select> <input type="text" name='keyword' id="keywordInput"
-								value='${cri.keyword }'>
-							<button id='searchBtn'>검색</button>
 
-						</div>
-					</div>
-					<!-- com-contest-paging -->
 					<div class='company-contest-table'>
 						<div class='wrapper'>
 							<table cellspacing='0'>
@@ -86,34 +65,54 @@
 						</div>
 					</div>
 
-					<div class="cont-qna-page">
-						<ul class="pagination">
-							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&note_receiver=${param.note_receiver }">&laquo;</a></li>
-							</c:if>
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a
-									href="list${pageMaker.makeSearch(idx)}&note_receiver=${param.note_receiver }">${idx}</a>
-								</li>
-							</c:forEach>
+						<div class="board-pageline" align="center">
+							<ul class="board-pagination" >
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+										<a
+										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+									</li>
+								</c:forEach>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&note_receiver=${param.note_receiver }">&raquo;</a></li>
-							</c:if>
-						</ul>
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+					<!-- board-pageline -->
+					
+					<div class="board-paging" align="center">
+						<div class='board-search'>
+							<select name="searchType" class="board_select">
+								<option value="n"
+									<c:out value="${cri.searchType == null?'selected':''}"/>>
+                    					 검색조건</option>
+								<option value="t"
+									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                     					보낸 구직자</option>
+								<option value="w"
+									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                    					 내용</option>
+								<option value="tw"
+									<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+                    					 보낸 구직자+내용</option>
+							</select> <input type="text" name='keyword' id="keywordInput"
+								value='${cri.keyword }'>
+							<button class="board-btn" id='searchBtn'>검색</button>
+
+						</div>
 					</div>
-					<!-- cont-qna-page -->
+					<!-- board-paging -->
 
-				</div>
-				<!-- com-contest-head -->
-				<div></div>
 			</div>
-			<!-- section_main1 -->
+			<!-- section_notelist -->
 
 		</div>
 		<!-- right section!!************************************************************** -->

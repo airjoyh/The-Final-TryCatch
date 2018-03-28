@@ -21,39 +21,42 @@
 	<div class='container'>
 		<!-- left section!!************************************************************** -->
 		<div class='column-left'>
-			<div class="section_main">
+			<div class="section_noteread">
 	
 				<div class='title-wrapper'>
 					<div class='column-title'>쪽지 상세보기</div>
 				</div>
 				<div class='wrapper'>
-					<div class='com-qna-title'>
-						<div>
-							<span>보낸 기업</span>
-							<p>${note.note_sender}</p>
-							<br> <span>받은 사람</span>
-							<p>${note.note_receiver}</p>
+				
+					<div class='note-title'>
+						<div class="note-title-box">
+							<label>보낸 구직자</label>
+							<span>${note.note_sender}</span>
+						</div>
+						<div class="note-title-box">
+							<label>받은 기업</label>
+							<span>${note.note_receiver}</span>
 						</div>
 					</div>
-					<div class='com-qna-content'>
+					
+					<div class='note-content'>
 						<label for="good">쪽지내용</label><br>
 						<p class="note-content"
 							style="border: 1px solid #f1f1f1; height: 200px;" id="good">${note.note_contents}
 						</p>
 					</div>
-					<div class='com-inline-btn'>
+					
+					<div class='note-btn'align="center">
 						<input type="button" class='qna-list' id="goList" value='목록보기'>
-						<a href="#sendMail"><input type="button" class='qna-list'
-							value='답장'></a> <input type="button" class='qna-list'
-							id="deleteList" value='삭제' onclick="removeReview()">
-						<!-- <input type="button" class='qna-modify' value='수정'>
-						<input type="button" class='qna-delete' value='삭제'> -->
+						<a href="#sendMail"><input type="button" class='qna-list'value='답장'></a> 
+						<input type="button" class='qna-list' id="deleteList" value='삭제' onclick="removeReview()">
+						
 					</div>
 
 				</div>
 			
 			</div>
-			<!-- section_main -->
+			<!-- section_noteread -->
 		</div>
 		<!-- column-left -->
 
@@ -72,19 +75,26 @@
 
 	<!-- mail 모달	 -->
 		<div class="modal" id="sendMail">
-			<div class="modal-pannel">
-				<div class="modal-title">쪽지 답장 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">  
-					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id}"  
-					    class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${note.note_sender}"
-					 class="form-control" style="width: 90%; height: 15px;"></p>
-					<textarea rows="4" cols="78px" placeholder="답장 내용을 입력" style="margin-top: 5px;" id="note_contents"></textarea>
+			<div class="notemodal-pannel">
+				<div class="notemodal-title">쪽지 답장 <a href="#close">CLOSE</a></div>
+				
+				<div class="notemodal-body">  
+					<h4>보낸 기업 아이디</h4>
+					<p>
+						<input type="text" id="note_sender" value="${company_login_member_id}"  
+					    class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<h4>받는 구직자 아이디</h4>
+					<p>
+						<input type="text" id="note_receiver" value="${note.note_sender}"
+						 class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<textarea placeholder="답장 내용을 입력하세요" class="notemodal-ta" id="note_contents"></textarea>
 				</div>
 					
-				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+				<div class="notemodal-footer">
 					<input type="button" name="replyConfirm" id="noteModBtn" value="전송">
-					</div>
+				</div>
 			</div>
 		</div>
 	<!-- frame -->
