@@ -54,11 +54,7 @@
 	font-weight: 300;
 	text-decoration: none;
 }
-.modal .modal-body{
-	padding: 3%;
-	height:400px;
-	overflow: auto;
-}
+
 .modal .modal-body input[type="email"] {
 	width: 100%;
 	height:50px;
@@ -82,7 +78,7 @@
 	border-radius: 25px;
     outline: none;
 }
-.modal .modal-body input[type="text"]{
+/* .modal .modal-body input[type="text"]{
 	width: 79.5%;
 	height:50px;
     padding: 10px 20px;
@@ -94,7 +90,7 @@
     outline: none;
     background-color:#fff;
 	color: #000;
-}
+} */
 .modal .modal-body #member_id{
 	width: 77%;
 	height:50px;
@@ -108,14 +104,15 @@
     background-color:#fff;
 	color: #000;
 }
-.modal .modal-body select{
+/* .modal .modal-body select{
 	width: 49.5%;
     padding: 10px 20px;
     margin: 0;
     outline: none;
     background-color:#fff;
 	color: #000;
-}
+} */
+
 .modal .modal-body input[type="button"] {
 	width: 20%;
 	height:50px;
@@ -173,4 +170,80 @@
 .modal .modal-footer input[type="button"]:hover{
 	background-color: #2b303b;
 	color: #fff;
+}
+/*****************************************************************
+							  새로추가
+******************************************************************/
+
+.modal .modal-body .modal-btn{
+	background-color:#65737e;
+	color:#fff;
+	border: none;
+	margin: 0;
+	padding: 5px;
+	width: 20%;
+	height:50px;
+	outline: none;
+	font-size: 14px;
+}
+
+.modal .modal-body .modal-btn:hover{
+	background-color: #2b303b;
+	color: #fff;
+}
+.modal .modal-body{
+	padding: 3%;
+	height:400px;
+	overflow: auto;
+	display: block;
+	position: relative;
+}
+
+.modal .modal-body .modal-body-line{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 60px;
+}
+
+.modal .modal-body .company-modalta{
+	width: 100%;
+	height: 60px;
+	resize: none;
+	margin-top: 10px;
+}
+.modal .modal-body .modal-body-line input[type="text"]{
+	width: 100%;
+	height:50px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border: 1px solid #65737e;
+    -webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+    outline: none;
+    background-color:#fff;
+	color: #000;
+}
+
+.modal .modal-body .modal-body-line input[type="month"]{
+	float: right;
+	height: 30px;
+}
+
+.modal .modal-body .modal-body-line label{
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.modal .modal-body .modal-body-line select{
+	float: right;
+	display: inline-block;
+	width: 49.5%;
+	height:30px;
+    /* padding: 10px 20px; */
+    margin: 0;
+    outline: none;
+    background-color:#fff;
+	color: #000;
 }

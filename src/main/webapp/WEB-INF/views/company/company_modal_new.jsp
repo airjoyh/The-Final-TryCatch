@@ -10,22 +10,34 @@
 				</div>
 				<div class="modal-body">
 					<form method="post" id="registerForm" name="registerForm">
-					<input id="member_id" name="member_id" type="text"
-						placeholder="아이디를 입력하세요"> 
-					<input type="button" id="idCheckBtn" value="중복확인">	
-					<div id="idCheckDiv"></div><br>	
+					<div class="modal-body-line">
+						<input id="member_id" name="member_id" type="text"
+							placeholder="아이디를 입력하세요"> 
+						<!-- <input type="button" id="idCheckBtn" value="중복확인"> -->	 
+						<button class="modal-btn" id="idCheckBtn">중복확인</button>
+						<div id="idCheckDiv"></div>
+					</div>
+					<div class="modal-body-line">
 					<input id="member_pass"
 						name="member_pass" type="password" placeholder="비밀번호를 입력하세요">
 					<input id="member_pass2" name="member_pass2" type="password"
 						placeholder="비밀번호 확인" style="float: right;"> <br>
+					</div>
+					<div class="modal-body-line">
 					<input
 						id="company_name" name="company_name" type="text"
 						size="80" placeholder="기업명을 입력하세요"><br> 
-					<p>기업 설립년도를 선택하세요</p>
+					</div>
+					<div class="modal-body-line" style="padding-top: 20px;">
+					<label>기업 설립년도를 선택하세요</label>
 					<input
 						type="month" id="company_year" name="company_year" ><br>
+					</div>
+					<div class="modal-body-line">
 					<input
 						type="text" id="company_turnover" name="company_turnover" placeholder="매출액을 입력하세요"><br>	
+					</div>
+					<div class="modal-body-line"  style="padding-top: 20px;">
 					<label for="company_size">기업 규모</label>	&nbsp;&nbsp;&nbsp;
 					<select class="form-control" id="company_size" name="company_size">
 						      <option value="==선택==">==선택==</option>
@@ -33,7 +45,9 @@
 						      <option value="중견기업(500명 이상)">중견기업 (500명 이상)</option>
 						      <option value="중소기업(50명 이상)">중소기업 (50명 이상)</option>
 						      <option value="소기업">소기업 (50명 미만)</option>
-				    </select><br>
+				    </select>
+				    </div>
+				    <div class="modal-body-line"  style="padding-top: 20px;">
 				    <label for="company_line">기업 산업군</label>	
 					<select class="form-control" id="company_line" name="company_line">
 								<option selected="selected" class="text-primary">==선택==</option>
@@ -59,13 +73,20 @@
 									<option value="maintenance">Maintenance</option>
 								</optgroup>
 					</select>
+					</div>
+					<div class="modal-body-line">
 					<input class="form-control" id="company_number" name="company_number" 
 							        type="text" placeholder="사업자 등록번호를 입력하세요"><br>
+					</div>
+					<div class="modal-body-line">
 					<input class="form-control" id="company_addr" name="company_addr" 
 							       type="text" placeholder="기업 주소를 입력하세요"><br>
+					</div>
+					<div class="modal-body-line">
 					<input class="form-control" id="company_site" name="company_site" 
 							        type="text" placeholder="기업 홈페이지 주소를 입력하세요"><br>		       
-					<textarea class="form-control" cols="75" rows="3" id="company_intro"
+					</div>
+					<textarea class="company-modalta" id="company_intro"
 							          name="company_intro" placeholder="기업 소개글을 입력하세요"></textarea>
 		        	</form>
 				</div>
