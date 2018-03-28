@@ -57,7 +57,7 @@
 	<select id="selectQuiz_seq" resultType="int">
 	   select auto_increment
 		from information_schema.tables
-		where table_schema = 'trycatch' 
+		where table_schema = 'playdataar3' 
 		and table_name = 'contest_quiz'
 	</select>
 	
