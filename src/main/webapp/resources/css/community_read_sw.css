@@ -67,7 +67,7 @@
 
 .form-p {
 	width: 680px;
-    border: none;
+    border: 1px solid lightgray;
     height: 200px;
 }
 
@@ -81,14 +81,6 @@
 .reply-container .box{
 	display: block;
 	height: auto;
-}
-
-.reply-container .box .reply-content{
-	display: inline-block;
-	position: relative;
-	width: 100%;
-	border: solid 1px #d7dada;
-	margin-bottom: 5px;
 }
 
 .reply-container .box .reply-content .reply-writecontent{

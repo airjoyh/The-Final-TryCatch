@@ -1,0 +1,45 @@
+.reply-paging{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.reply-pageline{
+	display: inline-block;
+	margin: 10px auto;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.reply-pagination {
+	position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    list-style-type: none;
+}
+.reply-pagination li{
+	display: inline-block;
+}
+.reply-pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    
+	border-bottom: #ebeef3 solid 2px;
+}
+
+.reply-pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.reply-pagination a.active {
+	background-color: #6abded;
+    color: white;
+}
+.reply-pagination a:focus {
+	background-color: #6abded;
+    color: white;
+}
+

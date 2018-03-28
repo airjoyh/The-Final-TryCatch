@@ -236,7 +236,7 @@
 	display: inline-block;
 	position: relative;
 	width: 100%;
-	border: solid 1px #d7dada;
+	border: none;
 	margin-bottom: 5px;
 }
 
@@ -245,6 +245,7 @@
 }
 .reply-content .reply-writer{
 	width: 250px;
+	border: none;
 }
 .reply-content .reply-btn{
 	height: 20px;

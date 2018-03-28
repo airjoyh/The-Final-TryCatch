@@ -5,6 +5,10 @@
 <head>
 <meta charset="utf-8">
 <title>기업 콘테스트 개최 리스트</title>
+
+<!-- CSS -->
+<link href="${initParam.rootPath }/resources/css/community_list_sw.css" rel="stylesheet" type="text/css">
+
 </head>
 <!--[if lt IE 9]> 
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
@@ -17,16 +21,13 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 		
-			<div class='com-contest-head'>
-				<div class='title-wrapper'>
-					<div class='column-title'>인재 검색 리스트</div>
-				</div>
-				
-				</div><!-- section_main1 -->
+			<div class='section_main_community'>
 
-			<div class='com-contest-table'>
-				<div class='company-contest-table'>
-					<div class='wrapper'>
+					<div class='title-wrapper'>
+						<div class='column-title'>인재검색 리스트</div>
+					</div>
+					
+					<div class='company-contest-table'>
 						<table cellspacing='0'>
 							<tr>
 								<th style="width: 20%">아이디</th>
@@ -42,56 +43,51 @@
 								</tr>
 							</c:forEach>
 						</table>
-
-
 					</div>
+					
+					<div class="board-paging" >
+						<div class="board-pageline" align="center">
+							<ul class="board-pagination" >
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+										<a
+										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+									</li>
+								</c:forEach>
 
-				</div>
-				
-				<!-- 페이징 처리 -->
-				<div align="center">
-					<ul class="pagination">
-						<c:if test="${pageMaker.prev}">
-							<li><a
-								href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-						</c:if>
-						<c:forEach begin="${pageMaker.startPage }"
-							end="${pageMaker.endPage }" var="idx">
-							<li
-								<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-								<a
-								href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-							</li>
-						</c:forEach>
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+						<div class='board-search'align="center">
+							<select name="searchType" class="board_select">
+								<option value="n"
+									<c:out value="${cri.searchType == null?'selected':''}"/>>
+                   					 검색조건</option>
+								<option value="t"
+									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+                    					제목</option>
+								<option value="w"
+									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+                   					 작성자</option>
+							</select> <input type="text" name='keyword' id="keywordInput"
+								value='${cri.keyword }'>
+							<button class="board-btn" id='searchBtn'>검색</button>								
+						</div>
+					</div>
+					<!-- com-contest-paging -->
 
-						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-							<li><a
-								href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-						</c:if>
-					</ul>
-				</div>
-				<!-- 페이징 -->
-				<!-- 검색 -->
-				<div class='box-body'>
-					<select name="searchType">
-						<option value="n"
-							<c:out value="${cri.searchType == null?'selected':''}"/>>
-							검색조건</option>
-						<option value="a"
-							<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
-							기술</option>
-						<option value="b"
-							<c:out value="${cri.searchType eq 'b'?'selected':''}"/>>
-							자격증</option>
-					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword }'>
-					<button id='searchBtn'>검색</button>
+			</div><!-- section_main_community -->
 
-				</div>
-			</div>
-			<!-- 검색  -->
-
-		</div><!-- section_main2 -->
+		</div><!-- column-left -->
 		
 				
 		

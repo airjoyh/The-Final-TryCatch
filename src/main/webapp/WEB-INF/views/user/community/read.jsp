@@ -78,14 +78,14 @@
 							<c:if test="${not empty user_login_id }">
 								<div class="reply-content">
 									<div class="reply-writecontent">
-										<textarea name="reply-content" id="newReplyText"
-											class="content" placeholder="댓글을 입력하세요"
-											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: none; resize: none;"></textarea>
-									</div>
-									<div class="reply-writecontent">
 										<label>작성자</label> 
 										<input class="reply-writer" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button>
+									</div>
+									<div class="reply-writecontent">
+										<textarea name="reply-content" id="newReplyText"
+											class="content" placeholder="댓글을 입력하세요"
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: 1px solid lightgray; resize: none; margin-top: 5px;"></textarea>
 									</div>
 								</div>
 
@@ -245,7 +245,7 @@
 	
 		$.getJSON(pageInfo, function(data) {
 			printData(data.list, $("#repliesDiv"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
+			printPaging(data.pageMaker, $(".reply-pagination"));
 	
 			//$("#modifyModal").modal('toggle');
 	
@@ -274,7 +274,7 @@
 		target.html(str);
 	};
  
-	$(".pagination").on("click", "li a", function(event){//pagination클래스를 가진 태그의 li의 a태그를 클릭하면
+	$(".reply-pagination").on("click", "li a", function(event){//pagination클래스를 가진 태그의 li의 a태그를 클릭하면
 		//댓글 페이징 버튼을 클릭하면
 		
 		event.preventDefault();

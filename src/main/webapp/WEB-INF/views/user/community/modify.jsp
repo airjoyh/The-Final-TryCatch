@@ -44,11 +44,11 @@
 					                  style="width: 270px;" value="${community.community_title }">
 							</div>
 							<div class='readtitle'>
-						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;
-						        <span class="qna-writer" id="community_writer" name="community_writer" 
-						        	style=" border: 1px solid #bbbbbb" readonly="readonly" >${community.community_writer}</span>
-						        <%-- <input class="qna-writer" id="community_writer" name="community_writer" 
-					                  style="width: 270px;" value="${community.community_writer}" readonly="readonly"> --%>	
+						        <label class="ct-box-label">작성자</label>&nbsp;&nbsp;&nbsp;
+						         <span class="qna-writer" id="community_writer" name="community_writer" 
+						        	style=" border: 1px solid #bbbbbb; padding-right: 150px;" readonly="readonly" >${community.community_writer}</span>
+						         <%-- <input class="qna-writer" id="community_writer" name="community_writer" type="text"
+					                  style="width: 270px;" value="${community.community_writer}" readonly="readonly"> --%> 	
 							</div>
 					   </div>
 
