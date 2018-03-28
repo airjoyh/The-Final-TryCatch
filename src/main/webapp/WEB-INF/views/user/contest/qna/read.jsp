@@ -54,12 +54,7 @@
 				          <input type='hidden' name='searchType' value="${cri.searchType}">
 				          <input type='hidden' name='keyword' value="${cri.keyword}">
 			          </form>
-			         <%--  <form action="/company/note/register" name="noteForm" method="POST">
-			             <input type="hidden" id="note_id" name="note_id" value="${note.note_id} ">
-			             <input type="hidden" id="note_contents" name="note_contents" value="${note.note_contents}">
-			             <input type="hidden" id="note_sender" name="note_sender" value="${company_login_member_id}">
-			             <input type="hidden" id="note_receiver" name="note_receiver" value="${user_login_id}">
-			          </form> --%>
+			         
 						<div>
 							<span class="input-group-addon">글번호</span> 
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 

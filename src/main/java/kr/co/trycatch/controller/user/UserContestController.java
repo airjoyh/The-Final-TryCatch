@@ -61,7 +61,7 @@ public class UserContestController {
 		model.addAttribute("contest", contestService.read(contest_id));
 		model.addAttribute("cri", cri);
 
-		return "/user/contest/read";
+		return "/user/contest/read_new";
 	}
 
 	@RequestMapping("/quiz/solve")
