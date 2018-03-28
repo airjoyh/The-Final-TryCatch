@@ -153,6 +153,7 @@ $(document).ready(function(){
 						console.log(result);
 						if(result=='success'){
 							alert('회원가입이 완료되었습니다.');
+							self.location = rootPath+'/company/main';
 							$('#comModal').fadeOut();
 							//$('#companyModal').modal('toggle');
 						}else if(result=='duplication'){
