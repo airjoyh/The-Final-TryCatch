@@ -30,6 +30,7 @@
    
    <select id="totalCnt" resultType="int">
       select count(*) from zzim
+      where zzim_select = #{zzim_select}
    </select>
    
    <select id="listFive" resultType="map">
@@ -39,6 +40,20 @@
       and zim.zzim_select=#{zzim_select}
       order by zzim_no desc limit 5		
    </select>
-
+   
+   <select id="ComlistAll" resultType="map">
+      select port.user_id, zim.zzim_selected, zim.zzim_no
+       from portfolio port, zzim zim 
+      where port.port_id=zim.zzim_selected
+       and zim.zzim_select=#{zzim_select}
+   </select>
+   
+   <select id="ComlistFive" resultType="map">
+      select port.user_id, zim.zzim_selected, zim.zzim_no
+       from portfolio port, zzim zim 
+      where port.port_id=zim.zzim_selected
+       and zim.zzim_select=#{zzim_select}
+        order by zzim_no desc limit 5	
+   </select>
 
 </mapper>

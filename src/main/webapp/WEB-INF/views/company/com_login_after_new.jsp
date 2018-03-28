@@ -26,25 +26,16 @@
 	</div>
 	<div class="wrapper">
 		<div class="column-contents">
-			<i>현재 찜한 회원이 없습니다.</i>
 			<!-- 있으면 테이블 없으면 i -->
 			<table class="zzim-table">
-				<thead>
-					<tr>
-						<th>기업명</th>
-						<th>평점</th>
-					</tr>
-				</thead>
-				<tbody>
 					<!-- 찜한기업리스트  forEach-->
-					<c:forEach begin="1" end="5" var="ss">
-						<tr>
-							<td></td>
-							<td></td>
-						</tr>
-					</c:forEach>
-				</tbody>
+				<c:forEach items="${comzzimList }" begin="0" end="4" var="zzim">
+					<tr>
+						<td style="width: 25%;"><a href="${initParam.rootPath }/company/personSearch/read?port_id=${zzim.zzim_selected }">${zzim.user_id }</a></td>
+					</tr>
+				</c:forEach> 
 			</table>
+			  <a href="${initParam.rootPath }/com/port/zzimlist"><div class="more-btn">더보기</div></a> 
 		</div>
 	</div>
 </div>

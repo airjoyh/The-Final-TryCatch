@@ -44,18 +44,24 @@ public class ZzimController {
    }
 
 	@RequestMapping("/user/zzimlist")
-	public String list(String zzim_select,SearchCriteria cri, Model model)throws Exception{
+	public String list(SearchCriteria cri, Model model, HttpSession session)throws Exception{
 		System.out.println("zzimController list");
+		String zzim_select= (String) session.getAttribute("user_login_id");
 		
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
-		maker.setTotalCount(zzimService.totalCnt(cri));
+		maker.setTotalCount(zzimService.totalCnt(cri, zzim_select));
+		
+		System.out.println("ÂòÇÑ ¼ýÀÚ >>> "+zzimService.totalCnt(cri, zzim_select));
 		
 		model.addAttribute("zzimList",zzimService.listCriteria(cri, zzim_select));
-		model.addAttribute("zzimCri",cri);
-		model.addAttribute("zzimPageMaker",maker);
+		model.addAttribute("cri",cri);
+		model.addAttribute("pageMaker",maker);
 		
-		return "/ing/zzimlist";
+		System.out.println(cri);
+		System.out.println(maker);
+		
+		return "/user/zzimlist";
 	}
 	
 	
@@ -96,18 +102,20 @@ public class ZzimController {
    }
 	
 	@RequestMapping("/com/port/zzimlist")
-	public String comlist(String zzim_select, Model model, SearchCriteria cri)throws Exception{
+	public String comlist(Model model, SearchCriteria cri, HttpSession session)throws Exception{
 		System.out.println("ComzzimController list");
+		String zzim_select= (String) session.getAttribute("company_login_member_id");
 
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
-		maker.setTotalCount(zzimService.totalCnt(cri));
+		maker.setTotalCount(zzimService.totalCnt(cri, zzim_select));
+		System.out.println("ÂòÇÑ ¼ýÀÚ >>> "+zzimService.totalCnt(cri, zzim_select));
 		
 		model.addAttribute("comzzimList",zzimService.ComlistCriteria(cri, zzim_select));
 		model.addAttribute("cri",cri);
 		model.addAttribute("pageMaker",maker);
 
-		return "/ing/comzzimlist";
+		return "/company/zzimlist";
 	}
 	
 	@RequestMapping("/com/port/remove")

@@ -33,9 +33,9 @@ public class ZzimServiceImpl implements ZzimService {
 
 
 	@Override
-	public int totalCnt(SearchCriteria cri) throws Exception {
+	public int totalCnt(SearchCriteria cri, String zzim_select) throws Exception {
 		
-		return zzimDao.totalCnt(cri);
+		return zzimDao.totalCnt(cri, zzim_select);
 	}
 
 	@Override
@@ -67,6 +67,12 @@ public class ZzimServiceImpl implements ZzimService {
 	public List<ZzimVO> listFive(String zzim_select) throws Exception {
 		
 		return zzimDao.listFive(zzim_select);
+	}
+
+	@Override
+	public List<ZzimVO> ComlistFive(String zzim_select) throws Exception {
+		
+		return zzimDao.ComlistFive(zzim_select);
 	}
 
 }

@@ -36,9 +36,9 @@ public class ZzimDAOImpl implements ZzimDAO{
 	}
 
 	@Override
-	public int totalCnt(SearchCriteria cri) throws Exception {
+	public int totalCnt(SearchCriteria cri, String zzim_select) throws Exception {
 		
-		return session.selectOne("zzim.totalCnt");
+		return session.selectOne("zzim.totalCnt", zzim_select);
 	}
 
 	@Override
@@ -79,6 +79,12 @@ public class ZzimDAOImpl implements ZzimDAO{
 	public List<ZzimVO> listFive(String zzim_select) throws Exception {
 		
 		return session.selectList("zzim.listFive", zzim_select);
+	}
+
+	@Override
+	public List<ZzimVO> ComlistFive(String zzim_select) throws Exception {
+		
+		return session.selectList("zzim.ComlistFive", zzim_select);
 	}
 	
 	

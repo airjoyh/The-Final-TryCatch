@@ -19,9 +19,11 @@ public interface ZzimService {
 	public List<Map<String, Object>> ComlistCriteria(SearchCriteria cri,String zzim_select)throws Exception;
 	//인재검색에 찜하기
 	
-    public int totalCnt(SearchCriteria cri)throws Exception;
+    public int totalCnt(SearchCriteria cri, String zzim_select) throws Exception;
     
     public boolean countzzim(int zzim_selected, String zzim_select)throws Exception;//동일한 찜 레코드 확인 
 
 	public List<ZzimVO> listFive(String zzim_select) throws Exception;
+	
+	public List<ZzimVO> ComlistFive(String zzim_select) throws Exception;
 }

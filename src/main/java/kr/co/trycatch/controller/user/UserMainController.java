@@ -34,7 +34,7 @@ public class UserMainController {
 		return "/user/login_before_new";
 	}
 	
-	@RequestMapping(value = "/user/afterLogin")
+	/*@RequestMapping(value = "/user/afterLogin")
 	public String afterLogin(String zzim_select,  Model model, SearchCriteria cri) throws Exception{
 		 
 			System.out.println("UserMainController zzim");
@@ -48,7 +48,7 @@ public class UserMainController {
 			model.addAttribute("pageMaker",maker);
 			
 		return "/user/login_after_new";
-	}
+	}*/
 	
 
 	@RequestMapping(value = "/user/intro")

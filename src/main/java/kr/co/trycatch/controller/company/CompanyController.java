@@ -13,6 +13,7 @@ import kr.co.trycatch.domain.company.Company_infoVO;
 import kr.co.trycatch.domain.user.MemberVO;
 import kr.co.trycatch.service.company.Company_infoService;
 import kr.co.trycatch.service.company.NoteComService;
+import kr.co.trycatch.service.user.ZzimService;
 
 @Controller
 @RequestMapping("/company")
@@ -23,6 +24,9 @@ public class CompanyController {
 
 	@Inject
 	private NoteComService notecomService;
+	
+	@Inject
+	private ZzimService zzimService;
 	
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -73,6 +77,8 @@ public class CompanyController {
 			int statusCount= notecomService.statusCount(login_id);
 			    session.setAttribute("statusCount", statusCount);
 			    state = "login|"+statusCount;
+			    
+			session.setAttribute("comzzimList",zzimService.ComlistFive(login_id));
 
 		}
 		return state;

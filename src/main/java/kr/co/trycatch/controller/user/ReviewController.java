@@ -71,7 +71,7 @@ public class ReviewController {
 		
 		//ÂòÇÏ±â
 		String login_id = (String) session.getAttribute("user_login_id");
-		session.setAttribute("zzimList",zzimService.listFive(login_id));
+		session.setAttribute("zzimListFive",zzimService.listFive(login_id));
 		
 		return "/user/com_info/review/list_new";//"/user/com_info/review/list";
 	}

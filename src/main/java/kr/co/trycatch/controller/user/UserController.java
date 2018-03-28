@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.trycatch.domain.user.MemberVO;
-import kr.co.trycatch.domain.user.PageMaker;
-import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.user.MemberService;
 import kr.co.trycatch.service.user.NoteService;
 import kr.co.trycatch.service.user.ZzimService;
@@ -125,7 +123,7 @@ public class UserController {
 				
 				System.out.println("로그인한 아이디 >>> "+login_id);
 				
-				session.setAttribute("zzimList",zzimService.listFive(login_id));
+				session.setAttribute("zzimListFive",zzimService.listFive(login_id));
 				
 			}
 		}
