@@ -129,10 +129,10 @@
   $(document).ready(function() {
 	  if(loginState != 'login'){// 로그인을 하지 않았다면
 		  $('#noteA').attr("href", "#"); //쪽지 못보내게 하기
-		  $('#zzimBtn').hide();
+		  $('#zzimBtn').hide('fast');
 		  
 	  }else {
-		  $('#zzimBtn').show();
+		  $('#zzimBtn').show('fast');
 		  $('#noteA').attr("href", "#tcmail"); //쪽지 보내게 하기
 	  }
 	  
@@ -155,9 +155,9 @@
 		   success: function (result) {
 			   console.log(result);
 	        		if(result=="exist"){
-	        			 $('#zzimBtn').hide();
+	        			 $('#zzimBtn').hide('fast');
 	        		}else{
-	        			 $('#zzimOutBtn').hide();
+	        			 $('#zzimOutBtn').hide('fast');
 	        		}
 		     }//function
 
@@ -168,6 +168,12 @@
             var url = "www.naver.com";  
             location.href=url;  
         }); //a
+        
+        $('#portList').on("click", function() {//포트폴리오목록보기
+            
+            self.location="${initParam.rootPath}/company/personSearch/list";
+         
+         });//portList
 
        $('#zzimListBtn').on("click", function() {//찜리스트 보이기
 			

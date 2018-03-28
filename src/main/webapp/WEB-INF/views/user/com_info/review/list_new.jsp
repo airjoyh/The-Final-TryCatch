@@ -311,9 +311,9 @@
 	$(document).ready(function() {
 		
 		 if(loginState != 'login'){//로그인을 하지 않았다면
-	         $('#zzimBtn').hide();
+	         $('#zzimBtn').hide('fast');
 	      }else{
-	         $('#zzimBtn').show();
+	         $('#zzimBtn').show('fast');
 	      }
 		
 		$('#searchBtn').on("click", function(event) {
@@ -367,9 +367,9 @@
 			   success: function (result) {
 				   console.log(result);
 		        		if(result=="exist"){
-		        			 $('#zzimBtn').hide();
+		        			 $('#zzimBtn').hide('fast');
 		        		}else{
-		        			 $('#zzimOutBtn').hide();
+		        			 $('#zzimOutBtn').hide('fast');
 		        		}
 			    }
 			  
