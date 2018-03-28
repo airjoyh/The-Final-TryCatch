@@ -1,0 +1,60 @@
+.user-contest-read{
+	position: relative;
+    height: auto;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    padding-bottom:100px;
+    margin-bottom: 8px;
+}
+.contest-qna{
+	position: relative;
+    height: auto;
+    border: 1px solid #dee3eb;
+    background: #fff;
+    margin-bottom: 8px;
+}
+.start-contest{
+	display: block;
+	hight:100px;
+}
+.contest-start-info,
+.contest-start-btn{
+	display:inline-block;
+	height: 100px;
+}
+.contest-start-info{
+	width:100%;
+	float:left;
+}
+.contest-start-btn{
+	display:table;
+	text-align:center;
+	float:right;
+	color:white;
+	font-size:17px;
+	font-weight:400;
+	width:100%;
+	background-color: #32d289;
+	cursor: pointer;
+	
+	-webkit-transition: all .3s ease;
+  	-moz-transition: all .3s ease;
+  	-ms-transition: all .3s ease;
+  	-o-transition: all .3s ease;
+  	transition: all .3s ease;
+}
+.contest-start-btn > div{
+	display: table-cell;
+	vertical-align:middle;
+	height: 30px;
+	
+	-webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+.contest-start-btn:hover{
+  background-color: #09bec5;
+  color: #0f4b7e;
+}

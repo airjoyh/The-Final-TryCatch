@@ -35,17 +35,6 @@
 						<div class='pf-title'>
 							<a id="noteA" href="#tcmail">${port.user_id }</a>
 						</div>
-							<%--  <div class="com-btn">
-												<form method="post">
-													<input type="hidden" id="zzim_select" name="zzim_select"
-														value="${company_login_member_id}"> <input type="hidden"
-														name="zzim_selected" id="zzim_selected"
-														value="${port.port_id}">
-													<button id="zzimBtn" type="submit" class="com-zzim-btn">찜하기</button>
-													<button id="zzimOutBtn" type="button" class="com-zzim-btn">찜하기 취소</button>
-													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
-												</form>
-							</div>  --%>
 							<div class="com-btn">
 												<form action="${initParam.rootPath }/com/port/list" method="post" >
 													<input type="hidden" id="zzim_select" name="zzim_select"
@@ -54,7 +43,7 @@
 														value="${port.port_id}">
 													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
 													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
-													<button style="float: right;" id="zzimListBtn" type="button">찜리스트</button>	
+													<button style="float: right;" id="zzimListBtn" type="button">목록보기</button>	
 												</form>
 											</div>
 					</div>
@@ -113,18 +102,26 @@
 	
 	<!-- mail 모달	 -->
 		<div class="modal" id="tcmail">
-			<div class="modal-pannel">
-				<div class="modal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<h4>보낸 기업 아이디</h4><p><input type="text" id="note_sender" value="${company_login_member_id}" class="form-control" style="width: 90%; height: 15px;"></p>
-					<h4>받는 구직자 아이디</h4><p><input type="text" id="note_receiver" value="${port.user_id}" class="form-control" style="width: 90%; height: 15px;"></p>
-					<textarea rows="4" cols="78px" placeholder="내용을 입력하시오" style="margin-top: 5px;" id="note_contents"></textarea>
+			<div class="notemodal-pannel">
+				<div class="notemodal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
+				
+				<div class="notemodal-body">
+					<h4>보낸 기업 아이디</h4>
+					<p>
+						<input type="text" id="note_sender" value="${company_login_member_id}" 
+						class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<h4>받는 구직자 아이디</h4>
+					<p>
+						<input type="text" id="note_receiver" value="${port.user_id}"
+						 class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<textarea placeholder="보낼 쪽지 내용을입력하세요" class="notemodal-ta" id="note_contents"></textarea>
 				</div>
 					
-				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
+				<div class="notemodal-footer">
 					<input type="button" name="noteConfirm" id="noteModBtn" value="전송">
-					<!-- <input type="button" name="replyDelete" id="replyDelBtn" value="취소"> -->
-					</div>
+				</div>
 			</div>
 		</div><!-- 쪽지모달 -->
 		
@@ -204,6 +201,9 @@
 	 							alert("등록 되었습니다.");
 	 							//$("#tcmail").modal('hide');
 	 							$("#tcmail").fadeOut();
+	 						   self.location="${initParam.rootPath}/company/personSearch/read?page=${cri.page }"
+	 	                            +"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+	 	                            +"&keyword=${cri.keyword }&port_id=${port.port_id }"
 	 						}
 	 				}//success 
 	 					

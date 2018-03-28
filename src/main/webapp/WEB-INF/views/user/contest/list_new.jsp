@@ -5,10 +5,11 @@
 <head>
 <meta charset="utf-8">
 <title>기업 콘테스트 개최 리스트</title>
+<!-- CSS -->
+<link href="${initParam.rootPath }/resources/css/contest_qna_sw.css" rel="stylesheet" type="text/css">
+
 </head>
-<!--[if lt IE 9]> 
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
-<![endif]-->
+
 <body>
 	<!-- com-nav -->
 	<%@include file="../../user-nav_new.jsp"%>
@@ -26,7 +27,7 @@
 			<div class="section_contestqna ">
 
 					<div class='title-wrapper'>
-						<div class='column-title'>커뮤니티 게시판</div>
+						<div class='column-title'>콘테스트 게시판</div>
 					</div>
 					
 					<div class='company-contest-table'>
@@ -74,7 +75,7 @@
 							</ul>
 						</div>
 						<div class='board-search'align="center">
-							<select name="searchType">
+							<select name="searchType" class="board_select">
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							검색조건</option>
