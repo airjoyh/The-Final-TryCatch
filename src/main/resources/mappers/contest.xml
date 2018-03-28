@@ -40,7 +40,7 @@
 	<select id="selectContest_id" resultType="int">
 		select auto_increment
 		from information_schema.tables
-		where table_schema = 'trycatch' 
+		where table_schema = 'playdataar3' 
 		and table_name = 'contest'
 	</select>
 	
