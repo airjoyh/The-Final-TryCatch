@@ -135,6 +135,9 @@ $("#noteModBtn").on("click", function() {
 				if(result == 'success'){
 					alert("등록 되었습니다.");
 					$('#sendMail').fadeOut();
+					self.location="${initParam.rootPath }/company/note/read?page=${cri.page }"
+						+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+						+"&keyword=${cri.keyword }&note_receiver=${param.note_receiver}&note_id=${note.note_id }";
 				}
 		}}); 
 	  $("#note_contents").val("");

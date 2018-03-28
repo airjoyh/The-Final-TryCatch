@@ -104,7 +104,6 @@
 					               </select> <input type="text" name='keyword' id="keywordInput"
 					                  value='${cri.keyword }'>
 					               <button class="board-btn" id='searchBtn'>검색</button>
-					
 					   </div>
 					</div><!-- com-contest-paging -->
 
