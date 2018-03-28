@@ -147,13 +147,6 @@
     		 }
     	 });
 
-    	 $('#obBtn').on("click", function(){
-
-    	 });
-
-		$('#subBtn').on("click", function(){
-
-    	 });
 
 		//문제 추가 버튼을 눌렀을 때
 		$('#quizAddBtn').on("click", function(){
@@ -201,10 +194,14 @@
 					}
 				}else if(quiz_type.val()=='3'){
 					console.log('3');
-					if(quiz_correct.val()==''){
+					if($('textarea[name=item]').val()!=''){
+						alert('해당 공간은 아무것도 입력할 수 없습니다.');
+						$('textarea[name=item]').focus();
+						
+					}else if(quiz_correct.val()==''){
 						alert('문제의 정답을 입력해주세요.');
 						quiz_correct.focus();
-						
+				
 					}else{
 						console.log('else에 들어왔다');
 						document.quizRegisterForm.submit();

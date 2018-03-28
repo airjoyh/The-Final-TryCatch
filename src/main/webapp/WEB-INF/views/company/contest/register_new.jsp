@@ -183,7 +183,7 @@ $(document).ready(function() {
 		}else if($('#contest_endDate').val()==''){
 			alert('끝 날짜을 입력하세요.');
 			
-		}else if($('select[name=contest_endtHour]').val()=='시간 선택'){
+		}else if($('select[name=contest_endHour]').val()=='시간 선택'){
 			alert('끝나는 시간을 선택하세요.');
 		
 		}else if($('select[name=contest_endMin]').val()=='분 선택'){
