@@ -138,7 +138,9 @@ $("#noteModBtn").on("click", function() {
 					//$("#tcmail").modal('hide');
 					//self.location = '${initParam.rootPath}/company/note/read';
 					$('#sendMail').fadeOut();
-				
+					self.location="${initParam.rootPath }/user/note/read?page=${cri.page }"
+						+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+						+"&keyword=${cri.keyword }&note_receiver=${param.note_receiver}&note_id=${note.note_id }";
 				}
 		}}); 
 });

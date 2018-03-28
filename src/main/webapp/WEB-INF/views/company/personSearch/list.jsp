@@ -72,12 +72,12 @@
 								<option value="n"
 									<c:out value="${cri.searchType == null?'selected':''}"/>>
                    					 검색조건</option>
-								<option value="t"
-									<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-                    					제목</option>
-								<option value="w"
-									<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-                   					 작성자</option>
+								<option value="a"
+									<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
+                    					기술</option>
+								<option value="b"
+									<c:out value="${cri.searchType eq 'b'?'selected':''}"/>>
+                   					 자격증</option>
 							</select> <input type="text" name='keyword' id="keywordInput"
 								value='${cri.keyword }'>
 							<button class="board-btn" id='searchBtn'>검색</button>								
@@ -123,7 +123,7 @@
 							//'list?page=1&perPageNum=10&searchType=t'
 							+ "&keyword=" + $('#keywordInput').val()
 							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
-							+"&company_id=${company_login_company_id}";
+							+"&port_id=${param.port_id}";
 		});
 
 		
