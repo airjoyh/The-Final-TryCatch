@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/zzim_jw.css" rel="stylesheet" type="text/css">
-	
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <div class="section_login">
 	<div class="login-info">
 		<div class="user-icon">
@@ -40,34 +36,20 @@
 		
 		<div class="zzim-content-box">
 			<table class="zzim-table">
-				<tbody>
-			<!-- 찜한기업리스트  forEach-->
-						<c:forEach items="${zzimList }" var="zzim" varStatus="stat">
-							<tr>
-								<td style="width: 25%;"><a
-									href="${initParam.rootPath }/user/review/list?company_id=${zzim.ZZIM_SELECTED }">${zzim.COMPANY_NAME }</a></td>
-							</tr>
-						</c:forEach>
-						<!-- <tr>
-						<td><a href="#가라컴퍼니">가라컴퍼니</a></td>
-					</tr>
+				<tr>
+					<th>찜한 기업</th>
+				</tr>
+				
+				<!-- 찜한기업리스트  forEach-->
+				<c:forEach items="${zzimList }" var="zzim">
 					<tr>
-						<td><a href="#가라컴퍼니">다정엔터테인먼트</a></td>
+						<td style="width: 25%;">${zzim.COMPANY_NAME }</td>
 					</tr>
-					<tr> 
-						<td><a href="#가라컴퍼니">지원프로덕션</a></td>
-					</tr> -->
-					<!-- <tr>
-						<td><a href="#가라컴퍼니">할리스커피</a></td>
-					</tr>
-					<tr>
-						<td><a href="#가라컴퍼니">맥도날드</a></td>
-					</tr> -->
-					 
-				</tbody>
+				</c:forEach>
+				
 			</table>	
 		</div>
-		<%-- 	<!-- <div class="zzim-page-box">페이징</div> -->
+		<!-- <div class="zzim-page-box">페이징</div> -->
 			<div align="center">
 				<ul class="zzim-page-box">
 					<c:if test="${pageMaker.prev}">
@@ -88,7 +70,7 @@
 							href="zzimlist${pageMaker.makeSearch(pageMaker.endPage +1) }&zzim_select=${param.zzim_select }">&raquo;</a></li>
 					</c:if>
 				</ul>
-			</div> --%>
+			</div>
 		</div>
 		
 	</div>

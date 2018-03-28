@@ -20,6 +20,7 @@
 <link href="${initParam.rootPath }/resources/css/bread_sw.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_review_read.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_review_register.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/zzim_jw.css" rel="stylesheet" type="text/css">
 
 
 <!-- ICON -->

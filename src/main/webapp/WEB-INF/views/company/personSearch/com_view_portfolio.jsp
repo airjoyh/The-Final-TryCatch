@@ -43,7 +43,7 @@
 														value="${port.port_id}">
 													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
 													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
-													<button style="float: right;" id="zzimListBtn" type="button">목록보기</button>	
+													<button style="float: right;" id="portList" type="button">목록보기</button>	
 												</form>
 											</div>
 					</div>
@@ -171,7 +171,9 @@
         
         $('#portList').on("click", function() {//포트폴리오목록보기
             
-            self.location="${initParam.rootPath}/company/personSearch/list";
+        	self.location="${initParam.rootPath}/company/personSearch/list?page=${cri.page }"
+                 +"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+                 +"&keyword=${cri.keyword }"
          
          });//portList
 
