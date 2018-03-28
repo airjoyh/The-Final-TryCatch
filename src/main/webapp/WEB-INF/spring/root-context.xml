@@ -53,9 +53,9 @@
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		  id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/trycatch?useSSL=false"/>
-		<property name="username" value="tc"></property>
-		<property name="password" value="tc"></property>
+		<property name="url" value="jdbc:mysql://playdataar3.cafe24.com:3306/playdataar3?useSSL=false"/>
+		<property name="username" value="playdataar3"></property>
+		<property name="password" value="encorePlay!*"></property>
 	</bean>
 	
 	<!-- MyBatis등록(SqlSessionFactory) -->
