@@ -62,9 +62,7 @@
 	height: 25px;
 	/* padding: 2px; */
 }  
-.board-search .searchType{
-	display: inline-block;
-	position: relative;
+.board-search .board_select{
 	height: 25px;
 } 
 .board-search input[type="text"]{

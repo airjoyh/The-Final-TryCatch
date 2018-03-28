@@ -48,7 +48,7 @@ a:hover {
 }
 .company-contest-table table th {
 	font-size:13px;
-	padding:12px;
+	padding:5px;
 	border-top:1px solid #fafafa;
 	border-bottom:1px solid #e0e0e0;
 	background-color: #65737e;
@@ -57,8 +57,8 @@ a:hover {
 }
 .company-contest-table table th:first-child{
 	text-align:left;
-	width:70px;
-	padding-left:20px;
+	width:60px;
+	padding-left:5px;
 }
 
 .company-contest-table table tr{

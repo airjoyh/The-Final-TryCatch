@@ -50,22 +50,22 @@
 							<table cellspacing='0'>
 								<tr>
 									<th>글번호</th>
-									<th id="secondth"> 제목</th>
-									<th>작성자</th>									
-									<th>작성일</th>									
-									<th>조회수</th>									
-									<th>댓글</th>									
+									<th class="community_secth"> 제목</th>
+									<th class="community_thirth">작성자</th>									
+									<th class="community_fourth">작성일</th>									
+									<th class="community_fiveth">조회수</th>									
+									<th class="community_sixth">댓글</th>									
 								</tr>
 								  <c:forEach items="${list}" var="communityVo" varStatus="stat">
 				                     <tr>
 				                        <td>${communityVo.community_no}</td>
-				                        <td><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&community_no=${communityVo.community_no}'>
+				                        <td class="community_secth"><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&community_no=${communityVo.community_no}'>
 				                            ${communityVo.community_title}</a></td>
-				                        <td>${communityVo.community_writer}</td>
-				                        <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+				                        <td class="community_thirth">${communityVo.community_writer}</td>
+				                        <td class="community_fourth"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 				                                  value="${communityVo.community_wdate}"/></td>
-				                        <td>${communityVo.community_viewCount}</td> 
-				                        <td>${communityVo.community_replyCount}</td>             
+				                        <td class="community_fiveth">${communityVo.community_viewCount}</td> 
+				                        <td class="community_sixth">${communityVo.community_replyCount}</td>             
 				                     </tr>
 				                  </c:forEach>														
 							</table>
@@ -94,7 +94,7 @@
 							</ul>
 						</div>
 						<div class='board-search'align="center">
-							<select name="searchType">
+							<select name="searchType" class="board_select">
 								<option value="n"
 									<c:out value="${cri.searchType == null?'selected':''}"/>>
                    					 검색조건</option>
