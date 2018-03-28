@@ -130,7 +130,7 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("두시간의 차이 >>> " + (sysDate - registDate));
 
 		// 60초가 지나면 삭제하도록 되어있는데 사실 이게 필요한가? 어차피 60초 지나고 삭제하게 하였다.
-		if ((sysDate - registDate) > 60) {
+		if ((sysDate - registDate) > 180) {
 			memberDao.deleteRegist(member_id);
 		}
 

@@ -85,7 +85,7 @@ $(document).ready(function() {
 			$('#member_pass').val('');
 			$('#member_pass2').val('');
 			$('#user_authCode').val('');
-			$('#timer').html('60초 안에 인증코드를 입력해주세요.');
+			$('#timer').html('3분 안에 인증코드를 입력해주세요.');
  			
  			
  		});//>>> openJoinModal클릭
@@ -124,7 +124,7 @@ $(document).ready(function() {
 								
 							}else if(result=='registNew'){
 								alert('등록하신 이메일로 인증코드가 발송되었습니다. 확인하시고 인증코드를 입력해주세요.');
-								var count = 60;
+								var count = 180;
 								$('#timer').html(count);
 								timer=setInterval(function(){
 									$('#timer').html(count+"초");
@@ -137,7 +137,7 @@ $(document).ready(function() {
 										count--;
 									}
 								},1000);
-								timer2=setTimeout("removeRegist()" , 60000);//60초 후에 실행!
+								timer2=setTimeout("removeRegist()" , 180000);//180초 후에 실행!
 								
 							}
 						}
@@ -151,7 +151,7 @@ $(document).ready(function() {
 				var user_authCode = $('#user_authCode');
 				var timer = $('#timer').html();
 				
-				if(timer.indexOf('60초 안에 인증코드를 입력해주세요.')>=0){
+				if(timer.indexOf('3분 안에 인증코드를 입력해주세요.')>=0){
 					alert('인증코드 요청 버튼을 클릭해주세요.');
 				}else{
 					$.ajax({
@@ -192,7 +192,7 @@ $(document).ready(function() {
 				$('#member_pass').val('');
 				$('#member_pass2').val('');
 				$('#user_authCode').val('');
-				$('#timer').html('60초 안에 인증코드를 입력해주세요.');
+				$('#timer').html('3분 안에 인증코드를 입력해주세요.');
 	 			
 	 			
 	 		});//>>>>openFindPassModal
@@ -227,7 +227,7 @@ $(document).ready(function() {
 									
 								}else if(result=='findUser'){
 									alert('등록하신 이메일로 인증코드가 발송되었습니다. 확인하시고 인증코드를 입력해주세요.');
-									var count = 60;
+									var count = 180;
 									$('#timer').html(count);
 									timer=setInterval(function(){
 										$('#timer').html(count+"초");
@@ -256,7 +256,7 @@ $(document).ready(function() {
 					console.log("비밀번호 >>> "+member_pass.val());
 					var timer = $('#timer').html();
 					
-					if(timer.indexOf('60초 안에 인증코드를 입력해주세요.')>=0){
+					if(timer.indexOf('3분 안에 인증코드를 입력해주세요.')>=0){
 						alert('인증코드 요청 버튼을 클릭해주세요.');
 					}else{
 						
@@ -298,7 +298,28 @@ $(document).ready(function() {
             	  
             	  self.location = rootPath+'/user/portfolio/show';
                });
-				
+               
+             
+/* ---------------------------------------- 로그인 후에 비밀번호 변경 ----------------------------------------*/
+			
+               $('.mypage-dropdown').on("click", ".pwd-change",function(){
+            	    console.log('로그인 후에 비밀번호 변경');
+            	    location.href='#userModal';
+            	    $('#action').html('비밀번호 변경 <a href="#close">CLOSE</a>');
+            	    $('input[name=sendEmail]').attr("id", "sendEmail2");
+	   	 			$('input[name=emailConfirm]').attr("id", "emailConfirm2");
+	   	 			$('#emailConfirm2').html('비밀번호 변경 완료');
+	   	 			
+	   	 			clearInterval(timer);//타이머도 꺼줘야지.
+	   				clearTimeout(timer2);//회원가입이 완료되면 setTimeout꺼줘야한다.
+	   				$('#member_id').val('');
+	   				$('#member_pass').val('');
+	   				$('#member_pass2').val('');
+	   				$('#user_authCode').val('');
+	   				$('#timer').html('3분 안에 인증코드를 입력해주세요.');
+               });
+               
+               
 	});//ready function()	
 	
 	//제한 시간 안에 인증못하면 1차 회원가입된 아이디 삭제
