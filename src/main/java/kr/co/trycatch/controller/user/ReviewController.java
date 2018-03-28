@@ -1,6 +1,7 @@
 package kr.co.trycatch.controller.user;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import kr.co.trycatch.domain.user.ReviewVO;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.user.ReviewService;
 import kr.co.trycatch.service.user.Review_replyService;
+import kr.co.trycatch.service.user.ZzimService;
 
 @Controller
 @RequestMapping("/user/review")
@@ -25,6 +27,10 @@ public class ReviewController {
 	
 	@Inject
 	private Review_replyService review_replyService;
+	
+	@Inject
+	private ZzimService zzimService;
+
 	
 	@RequestMapping(value="/register", method = RequestMethod.GET)
 	public String registerGET(@RequestParam("company_id") String company_id, Model model) throws Exception{
@@ -45,7 +51,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="/list")
-	public String list(@RequestParam("company_id") String company_id,SearchCriteria cri, Model model) throws Exception{
+	public String list(@RequestParam("company_id") String company_id,SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		System.out.println("ReviewController list()");
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
@@ -62,6 +68,10 @@ public class ReviewController {
 		//±â¾÷ÀÇ Æò±ÕÁ¡¼ö
 		model.addAttribute("avgScore", reviewService.avgScore(company_id));
 		model.addAttribute("total", reviewService.totalAvgScore(company_id));
+		
+		//ÂòÇÏ±â
+		String login_id = (String) session.getAttribute("user_login_id");
+		session.setAttribute("zzimList",zzimService.listFive(login_id));
 		
 		return "/user/com_info/review/list_new";//"/user/com_info/review/list";
 	}

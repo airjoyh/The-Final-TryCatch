@@ -23,4 +23,5 @@ public interface ZzimService {
     
     public boolean countzzim(int zzim_selected, String zzim_select)throws Exception;//동일한 찜 레코드 확인 
 
+	public List<ZzimVO> listFive(String zzim_select) throws Exception;
 }

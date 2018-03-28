@@ -1,6 +1,5 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+	pageEncoding="UTF-8"%>	
 <div class="section_login">
 	<div class="login-info">
 		<div class="user-icon">
@@ -36,41 +35,37 @@
 		
 		<div class="zzim-content-box">
 			<table class="zzim-table">
-				<tr>
-					<th>찜한 기업</th>
-				</tr>
-				
 				<!-- 찜한기업리스트  forEach-->
-				<c:forEach items="${zzimList }" var="zzim">
+				<c:forEach items="${zzimList }" begin="0" end="4" var="zzim">
 					<tr>
-						<td style="width: 25%;">${zzim.COMPANY_NAME }</td>
+						<td style="width: 25%;"><a href="${initParam.rootPath }/user/review/list?company_id=${zzim.zzim_selected }">${zzim.company_name }</a></td>
 					</tr>
 				</c:forEach>
-				
 			</table>	
+			<a href="${initParam.rootPath }/user/com_info/list/managerRank?action=manager"><div class="more-btn">더보기</div></a>
 		</div>
 		<!-- <div class="zzim-page-box">페이징</div> -->
-			<div align="center">
+			<%-- <div align="center">
 				<ul class="zzim-page-box">
-					<c:if test="${pageMaker.prev}">
+					<c:if test="${zzimPageMaker.prev}">
 						<li><a
-							href="zzimlist${pageMaker.makeSearch(pageMaker.startPage - 1) }&zzim_select=${param.zzim_select }">&laquo;</a></li>
+							href="zzimlist${zzimPageMaker.makeSearch(pageMaker.startPage - 1) }&zzim_select=${user_login_id }">&laquo;</a></li>
 					</c:if>
-					<c:forEach begin="${pageMaker.startPage }"
-						end="${pageMaker.endPage }" var="idx">
+					<c:forEach begin="${zzimPageMaker.startPage }"
+						end="${zzimPageMaker.endPage }" var="idx">
 						<li
-							<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+							<c:out value="${zzimPageMaker.cri.page == idx?'class =active':''}"/>>
 							<a
-							href="zzimlist${pageMaker.makeSearch(idx)}&zzim_select=${param.zzim_select }">${idx}</a>
+							href="zzimlist${zzimPageMaker.makeSearch(idx)}&zzim_select=${user_login_id }">${idx}</a>
 						</li>
 					</c:forEach>
 
-					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<c:if test="${zzimPageMaker.next && zzimPageMaker.endPage > 0}">
 						<li><a
-							href="zzimlist${pageMaker.makeSearch(pageMaker.endPage +1) }&zzim_select=${param.zzim_select }">&raquo;</a></li>
+							href="zzimlist${zzimPageMaker.makeSearch(zzimPageMaker.endPage +1) }&zzim_select=${user_login_id }">&raquo;</a></li>
 					</c:if>
 				</ul>
-			</div>
+			</div> --%>
 		</div>
 		
 	</div>

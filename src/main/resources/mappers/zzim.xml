@@ -22,13 +22,22 @@
 
    <select id="listAll" resultType="map">
       select com.company_name, zim.zzim_selected, zim.zzim_no
-       from company_info com, zzim zim 
+      from company_info com, zzim zim 
       where com.company_id=zim.zzim_selected
-       and zim.zzim_select=#{zzim_select}
+      and zim.zzim_select=#{zzim_select}
+      order by zzim_no desc
    </select>
    
    <select id="totalCnt" resultType="int">
       select count(*) from zzim
+   </select>
+   
+   <select id="listFive" resultType="map">
+   	  select com.company_name, zim.zzim_selected, zim.zzim_no
+      from company_info com, zzim zim 
+      where com.company_id=zim.zzim_selected
+      and zim.zzim_select=#{zzim_select}
+      order by zzim_no desc limit 5		
    </select>
 
 

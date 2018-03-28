@@ -368,6 +368,7 @@
 				   console.log(result);
 		        		if(result=="exist"){
 		        			 $('#zzimBtn').hide('fast');
+		        			 
 		        		}else{
 		        			 $('#zzimOutBtn').hide('fast');
 		        		}

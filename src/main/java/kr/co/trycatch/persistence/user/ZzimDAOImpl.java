@@ -74,6 +74,12 @@ public class ZzimDAOImpl implements ZzimDAO{
 	
 		return list;
 	}
+
+	@Override
+	public List<ZzimVO> listFive(String zzim_select) throws Exception {
+		
+		return session.selectList("zzim.listFive", zzim_select);
+	}
 	
 	
 }

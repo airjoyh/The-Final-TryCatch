@@ -63,4 +63,10 @@ public class ZzimServiceImpl implements ZzimService {
 		return zzimDao.ComlistCriteria(cri, zzim_select);
 	}
 
+	@Override
+	public List<ZzimVO> listFive(String zzim_select) throws Exception {
+		
+		return zzimDao.listFive(zzim_select);
+	}
+
 }
