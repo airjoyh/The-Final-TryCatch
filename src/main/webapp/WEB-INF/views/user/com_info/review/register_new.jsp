@@ -23,6 +23,7 @@
 				<div class='title-wrapper'>
 					<div class='column-title'>후기 글작성</div>
 				</div>
+				
 				<form action="register" name="registerForm" method="post">
 				<div class='wrapper'>
 					<div class='com-review-title'>
@@ -39,23 +40,27 @@
 				                  class="qna-writer" id="review_writer" name="review_writer"
 				                  style="width: 35%">
 					</div>
+					
 					<div class='com-review-good'>
 						<label for="good">해당 기업의 장점을 적어주세요</label><br>
 				        <textarea name="review_strong" rows="3" class="form-ta" id="review_strong"></textarea>
 					</div>
+					
 					<div class='com-review-bad'>
 						<label for="bad">해당 기업의 단점을 적어주세요</label><br>
 				        <textarea name="review_weak" rows="3" class="form-ta" id="review_weak"></textarea>
 					</div>
+					
 					<div class='com-review-ceo'>
 						<label for="want">경영진에게 바라는점을 적어주세요</label><br>
 				        <textarea name="review_toCEO" rows="3" class="form-ta" id="review_toCEO"></textarea>
 					</div>
 					<div class='com-review-star'>
+						<div class="review-star">
 						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
-						<div class="star-line">
 							<ul class="list-group">
-								<li class="list-group-item">승진기회 및 가능성 <span
+								<li class="list-group-item">승진기회 및 가능성 
+								<span
 									class="star-input" id="star-A" style="float: right;"> 
 									<span class="input"> 
 									<input type="radio" name="review_possibility" id="p1" value="1"> 
@@ -142,7 +147,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class='com-inline-btn'>
+					<div class='com-review-btn' align="center">
 						<input type="button" class='register-btn' id="registBtn" onclick="validateCheck()" value='글등록'>
 						<input type="button" class='register-btn' id="cancelBtn" value='취소'>
 					</div>

@@ -13,9 +13,6 @@
 		<div>
 			<input type="button" id="login" value="로그인" class="login-btn">
 		</div>
-		<span class="pure-checkbox" style="float: left;"> <input
-			id="checkboxtoggle" name="checkbox" type="checkbox"> <label
-			for="checkboxtoggle">정보기억</label>
 		</span> <span style="float: right; padding: 2px 0 0 6px;"> <a
 			href="#comModal" class="openFindPassModal" id="openFindPassModal">비밀번호
 				찾기</a>
