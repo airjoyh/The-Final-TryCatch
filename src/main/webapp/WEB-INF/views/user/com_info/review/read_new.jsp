@@ -9,6 +9,7 @@
 
 <!-- CSS -->
 <link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/reply.css" rel="stylesheet" type="text/css">
 
 
 <!-- 핸들바js -->
@@ -42,9 +43,9 @@
 					</form>
 					<div class='com-review-title-box'>
 						<div class="row2">
-							<div class="row2-top-title"><input
-								class="title-title" id="title" name="title" type="text"
-								value="${review.review_title }" readonly="readonly">
+							<div class="row2-top-title">
+							<div class="title-title" id="title" name="title">
+								${review.review_title }</div>
 							</div>
 						</div>
 						<div class="row1">
@@ -187,9 +188,11 @@
 							<c:if test="${not empty user_login_id }">
 								<div class="reply-content">
 									<div class="reply-writecontent">
+										<div class="reply-content-writer">
 										<label>작성자</label> 
 										<input type="hidden"id="reply_user_id" value="${user_login_id }">
 										<input class="fake-reply-writer" type="text" id="newReplyWriter"> 
+										</div>
 									</div>
 									<div class="reply-writecontent">
 										<div class="reply-content-contents">
@@ -280,24 +283,20 @@
 <script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<div class="time_comment_box" style="width: 700px; height:auto; border-top: 1px solid gray;">
-      <div class="time_area">
-         <div class="time_info">
-            <h4>{{reply_no}}-{{reply_writer}} </h4>
-         </div>
-         <div class="timeline-body">{{reply_contents}}</div>
-         <div class="time_tool">
-            <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
-         </div>
-      </div>
-<div class="timeline-footer" style="display:block;">
-      {{#eqReply_writer reply_writer}}
-       <span><a href="#modifyModal">Modify</a></span>
-      {{/eqReply_writer}}
-</div>         
+<div class="time_comment_box">
+		<div class="time_area">
+			<div class="time_info">
+				<p><b>글번호</b>&nbsp;:&nbsp;{{reply_no}}&nbsp;&nbsp;<b>작성자</b>&nbsp;:&nbsp;{{reply_writer}} </p>
+			</div>
+			<div class="time_tool">
+				 <span><a href="#modifyModal">Modify</a>&nbsp;&nbsp;</span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{prettifyDate reply_wdate}}
+			</div>
+		</div>
+		<div class="timeline-body"><pre>{{reply_contents}}</pre></div>
 </div>
 </li>
 {{/each}}
+
 </script>  
 
 	<script>

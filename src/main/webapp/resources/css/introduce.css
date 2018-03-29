@@ -8,4 +8,38 @@
     background: #fff;
 } 
 
+.introduce-top{
+	font-size: 50px;
+	font-weight: 600;
+	color:#ebeef3;
+	padding:40px;
+}
 
+.introduce-boxs{
+	display: block;
+	padding: 15px 0 15px 0;
+	/* border: blue solid 3px; */
+	text-align: center;
+}
+
+.introduce-boxs .introduce-box{
+	height: auto;
+	/* border: yellow solid 3px; */
+	margin-top: 30px;
+	
+}
+
+.introduce-box .introduce-text{
+	color: #2b303b;
+	font-size: 40px;
+}
+
+.introduce-box .introduce-content{
+	height: auto;
+	color: #2b303b;
+	margin: 30px 5px 30px  5px;
+	padding: 10px 0 10px 0;
+	font-size: 16px;
+	border-top: #ebeef3 solid 5px;
+	/* border: pink solid 2px; */
+}

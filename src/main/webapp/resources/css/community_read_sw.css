@@ -59,13 +59,13 @@
     color: #fff;
 }
 
-.board-read-top .board-read-title input[type="text"]{ /*臂力格*/
+.board-read-top .board-read-title .title-title{ /*臂力格*/
 	display: inline-block;
 	position: relative;
 	width: 100%;
 	height: auto;
-	font-size:35px;
-	margin: 20px 0 20px 10px;
+	font-size:25px;
+	margin: 20px 10px 20px 5px;
 	/*border: blue solid 2px;*/
 }
 
