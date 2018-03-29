@@ -43,15 +43,15 @@ public class Contest_qnaController {
 		//return "redirect:/ing/cont_qna_sw?contest_id="+contest_id;
 	}
 
-	@RequestMapping(value="/list")
-	public String list(@RequestParam("contest_id") String contest_id,SearchCriteria cri, Model model) throws Exception{
+	@RequestMapping(value="/list")//사용 안함
+	public String list(@RequestParam("contest_id") int contest_id,SearchCriteria cri, Model model) throws Exception{
 		System.out.println("Contest_qnaController list()");
 		PageMaker maker = new PageMaker();
 		maker.setCri(cri);
 		maker.setTotalCount(contest_qnaService.listSearchCount(cri, contest_id));
 		model.addAttribute("list", contest_qnaService.listSerachCriteria(cri, contest_id));
-		model.addAttribute("cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
-		model.addAttribute("pageMaker", maker);
+		model.addAttribute("Cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
+		model.addAttribute("PageMaker", maker);
 		
 		System.out.println(cri);
 		System.out.println("검색된 글의 수 >>> "+contest_qnaService.listSearchCount(cri, contest_id));	

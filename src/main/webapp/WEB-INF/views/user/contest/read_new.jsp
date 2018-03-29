@@ -117,24 +117,22 @@
           <div class='company-contest-table'>
             <table cellspacing='0'>
               <tr>
-                <th>글번호</th>
                 <th class="community_secth">제목</th>
                 <th class="community_thirth">작성자</th>
                 <th class="community_fourth">작성일</th>
                 <th class="community_fiveth">조회수</th>
                 <th class="community_sixth">댓글</th>
               </tr>
-              <c:forEach items="${list}" var="communityVo" varStatus="stat">
+              <c:forEach items="${list}" var="contest_qna" varStatus="stat">
                 <tr>
-                  <td>${communityVo.community_no}</td>
-                  <td class="community_secth"><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&community_no=${communityVo.community_no}'>
-										${communityVo.community_title}</a></td>
-                  <td class="community_thirth">${communityVo.community_writer}</td>
+                  <td class="community_secth"><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }'>
+										${contest_qna.qna_title }</a></td>
+                  <td class="community_thirth">${contest_qna.qna_writer }</td>
                   <td class="community_fourth">
-                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${communityVo.community_wdate}" />
+                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest_qna.qna_wdate}" />
                   </td>
-                  <td class="community_fiveth">${communityVo.community_viewCount}</td>
-                  <td class="community_sixth">${communityVo.community_replyCount}</td>
+                  <td class="community_fiveth">${contest_qna.qna_viewCount }</td>
+                  <td class="community_sixth">${contest_qna.qna_replyCount }</td>
                 </tr>
               </c:forEach>
             </table>
@@ -144,16 +142,16 @@
             <div class="board-pageline" align="center">
               <ul class="board-pagination">
                 <c:if test="${pageMaker.prev}">
-                  <li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+                  <li><a href="read${pageMaker.makeSearch(pageMaker.startPage - 1) }&contest_id=${param.contest_id }">&laquo;</a></li>
                 </c:if>
                 <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
                   <li <c:out value="${pageMaker.cri.page == idx?'class =active':''}" />>
-                  <a href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+                  <a href="read${pageMaker.makeSearch(idx)}&contest_id=${param.contest_id }">${idx}</a>
                   </li>
                 </c:forEach>
 
                 <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                  <li><a href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+                  <li><a href="read${pageMaker.makeSearch(pageMaker.endPage +1) }&contest_id=${param.contest_id }">&raquo;</a></li>
                 </c:if>
               </ul>
             </div>
@@ -168,6 +166,9 @@
 							<option value="w"
 								<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
                    					 작성자</option>
+                   			<option value="tw"
+								<c:out value="${cri.searchType eq 'tw'?'selected':''}"/>>
+								제목+작성자</option>		 
 						</select> <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
               <button class="board-btn" id='searchBtn'>검색</button>
               <button class="board-btn" id='registBtn'>글쓰기</button>
@@ -241,7 +242,7 @@
 // -------------------------------------- Q&A --------------------------------------         
         $('#searchBtn').on("click", function(event) {
     		//검색(Search) 버튼을 클릭하면
-    			self.location = "list" //'list'
+    			self.location = "read" //'list'
     							+ '${pageMaker.makeQuery(1)}'
     							  //'list?page=1&perPageNum=10'
     							+ "&searchType="

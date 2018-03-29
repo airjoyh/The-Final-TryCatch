@@ -24,19 +24,19 @@ public class Contest_qnaServiceImpl implements Contest_qnaService{
 	}
 
 	@Override
-	public List<Contest_qnaVO> list(SearchCriteria cri, String contest_id) throws Exception {
+	public List<Contest_qnaVO> list(SearchCriteria cri, int contest_id) throws Exception {
 		
 		return contest_qnaDao.list(cri, contest_id);
 	}
 
 	@Override
-	public List<Contest_qnaVO> listSerachCriteria(SearchCriteria cri, String contest_id) throws Exception {
+	public List<Contest_qnaVO> listSerachCriteria(SearchCriteria cri, int contest_id) throws Exception {
 		
 		return contest_qnaDao.listSearch(cri, contest_id);
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri, String contest_id) throws Exception {
+	public int listSearchCount(SearchCriteria cri, int contest_id) throws Exception {
 		
 		return contest_qnaDao.listSearchCount(cri, contest_id);
 	}

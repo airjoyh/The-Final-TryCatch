@@ -23,6 +23,7 @@ import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.company.ContestService;
 import kr.co.trycatch.service.company.Contest_answerService;
 import kr.co.trycatch.service.company.Contest_quizService;
+import kr.co.trycatch.service.user.Contest_qnaService;
 
 @Controller
 @RequestMapping("/user/contest")
@@ -36,6 +37,9 @@ public class UserContestController {
 	
 	@Inject
 	private Contest_answerService contest_answerService;
+	
+	@Inject
+	private Contest_qnaService contest_qnaService;
 
 	@RequestMapping(value = "/list")
 	public String list(SearchCriteria cri, Model model) throws Exception {
@@ -57,10 +61,19 @@ public class UserContestController {
 	public String read(@RequestParam("contest_id") int contest_id, Model model, SearchCriteria cri) throws Exception {
 		System.out.println("USerContestController read()");
 		System.out.println("USerContestController 읽을 글번호>>" + contest_id);
-		System.out.println("cri" + cri);
+		
 		model.addAttribute("contest", contestService.read(contest_id));
-		model.addAttribute("cri", cri);
-
+		
+		
+		//Q&A게시판
+		PageMaker maker = new PageMaker();
+		maker.setCri(cri);
+		maker.setTotalCount(contest_qnaService.listSearchCount(cri, contest_id));
+		model.addAttribute("list", contest_qnaService.listSerachCriteria(cri, contest_id));
+		model.addAttribute("Cri", cri);//현재페이지, 페이지당 레코드수, 검색타입, 검색어
+		model.addAttribute("pageMaker", maker);
+		System.out.println("검색된 글의 수 >>> "+contest_qnaService.listSearchCount(cri, contest_id));
+		
 		return "/user/contest/read_new";
 	}
 

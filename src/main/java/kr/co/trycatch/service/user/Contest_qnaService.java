@@ -10,11 +10,11 @@ public interface Contest_qnaService {
 
 	public void regist(Contest_qnaVO contest_qnaVo) throws Exception;
 	
-	public List<Contest_qnaVO> list(SearchCriteria cri, String contest_id) throws Exception;
+	public List<Contest_qnaVO> list(SearchCriteria cri, int contest_id) throws Exception;
 	
-	public List<Contest_qnaVO> listSerachCriteria(SearchCriteria cri, String contest_id) throws Exception;
+	public List<Contest_qnaVO> listSerachCriteria(SearchCriteria cri, int contest_id) throws Exception;
 	
-	public int listSearchCount(SearchCriteria cri, String contest_id) throws Exception;
+	public int listSearchCount(SearchCriteria cri, int contest_id) throws Exception;
 	
 	public Contest_qnaVO read(int qna_no) throws Exception;
 	

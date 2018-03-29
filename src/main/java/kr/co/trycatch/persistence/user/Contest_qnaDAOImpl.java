@@ -27,7 +27,7 @@ public class Contest_qnaDAOImpl implements Contest_qnaDAO {
 	}
 
 	@Override
-	public List<Contest_qnaVO> list(SearchCriteria cri, String contest_id) throws Exception {
+	public List<Contest_qnaVO> list(SearchCriteria cri, int contest_id) throws Exception {
 		List<Contest_qnaVO> list = null;
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 		Map<String, Object> map = new HashMap<>();
@@ -38,7 +38,7 @@ public class Contest_qnaDAOImpl implements Contest_qnaDAO {
 	}
 
 	@Override
-	public List<Contest_qnaVO> listSearch(SearchCriteria cri, String contest_id) throws Exception {
+	public List<Contest_qnaVO> listSearch(SearchCriteria cri, int contest_id) throws Exception {
 		RowBounds bounds = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
 		Map<String, Object> map = new HashMap<>();
 		map.put("contest_id", contest_id);
@@ -49,7 +49,7 @@ public class Contest_qnaDAOImpl implements Contest_qnaDAO {
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri, String contest_id) throws Exception {
+	public int listSearchCount(SearchCriteria cri, int contest_id) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		map.put("contest_id", contest_id);
 		map.put("cri", cri);
