@@ -155,7 +155,7 @@
 
 				<div class='title-wrapper'>
 					<!-- 총 문항수 EL들어가야함 -->
-					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번</div>
+					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번<span style="padding-left: 20px;"> 배점 : </span></div>
 				</div>
 				<div class='wrapper' style="height: 50px;">
 					<i class='question-type'>*<span>객관식</span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.</i>

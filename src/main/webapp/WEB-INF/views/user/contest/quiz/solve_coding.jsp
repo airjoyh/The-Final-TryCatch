@@ -204,10 +204,10 @@
 
 				<div class='title-wrapper'>
 					<!-- 총 문항수 EL들어가야함 -->
-					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번</div>
+					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번<span style="padding-left: 20px;"> 배점 : </span></div>
 				</div>
 				<div class='wrapper' style="height: 50px;">
-					<i class='question-type'>*<span>코딩형</span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.</i>
+					<i class='question-type'>*<span>코딩형</span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.<br>*주의-패키지명은 입력하지 말아주십시오</i>
 					<!-- <div class='question'>다음중 빈칸에 알맞은 자료형은?</div> -->
 				</div>
 
