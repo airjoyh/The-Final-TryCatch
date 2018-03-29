@@ -60,15 +60,7 @@ function validateCheck() {
 				<div class='wrapper'>
 					<div class='com-qna-title'>
 							<div class="row" hidden="" >
-						      <!--   <div class="input-group">
-						            <span class="input-group-addon">글번호</span> <input
-						            	  class="form-control" id="title" name="title" type="text"
-						                  style="width: 35%" placeholder="글번호 자동입력." readonly="readonly">
-						            <span class="input-group-addon" style="padding-left: 3em;">작성일</span> <input
-						                  class="form-control" id="writer" name="writer"
-						                  style="width: 35%" placeholder="yy-mm-dd hh-MM-ss">
-						        </div> -->
-		                        <input id="contest_id" name="contest_id" value="${param.contest_id }">
+		                        <input id="contest_id" name="contest_id" value="${param.contest_id }" type="hidden">
 						    </div>
 							<span class="input-group-addon">제목</span>&nbsp;&nbsp;&nbsp; <input
 				                  class="qna-title" id="qna_title" name="qna_title" type="text"
