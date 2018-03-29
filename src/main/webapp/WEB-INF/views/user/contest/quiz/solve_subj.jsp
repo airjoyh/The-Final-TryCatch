@@ -182,16 +182,9 @@
 		<!-- right section!!************************************************************* -->
 		<div class='column-solve2'>
 			<div class='section-input'>
-				<ul class="example-list">
-					<c:forEach items="${exampleList }" var="example" >
-					<li>
-						<div class="pure-radiobutton">
-							<input type="text" class="answer" name="item" value="" placeholder="${example.item_no}번째 칸에 알맞는 정답을 적어주세요.">
-						</div>
-					</li>
-					</c:forEach>
-
-				</ul>
+				<c:forEach items="${exampleList }" var="example" >
+					<input type="text" class="answer" name="item" value="" placeholder="${example.item_no}번째 칸에 알맞는 정답을 적어주세요.">
+				</c:forEach>
 			</div>
 			<div class='next-btn-area'>
 				<div class="next-btn" id="nextQuizBtn">제출</div>

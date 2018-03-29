@@ -186,7 +186,7 @@ question CSS
 
 *****************/
 
-/* coding형 문항 CSS */
+/* coding�삎 臾명빆 CSS */
 
 .column-question {
   display: block;
@@ -260,7 +260,7 @@ question CSS
 
 
 
-/* 객관식문항 CSS */
+/* 媛앷��떇臾명빆 CSS */
 
 .column-question2 {
   display: block;
@@ -412,7 +412,7 @@ solve CSS
   color: #0f4b7e;
 }
 
-/* 객관식 답안작성 CSS */
+/* 媛앷��떇 �떟�븞�옉�꽦 CSS */
 
 .column-solve2 {
   display: block;
@@ -437,19 +437,20 @@ solve CSS
   list-style: none;
   text-align: left;
   padding: 0;
-  font-size: 18px;
+  font-size: 17px;
   list-style-type: none;
   color: #ffd323;
 }
 .section-input .example-list li {
-  padding-bottom: 15px;
+
+  padding-bottom: 12px;
 }
 .section-input .example-list li label{
   font-weight: 100;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
-.section-input .example-list input {
+.section-input input {
   display: inline-block;
   width: 45%;
   padding: 10px;

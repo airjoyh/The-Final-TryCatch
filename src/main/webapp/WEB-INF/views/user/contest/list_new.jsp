@@ -34,17 +34,17 @@
 							<table cellspacing='0'>
 								<tr>
 									<th>기업</th>
-									<th>분야</th>
 									<th>콘테스트명</th>
+									<th>분야</th>
 									<th>시작 날짜</th>
 									<th>끝 날짜</th>
 								</tr>
 								<c:forEach items="${list }" var="contest" varStatus="stat">
 									<tr>
 										<td>${contest.company_name }</td>
-										<td>${contest.contest_field }</td>
 										<td><a
 											href="${initParam.rootPath }/user/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${contest.contest_id }">${contest.contest_title }</a></td>
+										<td>${contest.contest_field }</td>
 										<td>${contest.contest_startDate}</td>
 										<td>${contest.contest_endDate}</td>
 									</tr>
