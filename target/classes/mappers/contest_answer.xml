@@ -61,18 +61,18 @@
 	
 	<select id="selectScoreRankList" resultType="Contest_answerVO">
 		select user_id, totalScore,
-		       case
-		       when @value = totalScore then @rank
-		       when @value := totalScore then @rank := @rank+1
-		       end as rank
+			   case
+			   when @value = totalScore then @rank
+			   when @value := totalScore then @rank := @rank+1
+			   end as rank
 		from(
-			select user_id, sum(score) totalScore
+			select user_id, sum(score) as totalScore
 			from contest_answer 
 			natural join contest_quiz 
 			natural join contest
-			where contest_id = #{contest_id}
+			where contest_id = 1
 			group by user_id
-		     )
+		    ) as s, (select @rank := 0) as r
      	<where>
 		<include refid="search"></include>
      	</where>
