@@ -24,7 +24,7 @@ public class Contest_qnaController {
 	private Contest_qnaService contest_qnaService;
 	
 	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String registerGET(@RequestParam("contest_id") String contest_id, Model model) throws Exception{
+	public String registerGET(int contest_id, Model model) throws Exception{
 		System.out.println("Contest_qnaController registerGET()");
 		model.addAttribute("contest_id", contest_id);
 		
@@ -39,11 +39,11 @@ public class Contest_qnaController {
 		System.err.println(contest_qnaVo);
 		int contest_id = contest_qnaVo.getContest_id();
 		
-		return "redirect:/user/contest/qna/list?contest_id="+contest_id;
-		//return "redirect:/ing/cont_qna_sw?contest_id="+contest_id;
+		return "redirect:/user/contest/read?contest_id="+contest_id;
+	
 	}
 
-	@RequestMapping(value="/list")//사용 안함
+	@RequestMapping(value="/list")//---------------------사용 안함
 	public String list(@RequestParam("contest_id") int contest_id,SearchCriteria cri, Model model) throws Exception{
 		System.out.println("Contest_qnaController list()");
 		PageMaker maker = new PageMaker();
@@ -61,7 +61,7 @@ public class Contest_qnaController {
 	}
 	
 	@RequestMapping(value="/read")
-	public String read(@RequestParam("contest_id") String contest_id,@RequestParam("qna_no") int qna_no, Model model, SearchCriteria cri) throws Exception{
+	public String read(int contest_id, int qna_no, Model model, SearchCriteria cri) throws Exception{
 		System.out.println("Contest_qnaController read() 읽을 글번호>>"+qna_no);
 		System.out.println("cri"+cri);
 		Contest_qnaVO vo = contest_qnaService.read(qna_no);
@@ -69,10 +69,6 @@ public class Contest_qnaController {
 		System.out.println("Contest_qnaVO : "+ vo);
 		model.addAttribute("contest_qna",vo);
 		model.addAttribute("cri",cri);
-		//model.addAttribute("note", noteVo);
-		
-		//댓글 수 보여지는건데 화면이 깜빡거려야하는데 댓글을 ajax로 처리했기 때문에 댓글 추가 삭제하면 반영이안됨. 화면 새로고침해야함.
-		//model.addAttribute("review_replyCount", review_replyService.count(review_no));
 		
 		    return "/user/contest/qna/read";
 		  //return "/ing/cont_qna_read";
@@ -92,7 +88,7 @@ public class Contest_qnaController {
 	}
 
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
-	public String modifyPOST(String contest_id,Contest_qnaVO contest_qnaVo, RedirectAttributes rttr, SearchCriteria cri) throws Exception{
+	public String modifyPOST(int contest_id,Contest_qnaVO contest_qnaVo, RedirectAttributes rttr, SearchCriteria cri) throws Exception{
 		System.out.println("Contest_qnaController modifyPOST()");
 		
 		contest_qnaService.modify(contest_qnaVo);
@@ -110,7 +106,7 @@ public class Contest_qnaController {
 	}
 
 	@RequestMapping("/remove")
-	public String remove(@RequestParam("contest_id") String contest_id,int qna_no, RedirectAttributes rttr, SearchCriteria cri)throws Exception{
+	public String remove(int contest_id,int qna_no, RedirectAttributes rttr, SearchCriteria cri)throws Exception{
 		System.out.println("Contest_qnaController remove()");
 		contest_qnaService.remove(qna_no);
 		rttr.addAttribute("page", cri.getPage());

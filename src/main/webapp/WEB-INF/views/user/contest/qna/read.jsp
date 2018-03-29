@@ -49,7 +49,7 @@
 				<div class='wrapper'>
 					   <form id="readForm" name="readForm" method="POST">
 	  	 		          <input type="hidden" id="qna_no" name="qna_no" value="${contest_qna.qna_no }">
-	  	 		          <input type="hidden" id="qna_writer" name="qna_writer" value="${contest_qna.qna_writer }"> <%--  value="ekwjd72@naver.com">  --%>
+	  	 		          <input type="hidden" id="qna_writer" name="qna_writer" value="${contest_qna.qna_writer }"> 
 	  	 		          <input type="hidden" id="contest_id" name="contest_id" value="${param.contest_id }">
 	  	 		          <input type='hidden' name='page' value="${cri.page}"> 
 	  	 		          <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
@@ -58,9 +58,9 @@
 			          </form>
 					<div class='com-qna-title'>		         
 						<div>
-							<span class="input-group-addon">글번호</span> 
+							<%-- <span class="input-group-addon">글번호</span> 
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 
-							       value="${contest_qna.qna_no }" readonly="readonly">
+							       value="${contest_qna.qna_no }" readonly="readonly"> --%>
 						   
 						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> 
 						    <input class="form-control" id="qna_wdate" name="qna_wdate" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"
