@@ -18,6 +18,8 @@
 <link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/contest_qna_read.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/reply.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -26,6 +28,10 @@
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/resources/js/userMain.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<!--  CSS -->
+<link href="${initParam.rootPath }/resources/css/reply.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_read.css" rel="stylesheet" type="text/css">
 
 <!-- 임시 js -->
 <script type="text/javascript">
@@ -42,7 +48,7 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
+			<div class='section-board-read'>
 				<div class='title-wrapper'>
 					<div class='column-title'>콘테스트 Q&A 글상세보기</div>
 				</div>
@@ -56,11 +62,30 @@
 				          <input type='hidden' name='searchType' value="${cri.searchType}">
 				          <input type='hidden' name='keyword' value="${cri.keyword}">
 			          </form>
-					<div class='com-qna-title'>		         
+					<div class='board-read-top'>	
+						<div class='board-read-title'>
+								<div class="title-title" id="title" name="title">${contest_qna.qna_title }</div>
+							</div>  
+							
+						<div class='board-read-datas'>
+							<div class='board-read-data'>
+						        <label>작성자</label>&nbsp;&nbsp;
+						        <div class="board-read-data-content" id="community_writer" name="community_writer" 
+						        	 readonly="readonly" >${contest_qna.qna_writer }</div>
+							</div>
+							<div class='board-read-data'>
+						        <label>조회수</label> 
+						        <div class="board-read-data-content" id="community_viewCount" name="community_viewCount" readonly="readonly" >${contest_qna.qna_wdate}</div>
+							</div>
+						</div>
+							<%-- <div class="board-read-date">${community.community_wdate} 시간</div> --%>
+							<%-- </div>	
+							
+							       
 						<div>
-							<%-- <span class="input-group-addon">글번호</span> 
+							<span class="input-group-addon">글번호</span> 
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 
-							       value="${contest_qna.qna_no }" readonly="readonly"> --%>
+							       value="${contest_qna.qna_no }" readonly="readonly">
 						   
 						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> &nbsp;&nbsp;&nbsp; 
 						    <input class="form-control" id="qna_wdate" name="qna_wdate" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"
@@ -75,7 +100,9 @@
 				            <span class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
 				                   value="" readonly="readonly">${contest_qna.qna_writer }</a></span>
 				         
-				        </div>
+				        </div> --%>
+					
+					
 					</div>
 					
 						<div class='board-read-contents'>
@@ -94,30 +121,46 @@
 					
 					</div>
 			</div><!-- section_main1 -->
-			<div class='section_qnareply'>
-				<div class="row" align="center">
-					<div class="reply-box">
-			
-						<div class="box box-success">
-							<div class="box-header">
-								<h3 class="box-title">REPLY</h3>
-							</div>
-							<c:if test="${not empty company_login_member_id }">
-							<div class="box-body">
-							    	<label for="exampleInputEmail1">작성자</label> 
-								    <input class="form-control" type="text" id="newReplyWriter" value="${company_login_member_id }" readonly> 
-									<label for="exampleInputEmail1">댓글</label> 
+			<div class='section-board-reply'>
+				<div class="row">
+					<div class="reply-container">
+						<div class="box">
+							<div class="box-header">REPLY</div>
+							
+							<c:if test="${not empty user_login_id }">
+							<div class="reply-content">
+									<div class="reply-writecontent">
+										<div class="reply-content-writer">
+											<label>작성자</label> 
+											<input class="reply-writer" type="text" id="newReplyWriter" value="${user_login_id }" readonly> 
+											</div>
+										</div>
+									<div class="reply-writecontent">
+										<div class="reply-content-contents">
+											<textarea name="reply-content" id="newReplyText"
+											class="content" placeholder="댓글을 입력하세요"
+											style="overflow: hidden; height: 50px; word-wrap: break-word; width: 100%; border: 1px solid lightgray; resize: none; margin-top: 5px;"></textarea>
+										</div>
+									</div>
+									</div>
+									<!-- <label for="exampleInputEmail1">댓글</label> 
 									<input class="form-control" type="text" id="newReplyText">
 			
-							</div>
+							</div> 이전부분-->
 							<!-- /.box-body -->
-							<div class="box-footer">
+							<div class="reply-writecontent">
+										<div class="reply-content-button">
+ 											<input type="button" id="replyBtn" value="댓글 등록">
+<!-- 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button> -->
+										</div>
+									</div>
+							<!-- <div class="box-footer">
 								<button type="button" id="replyBtn">댓글 등록</button>
-								<!-- timeline time label -->
-							</div>
+								timeline time label
+							</div> -->
 							</c:if>
 							
-							<c:if test="${empty company_login_member_id }">
+							<c:if test="${empty user_login_id }">
 								<div class="box-body">
 									<div><a id="goLogin">Login Please</a></div>
 								</div>
@@ -206,19 +249,17 @@
 <script id="template" type="text/x-handlebars-template">
 {{#each .}}
 <li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
-<i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" style="display: felx; flex-direction: column;">
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate reply_wdate}}
-  </span>
-  <h3 class="timeline-header"><strong>{{reply_no}}</strong>-{{reply_writer}} </h3>
-  <div class="timeline-body">{{reply_contents}}</div>
-    <div class="timeline-footer">
-	{{#eqReply_writer reply_writer}}
-     <span><a href="#modifyModal">Modify</a></span>
-	{{/eqReply_writer}}
-    </div>
-  </div>			
+<div class="time_comment_box">
+		<div class="time_area">
+			<div class="time_info">
+				<p><b>글번호</b>&nbsp;:&nbsp;{{reply_no}}&nbsp;&nbsp;<b>작성자</b>&nbsp;:&nbsp;{{reply_writer}} </p>
+			</div>
+			<div class="time_tool">
+				 <span><a href="#modifyModal">Modify</a>&nbsp;&nbsp;</span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{prettifyDate reply_wdate}}
+			</div>
+		</div>
+		<div class="timeline-body"><pre>{{reply_contents}}</pre></div>
+</div>
 </li>
 {{/each}}
 </script>
@@ -452,12 +493,12 @@
 			getPage("${initParam.rootPath}/review/qna_reply/"+qna_no.val()+"/1" );  
 			
 			
-			$('#goList').on("click", function() {
-		  		console.log('목록보기 버튼 클릭');
-		  		self.location="${initParam.rootPath }/user/contest/qna/list?page=${cri.page }"
-		  					+"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
-		  					+"&keyword=${cri.keyword }&contest_id=${param.contest_id}";
-		  	});
+			$('#goListBtn').on("click", function() {
+	              console.log('목록보기 버튼 클릭');
+	              self.location="${initParam.rootPath }/user/contest/read?page=${cri.page }"
+	                       +"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+	                       +"&keyword=${cri.keyword }&contest_id=${param.contest_id}";
+	        });
 			
 			$("#goLogin").on("click", function(){
 				formObj.attr("method", "get");
@@ -480,8 +521,8 @@
 	  		 if(login_id==qna_writer){//일치하면 수정 삭제 버튼 나오게.
 	  			console.log('일치하는 아이디');
 	  			var upDel = document.getElementById('upDel');
-				upDel.innerHTML = '<button type=button  class="qna-list" id="update" onclick="modifyReview()">수정</button>'+
-							      '<button type=button class="qna-list" id="delete" onclick="removeReview()">삭제</button>';
+				upDel.innerHTML = '<button type=button  class="board-read-button-myBtn" id="update" onclick="modifyReview()">수정</button>'+
+							      '<button type=button class="board-read-button-myBtn" id="delete" onclick="removeReview()">삭제</button>';
 	  		}else{
 	  			console.log('일치하지않는 아이디');
 	  		} 

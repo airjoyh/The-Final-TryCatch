@@ -7,13 +7,8 @@
 <title>콘테스트 Q&A 글수정</title>
 
 <!-- CSS -->
-<link href="${initParam.rootPath }/resources/css/userMain.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/checkbox.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/navbar.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/modal.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/tabs.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/contest_qna_register.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_register_sw.css" rel="stylesheet" type="text/css">
 <!-- ICON -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- font -->
@@ -33,7 +28,7 @@ function validateCheck() {
 		f.qna_title.focus();
 	
 	}else if($('textarea[name=qna_contents]').val()==''){
-		alert('Q&A을 입력하세요.');
+		alert('내용을 입력하세요.');
 		f.qna_contents.focus();
 		
 	}else{
@@ -52,14 +47,17 @@ function validateCheck() {
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
-			<div class='com-contest-head'>
-				<div class='title-wrapper'>
-					<div class='column-title'>콘테스트 Q&A 글수정</div>
-				</div>
+			<div class='section-board-registe'>
+                      <div class='title-wrapper'>
+                           <div class='column-title'>콘테스트 Q&A 글수정</div>
+                      </div>
+                <div class='board-register-wrapper'>
+                <div class="board-register-box">
+                      
 			   <form action="modify" name="modifyForm" method="post"> 
-				<div class='wrapper'>
-					<div class='com-qna-title'>
-							<div class="row" hidden="" >
+				
+					
+							<div hidden="" >
 						        <div class="input-group">
 						           <!--  <span class="input-group-addon">글번호</span> <input
 						            	  class="form-control" id="title" name="title" type="text"
@@ -76,27 +74,46 @@ function validateCheck() {
 	                                <input name='keyword' value="${cri.keyword}">
 						        </div>
 						    </div>
-							<span class="input-group-addon" >제목</span>&nbsp;&nbsp;&nbsp; <input
+						    
+						    <div class="board-register-top">
+							 <div class='board-register-top-input'>
+								<label>제목</label>
+								<input class="" id="qna_title" name="qna_title" type="text"
+					                  value="${contest_qna.qna_title }">
+							</div>
+							<div class='board-register-top-input'>
+						          <label>작성자</label>
+						          <input class="" id="qna_writer" name="qna_writer"  type="text"
+						        	readonly="readonly" value="${contest_qna.qna_writer }" style="border:none;">
+					       	 </div>
+					   		</div>
+						    
+						    
+							<%-- <span class="input-group-addon" >제목</span>&nbsp;&nbsp;&nbsp; <input
 				                  class="qna-title" id="qna_title" name="qna_title" type="text"
 				                  style="width: 35%" placeholder="제목을 입력하세요." value="${contest_qna.qna_title }">
 				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> <input
-				                  class="qna-writer" id="qna_writer" name="qna_writer"
-				                  style="width: 35%" placeholder="작성자를 입력하세요." readonly="readonly"
-				                  value="${contest_qna.qna_writer }">
+				                  class="qna-writer" id="qna_writer" name="qna_writer" readonly="readonly"
+				                  value="${contest_qna.qna_writer }" style="border:none;"> --%>
+					
+					<div class='board-register-write'>
+						<div class='board-register-write-box'>
+						<label for="">내용</label><br>
+				        <textarea name="qna_contents" class="form-ta" id="qna_contents">${contest_qna.qna_contents }</textarea>
 					</div>
-					<div class='com-qna-content'>
-						<label for="good">Q&A내용</label><br>
-				        <textarea name="qna_contents" style="width: 700px;" rows="6" class="form-ta" id="qna_contents">${contest_qna.qna_contents }</textarea>
-					</div>
-					<div class='com-inline-btn'>
-						<input type="button" class='register-qna' id="regist" onclick="validateCheck()" value='글 등록'>
-						<input type="button" class='register-qna' id="cancel" value='취소'>
 					</div>
 					
+					<div class="board-register-button">
+					<div class='board-register-button-box' align="center">
+						<input type="button" class='register-bottom-button' id="regist" onclick="validateCheck()" value='글 등록'>
+						<input type="button" class='register-bottom-button' id="cancel" value='취소'>
 					</div>
+					</div>
+					
 				</form>	
+				</div>
 			</div><!-- section_main1 -->
-			
+			</div>
 		</div><!-- column-left -->
 		
 		<!-- right section!!************************************************************** -->

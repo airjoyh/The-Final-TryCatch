@@ -48,6 +48,30 @@
 					
 					<div class="wrapper">
 					
+					<div class="introduce-top">
+						<div>try{  } <br>catch( Exception e ){ };</div>
+					</div>
+					
+					
+					<div class="introduce-boxs">
+					
+					<div class="introduce-box">
+						<div class="introduce-text">안녕하세요 Try Catch 입니다</div>
+						<div class="introduce-content">
+							저희는 선입견을 벗어난 예외 ‘e’들을 캐치해 <br>기업과 연결시켜주는 블라인드 채용 사이트TryCatch입니다!
+							</div>
+					</div>
+					<!-- <div class="introduce-box">
+						<div class="introduce-text"> - </div>
+						<div class="introduce-content">하고 싶은 말 쓰세요</div>
+					</div>
+					<div class="introduce-box">
+						<div class="introduce-text">안녕하세요 Try Catch 입니다 3</div>
+						<div class="introduce-content">기업은 실무에 필요한 실력있는 인재를 테스트를 통해 뽑고, 구직자는 스펙과 상관없이 오직 자신의 실력으로만 평가받는 사이트    </div>
+					</div> -->
+					
+					
+					</div>
 					</div>
 					
 
