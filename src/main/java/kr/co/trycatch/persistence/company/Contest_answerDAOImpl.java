@@ -77,4 +77,13 @@ public class Contest_answerDAOImpl implements Contest_answerDAO {
 		return session.selectOne("contest_answer.selectScoreRankListCount", map);
 	}
 
+	@Override
+	public int solveCount(String user_id, int contest_id) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("contest_id", contest_id);
+		
+		return session.selectOne("contest_answer.solveCount", map);
+	}
+
 }

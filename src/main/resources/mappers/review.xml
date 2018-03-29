@@ -108,7 +108,7 @@
 					   		+ avg(review_welSal)
 					   		+ avg(review_balance)
 					   		+ avg(review_culture)
-					   		+ avg(review_manager)/5),1),0.0) avg_all
+					   		+ avg(review_manager))/5,1),0.0) avg_all
 		from review
 		where company_id = #{company_id}
    	</select>

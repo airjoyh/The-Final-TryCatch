@@ -15,4 +15,5 @@ public interface Contest_answerService {
 	
 	public int ScoreRankListCount(SearchCriteria cri, int contest_id) throws Exception;
 	
+	public int solveCount(String user_id, int contest_id) throws Exception;
 }

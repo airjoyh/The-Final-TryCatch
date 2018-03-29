@@ -18,4 +18,6 @@ public interface  Contest_answerDAO {
 	public List<Contest_answerVO> selectScoreRankList(SearchCriteria cri, int contest_id) throws Exception;
 	
 	public int selectScoreRankListCount(SearchCriteria cri, int contest_id) throws Exception;
+	
+	public int solveCount(String user_id, int contest_id) throws Exception;
 }
