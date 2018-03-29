@@ -55,13 +55,15 @@
 								<tr>
 									<th>순위</th>
 									<th>아이디</th>
-									<th>점수</th>																	
+									<th>점수</th>
+									<th>쪽지</th>																	
 								</tr>
 								<c:forEach items="${list }" var="contest_answer" varStatus="stat">
 									<tr>
-										<td style="width: 25%;">${contest_answer.rank }</td>
+										<td style="width: 10%;">${contest_answer.rank }</td>
 										<td style="width: 50%;">${contest_answer.user_id }</td>
 										<td style="width: 25%;">${contest_answer.totalScore }</td>
+										<td style="width: 15%;"><button type="button" class='fin-contest' name="noteBtn" value="${contest_answer.user_id }">보내기</button></td>
 									</tr>
 								</c:forEach>													
 							</table>
@@ -119,10 +121,34 @@
 				</div>
 			</div>
 			<!-- column-right -->
+		
 		</div>
 		<!-- modal 코드 --> 
        <%@ include file="../user_modals_new.jsp" %>
+				<!-- mail 모달	 -->
+		<div class="modal" id="tcmail">
+			<div class="notemodal-pannel">
+				<div class="notemodal-title">쪽지보내기 <a href="#close">CLOSE</a></div>
 				
+				<div class="notemodal-body">
+					<h4>보낸 기업 아이디</h4>
+					<p>
+						<input type="text" id="note_sender" value="${company_login_member_id}" 
+						class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<h4>받는 구직자 아이디</h4>
+					<p>
+						<input type="text" id="note_receiver" value=""
+						 class="form-control" style="width: 90%; height: 15px;">
+					</p>
+					<textarea placeholder="보낼 쪽지 내용을입력하세요" class="notemodal-ta" id="note_contents"></textarea>
+				</div>
+					
+				<div class="notemodal-footer">
+					<input type="button" name="noteConfirm" id="noteModBtn" value="전송">
+				</div>
+			</div>
+		</div><!-- 쪽지모달 -->		
 		</div><!-- container -->
 			
 	
@@ -143,7 +169,40 @@
 							//'list?page=1&perPageNum=10&searchType=t&keyword=�ㅻ뒛'
 							+"&contest_id=${param.contest_id}";
 		});
+		
+		
+		$('button[name=noteBtn]').each(function(i){
+				console.log($(this).html());
+				$(this).on("click", function(e){
+					e.preventDefault();
+					console.log(i+'번 버튼');
+					var user_id = $(this).val();
+					console.log('유저아이디 >>> '+user_id);
+					var company_loginState = '${company_loginState}';
+					 if(company_loginState != 'login'){
+						  alert('쪽지는 로그인한 후에 보낼 수 있습니다.');
+					  }else{
+							location.href = '#tcmail';
+							$('#note_receiver').val(user_id);
+						  
+					  }
+				});
+		});
 
+		
+/* 		 if(company_loginState != 'login'){// 로그인을 하지 않았다면
+			  $('#noteA').attr("href", "#");
+		 }else{
+			 $('#noteA').attr("href", "#tcmail"); //쪽지 보내게 하기
+		 }
+
+		  $('#noteA').on("click", function(){ //????????????
+			  console.log('쪽지 보내기 버튼 클릭');
+			  if(company_loginState != ''){
+				  alert('쪽지는 로그인한 후에 보낼 수 있습니다.');
+			  }
+		  }); */
+		  
 	});//function
 	
 	/* 검색창 드롭다운 메뉴 */
@@ -151,7 +210,31 @@
 		var txt = $(e.target).text();
 		$('.taco-input').val(txt);
 	});
+	
 
+	$("#noteModBtn").on("click", function() {
+	    var note_contents = $("#note_contents");
+	    var note_sender= '${company_login_member_id}';
+	    var note_receiver= $('#note_receiver').val();
+	    
+	    //console.log(note_receiver);
+	    
+		  $.ajax({
+				type:'post',
+				url:'${initParam.rootPath}/user/note/register',
+				data:{"note_contents":note_contents.val(),"note_sender":note_sender, "note_receiver":note_receiver},
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'success'){
+						alert("등록 되었습니다.");
+						//$("#tcmail").modal('hide');
+						$("#tcmail").fadeOut();
+						self.location="${initParam.rootPath}/user/contest/rankList?page=${cri.page }"
+	                            +"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+ 	                            +"&keyword=${cri.keyword }&contest_id=${param.contest_id}";
+					}
+			}});
+	});
 </script>
 
 </body>
