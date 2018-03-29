@@ -16,8 +16,8 @@
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
-		
-			<div class='com-contest-head'>
+
+			<div class='section_introduce'>
 				<div class='title-wrapper'>
 					<div class='column-title'>콘테스트 개최 리스트</div>
 				</div>
@@ -25,106 +25,107 @@
 					<div class='com-inline-txt'>
 						<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
 						<p class='inline-txt-body'>
-							- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br>
-							- 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
-							- 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
-							- 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
+							- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br> - 콘테스트 리스트 우측의
+							'등록'버튼을 누르시면 구직자들에게 공개됩니다.<br> - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른
+							채점이 가능합니다.<br> - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
 						</p>
-					
-					</div>
-					<div class='com-inline-btn'>
-						<input type="button" class='register-contest' onclick="loginCheck()" value='콘테스트 등록'>
-					</div>
-					
-					</div>
-				</div><!-- section_main1 -->
 
-			<div class='com-contest-table'>
-				<div class='company-contest-table'>
-					<div class='wrapper'>
+					</div>
+					<div class='section_introduce'>
+						<input type="button" class='register-contest'
+							onclick="loginCheck()" value='콘테스트 등록'>
+					</div>
+
+				</div>
+			</div>
+			<!-- section_main -->
+
+			<div class='section_introduce'>
+				<div class='wrapper'>
+					<div class='company-contest-table'>
 						<table cellspacing='0'>
 							<tr>
-								<th>콘테스트명</th>
-								<th>시작 날짜</th>
-								<th>끝 날짜</th>
-								<th>담당부서</th>
-								<th>담장자명</th>
-								<th>등록 상태</th>
+								<th style="width: 140px; text-align: center;">콘테스트명</th>
+								<th style="width: 160px">시작 날짜</th>
+								<th style="width: 160px">끝 날짜</th>
+								<th style="width: 85px">담당부서</th>
+								<th style="width: 75px">담장자명</th>
+								<th style="width: 80px">등록 상태</th>
 							</tr>
 							<c:forEach items="${list }" var="contest" varStatus="stat">
 								<tr>
-									<td><a
+									<td style="width: 120px"><a
 										href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
-									<td>${contest.contest_startDate}</td>
-									<td>${contest.contest_endDate}</td>
-									<td>${contest.team_name }</td>
-									<td>${contest.manager_name }</td>
-									<td><button type="button" class='fin-contest'
+									<td style="width: 170px">${contest.contest_startDate}</td>
+									<td style="width: 170px">${contest.contest_endDate}</td>
+									<td style="width: 85px">${contest.team_name }</td>
+									<td style="width: 75px">${contest.manager_name }</td>
+									<td style="width: 80px"><button type="button" class='fin-contest'
 											name="contestBtn" value="${contest.contest_id }">${contest.contest_status }</button></td>
 								</tr>
 							</c:forEach>
 						</table>
+					</div>
+					<!-- 페이징 처리 -->
+					<div class="board-paging">
+						<div class="board-pageline" align="center">
+							<ul class="board-pagination">
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+										<a
+										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+									</li>
+								</c:forEach>
 
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+					<!-- 페이징 -->
+					<!-- 검색 -->
+					<div class='board-search' align="center">
+						<select name="searchType" class="board_select">
+							<option value="n"
+								<c:out value="${cri.searchType == null?'selected':''}"/>>
+							검색조건</option>
+							<option value="a"
+								<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
+							제목</option>
+							<option value="b"
+								<c:out value="${cri.searchType eq 'b'?'selected':''}"/>>
+							담당팀</option>
+							<option value="c"
+								<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+							담당자</option>
+							<option value="d
+						"
+								<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>
+							등록상태</option>
+						</select> <input type="text" name='keyword' id="keywordInput"
+							value='${cri.keyword }'>
+						<button class="board-btn" id='searchBtn'>검색</button>
 
 					</div>
-
+					<!-- 검색  -->
 				</div>
-				
-				<!-- 페이징 처리 -->
-				<div align="center">
-					<ul class="pagination">
-						<c:if test="${pageMaker.prev}">
-							<li><a
-								href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
-						</c:if>
-						<c:forEach begin="${pageMaker.startPage }"
-							end="${pageMaker.endPage }" var="idx">
-							<li
-								<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-								<a
-								href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
-							</li>
-						</c:forEach>
+				<!-- wrapper -->
 
-						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-							<li><a
-								href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
-						</c:if>
-					</ul>
-				</div>
-				<!-- 페이징 -->
-				<!-- 검색 -->
-				<div class='box-body'>
-					<select name="searchType">
-						<option value="n"
-							<c:out value="${cri.searchType == null?'selected':''}"/>>
-							검색조건</option>
-						<option value="a"
-							<c:out value="${cri.searchType eq 'a'?'selected':''}"/>>
-							제목</option>
-						<option value="b"
-							<c:out value="${cri.searchType eq 'b'?'selected':''}"/>>
-							담당팀</option>
-						<option value="c"
-							<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-							담당자</option>
-						<option value="d
-						"
-							<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>
-							등록상태</option>
-					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword }'>
-					<button id='searchBtn'>검색</button>
-
-				</div>
 			</div>
-			<!-- 검색  -->
+			<!-- section_main2 -->
 
-		</div><!-- section_main2 -->
-		
-				
-		
-		
+		</div>
+		<!-- column-left -->
+
+
 		<!-- right section!!************************************************************** -->
 		<div id="rightDiv" class='column-right'>
 			<div id="login_beforeDiv">
