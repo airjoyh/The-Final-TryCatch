@@ -85,11 +85,19 @@ public class UserContestController {
 		
 		//String user_id = (String) session.getAttribute("user_login_id");
 		int solveCount = contest_answerService.solveCount(user_id, contest_id);
+		int startDateCount = contest_answerService.startDateCount(contest_id);
+		int endDateCount = contest_answerService.endDateCount(contest_id);
 		
-		if(solveCount>0) {
-			state = "already";
+		if(startDateCount>0) {
+			state = "startYet";
+		
+		}else if(endDateCount>0) {
+			state = "endAlready";
+		
+		}else if(solveCount>0) {
+			state = "solveAlready";
 		}else {
-			state = "yet";
+			state = "solveYet";
 		}
 		
 		return state;

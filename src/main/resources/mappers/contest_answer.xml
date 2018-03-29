@@ -102,4 +102,19 @@
 		where user_id= #{user_id}
 		and contest_id = #{contest_id}
 	</select>
+	
+	<select id="startDateCount" resultType="int"><![CDATA[
+		select count(contest_startDate)
+		from contest
+		where contest_id = #{contest_id}
+		and contest_startDate > now()
+	]]></select>
+	
+	<select id="endDateCount" resultType="int"><![CDATA[
+		select count(contest_endDate)
+		from contest
+		where contest_id = #{contest_id}
+		and contest_endDate < now()
+	]]></select>
+	
 </mapper>

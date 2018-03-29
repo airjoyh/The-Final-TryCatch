@@ -20,4 +20,9 @@ public interface  Contest_answerDAO {
 	public int selectScoreRankListCount(SearchCriteria cri, int contest_id) throws Exception;
 	
 	public int solveCount(String user_id, int contest_id) throws Exception;
+
+	public int startDateCount(int contest_id) throws Exception;
+
+	public int endDateCount(int contest_id) throws Exception;
+
 }

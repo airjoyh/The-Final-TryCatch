@@ -86,4 +86,16 @@ public class Contest_answerDAOImpl implements Contest_answerDAO {
 		return session.selectOne("contest_answer.solveCount", map);
 	}
 
+	@Override
+	public int startDateCount(int contest_id) throws Exception {
+		
+		return session.selectOne("contest_answer.startDateCount", contest_id);
+	}
+
+	@Override
+	public int endDateCount(int contest_id) throws Exception {
+		
+		return session.selectOne("contest_answer.endDateCount", contest_id);
+	}
+
 }

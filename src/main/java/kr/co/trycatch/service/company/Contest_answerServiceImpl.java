@@ -53,4 +53,16 @@ public class Contest_answerServiceImpl implements Contest_answerService {
 		return contest_answerDao.solveCount(user_id, contest_id);
 	}
 
+	@Override
+	public int startDateCount(int contest_id) throws Exception {
+		
+		return contest_answerDao.startDateCount(contest_id);
+	}
+
+	@Override
+	public int endDateCount(int contest_id) throws Exception {
+		
+		return contest_answerDao.endDateCount(contest_id);
+	}
+
 }
