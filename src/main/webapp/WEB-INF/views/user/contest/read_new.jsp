@@ -117,22 +117,22 @@
           <div class='company-contest-table'>
             <table cellspacing='0'>
               <tr>
-                <th class="community_secth">제목</th>
-                <th class="community_thirth">작성자</th>
-                <th class="community_fourth">작성일</th>
-                <th class="community_fiveth">조회수</th>
-                <th class="community_sixth">댓글</th>
+                <th style="text-align: center;">제목</th>
+                <th >작성자</th>
+                <th >작성일</th>
+                <th >조회수</th>
+                <th>댓글</th>
               </tr>
               <c:forEach items="${list}" var="contest_qna" varStatus="stat">
                 <tr>
-                  <td class="community_secth"><a href='${initParam.rootPath}/user/contest/qna/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }&qna_no=${contest_qna.qna_no}'>
+                  <td style="width: 300px;"><a href='${initParam.rootPath}/user/contest/qna/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }&qna_no=${contest_qna.qna_no}'>
 										${contest_qna.qna_title }</a></td>
-                  <td class="community_thirth">${contest_qna.qna_writer }</td>
-                  <td class="community_fourth">
+                  <td style="width: 160px; display: table-cell;">${contest_qna.qna_writer }</td>
+                  <td>
                     <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest_qna.qna_wdate}" />
                   </td>
-                  <td class="community_fiveth">${contest_qna.qna_viewCount }</td>
-                  <td class="community_sixth">${contest_qna.qna_replyCount }</td>
+                  <td>${contest_qna.qna_viewCount }</td>
+                  <td>${contest_qna.qna_replyCount }</td>
                 </tr>
               </c:forEach>
             </table>
