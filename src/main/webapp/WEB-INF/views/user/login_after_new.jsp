@@ -41,8 +41,10 @@
 						<td style="width: 25%;"><a href="${initParam.rootPath }/user/review/list?company_id=${zzim.zzim_selected }">${zzim.company_name }</a></td>
 					</tr>
 				</c:forEach>
-			</table>	
-			<a href="${initParam.rootPath }/user/zzimlist"><div class="more-btn">더보기</div></a>
+			</table>
+			<div class="zzim-more-btn">	
+			<a href="${initParam.rootPath }/user/zzimlist"><div class="zzim-more-text">더보기</div></a>
+			</div>
 		</div>
 		</div>
 		

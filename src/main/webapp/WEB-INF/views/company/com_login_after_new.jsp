@@ -36,7 +36,9 @@
 					</tr>
 				</c:forEach> 
 			</table>
+			  <div class="zzim-more-btn">	
 			  <a href="${initParam.rootPath }/com/port/zzimlist"><div class="more-btn">더보기</div></a> 
+			  </div>
 		</div>
 		</div>
 	</div>
