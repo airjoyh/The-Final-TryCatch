@@ -1,7 +1,11 @@
 
+/************** 기업 후기 게시글 보는 페이지입니다. (기업후기보기만 별도) ***************/
+/**************  			별점 css있습니다.  				***************/
+
 /*****************************************************************
 							  swlee
 ******************************************************************/
+
 .wrapper-com-review-read{
 	display:block;
 	padding: 45px;
@@ -144,18 +148,33 @@
 .wrapper-com-review-content { /* -------■상세 게시글 하단 평점 */
     display: block;
     position:relative;
-     padding: 35px;
-     height: auto;
-     
+    padding: 35px;
+    height: auto;
 }
 
 
-.wrapper-com-review-content .com-review-star{
+.wrapper-com-review-content .com-review-star{ /* 글보기 별점있는부분*/
      height:auto;
      display: inline-block;
      position: relative;
      width: 100%;
+     padding: 30px;
 }
+.board-register-write .com-review-star{ /* 글쓰기수정 별점있는부분*/
+     height:auto;
+     display: inline-block;
+     position: relative;
+     width: 100%;
+     padding: 15px 30px 15px 30px;
+}
+.board-register-write .com-review-star label{ /* 글쓰기수정 별점있는부분*/
+     font-size: 18px;
+}
+
+.board-register-write .com-review-star .star-line {
+	margin: 10px 0 10px 0;
+}
+
 
 .com-review-button{ /*버튼있는 디브*/
 	display: block;

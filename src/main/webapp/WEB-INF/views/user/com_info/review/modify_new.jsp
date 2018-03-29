@@ -4,8 +4,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>콘테스트 Q&A 글수정</title>
+<title>기업후기 글수정</title>
 
+<link href="${initParam.rootPath }/resources/css/community_register_sw.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -72,8 +73,9 @@
 					</div>
 					
 					<div class='board-register-write'>
+					
 					<div class='com-review-star'>
-						<label for="starPoint" style="padding-bottom: 10px;">평점</label>
+						<label for="starPoint" >평점</label>
 						<div class="star-line">
 							<ul class="list-group">
 								<li class="list-group-item">승진기회 및 가능성 <span
@@ -164,11 +166,12 @@
 						</div>
 					</div><!-- star -->
 					</div>
+					</div>
 					
 					<div class="board-register-button">
 					<div class='board-register-button-box' align="center">
-						<input type="button" class='register-btn' id="registBtn" onclick="validateCheck()" value='글수정'>
-						<input type="button" class='register-btn' id="cancelBtn" value='취소'>
+						<input type="button" class='register-bottom-button' id="registBtn" onclick="validateCheck()" value='글수정'>
+						<input type="button" class='register-bottom-button' id="cancelBtn" value='취소'>
 					</div>
 					</div>
 					

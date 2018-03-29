@@ -1,7 +1,10 @@
 
+/******** 커뮤니티 게시판 보는 페이지입니다. & 리플 스타일 있습니다. ********/
+
 /*****************************************************************
 							  section
 ******************************************************************/
+
  .section-board-read {
     position: relative;
     /* width: 740px;*/
@@ -140,6 +143,15 @@
 	border: none;
 	border-radius: 3px;
 	padding: 5px;
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; 
+}
+.board-read-button-toList:hover{ /*목록으로 가기 버튼*/
+	background: #2b303b;
+	font-weight: 700;
 }
 
 .board-read-button-myBtns{ /*내가 쓴 글일때 보이는 버튼들*/
@@ -147,17 +159,27 @@
 	/* border: blue solid 1px; */
 }
 
-.board-read-button-myBtn{/*내가 쓴 글일때 보이는 버튼*/
-	width: 66px;
+.board-read-button-myBtns .board-read-button-myBtn {/*내가 쓴 글일때 보이는 버튼 - 수정삭제*/
+	width: 68px;
 	height: 32px;
 	padding: 5px;
 	margin: 0 2px 0 2px;
 	cursor: pointer;
 	border: none;
 	border-radius: 3px;
-	background: pink;
+	background: #ffbad9;
+	color: #fff;/* 
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; */
 }
 
+.board-read-button-myBtn :hover{
+	background: #2b303b;
+}
 
 /*****************************************************************
 							  Reply
@@ -224,22 +246,26 @@
     width: 150px;
     border: none;
 	border: #ebeef3 solid 2px;
+	color: #65737e;
 	background: #fff;
     padding: 10px;
     cursor: pointer;
     float: right;
     border-radius: 2px;
+    -webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; 
+}
+.reply-container .box .reply-content .reply-writecontent input[type="submit"]:hover{ /*작성 버튼 */
+    background: #ebeef3;
+    font-weight: 700;
 }
 .reply-content .reply-writer{
 	width: 250px;
 }
-.reply-content .reply-btn{
-	height: 20px;
-	width:100px;
-	background-color: #00ffff;
-	float: right;
-	border: none;
-}
+
 .reply_box_content_wrap{
 	display: inline-block;
 	

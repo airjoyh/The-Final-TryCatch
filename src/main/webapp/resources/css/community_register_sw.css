@@ -2,6 +2,8 @@
 /*****************************************************************
 							  swlee
 ******************************************************************/
+/**** 커뮤니티 글쓰기,수정 / 기업 글쓰기,수정 css는 모두 이거 씁니다!****/
+
  .section-board-register {
     position: relative;
     width: 740px;
@@ -66,7 +68,7 @@
 	position: relative;	
 	background: #fff;
     color: #65737e;
-    border-top: #dee3eb solid 1px;
+    border-bottom: #dee3eb solid 1px;
     /* border: 1px solid #dee3eb; */
     /* border: blue solid 2px; */
 }
@@ -102,15 +104,32 @@
     /* border: pink solid 2px; */
 }
 .board-register-button .board-register-button-box{
-	margin: 10px auto;
+	margin-top: 25px;
 }
 
+/* 하단 [완료][취소]버튼이네요. */
+.register-bottom-button {
+	height:35px;
+	width:125px;
+	font-size:15px;
+    margin: 0;
+    padding:0;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+	border-radius: 3px;
+	
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
 
-
-
-
-.register-contest:hover{
-	background-color: #2b303b;
+.register-qna :hover{
+	background: #2b303b;
 }
 
 .community-readtitle{
@@ -161,24 +180,6 @@
     position: relative;
 }
 
-.register-qna {
-	height:35px;
-	width:125px;
-	font-size:15px;
-    margin: 0;
-    padding:0;
-    border:none;
-    outline: none;
-	background-color:#65737e;
-	color:#fff;
-	cursor:pointer;
-	
-	-webkit-transition: all .3s ease;
- 	-moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
 
 /*****************************************************************
 							  modify

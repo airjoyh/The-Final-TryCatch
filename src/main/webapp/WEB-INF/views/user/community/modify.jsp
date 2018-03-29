@@ -61,8 +61,8 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
 					
 					<div class="board-register-button">
 					<div class='board-register-button-box' align="center">
-						<input type="submit" class='register-qna' id="regist" onclick="validateCheck()" value='글 수정'>
-						<input type="button" class='register-qna' id="cancel" value='취소'>
+						<input type="submit" class='register-bottom-button' id="regist" onclick="validateCheck()" value='글 수정'>
+						<input type="button" class='register-bottom-button' id="cancel" value='취소'>
 					</div>
 					</div>
 					

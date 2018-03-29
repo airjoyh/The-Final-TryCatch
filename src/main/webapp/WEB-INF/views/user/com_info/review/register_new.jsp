@@ -168,8 +168,8 @@
 					
 					<div class="board-register-button">
 					<div class='board-register-button-box' align="center">
-						<input type="button" class='register-qna' id="registBtn" onclick="validateCheck()" value='글등록'>
-						<input type="button" class='register-qna' id="cancelBtn" value='취소'>
+						<input type="button" class='register-bottom-button' id="registBtn" onclick="validateCheck()" value='글등록'>
+						<input type="button" class='register-bottom-button' id="cancelBtn" value='취소'>
 					</div>
 					</div>
 					
