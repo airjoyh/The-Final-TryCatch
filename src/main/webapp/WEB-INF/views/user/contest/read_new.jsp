@@ -125,7 +125,7 @@
               </tr>
               <c:forEach items="${list}" var="contest_qna" varStatus="stat">
                 <tr>
-                  <td class="community_secth"><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }'>
+                  <td class="community_secth"><a href='${initParam.rootPath}/user/contest/qna/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }&qna_no=${contest_qna.qna_no}'>
 										${contest_qna.qna_title }</a></td>
                   <td class="community_thirth">${contest_qna.qna_writer }</td>
                   <td class="community_fourth">
