@@ -17,30 +17,31 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 
-			<div class='section_introduce'>
+			<div class='section_comcontest'>
 				<div class='title-wrapper'>
 					<div class='column-title'>콘테스트 개최 리스트</div>
 				</div>
 				<div class='wrapper'>
-					<div class='com-inline-txt'>
-						<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
-						<p class='inline-txt-body'>
-							- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br> - 콘테스트 리스트 우측의
-							'등록'버튼을 누르시면 구직자들에게 공개됩니다.<br> - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른
-							채점이 가능합니다.<br> - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
-						</p>
-
+					<div class="com-contest">
+						<div class='com-inline-txt'>
+							<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
+							<p class='inline-txt-body'>
+								- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br> - 콘테스트 리스트 우측의
+								'등록'버튼을 누르시면 구직자들에게 공개됩니다.<br> - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른
+								채점이 가능합니다.<br> - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
+							</p>
+	
+						</div>
+						<div class='com-main'>
+							<input type="button" class='register-contest'
+								onclick="loginCheck()" value='콘테스트 등록'>
+						</div>
 					</div>
-					<div class='section_introduce'>
-						<input type="button" class='register-contest'
-							onclick="loginCheck()" value='콘테스트 등록'>
-					</div>
-
 				</div>
 			</div>
 			<!-- section_main -->
 
-			<div class='section_introduce'>
+			<div class='section_contesttable'>
 				<div class='wrapper'>
 					<div class='company-contest-table'>
 						<table cellspacing='0'>

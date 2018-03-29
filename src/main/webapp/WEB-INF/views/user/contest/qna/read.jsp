@@ -36,6 +36,9 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
 <![endif]-->
 <body>	
+	<!-- nav-area -->
+  	<%@ include file="../../../user-nav_new.jsp" %>
+  	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>	
@@ -44,7 +47,6 @@
 					<div class='column-title'>콘테스트 Q&A 글상세보기</div>
 				</div>
 				<div class='wrapper'>
-					<div class='com-qna-title'>
 					   <form id="readForm" name="readForm" method="POST">
 	  	 		          <input type="hidden" id="qna_no" name="qna_no" value="${contest_qna.qna_no }">
 	  	 		          <input type="hidden" id="qna_writer" name="qna_writer" value="${contest_qna.qna_writer }"> <%--  value="ekwjd72@naver.com">  --%>
@@ -54,7 +56,7 @@
 				          <input type='hidden' name='searchType' value="${cri.searchType}">
 				          <input type='hidden' name='keyword' value="${cri.keyword}">
 			          </form>
-			         
+					<div class='com-qna-title'>		         
 						<div>
 							<span class="input-group-addon">글번호</span> 
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 
@@ -76,16 +78,38 @@
 				            <span><input type="button" name="gocomnote" id="gocomnote"></span>
 				        </div>
 					</div>
-					<div class='com-qna-content'>
-						<label for="good">Q&A내용</label><br>
-				        <textarea name="qna_contents" rows="10" class="form-ta" id="qna_contents" readonly="readonly">${contest_qna.qna_contents }</textarea>
-					</div>
-					<div class='com-inline-btn'>
-						<input type="button" class='qna-list' id="goList" value='목록보기'>
-						<div class="row">
-						        <span id="upDel" class="mybutton"></span>
-				        </div>
-					</div>
+					
+<%-- 					<div class="board-read-top">
+							<div class='board-read-title'>
+								<input class="" id="community_title" name="community_title" type="text"
+					                  value="${community.community_title }" readonly="readonly">
+							</div>
+							<div class='board-read-datas'>
+							<div class='board-read-data'>
+						        <label>작성자</label>&nbsp;&nbsp;
+						        <div class="board-read-data-content" id="community_writer" name="community_writer" 
+						        	 readonly="readonly" >${community.community_writer}</div>
+							</div>
+							<div class='board-read-data'>
+						        <label>조회수</label> 
+						        <div class="board-read-data-content" id="community_viewCount" name="community_viewCount" readonly="readonly" >${community.community_viewCount}</div>
+							</div>
+							<div class="board-read-date">${community.community_wdate} 시간</div>
+							</div>
+					 </div> --%>
+					
+						<div class='board-read-contents'>
+						   <div class="form-group">	
+					        <div class="board-read-content" id="good">${contest_qna.qna_contents }</div>
+						   </div>
+						</div>
+					
+						<div class='board-read-buttons' align="center">
+							<input type="button" class='board-read-button-toList' id="goListBtn" name="goListBtn" value='목록보기'>
+	                      	<div class="board-read-button-myBtns">
+							  <span id="upDel" class=""></span>
+					        </div>
+						</div>
 					
 					
 					</div>
@@ -142,116 +166,21 @@
 		
 		<!-- right section!!************************************************************** -->
 		<div class='column-right'>
-		
-			<div class="section_login">
-				<div class="wrapper">
-				    <div><input class='login-input' type="email" name="email" placeholder="이메일"></div>
-				    <div><input class='login-input' type="password" name="password" placeholder="비밀번호"></div>
-				    <div><input type="button" value="로그인" class='login-btn'> </div>
-				    <span class="pure-checkbox" style="float: left;">
-                  	  <input id="checkboxtoggle" name="checkbox" type="checkbox">
-                      <label for="checkboxtoggle">정보기억</label>
-                      </span>
-                    <span style="float: right;padding: 2px 0 0 6px;">
-                	  <a href='#find-pwd'>비밀번호 찾기</a>
-                	  </span>
-                    <span style="float: right;padding: 2px 6px;">
-                	  <a href='#register'>회원가입</a>
-                	  </span>
-				  </div>
-				</div><!-- section_login -->
-				
-				<div class="section_zzim">
-					<div class="title-wrapper">
-						<div class='column-title'>관심기업 리스트</div>
-					</div>
-					<div class='wrapper'>
-						<div class='column-contents'>
-							<i>현재 찜한 기업이 없습니다.</i><!-- 있으면 테이블 없으면 i -->
-							<table class='zzim-table'>
-								<thead>
-									<tr>
-										<th>기업명</th>
-										<th>평점</th>
-										</tr>
-									</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										</tr>
-									</tbody>
-								
-							</table>
-						</div>
-					</div>
-						
-						
-						
-				</div><!-- section_zzim -->
-				
-			</div><!-- column-right -->
+			<div id="rightDiv" class='column-right'>
+				<div id="login_beforeDiv">
+					<%@ include file="../../../user/login_before_new.jsp"%>
+				</div>
+				<div id="login_afterDiv" style="display: none">
+					<%@ include file="../../login_after_new.jsp"%>
+				</div>
+			</div>
+			<!-- column-right -->
+		</div>
+		<!-- modal 코드 --> 
+       <%@ include file="../../user_modals_new.jsp" %>
+
 		</div>	
-			
-			
-		<!-- modal 코드 -->
-	 
-	<!-- 	회원가입 모달 -->
-		<div class="modal" id="register">
-			<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호를 입력하세요">
-					<input id="member_pass" name="member_pass"
-					   	type="password" placeholder="비밀번호 확인" style="float: right;">
-					<input id="user_authCode" name="user_authCode"
-					  	type="text" placeholder="60초 안에 인증코드를 입력해주세요" size="20">
-					<input type="button" name="sendEmail" id="sendEmail"
-				       	value="인증코드 요청">
-				</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-				</div>
-			</div>
-		</div>
-			
-		<!-- 비밀번호 찾기 모달	 -->
-		<div class="modal" id="find-pwd">
-			<div class="modal-pannel">
-				<div class="modal-title">회원가입 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<input id="member_id" name="member_id" 
-				       	type="email" placeholder="이메일을 입력하세요">
-					<i>*가입하신 이메일로 임시 비밀번호가 전송됩니다.</i>
-					</div>
-					
-				<div class="modal-footer">
-					<input type="button" name="emailConfirm" id="emailConfirm"
-				       	value="완료">
-					</div>
-			</div>
-		</div>
-			
-		<!-- 댓글 수정 모달	 -->
-		<div class="modal" id="modifyModal">
-			<div class="modal-pannel">
-				<div class="modal-title">댓글수정 <a href="#close">CLOSE</a></div>
-				<div class="modal-body">
-					<h4 class="modal_title"></h4>
-					<p><input type="text" id="replytext" class="form-control" style="width: 90%;"></p>
-				</div>
-					
-				<div class="modal-footer" style="display: inline-flex; flex-direction: row; width: 100%;">
-					<input type="button" name="replyConfirm" id="replyModBtn" value="수정">
-					<input type="button" name="replyDelete" id="replyDelBtn" value="삭제">
-					</div>
-			</div>
-		</div>
+
 			
 		<!-- mail 모달	 -->
 		<div class="modal" id="tcmail">
@@ -270,27 +199,6 @@
 			</div>
 		</div>
 		
-			
-<!-- 				Modal
-				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-				  <div class="modal-dialog">
-				    Modal content
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal_title"></h4>
-				      </div>
-				      <div class="modal-body" data-rno>
-				        <p><input type="text" id="replytext" class="form-control"></p>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-				        <button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div>
-				  </div>
-				</div> -->
 
 	<!-- frame -->
 <script id="template" type="text/x-handlebars-template">
