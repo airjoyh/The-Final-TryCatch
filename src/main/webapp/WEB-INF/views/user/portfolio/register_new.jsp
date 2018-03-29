@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<div class='pf-lisence'>
-						<p class='body-title'>Lisence</p>
+						<p class='body-title'>Lisence -  <i style="font-size: 12px;color: #555">자격증은 추후 면접 시 증명 가능하여야 합니다.</i></p>
 						<div class='lisence'>
 							<table class='pf-list'>
 								
