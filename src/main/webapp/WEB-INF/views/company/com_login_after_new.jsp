@@ -22,13 +22,14 @@
 <!-- section_login -->
 <div class="section_zzim">
 	<div class="title-wrapper">
-		<div class="column-title">관심회원 리스트</div>
+		<div class="column-zzimtitle">관심회원 리스트</div>
 	</div>
 	<div class="wrapper">
 		<div class="column-contents">
 			<!-- 있으면 테이블 없으면 i -->
+			<div class="zzim-content-box">
 			<table class="zzim-table">
-					<!-- 찜한기업리스트  forEach-->
+					<!-- 찜한회원리스트  forEach-->
 				<c:forEach items="${comzzimList }" begin="0" end="4" var="zzim">
 					<tr>
 						<td style="width: 25%;"><a href="${initParam.rootPath }/company/personSearch/read?port_id=${zzim.zzim_selected }">${zzim.user_id }</a></td>
@@ -36,6 +37,7 @@
 				</c:forEach> 
 			</table>
 			  <a href="${initParam.rootPath }/com/port/zzimlist"><div class="more-btn">더보기</div></a> 
+		</div>
 		</div>
 	</div>
 </div>
