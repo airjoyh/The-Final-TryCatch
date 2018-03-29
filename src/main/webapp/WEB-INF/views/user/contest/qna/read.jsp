@@ -62,7 +62,7 @@
 							<input class="form-control" id="qna_no" name="qna_no" type="text" style="width: 35%" placeholder="글번호 자동입력." 
 							       value="${contest_qna.qna_no }" readonly="readonly"> --%>
 						   
-						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> 
+						    <span class="input-group-addon" style="padding-left: 3em;">작성일</span> &nbsp;&nbsp;&nbsp; 
 						    <input class="form-control" id="qna_wdate" name="qna_wdate" style="width: 35%" placeholder="yy-mm-dd hh-MM-ss"
 						           value="${contest_qna.qna_wdate}" readonly="readonly">
 						</div>
@@ -71,32 +71,12 @@
 							<input class="qna-title" id="qna_title" name="qna_title" type="text" style="width: 35%" placeholder="제목을 입력하세요."
 							       value="${contest_qna.qna_title }" readonly="readonly">
 				            
-				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> 
+				            <span class="input-group-addon" style="padding-left: 3em;">작성자</span> &nbsp;&nbsp;&nbsp; 
 				            <span class="qna-writer" id="qna_writer" name="qna_writer" style="width: 35%" placeholder="작성자를 입력하세요."
-				                   value="" readonly="readonly"><a id="noteA" href="#tcmail">${contest_qna.qna_writer }</a></span>
-				            <span><input type="button" name="gonote" id="gonote"></span>
-				            <span><input type="button" name="gocomnote" id="gocomnote"></span>
+				                   value="" readonly="readonly">${contest_qna.qna_writer }</a></span>
+				         
 				        </div>
 					</div>
-					
-<%-- 					<div class="board-read-top">
-							<div class='board-read-title'>
-								<input class="" id="community_title" name="community_title" type="text"
-					                  value="${community.community_title }" readonly="readonly">
-							</div>
-							<div class='board-read-datas'>
-							<div class='board-read-data'>
-						        <label>작성자</label>&nbsp;&nbsp;
-						        <div class="board-read-data-content" id="community_writer" name="community_writer" 
-						        	 readonly="readonly" >${community.community_writer}</div>
-							</div>
-							<div class='board-read-data'>
-						        <label>조회수</label> 
-						        <div class="board-read-data-content" id="community_viewCount" name="community_viewCount" readonly="readonly" >${community.community_viewCount}</div>
-							</div>
-							<div class="board-read-date">${community.community_wdate} 시간</div>
-							</div>
-					 </div> --%>
 					
 						<div class='board-read-contents'>
 						   <div class="form-group">	
@@ -132,9 +112,8 @@
 							</div>
 							<!-- /.box-body -->
 							<div class="box-footer">
-								<button type="button" id="replyAddBtn">댓글 등록</button>
+								<button type="button" id="replyBtn">댓글 등록</button>
 								<!-- timeline time label -->
-								<button id="replyBtn">댓글</button>
 							</div>
 							</c:if>
 							
@@ -159,6 +138,29 @@
 							</div>
 
 					</div>
+						<!-- 댓글 수정 모달	 -->
+				<div class="modal" id="modifyModal">
+					<div class="modal-pannel">
+						<div class="modal-Title" style="font-size: 20px; font-weight: bold;">
+						댓글수정 
+						<a href="#close">CLOSE</a>
+						</div>
+						<div class="modal-body">
+							<h4 class="modal_title"></h4>
+							<p>
+								<input type="text" id="replytext" class="form-control"
+									style="width: 90%;">
+							</p>
+						</div>
+
+						<div class="modal-footer"
+							style="display: inline-flex; flex-direction: row; width: 100%;">
+							<input type="button" name="replyConfirm" id="replyModBtn"
+								value="수정"> <input type="button" name="replyDelete"
+								id="replyDelBtn" value="삭제">
+						</div>
+					</div>
+				</div>
 					<!-- /.col -->
 				</div>
 			</div><!-- section_qnareply -->
@@ -307,7 +309,7 @@
 		});
 	});
 	
-	$("#replyAddBtn").on("click",function(){
+	$("#replyBtn").on("click",function(){
 		 //alert('댓글 등록')
 		 console.log("댓글 등록 클릭");
 		 var replyerObj = $("#newReplyWriter");
@@ -365,8 +367,12 @@
 					if(result == 'success'){
 						alert("수정 되었습니다.");
 						getPage("${initParam.rootPath}/review/qna_reply/"+qna_no+"/"+replyPage );
-						reply_contents.val("");
-						$("#modifyModal").modal('hide');
+						reply_contents.val("");	
+						
+						$("#modifyModal").fadeOut();
+						self.location = "${initParam.rootPath }/user/contest/qna/read?page=${cri.page }"
+							+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+							+ "&keyword=${cri.keyword }&contest_id=${param.contest_id}&qna_no=${contest_qna.qna_no }";
 					}
 			}});
 	});
@@ -389,7 +395,11 @@
 					if(result == 'success'){
 						alert("삭제 되었습니다.");
 						getPage("${initParam.rootPath}/review/qna_reply/"+qna_no+"/"+replyPage );
-						$("#modifyModal").modal('hide');
+						
+						$("#modifyModal").fadeOut();
+						self.location = "${initParam.rootPath }/user/contest/qna/read?page=${cri.page }"
+							+ "&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
+							+ "&keyword=${cri.keyword }&contest_id=${param.contest_id}&qna_no=${contest_qna.qna_no }";
 					}
 			}});
 	});
@@ -453,14 +463,6 @@
 				formObj.attr("method", "get");
 				formObj.attr("action", "${initParam.rootPath}/review/qna_reply/goLogin");
 				formObj.submit();
-			});
-			
-			$("#gonote").on("click", function () {
-				self.location="${initParam.rootPath }/user/note/list";
-			});
-			
-			$("#gocomnote").on("click", function () {
-				self.location="${initParam.rootPath }/company/note/list";
 			});
  });
 	  	

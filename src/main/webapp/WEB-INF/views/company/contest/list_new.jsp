@@ -17,37 +17,35 @@
 	<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 
-			<div class='section_comcontest'>
-				<div class='title-wrapper'>
-					<div class='column-title'>콘테스트 개최 리스트</div>
-				</div>
-				<div class='wrapper'>
-					<div class="com-contest">
-						<div class='com-inline-txt'>
-							<p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
-							<p class='inline-txt-body'>
-								- 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br> - 콘테스트 리스트 우측의
-								'등록'버튼을 누르시면 구직자들에게 공개됩니다.<br> - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른
-								채점이 가능합니다.<br> - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
-							</p>
-	
-						</div>
-						<div class='com-main'>
-							<input type="button" class='register-contest'
-								onclick="loginCheck()" value='콘테스트 등록'>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- section_main -->
+         <div class='com-contest-head'>
+            <div class='title-wrapper'>
+               <div class='column-title'>콘테스트 개최 리스트</div>
+            </div>
+            <div class='wrapper'>
+               <div class='com-inline-txt'>
+                  <p class='inline-txt-head'>콘테스트 등록 시 참고 사항</p>
+                  <p class='inline-txt-body'>
+                     - 콘테스트 개최 버튼을 클릭하여 콘테스트를 등록할 수 있습니다.<br>
+                     - 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
+                     - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
+                     - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
+                  </p>
+               
+               </div>
+               <div class='com-inline-btn'>
+                  <input type="button" class='register-contest' onclick="loginCheck()" value='콘테스트 등록'>
+               </div>
+               
+               </div>
+            </div><!-- section_main1 -->
 
 			<div class='section_contesttable'>
 				<div class='wrapper'>
 					<div class='company-contest-table'>
 						<table cellspacing='0'>
 							<tr>
-								<th style="width: 140px; text-align: center;">콘테스트명</th>
-								<th style="width: 160px">시작 날짜</th>
+								<th style="text-align: center;">콘테스트명</th>
+								<th style="width:100%; display: table-cell;">시작 날짜</th>
 								<th style="width: 160px">끝 날짜</th>
 								<th style="width: 85px">담당부서</th>
 								<th style="width: 75px">담장자명</th>
@@ -55,9 +53,9 @@
 							</tr>
 							<c:forEach items="${list }" var="contest" varStatus="stat">
 								<tr>
-									<td style="width: 120px"><a
+									<td><a
 										href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
-									<td style="width: 170px">${contest.contest_startDate}</td>
+									<td style="width:100%; display: table-cell;">${contest.contest_startDate}</td>
 									<td style="width: 170px">${contest.contest_endDate}</td>
 									<td style="width: 85px">${contest.team_name }</td>
 									<td style="width: 75px">${contest.manager_name }</td>

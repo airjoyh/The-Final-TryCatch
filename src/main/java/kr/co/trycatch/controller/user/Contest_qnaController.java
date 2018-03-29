@@ -97,7 +97,7 @@ public class Contest_qnaController {
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
 		
-		 return "redirect:/user/contest/qna/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		 return "redirect:/user/contest/read?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 		 +"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 		 +"&contest_id="+contest_id;
 		/*return "redirect:/ing/cont_qna_sw?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
@@ -114,11 +114,12 @@ public class Contest_qnaController {
 		rttr.addAttribute("msg","SUCCESS");
 		System.out.println("Contest_qnaController 삭제성공");
 		
-		 return "redirect:/user/contest/qna/list?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
+		 return "redirect:/user/contest/read?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 						+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 						+"&contest_id="+contest_id;
 		/*return "redirect:/ing/cont_qna_sw?page="+cri.getPage()+"&perPageNum="+cri.getPerPageNum()
 		+"&searchType="+cri.getSearchType()+"&keyword="+cri.getKeyword()
 		+"&contest_id="+contest_id;*/
+		 
 	}
 }
