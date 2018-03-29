@@ -14,6 +14,7 @@
 <link href="${initParam.rootPath }/resources/css/contestTable.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/com_contest.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/pagination.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/blist_sw.css" rel="stylesheet" type="text/css">
 <link href="${initParam.rootPath }/resources/css/zzim_jw.css" rel="stylesheet" type="text/css">
 
 <!-- ICON -->
