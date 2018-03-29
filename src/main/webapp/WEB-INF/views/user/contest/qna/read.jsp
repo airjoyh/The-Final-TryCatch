@@ -31,7 +31,7 @@
 
 <!--  CSS -->
 <link href="${initParam.rootPath }/resources/css/reply.css" rel="stylesheet" type="text/css">
-<link href="${initParam.rootPath }/resources/css/community_read.css" rel="stylesheet" type="text/css">
+<link href="${initParam.rootPath }/resources/css/community_read_sw.css" rel="stylesheet" type="text/css">
 
 <!-- 임시 js -->
 <script type="text/javascript">
@@ -148,12 +148,14 @@
 			
 							</div> 이전부분-->
 							<!-- /.box-body -->
+							<div class="reply-content">
 							<div class="reply-writecontent">
 										<div class="reply-content-button">
  											<input type="button" id="replyBtn" value="댓글 등록">
 <!-- 										<button type="submit" class="reply-btn" id="replyAddBtn">등록</button> -->
 										</div>
 									</div>
+							</div>
 							<!-- <div class="box-footer">
 								<button type="button" id="replyBtn">댓글 등록</button>
 								timeline time label
@@ -179,6 +181,7 @@
 				
 								</ul>
 							</div>
+							
 
 					</div>
 						<!-- 댓글 수정 모달	 -->

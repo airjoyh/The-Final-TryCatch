@@ -48,8 +48,9 @@
 					
 					<div class="wrapper">
 					
+						<div>하고싶은말 넣어주세요</div>
 					<div class="introduce-top">
-						<div>try{  } <br>catch( Exception e ){ };</div>
+						<div>try{ <span>선입견</span> } <br>catch( Exception e )<br>{ e.<span>채용</span> };</div>
 					</div>
 					
 					
@@ -61,10 +62,18 @@
 							저희는 선입견을 벗어난 예외 ‘e’들을 캐치해 <br>기업과 연결시켜주는 블라인드 채용 사이트TryCatch입니다!
 							</div>
 					</div>
-					<!-- <div class="introduce-box">
-						<div class="introduce-text"> - </div>
-						<div class="introduce-content">하고 싶은 말 쓰세요</div>
+					<div class="introduce-box">
+						<div class="introduce-text-opacity">학벌, 자격증, 스팩, 성별?</div>
+						<div class="introduce-text">오직 <strong>실력</strong>으로만<br>취업의 길을 열어드립니다.</div>
+						<div class="introduce-content">그동안 기업에서 해왔던 채용 방식은 실력있는 인재를 뽑는 최적의 방법이 아닙니다.<br>
+													  TryCatch는 지금까지의 채용 방식과는 다른 방식을 제안합니다.<br>
+													    학벌, 자격증, 스팩, 성별보다 오직 실력으로만 인재를 채용합니다.<br>
+													</div>
+ 						<%-- <div><img src="${initParam.rootPath }/resources/image/ing/brand.svg"></div> --%>
+ 						<%--<div><img src="${initParam.rootPath }/resources/image/ing/brand.svg"></div> --%>
 					</div>
+					
+					<!-- 
 					<div class="introduce-box">
 						<div class="introduce-text">안녕하세요 Try Catch 입니다 3</div>
 						<div class="introduce-content">기업은 실무에 필요한 실력있는 인재를 테스트를 통해 뽑고, 구직자는 스펙과 상관없이 오직 자신의 실력으로만 평가받는 사이트    </div>

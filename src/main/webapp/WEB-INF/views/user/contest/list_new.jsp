@@ -18,12 +18,7 @@
 		<!-- left section!!************************************************************** -->
 		<div class='column-left'>
 
-			<div class='section_contestlist'>
-				<div class='title-wrapper'>
-					<div class='column-title'>콘테스트 리스트</div>
-				</div>
-			</div>
-
+			
 			<div class="section_contestqna ">
 
 					<div class='title-wrapper'>
