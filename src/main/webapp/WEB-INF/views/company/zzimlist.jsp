@@ -36,28 +36,19 @@
 			<div class='section_main_com'>
 				<div class='com-contest-heads'>
 					<div class='title-wrapper'>
-						<div id="title" class="column-title"></div>
+						<div id="title" class="column-title">관심 회원 리스트</div>
 					</div>
 				
 				<!-- <div class="com-contest-box"> -->
-				<div class='company-contest-table'>
-					<div class='wrapper'>
+				<div class='wrapper'>
+					<div class='company-contest-table'>
 						<table cellspacing='0'>
 								<tr>
-									<th style="width: 50%">관심 회원 리스트</th>
+									<th>관심 회원 리스트</th>
 								</tr>
 								<c:forEach items="${comzzimList }" var="zzim" varStatus="stat">
 								<tr>
-									<td style="width: 50%">
-										<div style="display: flex;">
-											<!-- <img alt="이미지" src="resources/company/img/ksd.jpg" style="width: 50px; height: 50px;"> -->
-											<div style="flex-direction: column;">
-												<div style="height: 50%;">
-													<td style="width: 25%;"><a href="${initParam.rootPath }/company/personSearch/read?port_id=${zzim.zzim_selected }">${zzim.user_id }</a>
-												</div>
-											</div>
-										</div>
-									</td>
+									<td><a href="${initParam.rootPath }/company/personSearch/read?port_id=${zzim.zzim_selected }">${zzim.user_id }</a>
 								</tr>
 							</c:forEach>
 						</table>

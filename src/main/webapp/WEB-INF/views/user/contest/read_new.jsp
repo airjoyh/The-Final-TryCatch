@@ -117,22 +117,22 @@
           <div class='company-contest-table'>
             <table cellspacing='0'>
               <tr>
-                <th class="community_secth">제목</th>
-                <th class="community_thirth">작성자</th>
-                <th class="community_fourth">작성일</th>
-                <th class="community_fiveth">조회수</th>
-                <th class="community_sixth">댓글</th>
+                <th style="text-align: center;">제목</th>
+                <th >작성자</th>
+                <th >작성일</th>
+                <th >조회수</th>
+                <th>댓글</th>
               </tr>
               <c:forEach items="${list}" var="contest_qna" varStatus="stat">
                 <tr>
-                  <td class="community_secth"><a href='${initParam.rootPath}/user/contest/qna/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }&qna_no=${contest_qna.qna_no}'>
+                  <td style="width: 300px;"><a href='${initParam.rootPath}/user/contest/qna/read${pageMaker.makeSearch(pageMaker.cri.page)}&contest_id=${param.contest_id }&qna_no=${contest_qna.qna_no}'>
 										${contest_qna.qna_title }</a></td>
-                  <td class="community_thirth">${contest_qna.qna_writer }</td>
-                  <td class="community_fourth">
+                  <td style="width: 160px; display: table-cell;">${contest_qna.qna_writer }</td>
+                  <td>
                     <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${contest_qna.qna_wdate}" />
                   </td>
-                  <td class="community_fiveth">${contest_qna.qna_viewCount }</td>
-                  <td class="community_sixth">${contest_qna.qna_replyCount }</td>
+                  <td>${contest_qna.qna_viewCount }</td>
+                  <td>${contest_qna.qna_replyCount }</td>
                 </tr>
               </c:forEach>
             </table>
@@ -214,12 +214,34 @@
 	          console.log('콘테스트 시작 버튼 클릭');
 	          var loginState = '${user_loginState}';
 	          var contest_id = $('#contest_id').val();
-	
+			  var user_id = '${user_login_id}';
+			  
 	          if (loginState != 'login') {
 	            alert('콘테스트는 로그인을 하신 이후에 이용 가능합니다.');
 	            login_id.focus();
 	          } else {
-	            self.location = '${initParam.rootPath}/user/contest/quiz/solve?contest_id=' + contest_id + '&quiz_no=1';
+	        	  $.ajax({
+	        		  type: 'post',
+	        		  url: '${initParam.rootPath}/user/contest/quiz/solveCount',
+	        		  data: {"contest_id":contest_id, "user_id":user_id},
+	        		  success:function(result){
+	        			  console.log(result);
+	        			  if(result == 'startYet'){
+	        				  alert('아직 해당 콘테스트 시작날짜가 아닙니다.');
+	        				  
+	        			  }else if(result == 'endAlready'){
+	        				  alert('해당 콘테스트 응시기간이 지났습니다.');
+	        				  
+	        			  }else if(result =='solveAlready'){
+	        				  alert('이미 해당 콘테스트를 응시하셨습니다.');
+	        				  
+	        			  }else if(result=='solveYet'){
+				              self.location = '${initParam.rootPath}/user/contest/quiz/solve?contest_id=' + contest_id + '&quiz_no=1';
+	        				  
+	        			  }
+	        		  }
+	        		  
+	        	  });
 	          }
         });
 

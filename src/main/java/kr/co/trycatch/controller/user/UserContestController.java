@@ -76,6 +76,32 @@ public class UserContestController {
 		
 		return "/user/contest/read_new";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/quiz/solveCount")
+	public String solveCount(int contest_id, String user_id, HttpSession session) throws Exception{
+		
+		String state = "";
+		
+		//String user_id = (String) session.getAttribute("user_login_id");
+		int solveCount = contest_answerService.solveCount(user_id, contest_id);
+		int startDateCount = contest_answerService.startDateCount(contest_id);
+		int endDateCount = contest_answerService.endDateCount(contest_id);
+		
+		if(startDateCount>0) {
+			state = "startYet";
+		
+		}else if(endDateCount>0) {
+			state = "endAlready";
+		
+		}else if(solveCount>0) {
+			state = "solveAlready";
+		}else {
+			state = "solveYet";
+		}
+		
+		return state;
+	}
 
 	@RequestMapping("/quiz/solve")
 	public String readQuiz(@RequestParam("contest_id") int contest_id, int quiz_no, Model model) throws Exception {

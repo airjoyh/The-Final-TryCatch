@@ -44,19 +44,19 @@
 					<div class='company-contest-table'>
 						<table cellspacing='0'>
 							<tr>
-								<th style="text-align: center;">콘테스트명</th>
-								<th style="width:100%; display: table-cell;">시작 날짜</th>
-								<th style="width: 160px">끝 날짜</th>
+								<th style="width:170px;text-align: center;">콘테스트명</th>
+								<th style="width:145px; display: table-cell;">시작 날짜</th>
+								<th style="width: 145px">끝 날짜</th>
 								<th style="width: 85px">담당부서</th>
 								<th style="width: 75px">담장자명</th>
 								<th style="width: 80px">등록 상태</th>
 							</tr>
 							<c:forEach items="${list }" var="contest" varStatus="stat">
 								<tr>
-									<td><a
+									<td style="width:170px;text-align: center;"><a
 										href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
-									<td style="width:100%; display: table-cell;">${contest.contest_startDate}</td>
-									<td style="width: 170px">${contest.contest_endDate}</td>
+									<td style="width:145px; display: table-cell;">${contest.contest_startDate}</td>
+									<td style="width: 145px">${contest.contest_endDate}</td>
 									<td style="width: 85px">${contest.team_name }</td>
 									<td style="width: 75px">${contest.manager_name }</td>
 									<td style="width: 80px"><button type="button" class='fin-contest'
