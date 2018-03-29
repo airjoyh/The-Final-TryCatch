@@ -173,7 +173,7 @@ $(document).ready(function(){
 	
 /* ---------------------------------------- 중복확인  ----------------------------------------*/
 
-	$('.modal-body').on("click", "#idCheckBtn", function(){
+	$('.modal-body-line').on("click", "#idCheckBtn", function(){
 		console.log('중복확인 버튼 클릭');
 		var member_id = $('#member_id');
 		var member_idExp = /^[a-zA-z0-9]{6,15}$/;

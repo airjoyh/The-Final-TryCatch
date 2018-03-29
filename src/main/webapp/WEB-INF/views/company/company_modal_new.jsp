@@ -14,9 +14,9 @@
 						<input id="member_id" name="member_id" type="text"
 							placeholder="아이디를 입력하세요"> 
 						<!-- <input type="button" id="idCheckBtn" value="중복확인"> -->	 
-						<button class="modal-btn" id="idCheckBtn">중복확인</button>
-						<div id="idCheckDiv"></div>
+						<button class="modal-btn" id="idCheckBtn" type="button">중복확인</button>
 					</div>
+						<div id="idCheckDiv"></div>
 					<div class="modal-body-line">
 					<input id="member_pass"
 						name="member_pass" type="password" placeholder="비밀번호를 입력하세요">
