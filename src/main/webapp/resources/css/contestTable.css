@@ -20,6 +20,12 @@ a:hover {
 .company-contest-table{
 	text-align: center;
 	margin: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 700px;
+	height: auto;
+	display: block;
 }
 
 .company-contest-table table a:link {
@@ -70,6 +76,15 @@ a:hover {
 	padding-left:20px;
 	border-left: 0;
 }
+.company-contest-table table tr td:nth-child(2){
+	text-align:left;
+	width: 240px;
+	padding-left:20px;
+	border-left: 0;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .company-contest-table table tr td {
 	
 	padding:5px;
@@ -77,13 +92,16 @@ a:hover {
 	border-bottom:1px solid #e0e0e0;
 	background: #fff;
 
+	
 }
+
+
 .company-contest-table table tr.even td{
 	background: #80ffff;
 
 }
 .company-contest-table table tr:last-child td{
-	border-bottom:0;
+	/* border-bottom:0; */
 }
 
 .company-contest-table table tr:hover td{

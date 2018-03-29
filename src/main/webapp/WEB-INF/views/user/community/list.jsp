@@ -50,7 +50,7 @@
 							<table cellspacing='0'>
 								<tr>
 									<th>글번호</th>
-									<th class="community_secth"> 제목</th>
+									<th> 제목</th>
 									<th class="community_thirth">작성자</th>									
 									<th class="community_fourth">작성일</th>									
 									<th class="community_fiveth">조회수</th>									
@@ -59,7 +59,7 @@
 								  <c:forEach items="${list}" var="communityVo" varStatus="stat">
 				                     <tr>
 				                        <td>${communityVo.community_no}</td>
-				                        <td class="community_secth"><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&community_no=${communityVo.community_no}'>
+				                        <td ><a href='${initParam.rootPath}/user/community/read${pageMaker.makeSearch(pageMaker.cri.page)}&community_no=${communityVo.community_no}'>
 				                            ${communityVo.community_title}</a></td>
 				                        <td class="community_thirth">${communityVo.community_writer}</td>
 				                        <td class="community_fourth"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
