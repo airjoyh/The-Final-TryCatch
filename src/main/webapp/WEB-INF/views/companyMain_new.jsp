@@ -20,6 +20,12 @@
 		
 			<div class='com_main1'>
 				<img src="${initParam.rootPath }/resources/image/building/building_9.jpg">
+				<div class="com_main_start">
+					<h1 class="com_write_start">검증된 인재를 채용하세요.</h1>
+					<br>
+					<h3 class="com_write_start">TryCatch에서 직접 원하는 인재를 만날 수 있습니다.</h3>
+					<button class="com_main_btn"></button>
+				</div>
 			</div><!-- section_main1 -->
 				
 			<div class='com_main2'>
