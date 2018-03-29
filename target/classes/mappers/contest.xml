@@ -129,4 +129,5 @@
 		where contest_status='Y'
 		<include refid="search"></include>
 	</select>
+	
 </mapper>

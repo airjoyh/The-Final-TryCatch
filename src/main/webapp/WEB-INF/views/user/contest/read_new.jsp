@@ -214,12 +214,34 @@
 	          console.log('콘테스트 시작 버튼 클릭');
 	          var loginState = '${user_loginState}';
 	          var contest_id = $('#contest_id').val();
-	
+			  var user_id = '${user_login_id}';
+			  
 	          if (loginState != 'login') {
 	            alert('콘테스트는 로그인을 하신 이후에 이용 가능합니다.');
 	            login_id.focus();
 	          } else {
-	            self.location = '${initParam.rootPath}/user/contest/quiz/solve?contest_id=' + contest_id + '&quiz_no=1';
+	        	  $.ajax({
+	        		  type: 'post',
+	        		  url: '${initParam.rootPath}/user/contest/quiz/solveCount',
+	        		  data: {"contest_id":contest_id, "user_id":user_id},
+	        		  success:function(result){
+	        			  console.log(result);
+	        			  if(result == 'startYet'){
+	        				  alert('아직 해당 콘테스트 시작날짜가 아닙니다.');
+	        				  
+	        			  }else if(result == 'endAlready'){
+	        				  alert('해당 콘테스트 응시기간이 지났습니다.');
+	        				  
+	        			  }else if(result =='solveAlready'){
+	        				  alert('이미 해당 콘테스트를 응시하셨습니다.');
+	        				  
+	        			  }else if(result=='solveYet'){
+				              self.location = '${initParam.rootPath}/user/contest/quiz/solve?contest_id=' + contest_id + '&quiz_no=1';
+	        				  
+	        			  }
+	        		  }
+	        		  
+	        	  });
 	          }
         });
 

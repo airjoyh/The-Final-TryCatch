@@ -59,6 +59,7 @@
 		</if>
 	</sql>
 	
+	<!-- 해당 콘테스트에 응시한 구직자들의 점수 리스트 -->
 	<select id="selectScoreRankList" resultType="Contest_answerVO">
 		select user_id, totalScore,
 			   case
@@ -70,13 +71,13 @@
 			from contest_answer 
 			natural join contest_quiz 
 			natural join contest
-			where contest_id = 1
+			where contest_id = #{contest_id}
 			group by user_id
+     		order by totalScore desc
 		    ) as s, (select @rank := 0) as r
      	<where>
 		<include refid="search"></include>
      	</where>
-     	order by totalScore desc
 	</select>
 	
 	<select id="selectScoreRankListCount" resultType="int">
@@ -91,4 +92,29 @@
 			<include refid="search"/>
 		</trim>
 	</select>
+	
+	<!-- 해당 콘테스트를 한번 본 구직자는 다시 응시하지 못하게 -->
+	<select id="solveCount" resultType="int">	
+		select count(user_id) 
+		from contest_answer 
+		natural join contest_quiz
+		natural join contest
+		where user_id= #{user_id}
+		and contest_id = #{contest_id}
+	</select>
+	
+	<select id="startDateCount" resultType="int"><![CDATA[
+		select count(contest_startDate)
+		from contest
+		where contest_id = #{contest_id}
+		and contest_startDate > now()
+	]]></select>
+	
+	<select id="endDateCount" resultType="int"><![CDATA[
+		select count(contest_endDate)
+		from contest
+		where contest_id = #{contest_id}
+		and contest_endDate < now()
+	]]></select>
+	
 </mapper>
