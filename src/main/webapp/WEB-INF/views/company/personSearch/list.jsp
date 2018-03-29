@@ -30,16 +30,16 @@
 					<div class='company-contest-table'>
 						<table cellspacing='0'>
 							<tr>
-								<th style="width: 20%">아이디</th>
-								<th style="width: 50%">기술</th>
+								<th style=" text-align: center;">아이디</th>
+								<th style="width: 100%">기술</th>
 								<th style="width: 30%">자격증</th>
 							</tr>
 							<c:forEach items="${list }" var="portfolio" varStatus="stat">
 								<tr>
 									<td  style="width: 20%"><a
 										href="${initParam.rootPath }/company/personSearch/read${pageMaker.makeSearch(pageMaker.cri.page)}&port_id=${portfolio.port_id }">${portfolio.user_id }</a></td>
-									<td style="width: 50%">${portfolio.port_skill }</td>
-									<td style="width: 30%">${portfolio.port_license }</td>
+									<td style="width: 100%">${portfolio.port_skill }</td>
+									<td >${portfolio.port_license }</td>
 								</tr>
 							</c:forEach>
 						</table>
