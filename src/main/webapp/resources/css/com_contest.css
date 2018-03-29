@@ -19,22 +19,23 @@
 .com-contest{
 	display: block;
 	position: relative;
-	width: 100%;
+	width: 708px;
 	height: auto;
 }
 
 .com-contest .com-inline-txt{
 	height:125px;
-	width:85%;
-	display: inline-block;
+	width:100%;
+	display: block;
+	position:relative;
 	margin: 0;
 	padding: 0;
 }
 
-.com-contest .com-main{
+.com-main{
 	height:125px;
-	width:15%;
-	display: inline-block;
+	width:125px;
+	display: block;
 	margin: 0;
 	padding: 0;
 }
@@ -63,7 +64,8 @@
 
 /* contest register ***************/
 
-.com-main .register-contest {
+.register-contest {
+	display:inline-block;
 	height:125px;
 	width:125px;
 	font-size:15px;
@@ -177,4 +179,25 @@
 .cont-reg-btn-area button:hover {
 	background-color: #777;
 	color: #f1f1f1;
+}
+
+
+.fin-contest {
+	width:50px;
+	height:25px;
+	font-size:13px;
+	font-weight:250;
+    margin: 0;
+    padding:2px;
+    border:none;
+    outline: none;
+	background-color:#65737e;
+	color:#fff;
+	cursor:pointer;
+
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }

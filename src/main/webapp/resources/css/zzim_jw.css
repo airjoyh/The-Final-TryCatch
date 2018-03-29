@@ -17,13 +17,18 @@
 	height: auto;
 }
 
-.zzim-page-box{ /*찜리스트 하단 페이징 박스*/
-	position: absolute;
-	width: 100%;
+.zzim-more-btn{ /*찜 더보기 */
+	margin-bottom: 0;
+	width: 300px;
 	background-color: ;
 	bottom: 0;
 	padding: 10px;
 	text-align: center;
+	color: #b8babc;
+}
+
+.zzim-more-btn :hover{
+	font-weight: 600;
 }
 
 .zzim-table td{

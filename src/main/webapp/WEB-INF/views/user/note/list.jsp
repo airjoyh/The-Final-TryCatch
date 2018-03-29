@@ -42,19 +42,19 @@
 						<div class='column-title'>받은쪽지함</div>
 					</div>
 					
-					<div class='company-contest-table'>
-						<div class='wrapper'>
+					<div class='wrapper'>
+						<div class='company-contest-table'>
 							<table cellspacing='0'>
 								<tr>
-									<th style="width: 8%">읽은상태</th>
-									<th style="width: 60%">내용</th>
-									<th style="width: 15%">보낸 기업</th>									
-									<th style="width: 17%">날짜</th>																	
+									<th>읽은상태</th>
+									<th>내용</th>
+									<th>보낸 기업</th>									
+									<th>날짜</th>																	
 								</tr>				
 						 <c:forEach items="${list }" var="note" varStatus="stat">
 								<tr>
 									<td><img style="width: 20px; height: 20px;" src="${initParam.rootPath}/resources/image/ing/${note.note_status}.png"> </td>																		
-									<td><a href="${initParam.rootPath }/user/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }&note_status=${note.note_status}">${note.note_contents}</a></td>																		
+									<td style="width: 100%; display: table-cell;"><a href="${initParam.rootPath }/user/note/read${pageMaker.makeSearch(pageMaker.cri.page)}&note_receiver=${note.note_receiver }&note_id=${note.note_id }&note_status=${note.note_status}">${note.note_contents}</a></td>																		
 									<td>${note.note_sender}</td>
 									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${note.note_senddate}" /></td>
 								</tr>
