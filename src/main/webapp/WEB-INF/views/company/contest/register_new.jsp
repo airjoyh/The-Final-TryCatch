@@ -168,6 +168,11 @@ $(document).ready(function() {
 	$('#contestRegisterBtn').on("click", function(){
 		console.log('콘테스트 등록버튼 클릭');
 		//var contest_hireNumberExp = /^[0-9]{1,3}/;
+		var contest_startDate = $('#contest_startDate').val()+' '+$('select[name=contest_startHour]').val()+':'+$('select[name=contest_startMin]').val();
+		var contest_endDate = $('#contest_endDate').val()+' '+$('select[name=contest_endHour]').val()+':'+$('select[name=contest_endMin]').val();
+		console.log('시작 날짜 >>> '+contest_startDate);
+		console.log('끝 날짜 >>> '+contest_endDate);
+		
 		if($('#contest_title').val()==''){
 			alert('제목을 입력하세요.');
 			$('#contest_title').focus();
@@ -218,10 +223,8 @@ $(document).ready(function() {
 			$('#manager_tel').focus();
 			
 		}else{
-			var contest_startDate = $('#contest_startDate').val()+' '+$('select[name=contest_startHour]').val()+':'+$('select[name=contest_startMin]').val()+':00';
-			var contest_endDate = $('#contest_endDate').val()+' '+$('select[name=contest_endHour]').val()+':'+$('select[name=contest_endMin]').val()+':00';
-			console.log('시작 날짜 >>> '+contest_startDate);
-			console.log('끝 날짜 >>> '+contest_endDate);
+			
+			
 			$.ajax({
 				type: 'post',
 				url: '${initParam.rootPath}/company/contest/register',
