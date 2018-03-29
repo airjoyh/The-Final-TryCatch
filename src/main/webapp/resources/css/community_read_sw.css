@@ -19,6 +19,7 @@
     border: 1px solid #dee3eb;
     border-top: #dee3eb solid 10px;
     background: #fff;
+    padding-bottom: 40px;
     
 } 
 
@@ -241,7 +242,9 @@
     padding: 10px;
 }
 
-.reply-container .box .reply-content .reply-writecontent input[type="submit"]{ /*작성 버튼 */
+.reply-container .box .reply-content .reply-writecontent input[type="submit"],
+.reply-container .box .reply-content .reply-writecontent input[type="button"]
+{ /*작성 버튼 */
     height: 45px;
     width: 150px;
     border: none;
@@ -258,7 +261,9 @@
     -o-transition: all .3s ease;
     transition: all .3s ease; 
 }
-.reply-container .box .reply-content .reply-writecontent input[type="submit"]:hover{ /*작성 버튼 */
+.reply-container .box .reply-content .reply-writecontent input[type="submit"]:hover,
+.reply-container .box .reply-content .reply-writecontent input[type="button"]:hover
+{ /*작성 버튼 */
     background: #ebeef3;
     font-weight: 700;
 }

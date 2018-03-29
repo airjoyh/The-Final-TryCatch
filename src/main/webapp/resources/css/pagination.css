@@ -20,6 +20,7 @@
 	height: auto;
 /* 	padding: 5px 0 30px 0 ; */
 	margin: 10px auto;
+	margin-bottom: 50px;
 }
 .board-pagination {
 	position: relative;
@@ -61,7 +62,18 @@
 	width: 70px;
 	height: 25px;
 	/* padding: 2px; */
+	-webkit-transition: all .3s ease;
+ 	-moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; 
 }  
+.board-search .board-btn:hover{ 
+	background-color: #7f99e2;
+	font-weight: 600;	
+}
+
+
 .board-search .board_select{
 	height: 25px;
 } 
