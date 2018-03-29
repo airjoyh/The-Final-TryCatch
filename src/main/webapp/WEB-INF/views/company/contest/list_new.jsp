@@ -55,7 +55,7 @@
 							<c:forEach items="${list }" var="contest" varStatus="stat">
 								<tr>
 									<td style="width:170px;text-align: center;"><a
-										href="${initParam.rootPath}/user/contest/rankList?contest_id=${contest.contest_id }">${contest.contest_title }</a></td>
+										href="${initParam.rootPath}/company/contest/rankList?contest_id=${contest.contest_id }">${contest.contest_title }</a></td>
 									<td style="width:145px; display: table-cell;">${contest.contest_startDate}</td>
 									<td style="width: 145px">${contest.contest_endDate}</td>
 									<td style="width: 85px">${contest.team_name }</td>

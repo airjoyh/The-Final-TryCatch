@@ -20,6 +20,7 @@ import kr.co.trycatch.domain.company.ExampleVO;
 import kr.co.trycatch.domain.user.PageMaker;
 import kr.co.trycatch.domain.user.SearchCriteria;
 import kr.co.trycatch.service.company.ContestService;
+import kr.co.trycatch.service.company.Contest_answerService;
 import kr.co.trycatch.service.company.Contest_quizService;
 
 @Controller
@@ -32,6 +33,10 @@ public class CompanyContestController {
 	@Inject
 	private Contest_quizService contest_quizService;
 
+	@Inject
+	private Contest_answerService contest_answerService;
+	
+	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGet(Model model) throws Exception {
 		
@@ -138,4 +143,20 @@ public class CompanyContestController {
 	public String codingExampleGet() throws Exception {
 		return "/company/contest/quiz/codingType";
 	}
+	
+	@RequestMapping(value = "/rankList")
+	public String showSocreRankList(@RequestParam("contest_id") int contest_id, SearchCriteria cri, Model model) throws Exception{
+		
+		PageMaker maker = new PageMaker();
+		maker.setCri(cri);
+		maker.setTotalCount(contest_answerService.ScoreRankListCount(cri, contest_id));
+		model.addAttribute("list", contest_answerService.scoreRankList(cri, contest_id));
+		model.addAttribute("cri", cri);
+		model.addAttribute("pageMaker", maker);
+		System.out.println(cri);
+		System.out.println("검색된 글의 수 >>> "+contest_answerService.ScoreRankListCount(cri, contest_id));
+		
+		return "/company/contest/rankList";
+	}
+	
 }
