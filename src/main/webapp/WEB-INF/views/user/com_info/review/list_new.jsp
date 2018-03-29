@@ -214,12 +214,12 @@
 					<div class='review-title-wrapper'>
 						<div class='column-title'>기업 후기 게시판</div>
 					</div>
-					<div class='company-contest-table'>
-						<div class='wrapper'>
+					<div class='wrapper'>
+						<div class='company-contest-table'>
 							<table cellspacing='0'>
 								<tr>
-									<th style="width: 10%">글번호</th>
-									<th style="width: 45%">제목</th>
+									<th>글번호</th>
+									<th>제목</th>
 									<th style="width: 11%">작성자</th>
 									<th style="width: 20%">작성일</th>
 									<th style="width: 7%">조회</th>
@@ -227,8 +227,8 @@
 								</tr>
 								<c:forEach items="${list }" var="review" varStatus="stat">
 									<tr>
-										<td style="width: 10%;">${review.review_no }</td>
-										<td style="width: 45%;"><a
+										<td>${review.review_no }</td>
+										<td style="width: 100%"><a
 											href="${initParam.rootPath }/user/review/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${param.company_id }&no=${review.review_no }">${review.review_title }</a></td>
 										<td style="width: 11%;">${review.review_writer }</td>
 										<td style="width: 20%;"><fmt:formatDate
