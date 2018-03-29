@@ -14,7 +14,7 @@
 	<link href="${initParam.rootPath }/resources/css/codemirror.css" rel="stylesheet" type="text/css">
 	<link href="${initParam.rootPath }/resources/css/dracula.css" rel="stylesheet" type="text/css">
 	<link href="${initParam.rootPath }/resources/css/simplescrollbars.css" rel="stylesheet" type="text/css">
-	<link href="${initParam.rootPath }/resources/css/com_cont_reg_add.css" rel="stylesheet" type="text/css">
+	
 	<!-- ICON -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- font -->

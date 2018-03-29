@@ -38,7 +38,7 @@
 <![endif]-->
 <body>
 	<!-- nav-area -->
-  <%@ include file="../../user-nav_new.jsp" %>
+  <%@include file="../../company-nav_new.jsp" %>
 	
 	<div class='container'>
 	<!-- left section!!************************************************************** -->
@@ -114,17 +114,17 @@
 		<div class='column-right'>
 			<div id="rightDiv" class='column-right'>
 				<div id="login_beforeDiv">
-					<%@ include file="../../user/login_before_new.jsp"%>
+					<%@ include file="../com_login_before_new.jsp" %>
 				</div>
 				<div id="login_afterDiv" style="display: none">
-					<%@ include file="../login_after_new.jsp"%>
+					<%@ include file="../com_login_after_new.jsp" %>
 				</div>
 			</div>
 			<!-- column-right -->
 		
 		</div>
 		<!-- modal 코드 --> 
-       <%@ include file="../user_modals_new.jsp" %>
+       <%@ include file="../company_modal_new.jsp" %>
 				<!-- mail 모달	 -->
 		<div class="modal" id="tcmail">
 			<div class="notemodal-pannel">
@@ -229,7 +229,7 @@
 						alert("등록 되었습니다.");
 						//$("#tcmail").modal('hide');
 						$("#tcmail").fadeOut();
-						self.location="${initParam.rootPath}/user/contest/rankList?page=${cri.page }"
+						self.location="${initParam.rootPath}/company/contest/rankList?page=${cri.page }"
 	                            +"&perPageNum=${cri.perPageNum }&searchType=${cri.searchType }"
  	                            +"&keyword=${cri.keyword }&contest_id=${param.contest_id}";
 					}

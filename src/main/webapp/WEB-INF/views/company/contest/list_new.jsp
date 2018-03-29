@@ -29,6 +29,7 @@
                      - 콘테스트 리스트 우측의 '등록'버튼을 누르시면 구직자들에게 공개됩니다.<br>
                      - 문제 유형과 정답을 정확히 입력하여 주셔야 올바른 채점이 가능합니다.<br>
                      - 시험시 유의사항을 꼼꼼히 작성해 주시고 질의 게시판에 상시 답변 부탁드립니다.<br>
+                     - 콘테스트명을 클릭하시면 해당 콘테스트에 응시한 참가자들의 점수를 볼 수 있습니다.<br>
                   </p>
                
                </div>
@@ -54,7 +55,7 @@
 							<c:forEach items="${list }" var="contest" varStatus="stat">
 								<tr>
 									<td style="width:170px;text-align: center;"><a
-										href="${initParam.rootPath }/company/contest/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${company_login_company_id }&no=${contest.contest_id }">${contest.contest_title }</a></td>
+										href="${initParam.rootPath}/company/contest/rankList?contest_id=${contest.contest_id }">${contest.contest_title }</a></td>
 									<td style="width:145px; display: table-cell;">${contest.contest_startDate}</td>
 									<td style="width: 145px">${contest.contest_endDate}</td>
 									<td style="width: 85px">${contest.team_name }</td>
@@ -71,20 +72,20 @@
 							<ul class="board-pagination">
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+										href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${company_login_company_id}">&laquo;</a></li>
 								</c:if>
 								<c:forEach begin="${pageMaker.startPage }"
 									end="${pageMaker.endPage }" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 										<a
-										href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+										href="list${pageMaker.makeSearch(idx)}&company_id=${company_login_company_id}">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+										href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${company_login_company_id}">&raquo;</a></li>
 								</c:if>
 							</ul>
 						</div>
