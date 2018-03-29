@@ -224,12 +224,34 @@
 							<!-- timeline time label -->
 							<li class="time-label" id="repliesDiv"></li>
 						</ul>
-
-						<div class='text-center'>
+						<div class="reply-paging" >
+							<div class="reply-pageline" align="center">
+								<ul class="reply-pagination" >
+									<c:if test="${pageMaker.prev}">
+										<li><a
+											href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }&company_id=${param.company_id }">&laquo;</a></li>
+									</c:if>
+									<c:forEach begin="${pageMaker.startPage }"
+										end="${pageMaker.endPage }" var="idx">
+										<li
+											<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+											<a
+											href="list${pageMaker.makeSearch(idx)}&company_id=${param.company_id }">${idx}</a>
+										</li>
+									</c:forEach>
+	
+									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+										<li><a
+											href="list${pageMaker.makeSearch(pageMaker.endPage +1) }&company_id=${param.company_id }">&raquo;</a></li>
+									</c:if>
+								</ul>
+							</div>
+						</div>
+<!-- 						<div class='text-center'>
 							<ul id="pagination" class="pagination pagination-sm no-margin ">
 
 							</ul>
-						</div>
+						</div> -->
 
 					</div> 
 					
