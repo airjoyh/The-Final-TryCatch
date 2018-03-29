@@ -12,19 +12,26 @@
 	font-size: 50px;
 	font-weight: 600;
 	color:#ebeef3;
-	padding:40px;
+	padding:60px 40px 60px 40px;
+	-webkit-transition: all .3s ease;
+     -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.introduce-top span:hover{
+	color:#afdcff
 }
 
 .introduce-boxs{
 	display: block;
-	padding: 15px 0 15px 0;
-	/* border: blue solid 3px; */
+	/* padding: 15px 0 15px 0; */
+	padding: 0;
 	text-align: center;
 }
 
 .introduce-boxs .introduce-box{
 	height: auto;
-	/* border: yellow solid 3px; */
 	margin-top: 30px;
 	
 }
@@ -32,14 +39,23 @@
 .introduce-box .introduce-text{
 	color: #2b303b;
 	font-size: 40px;
+	line-height: 130%;
+}
+.introduce-box .introduce-text-opacity{
+	color: #2b303b;
+	font-size: 30px;
 }
 
 .introduce-box .introduce-content{
 	height: auto;
 	color: #2b303b;
-	margin: 30px 5px 30px  5px;
+	margin: 10px 5px 60px  5px;
 	padding: 10px 0 10px 0;
 	font-size: 16px;
-	border-top: #ebeef3 solid 5px;
-	/* border: pink solid 2px; */
+	border-top: #ebeef3 solid 1px;
+}
+
+.introduce-box img{
+	width: auto;
+	padding:40px;
 }
