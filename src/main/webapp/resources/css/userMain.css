@@ -164,6 +164,8 @@ body {
 	font-size:14px;
 	background-color: #f2f4f7;
 	margin:0;
+	position: relative;
+	padding-bottom: 150px;
 }
 
 body:lang(en) {
@@ -519,7 +521,17 @@ right side CSS
 }
 
 
-
+.tc-btn {/*내가 쓴 글일때 보이는 버튼 - 수정삭제*/
+	width: 68px;
+	height: 32px;
+	padding: 5px;
+	margin: 0 2px 0 2px;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	background: #92a7e7;
+	color: #fff;
+}
 
 
 

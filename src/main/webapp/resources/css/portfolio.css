@@ -128,7 +128,10 @@
 	padding:50px 15px;
 }
 
-
+#introduce{
+	overflow: auto;
+	height: auto;
+}
 .body-title{
 	color:#444;
 	text-align:left;

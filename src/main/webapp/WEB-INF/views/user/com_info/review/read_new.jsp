@@ -360,7 +360,7 @@
 
 			$.getJSON(pageInfo, function(data) {
 				printData(data.list, $("#repliesDiv"), $('#template'));
-				printPaging(data.pageMaker, $(".pagination"));
+				printPaging(data.pageMaker, $(".reply-pagination"));
 
 				//$("#modifyModal").modal('toggle');
 
@@ -389,7 +389,7 @@
 			target.html(str);
 		};
 
-		$(".pagination").on("click","li a",function(event) {
+		$(".reply-pagination").on("click","li a",function(event) {
 					event.preventDefault();
 
 					replyPage = $(this).attr("href");

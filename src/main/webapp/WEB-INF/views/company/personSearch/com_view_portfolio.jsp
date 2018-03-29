@@ -41,9 +41,9 @@
 														value="${company_login_member_id }"> 
 													<input type="hidden" name="zzim_selected" id="zzim_selected"
 														value="${port.port_id}">
-													<button style="float: right;" id="zzimBtn" type="submit">찜하기</button>
-													<button style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
-													<button style="float: right;" id="portList" type="button">목록보기</button>	
+													<button class="tc-btn" style="float: right;" id="zzimBtn" type="submit">찜하기</button>
+													<button class="tc-btn" style="float: right;" id="zzimOutBtn" type="button">찜하기 취소</button>
+													<button class="tc-btn" style="float: right;" id="portList" type="button">목록보기</button>	
 												</form>
 											</div>
 					</div>
@@ -61,7 +61,7 @@
 				<div class='pf-body'>
 					<div class='pf-intro'>
 						<div class='body-title'>Self-introduce</div>
-						<pre id='introduce'>${port.port_exp}</pre>     
+						<div id='introduce'>${port.port_exp}</div>     
 					</div>
 					<div class='pf-skill'>
 						<p class='body-title'>Skills</p>

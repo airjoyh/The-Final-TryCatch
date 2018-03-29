@@ -13,10 +13,8 @@
 		<div>
 			<input type="button" id="login" value="로그인" class="login-btn">
 		</div>
-		</span> <span style="float: right; padding: 2px 0 0 6px;"> <a
-			href="#comModal" class="openFindPassModal" id="openFindPassModal">비밀번호
-				찾기</a>
-		</span> <span style="float: right; padding: 2px 6px;"> <a
+		 
+		 <span style="float: right; padding: 2px 6px;"> <a
 			href="#comModal" class="openJoinModal" id="openJoinModal">회원가입</a>
 		</span>
 	</div>
