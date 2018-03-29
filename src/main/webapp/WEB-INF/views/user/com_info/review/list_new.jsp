@@ -228,7 +228,7 @@
 								<c:forEach items="${list }" var="review" varStatus="stat">
 									<tr>
 										<td>${review.review_no }</td>
-										<td style="width: 100%"><a
+										<td><a
 											href="${initParam.rootPath }/user/review/read${pageMaker.makeSearch(pageMaker.cri.page)}&company_id=${param.company_id }&no=${review.review_no }">${review.review_title }</a></td>
 										<td style="width: 11%;">${review.review_writer }</td>
 										<td style="width: 20%;"><fmt:formatDate
