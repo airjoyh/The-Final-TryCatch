@@ -190,7 +190,7 @@
 									<div class="reply-writecontent">
 										<div class="reply-content-writer">
 										<label>작성자</label> 
-										<input type="hidden"id="reply_user_id" value="${user_login_id }">
+										<input type="hidden" id="reply_user_id" value="${user_login_id }">
 										<input class="fake-reply-writer" type="text" id="newReplyWriter"> 
 										</div>
 									</div>
@@ -304,7 +304,7 @@
 	<!-- container -->
 <script id="template" type="text/x-handlebars-template">
 {{#each .}}
-<li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}}>
+<li class="replyLi" data-reply_no={{reply_no}} data-reply_writer={{reply_writer}} data-user_id={{user_id}}>
 <div class="time_comment_box">
 		<div class="time_area">
 			<div class="time_info">
@@ -332,13 +332,13 @@
 			return year + "/" + month + "/" + date;
 		});
 
-		Handlebars.registerHelper("eqReply_writer", function(reply_writer,
+		Handlebars.registerHelper("eqReply_writer", function(user_id,
 				block) {
 			var accum = '';
 			var reply_user_id = $('#reply_user_id').val(); 
 			//alert(reply_user_id);
 			
-			if (reply_user_id == '${user_login_id}') {
+			if (user_id == '${user_login_id}') {
 				accum += block.fn();
 			}
 			return accum;
