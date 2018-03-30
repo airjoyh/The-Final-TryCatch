@@ -30,4 +30,6 @@ public interface ContestDAO {
 	public int selectAllCount(SearchCriteria cri) throws Exception;
 	
 	public String selectStatus(int contest_id) throws Exception;
+	
+	public String selectEndDate(int contest_id) throws Exception;
 }

@@ -106,10 +106,6 @@
 							<option value="c"
 								<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
 							담당자</option>
-							<option value="d
-						"
-								<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>
-							등록상태</option>
 						</select> <input type="text" name='keyword' id="keywordInput"
 							value='${cri.keyword }'>
 						<button class="board-btn" id='searchBtn'>검색</button>

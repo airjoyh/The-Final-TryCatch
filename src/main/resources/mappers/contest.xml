@@ -130,4 +130,10 @@
 		<include refid="search"></include>
 	</select>
 	
+	<select id="selectEndDate" resultType="String">
+		select contest_endDate
+		from contest
+		where contest_id = #{contest_id}
+	</select>
+	
 </mapper>

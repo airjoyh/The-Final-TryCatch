@@ -29,4 +29,6 @@ public interface ContestService {
 	public List<ContestVO> selectAll(SearchCriteria cri) throws Exception;
 	
 	public int selectAllCount(SearchCriteria cri) throws Exception;
+	
+	public String selectEndDate(int contest_id) throws Exception;
 }

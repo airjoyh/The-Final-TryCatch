@@ -205,9 +205,11 @@
 			<div class="time_info">
 				<p><b>글번호</b>&nbsp;:&nbsp;{{reply_no}}&nbsp;&nbsp;<b>작성자</b>&nbsp;:&nbsp;{{reply_writer}} </p>
 			</div>
+	{{#eqReply_writer reply_writer}}
 			<div class="time_tool">
 				 <span><a href="#modifyModal">Modify</a>&nbsp;&nbsp;</span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{prettifyDate reply_wdate}}
 			</div>
+	{{/eqReply_writer}}
 		</div>
 		<div class="timeline-body"><pre>{{reply_contents}}</pre></div>
 </div>

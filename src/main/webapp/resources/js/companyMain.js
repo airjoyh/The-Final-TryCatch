@@ -206,6 +206,12 @@ $(document).ready(function(){
  	   self.location= rootPath+'/company/note/list'; //"${initParam.rootPath }/user/note/list";
    }); 
 	
+/* ---------------------------------------- 비밀번호 변경----------------------------------------*/
+	$('.login-tab').on("click", ".mypage",function(){
+		console.log('비밀번호 변경 버튼 클릭');
+		alert('기업 회원 비밀번호 변경은 직접 문의하셔야 합니다.\n Tel 02-754-7301');
+	});
+
 });//ready function()
 
 	// 로그인한 후에 아이디랑 쪽지 숫자 뜨게 하기

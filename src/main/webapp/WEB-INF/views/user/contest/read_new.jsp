@@ -111,7 +111,7 @@
         <div class='contest-qna'>
 
           <div class='title-wrapper'>
-            <div class='column-title'>콘테스트 QnA</div>
+            <div class='column-title'>${contest.contest_title } 콘테스트 Q&A</div>
           </div>
 
           <div class='company-contest-table'>

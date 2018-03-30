@@ -122,6 +122,12 @@ public class UserContestController {
 		model.addAttribute("exampleList", contest_quizService.readExample(quiz_id));
 		model.addAttribute("quizCount", contest_quizService.quizCount(contest_id));
 		
+		String endDate = contestService.selectEndDate(contest_id).replace("-", "/");
+		int dot = endDate.indexOf(".");
+		endDate = endDate.substring(0, dot);
+		System.out.println("끝나는 날짜 >>> "+endDate);
+		model.addAttribute("endDate", endDate);
+		
 		int quiz_type = contest_quizVo.getQuiz_type();
 		String type ="";
 		if(quiz_type==1) {

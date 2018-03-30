@@ -82,4 +82,10 @@ public class ContestServiceImpl implements ContestService {
 		return contestDao.selectAllCount(cri);
 	}
 
+	@Override
+	public String selectEndDate(int contest_id) throws Exception {
+		
+		return contestDao.selectEndDate(contest_id);
+	}
+
 }

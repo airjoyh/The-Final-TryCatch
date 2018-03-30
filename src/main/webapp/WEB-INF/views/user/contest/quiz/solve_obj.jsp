@@ -32,7 +32,9 @@
 		//제한시간 타이머
 		function limitTimer() {
 			//끝나는 시간 설정
-			var endTime = new Date('2018/03/30 19:37:00');
+			var endDate = '${endDate}';
+			
+			var endTime = new Date(endDate);
 			//현재시간
 			var nowTime = new Date();
 			//(끝나는 시간 설정-현재시간)/1000 = 남은시간(초)
@@ -155,7 +157,7 @@
 
 				<div class='title-wrapper'>
 					<!-- 총 문항수 EL들어가야함 -->
-					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번<span style="padding-left: 20px;"> 배점 : </span></div>
+					<div class='column-title'>문제 ${quiz_no }번/${quizCount }번<span style="padding-left: 20px;"> 배점 : ${contest_quiz.quiz_point}</span></div>
 				</div>
 				<div class='wrapper' style="height: 50px;">
 					<i class='question-type'>*<span>객관식</span> 문항입니다.<br>문제를 잘읽고 풀어주시기 바랍니다.</i>

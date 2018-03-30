@@ -94,5 +94,11 @@ public class ContestDAOImpl implements ContestDAO {
 		return session.selectOne("contest.selectAllCount", cri);
 	}
 
+	@Override
+	public String selectEndDate(int contest_id) throws Exception {
+		
+		return session.selectOne("contest.selectEndDate", contest_id);
+	}
+
 
 }
